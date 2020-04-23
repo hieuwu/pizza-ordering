@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import color from '../../resources/colors';
+import dimension from '../../resources/dimensions';
 
 const styles = StyleSheet.create({
     container: {
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     productList: {
-        marginTop: 24
+        marginTop: dimension.topMargin,
     }
 })
 

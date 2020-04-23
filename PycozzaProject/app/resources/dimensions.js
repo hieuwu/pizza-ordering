@@ -14,5 +14,6 @@ const dimension = {
     itemTitleSize:  18,
     iconSize: 24,
     headerButton: 40,
+    topMargin: 24,
 };
 export default dimension;

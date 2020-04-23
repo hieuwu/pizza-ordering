@@ -10,9 +10,8 @@ export default class HomeScreen extends Component {
                 <ImageBackground
                     style={{ width: dimension.window.width, height: dimension.window.height, }}
                     source={
-                        require('../../assets/images/home-background.jpg')
-                    }
-                >
+                        require('../../resources/images/home-background.jpg')
+                    }>
 
                     <View style={{ alignItems: 'flex-start', marginTop: 'auto', marginBottom: 100, marginLeft: 30, }}>
                         <View style={{marginBottom: 20}}>

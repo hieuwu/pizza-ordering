@@ -16,19 +16,10 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import RegisterScreen from './app/views/RegisterScreen/Register.screen';
-import LoginScreen from './app/views/LoginScreen/Login.screen';
 import {NavigationContainer } from '@react-navigation/native';
 import AuthenStack from './app/navigation/Authen.stack'
-import HomeScreen from './app/views/HomeScreen/Home.screen';
-import ProductListScreen from './app/views/ProductListScreen/ProdcutList.screen';
+import HomeScreen from './app/views/Home/Home.screen';
+import ProductListScreen from './app/views/ProductList/ProductList.screen';
 import ProductStack from './app/navigation/Product.stack';
 const App: () => React$Node = () => {
   return (

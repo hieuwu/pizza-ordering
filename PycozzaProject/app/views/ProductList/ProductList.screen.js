@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList, Image, Dimensions } from 'react-native'
+import { View, FlatList} from 'react-native'
 import styles from './ProductList.style';
-import ProductUseCase from '../../repositories/ProductRepo/ProductUseCase'
-import ProductDAO from '../../repositories/ProductRepo/ProductDAO';
-import dimension from '../../resources/dimensions'
-import color from '../../resources/colors'
+import ProductUseCase from '../../usecase/ProductUseCase'
 import OvalShape from '../../components/OvalShape.component'
-import ListItem from '../../components/ListItem.component'
+import ListItem from './ListItem.component'
 export default class ProductListScreen extends Component {
     constructor(props) {
         super(props);
@@ -14,8 +11,8 @@ export default class ProductListScreen extends Component {
             data: '',
         }
     }
-    componentDidMount() {
-        let products = new ProductUseCase().getListProduct();
+    async componentDidMount() {
+        let products = await new ProductUseCase().getListProduct();
         this.setState({ data: products })
     }
 

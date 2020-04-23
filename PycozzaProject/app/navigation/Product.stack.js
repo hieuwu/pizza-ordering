@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import ProductListScreen from '../views/ProductListScreen/ProdcutList.screen';
+import ProductListScreen from '../views/ProductList/ProductList.screen';
 import headerStyle from '../navigation/Header.style'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from '../views/LoginScreen/Login.screen';
-import RegisterScreen from '../views/RegisterScreen/Register.screen'
+import LoginScreen from '../views/Login/Login.screen';
+import RegisterScreen from '../views/Register/Register.screen'
 const stack = createStackNavigator();
 export default class AuthenStack extends Component {
     render() {

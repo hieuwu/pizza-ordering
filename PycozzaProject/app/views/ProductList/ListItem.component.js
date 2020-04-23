@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, Image } from 'react-native'
-import dimension from '../resources/dimensions';
-import color from '../resources/colors'
+import dimension from '../../resources/dimensions';
+import color from '../../resources/colors'
 export default class ListItem extends Component {
     render() {
         return (

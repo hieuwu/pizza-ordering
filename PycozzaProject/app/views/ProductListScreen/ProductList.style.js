@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
+import color from '../../resources/colors';
 
-export default class ProductListScreen extends Component {
-    render() {
-        return (
-            <View>
-                <Text> textInComponent </Text>
-            </View>
-        )
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    productList: {
+        marginTop: 24
     }
-}
+})
+
+export default styles;

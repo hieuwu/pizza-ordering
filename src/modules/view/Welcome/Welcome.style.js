@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import colors from '../resources/colors/Welcome.colors';
+import colors from '../../resources/colors/Welcome.colors';
 
 export default StyleSheet.create({
   container: {
@@ -15,7 +15,6 @@ export default StyleSheet.create({
   titleContainer: {
     flexDirection: 'column',
     position: 'absolute',
-    justifyContent: 'center',
     margin: 32,
   },
   restaurantText: {
@@ -29,13 +28,17 @@ export default StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    paddingBottom: 15,
     backgroundColor: colors.startOrder,
     borderRadius: 20,
+    justifyContent: 'center',
   },
   buttonText: {
-    alignItems: 'center',
-    fontSize: 20,
+    fontSize: 17,
+    color: 'white',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    height: 50,
+    lineHeight: 50,
+    margin: 2,
   },
 });

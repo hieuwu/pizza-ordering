@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Image, View, Text, Button, TouchableOpacity, Alert} from 'react-native';
 import welcomeStyle from './Welcome.style';
-import welcomeStrings from '../resources/strings/Welcome.strings';
+import welcomeStrings from '../../resources/strings/Welcome.strings';
 
 const image = {
   uri:
@@ -9,10 +9,6 @@ const image = {
 };
 
 const localImage = require('../resources/images/welcome03.jpg');
-
-function onPress() {
-  console.log('navigate to category screen');
-}
 
 export default class Welcome extends Component {
   constructor(props) {
@@ -30,11 +26,12 @@ export default class Welcome extends Component {
           </Text>
           <Text style={welcomeStyle.pizzaText}>{welcomeStrings.name}</Text>
           <TouchableOpacity
-            style={welcomeStyle.buttonContainer}
-            onPress={onPress}>
-            <Text style={welcomeStyle.buttonText}>
-              {welcomeStrings.startOrder}
-            </Text>
+            onPress={() => this.props.navigation.navigate('categories')}>
+            <View style={welcomeStyle.buttonContainer}>
+              <Text style={welcomeStyle.buttonText}>
+                {welcomeStrings.startOrder}
+              </Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>

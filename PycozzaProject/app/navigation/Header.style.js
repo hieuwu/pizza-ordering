@@ -3,7 +3,7 @@ const headerStyle = {
     headerStyle: {
         backgroundColor: color.headerBackground,
     },
-    headerTintColor: '#fff',
+    headerTintColor: color.headerTint,
     headerTitleStyle: {
         fontWeight: 'bold',
     },

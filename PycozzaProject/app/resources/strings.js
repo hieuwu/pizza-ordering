@@ -9,7 +9,8 @@ const string = {
     buttonAddToCart: 'Add to cart',
     promptPassword:' Password',
     promptConfirmPass: 'Confirm password',
-    promptExistedAccount: 'Already have an account?'
+    promptExistedAccount: 'Already have an account?',
+    listScreenTitle: 'PIZZA',
 }
 
 export default string;

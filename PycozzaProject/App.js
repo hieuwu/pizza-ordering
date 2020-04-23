@@ -28,13 +28,16 @@ import LoginScreen from './app/views/LoginScreen/Login.screen';
 import {NavigationContainer } from '@react-navigation/native';
 import AuthenStack from './app/navigation/Authen.stack'
 import HomeScreen from './app/views/HomeScreen/Home.screen';
-
+import ProductListScreen from './app/views/ProductListScreen/ProdcutList.screen';
+import ProductStack from './app/navigation/Product.stack';
 const App: () => React$Node = () => {
   return (
     <>
       {/* <StatusBar barStyle="dark-content" /> */}
-     <HomeScreen/>
-    </>
+      <NavigationContainer>
+        <ProductStack/>
+      </NavigationContainer>
+      </>
   );
 };
 

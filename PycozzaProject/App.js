@@ -21,12 +21,13 @@ import AuthenStack from './app/navigation/Authen.stack'
 import HomeScreen from './app/views/Home/Home.screen';
 import ProductListScreen from './app/views/ProductList/ProductList.screen';
 import ProductStack from './app/navigation/Product.stack';
+import MainMenuDrawer from './app/navigation/MainMenu.drawer'
 const App: () => React$Node = () => {
   return (
     <>
       {/* <StatusBar barStyle="dark-content" /> */}
       <NavigationContainer>
-        <ProductStack/>
+        <MainMenuDrawer/>
       </NavigationContainer>
       </>
   );

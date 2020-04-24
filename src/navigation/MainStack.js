@@ -4,7 +4,7 @@ import 'react-native-gesture-handler';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Welcome from '../modules/view/Welcome/Welcome.Screen';
-import Categories from '../modules/view/Categories/Categories.Screen';
+import Menu from '../modules/view/Menu/Menu.Screen';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +17,7 @@ export default class MainStack extends Component {
           headerShown: false,
         }}>
         <Stack.Screen name="welcome" component={Welcome} />
-        <Stack.Screen name="categories" component={Categories} />
+        <Stack.Screen name="menu" component={Menu} />
       </Stack.Navigator>
     );
   }

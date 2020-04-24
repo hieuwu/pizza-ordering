@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../resources/colors/Welcome.colors';
+import dimensions from '../../resources/dimensions/Welcome.dimensions';
 
 export default StyleSheet.create({
   container: {
@@ -34,11 +35,11 @@ export default StyleSheet.create({
   },
   buttonText: {
     fontSize: 17,
-    color: 'white',
+    color: colors.text,
     fontWeight: 'bold',
     alignSelf: 'center',
-    height: 50,
-    lineHeight: 50,
+    height: dimensions.buttonText.height,
+    lineHeight: dimensions.buttonText.lineHeight,
     margin: 2,
   },
 });

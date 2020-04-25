@@ -1,6 +1,8 @@
 import React, {Component, useState} from 'react';
-import {Modal, Text, TouchableOpacity, View} from 'react-native';
+import getAPI from '../repository/getAPI.js';
+import {Modal, Text, TouchableOpacity, View, FlatList} from 'react-native';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconComunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
@@ -9,27 +11,29 @@ import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import DropDownItem from 'react-native-drop-down-item';
 
-export class NavigationPanel extends Component {
+class NavigationPanel extends Component {
   state = {
     isDropDown: false,
   };
 
-  static propTypes = {
-    modalVisible: PropTypes.bool,
-    onClose: PropTypes.func,
-    onClickHome: PropTypes.func,
-  };
+  showMenu = ({item}) => {
+    const { _id, title } = item;
+    const {onClickMenu}=this.props
+    return (
+      <TouchableOpacity
+        onPress={() => onClickMenu(_id, title)}
+        style={dimensionStyles.LineCategoryMenu}>
+        <Text style={textStyle.TextNavigationPanel}>{title}</Text>
+      </TouchableOpacity>
+    );
+  }
 
-  render() {
+  render() { 
+    const {categoryData} = this.props;
     const {
       modalVisible,
       onClose,
       onClickHome,
-      onClickPizza,
-      onClickPasta,
-      onClickSalad,
-      onClickDessert,
-      onClickBeverage,
       onClickCart,
       onClickLogIn,
     } = this.props;
@@ -70,36 +74,16 @@ export class NavigationPanel extends Component {
                   <Icon name="angle-up" size={36} color="#FFFFFF" />
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity
-                onPress={onClickPizza}
-                style={dimensionStyles.LineCategoryMenu}>
-                <Icon5 name="pizza-slice" size={36} color="#FFFFFF" />
-                <Text style={textStyle.TextNavigationPanel}>Pizza</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onClickPasta}
-                style={dimensionStyles.LineCategoryMenu}>
-                <IconEntypo name="bowl" size={36} color="#FFFFFF" />
-                <Text style={textStyle.TextNavigationPanel}>Pasta</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onClickSalad}
-                style={dimensionStyles.LineCategoryMenu}>
-                <Icon name="leaf" size={36} color="#FFFFFF" />
-                <Text style={textStyle.TextNavigationPanel}>Salad</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onClickDessert}
-                style={dimensionStyles.LineCategoryMenu}>
-                <IconComunity name="cupcake" size={36} color="#FFFFFF" />
-                <Text style={textStyle.TextNavigationPanel}>Dessert</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={onClickBeverage}
-                style={dimensionStyles.LineCategoryMenu}>
-                <IconEntypo name="drink" size={36} color="#FFFFFF" />
-                <Text style={textStyle.TextNavigationPanel}>Beverage</Text>
-              </TouchableOpacity>
+              <View style={{height:65*categoryData.length}}>
+                <FlatList
+                  numColumns={1}
+                  showsVerticalScrollIndicator={false}
+                  showsHorizontalScrollIndicator={false}
+                  data={categoryData}
+                  keyExtractor={item => item._id}
+                  renderItem={this.showMenu}
+                />
+              </View>
             </>
           ) : (
             <View style={dimensionStyles.MenuLineNavigationPanel}>
@@ -138,3 +122,21 @@ export class NavigationPanel extends Component {
     );
   }
 }
+
+NavigationPanel.propTypes = {
+  categoryData: PropTypes.array,
+  modalVisible: PropTypes.bool,
+  onClose: PropTypes.func,
+  onClickHome: PropTypes.func,
+  onClickCart: PropTypes.func,
+  onClickLogIn: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  categoryData: state.categoryData,
+});
+
+export default connect(
+  mapStateToProps,
+  null,
+)(NavigationPanel);

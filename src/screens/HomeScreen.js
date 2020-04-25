@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import {dimensionStyles} from '../resources/dimension.js';
 import {string} from '../resources/string.js';
 import {textStyle} from '../resources/textStyle.js';
 import HomeImg from '../../assets/HomeImg.jpg';
-import {StartOrderButton} from '../components/StartOrderButton.js';
 
 export default class HomeScreen extends Component {
   navigateToCategoryScreen = () => {
@@ -24,7 +24,14 @@ export default class HomeScreen extends Component {
         <View style={dimensionStyles.HomeNameContainer}>
           <Text style={textStyle.restaurant}>Restaurant</Text>
           <Text style={textStyle.restaurantName}>{string.restaurantName}</Text>
-          <StartOrderButton onClick={this.navigateToCategoryScreen} />
+          <TouchableOpacity
+            style={dimensionStyles.StartOrderButton}
+            onPress={()=>this.navigateToCategoryScreen()}>
+            <Text style={textStyle.StartOrderButton}>START ORDER</Text>
+            <View style={dimensionStyles.ArrowRightIconHome}>
+              <Icon name="angle-right" size={20} color="#FFFFFF" />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );

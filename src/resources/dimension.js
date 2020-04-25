@@ -123,6 +123,47 @@ const dimensionStyles = StyleSheet.create({
     paddingLeft: 20,
     marginLeft: 50,
   },
+
+  CarouselBackground:{
+    position: 'absolute',
+    width:1000,
+    height:1000,
+    top: -(900 - Dimensions.get('window').width/2),
+    alignSelf: 'center',
+    borderRadius: 1000,
+    backgroundColor: '#0b2031',
+  },
+
+  CarouselContainer:{
+    height: 385,
+    width: Dimensions.get('window').width,
+  },
+
+  imageBackgroundCarousel:{
+    width: 0.8*Dimensions.get('window').width,
+    height: 0.6*Dimensions.get('window').width,
+  },
+
+  itemCarouselContainer:{
+    backgroundColor:'#FFFFFF',
+    borderRadius: 20,
+    elevation:20,
+    alignItems: 'center',
+  },
+
+  headerCategoryName:{
+    height: 130,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  FavoriteProductInfo:{
+    width: 0.7*Dimensions.get('window').width,
+    height:93,
+    elevation:10,
+    backgroundColor: 'red',
+    marginBottom: 20,
+  },
 });
 
 export {dimensionStyles};

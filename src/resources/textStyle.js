@@ -34,6 +34,12 @@ const textStyle = StyleSheet.create({
     fontSize: 20,
     color: '#FFFFFF',
   },
+
+  headerCategoryName:{
+    fontSize: 28,
+    color: '#FFFFFF',
+    letterSpacing: 0.2,
+  },
 });
 
 export {textStyle};

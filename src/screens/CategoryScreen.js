@@ -10,37 +10,40 @@ import {
 } from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
-import {ShowCategory} from '../components/ShowCategory.js';
 import {BarsIcon} from '../components/BarsIcon.js';
 import {CartIcon} from '../components/CartIcon.js';
-import {NavigationPanel} from '../components/NavigationPanel.js';
+import NavigationPanel from '../components/NavigationPanel.js';
+
+class ShowCategory extends Component {
+  static propTypes = {
+    onClick: PropTypes.func,
+  };
+
+  render() {
+    const {img, title, onClick} = this.props;
+    return (
+      <TouchableOpacity onPress={onClick}>
+        <View style={dimensionStyles.CategoryContainer}>
+          <ImageBackground
+            style={dimensionStyles.CategoryImg}
+            source={{uri: img}}
+            resizeMode="cover"
+          />
+          <Text style={textStyle.CategoryText}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
 
 class CategoryScreen extends Component {
   state = {
     isOpenPanel: false,
   };
 
-  navigateToProductListScreen = title => {
+  navigateToProductListScreen = (id,title) => {
     const {navigation} = this.props;
-    switch (title) {
-      case 'Pizza': {
-        return navigation.navigate('Pizza Product List Screen');
-      }
-      case 'Pasta': {
-        return navigation.navigate('Pasta Product List Screen');
-      }
-      case 'Salad': {
-        return navigation.navigate('Salad Product List Screen');
-      }
-      case 'Dessert': {
-        return navigation.navigate('Dessert Product List Screen');
-      }
-      case 'Beverage': {
-        return navigation.navigate('Beverage Product List Screen');
-      }
-      default:
-        return null;
-    }
+    navigation.navigate('Product List Screen', {CategoryId: id, CategoryTitle: title});
   };
 
   render() {
@@ -55,25 +58,9 @@ class CategoryScreen extends Component {
             this.setState({isOpenPanel: false});
             navigation.navigate('Home Screen');
           }}
-          onClickPizza={() => {
+          onClickMenu={(_id, title) => {
             this.setState({isOpenPanel: false});
-            navigation.navigate('Pizza Product List Screen');
-          }}
-          onClickPasta={() => {
-            this.setState({isOpenPanel: false});
-            navigation.navigate('Pasta Product List Screen');
-          }}
-          onClickSalad={() => {
-            this.setState({isOpenPanel: false});
-            navigation.navigate('Salad Product List Screen');
-          }}
-          onClickDessert={() => {
-            this.setState({isOpenPanel: false});
-            navigation.navigate('Dessert Product List Screen');
-          }}
-          onClickBeverage={() => {
-            this.setState({isOpenPanel: false});
-            navigation.navigate('Beverage Product List Screen');
+            navigation.navigate('Product List Screen', {CategoryId: _id, CategoryTitle: title});
           }}
           onClickCart={() => {
             this.setState({isOpenPanel: false});
@@ -94,7 +81,7 @@ class CategoryScreen extends Component {
             <ShowCategory
               img={item.imageUrl}
               title={item.title}
-              onClick={() => this.navigateToProductListScreen(item.title)}
+              onClick={() => this.navigateToProductListScreen(item._id,item.title)}
             />
           )}
         />

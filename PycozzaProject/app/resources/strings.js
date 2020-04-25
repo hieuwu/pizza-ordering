@@ -11,6 +11,12 @@ const string = {
     promptConfirmPass: 'Confirm password',
     promptExistedAccount: 'Already have an account?',
     listScreenTitle: 'PIZZA',
+    categories: {
+        pizza: 'Pizza',
+        sidedish: 'Side dish',
+        dessert: 'Desert',
+        beverage: 'Bevergae',
+    }
 }
 
 export default string;

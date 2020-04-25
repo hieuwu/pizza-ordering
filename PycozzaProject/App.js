@@ -16,19 +16,22 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import AuthenStack from './app/navigation/Authen.stack'
 import HomeScreen from './app/views/Home/Home.screen';
 import ProductListScreen from './app/views/ProductList/ProductList.screen';
 import ProductStack from './app/navigation/Product.stack';
+import MainMenuDrawer from './app/navigation/MainMenu.drawer'
+import CategoriesScreen from './app/views/Categories/Categories.screen';
+import HomeStack from './app/navigation/Home.stack'
 const App: () => React$Node = () => {
   return (
     <>
       {/* <StatusBar barStyle="dark-content" /> */}
       <NavigationContainer>
-        <ProductStack/>
+        <MainMenuDrawer />
       </NavigationContainer>
-      </>
+    </>
   );
 };
 

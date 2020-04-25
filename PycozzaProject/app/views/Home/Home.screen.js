@@ -20,7 +20,9 @@ export default class HomeScreen extends Component {
                         </View>
                         <Button title='Start order    >' buttonStyle={{
                             backgroundColor: color.mainColor, borderRadius: 20, width: 160
-                        }} titleStyle={{ marginLeft: 20 }} />
+                        }} titleStyle={{ marginLeft: 20 }} 
+                            onPress={() => {this.props.navigation.navigate('Categories')}}
+                        />
                     </View>
                 </ImageBackground>
 

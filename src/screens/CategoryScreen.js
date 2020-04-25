@@ -14,37 +14,31 @@ import {BarsIcon} from '../components/BarsIcon.js';
 import {CartIcon} from '../components/CartIcon.js';
 import NavigationPanel from '../components/NavigationPanel.js';
 
-class ShowCategory extends Component {
-  static propTypes = {
-    onClick: PropTypes.func,
-  };
-
-  render() {
-    const {img, title, onClick} = this.props;
-    return (
-      <TouchableOpacity onPress={onClick}>
-        <View style={dimensionStyles.CategoryContainer}>
-          <ImageBackground
-            style={dimensionStyles.CategoryImg}
-            source={{uri: img}}
-            resizeMode="cover"
-          />
-          <Text style={textStyle.CategoryText}>{title}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-}
-
 class CategoryScreen extends Component {
   state = {
     isOpenPanel: false,
   };
 
-  navigateToProductListScreen = (id,title) => {
+  navigateToProductListScreen = (_id,title) => {
     const {navigation} = this.props;
-    navigation.navigate('Product List Screen', {CategoryId: id, CategoryTitle: title});
+    navigation.navigate('Product List Screen', {CategoryId: _id, CategoryTitle: title});
   };
+
+  ShowCategory = ({item}) => {
+    const { imageUrl, title, _id } = item;
+    return (
+      <TouchableOpacity onPress={() => this.navigateToProductListScreen(_id,title)}>
+        <View style={dimensionStyles.CategoryContainer}>
+          <ImageBackground
+            style={dimensionStyles.CategoryImg}
+            source={{uri: imageUrl}}
+            resizeMode="cover"
+          />
+          <Text style={textStyle.CategoryText}>{title}</Text>
+        </View>
+      </TouchableOpacity>
+  )
+}
 
   render() {
     const {categoryData, navigation} = this.props;
@@ -60,7 +54,7 @@ class CategoryScreen extends Component {
           }}
           onClickMenu={(_id, title) => {
             this.setState({isOpenPanel: false});
-            navigation.navigate('Product List Screen', {CategoryId: _id, CategoryTitle: title});
+            navigation.push('Product List Screen', {CategoryId: _id, CategoryTitle: title});
           }}
           onClickCart={() => {
             this.setState({isOpenPanel: false});
@@ -77,13 +71,7 @@ class CategoryScreen extends Component {
           showsHorizontalScrollIndicator={false}
           data={categoryData}
           keyExtractor={item => item._id}
-          renderItem={({item}) => (
-            <ShowCategory
-              img={item.imageUrl}
-              title={item.title}
-              onClick={() => this.navigateToProductListScreen(item._id,item.title)}
-            />
-          )}
+          renderItem={this.ShowCategory}
         />
         <BarsIcon onClick={() => this.setState({isOpenPanel: true})} />
         <CartIcon onClick={() => navigation.navigate('Cart Screen')} />

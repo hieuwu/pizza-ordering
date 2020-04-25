@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import getAPI from '../repository/getAPI.js';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {FavoriteProductCarousel} from '../components/FavoriteProductCarousel.js';
 import SplashScreen from '../screens/SplashScreen.js';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {BarsIcon} from '../components/BarsIcon.js';
 import {CartIcon} from '../components/CartIcon.js';
+import NavigationPanel from '../components/NavigationPanel.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class ProductListScreen extends Component {
 	state = {
@@ -21,8 +23,9 @@ export default class ProductListScreen extends Component {
 	      let response = await getAPI(`/category/${CategoryId}/product`);
 	      this.setState({data:response.data})
 	      this.setState({isLoading:false})
-	    } catch (error) {
-	      console.log(error);
+	    } catch (errorMessage) {
+    		alert(errorMessage)
+	      console.log(errorMessage);
 	      this.setState({isLoading:false})
 	    }
 	}
@@ -37,8 +40,46 @@ export default class ProductListScreen extends Component {
 		return favoriteProduct
 	}
 
+	navigateToProductDetailScreen = (item) => {
+	    const {navigation} = this.props;
+	    navigation.navigate('Product Detail Screen', {item: item});
+	  };
+
+	showProductList = ({item}) => {
+    const { imageUrl, title, description, rate, price } = item;
+    return (
+		<View style={dimensionStyles.ItemProductListContainer}>
+			<TouchableOpacity style={{flex:1}} onPress={() => this.navigateToProductDetailScreen(item)}>
+	      		<Image 
+		      		style={dimensionStyles.ProductListImg}
+		            source={{uri: imageUrl}}
+		            resizeMode="cover"
+	            />
+            </TouchableOpacity>
+            <View style={dimensionStyles.ProductListInfo}>
+            	<Text numberOfLines={1} style={textStyle.ProductListName}>{title}</Text>
+            	<Text numberOfLines={2} style={textStyle.ProductListDescription}>{description}</Text>
+            	<View style={dimensionStyles.ProductListPrice}>
+		            <Icon name="star" size={10} color="#ffd93f" />
+		            <Text style={textStyle.ProductListRate}>Rating: {rate}</Text>
+		            <Icon name="dollar" size={10} color="#706e7b" />
+		            <Text style={textStyle.ProductListRate}>Price: {price}</Text>
+		          </View>
+
+            </View>
+            <TouchableOpacity
+	            style={dimensionStyles.orderNowButtonProductList}
+	            onPress={() => alert('Order')}
+	          >
+	            <Text numberOfLines={2} style={textStyle.orderNowButton}>ORDER NOW</Text>
+	          </TouchableOpacity>
+      	</View>
+    );
+  }
+
   render() {
   	const {CategoryTitle}=this.props.route.params;
+  	const {navigation}=this.props;
 
   	if (this.state.isLoading) {
       return <SplashScreen />;
@@ -49,14 +90,50 @@ export default class ProductListScreen extends Component {
 
     return (
       <View style={dimensionStyles.container}>
-        <View style={dimensionStyles.CarouselBackground} />
-        <View style={dimensionStyles.headerCategoryName}>
-          <Text style={textStyle.headerCategoryName}>{CategoryTitle}</Text>
-        </View>
+	      <NavigationPanel
+	          modalVisible={this.state.isOpenPanel}
+	          onClose={() => this.setState({isOpenPanel: false})}
+	          onClickHome={() => {
+	            this.setState({isOpenPanel: false});
+	            navigation.navigate('Home Screen');
+	          }}
+	          onClickMenu={(_id, title) => {
+	            this.setState({isOpenPanel: false});
+	            navigation.push('Product List Screen', {CategoryId: _id, CategoryTitle: title});
+	          }}
+	          onClickCart={() => {
+	            this.setState({isOpenPanel: false});
+	            navigation.navigate('Cart Screen');
+	          }}
+	          onClickLogIn={() => {
+	            this.setState({isOpenPanel: false});
+	            navigation.navigate('Log In Screen');
+	          }}
+	        />
+	        <FlatList
+	          numColumns={1}
+	          showsVerticalScrollIndicator={false}
+	          showsHorizontalScrollIndicator={false}
+	          data={sortedData}
+	          keyExtractor={item => item._id}
+	          renderItem={this.showProductList}
+	          ListHeaderComponent={
+	          	<>
+		          	<View style={dimensionStyles.CarouselBackground} />
+			        <View style={dimensionStyles.headerCategoryName}>
+			          <Text style={textStyle.headerCategoryName}>{CategoryTitle}</Text>
+			        </View>
 
-        <View style={dimensionStyles.CarouselContainer}>
-          <FavoriteProductCarousel data={favoriteProduct} />
-        </View>
+			        <View style={dimensionStyles.CarouselContainer}>
+			          <FavoriteProductCarousel data={favoriteProduct} />
+			        </View>
+
+			        <View style={dimensionStyles.separateLine} />
+			        <Text style={textStyle.AllProduct}>All Products</Text>
+		        </>
+	          }
+	        />
+
         <BarsIcon onClick={() => this.setState({isOpenPanel: true})} />
         <CartIcon onClick={() => navigation.navigate('Cart Screen')} />
       </View>

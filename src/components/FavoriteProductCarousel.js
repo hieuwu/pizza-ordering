@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, ImageBackground} from 'react-native';
+import {View, TouchableOpacity, Image, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {dimensionStyles} from '../resources/dimension.js';
 import Carousel from 'react-native-anchor-carousel';
 import {Dimensions} from 'react-native';
+import {textStyle} from '../resources/textStyle.js';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export class FavoriteProductCarousel extends Component {
   static propTypes = {
@@ -11,7 +13,7 @@ export class FavoriteProductCarousel extends Component {
   };
 
   renderItem = ({ item, index }) => {
-    const { imageUrl } = item;
+    const { imageUrl, title, rate, price } = item;
     return (
       <TouchableOpacity
         style={dimensionStyles.itemCarouselContainer}
@@ -19,16 +21,28 @@ export class FavoriteProductCarousel extends Component {
           this.numberCarousel.scrollToIndex(index);
         }}
       >
-        <ImageBackground
+        <Image
           source={{ uri: imageUrl }}
-          style={dimensionStyles.imageBackgroundCarousel}
+          style={dimensionStyles.imageCarousel}
           resizeMode="cover"
-        >
-
-        </ImageBackground>    
-        <View style={dimensionStyles.FavoriteProductInfo}>
-            
-          </View>   
+        />
+        <View style={dimensionStyles.favoriteProductInfoContainer}>
+          <TouchableOpacity
+            style={dimensionStyles.orderNowButtonCarousel}
+            onPress={() => alert('Order')}
+          >
+            <Text numberOfLines={2} style={textStyle.orderNowButton}>ORDER NOW</Text>
+          </TouchableOpacity>
+          <Text numberOfLines={2} style={textStyle.favoriteProductName}>{title}</Text>
+          <View style={dimensionStyles.favoriteProductInfo}>
+            <Icon name="star" size={13} color="#ffd93f" />
+            <Text style={textStyle.favoriteProductInfo}>Rating: {rate}</Text>
+          </View>
+          <View style={dimensionStyles.favoriteProductInfo}>
+            <Icon name="dollar" size={13} color="#FFFFFF" />
+            <Text style={textStyle.favoriteProductInfo}>Price: {price}</Text>
+          </View>
+        </View>   
       </TouchableOpacity>
     );
   };

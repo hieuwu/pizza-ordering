@@ -7,7 +7,8 @@ import LoginScreen from '../views/Login/Login.screen';
 import color from '../resources/colors';
 import HomeScreen from '../views/Home/Home.screen'
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import dimension from '../resources/dimensions'
+import dimension from '../resources/dimensions';
+import HomeStack from '../navigation/Home.stack'
 const Drawer = createDrawerNavigator();
 export default function MainMenuDrawer() {
     return (
@@ -19,7 +20,7 @@ export default function MainMenuDrawer() {
                 drawerIcon: () => (
                     <Ionicons  color={color.white} size={dimension.iconSize} name='ios-home'/>)
             }}
-            name='Home' component={HomeScreen} />
+            name='Home' component={HomeStack} />
         </Drawer.Navigator>
     )
 

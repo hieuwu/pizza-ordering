@@ -16,10 +16,6 @@ export default class Welcome extends Component {
     this.state = {};
   }
 
-  // componentDidMount() {
-  //   this.props.navigation.setOptions({drawerLabel: () => null});
-  // }
-
   render() {
     return (
       <View style={welcomeStyle.container}>

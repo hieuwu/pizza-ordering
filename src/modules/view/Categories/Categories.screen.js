@@ -14,7 +14,7 @@ export default class Menu extends Component {
 
   async componentDidMount() {
     this.props.navigation.setOptions({
-      title: 'Categories',
+      title: 'Home',
       headerStyle: {
         backgroundColor: colors.startOrder,
       },

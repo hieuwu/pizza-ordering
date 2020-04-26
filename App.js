@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import 'react-native-gesture-handler';
 
-import MainStack from './src/navigation/MainStack';
 import {NavigationContainer} from '@react-navigation/native';
+import AppStack from './src/navigation/AppStack';
 
 export default class App extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <MainStack />
+        <AppStack />
       </NavigationContainer>
     );
   }

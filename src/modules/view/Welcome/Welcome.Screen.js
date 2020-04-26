@@ -16,6 +16,10 @@ export default class Welcome extends Component {
     this.state = {};
   }
 
+  // componentDidMount() {
+  //   this.props.navigation.setOptions({drawerLabel: () => null});
+  // }
+
   render() {
     return (
       <View style={welcomeStyle.container}>
@@ -26,7 +30,7 @@ export default class Welcome extends Component {
           </Text>
           <Text style={welcomeStyle.pizzaText}>{welcomeStrings.name}</Text>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('menu')}>
+            onPress={() => this.props.navigation.navigate('MainDrawer')}>
             <View style={welcomeStyle.buttonContainer}>
               <Text style={welcomeStyle.buttonText}>
                 {welcomeStrings.startOrder}

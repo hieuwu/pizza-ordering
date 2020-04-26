@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import 'react-native-gesture-handler';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Welcome from '../modules/view/Welcome/Welcome.Screen';
-import Menu from '../modules/view/Menu/Menu.Screen';
+import Welcome from '../modules/view/Welcome/Welcome.screen';
+import MainDrawer from './Drawers/MainDrawer';
 
 const Stack = createStackNavigator();
 
-export default class MainStack extends Component {
+export default class AppStack extends Component {
   render() {
     return (
       <Stack.Navigator
@@ -17,7 +16,7 @@ export default class MainStack extends Component {
           headerShown: false,
         }}>
         <Stack.Screen name="welcome" component={Welcome} />
-        <Stack.Screen name="menu" component={Menu} />
+        <Stack.Screen name="MainDrawer" component={MainDrawer} />
       </Stack.Navigator>
     );
   }

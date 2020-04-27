@@ -8,7 +8,7 @@ import PizzaMenu from '../../modules/view/PizzaMenu/PizzaMenu.screen';
 
 const Stack = createStackNavigator();
 
-export default class MenuStack extends Component {
+export default class CategoriesStack extends Component {
   render() {
     return (
       <Stack.Navigator initialRouteName="categories">

@@ -23,7 +23,7 @@ import ProductListScreen from './app/views/ProductList/ProductList.screen';
 import ProductStack from './app/navigation/Product.stack';
 import MainMenuDrawer from './app/navigation/MainMenu.drawer'
 import CategoriesScreen from './app/views/Categories/Categories.screen';
-import HomeStack from './app/navigation/Home.stack'
+import HomeStack from './app/navigation/Home.stack';
 const App: () => React$Node = () => {
   return (
     <>

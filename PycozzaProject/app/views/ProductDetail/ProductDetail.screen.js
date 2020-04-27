@@ -8,7 +8,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import color from '../../resources/colors';
 import dimension from '../../resources/dimensions';
-import string from '../../resources/strings'
+import string from '../../resources/strings';
+import store from '../../redux/store';
+import cartReducer from '../../redux/reducers/cartReducer';
+import {ADDTOCART, REMOVEFROMCART} from '../../redux/actions/type';
+
 let i = 1
 export default function ProductDetailScreen({ route, navigation }) {
     const [sizeChecked, setSizeChecked] = useState(false);
@@ -17,6 +21,8 @@ export default function ProductDetailScreen({ route, navigation }) {
     const [size, setSize] = useState('L');
     const [crust, setCrust] = useState('Thick');
     const { item } = route.params;
+    const myStore  =  store;
+
 
     function mediumSizeChecked() {
         setSizeChecked(true);
@@ -118,7 +124,16 @@ export default function ProductDetailScreen({ route, navigation }) {
                     </View>
                 </View>
             </ScrollView>
-            <Button onPress={() => showDetail()} title={string.buttonAddToCart} buttonStyle={styles.addCart} />
+            <Button onPress={() => {
+                myStore.dispatch({
+                    type: 'addtocart',
+                    name: 'Pizza',
+                    size: 'M',
+                    crust: 'Thick',
+                    quantity: 14,
+                });
+                console.log(myStore.getState().cartReducer);
+            }} title={string.buttonAddToCart} buttonStyle={styles.addCart} />
         </View>
     )
 

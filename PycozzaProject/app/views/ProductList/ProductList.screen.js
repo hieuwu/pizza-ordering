@@ -18,7 +18,7 @@ export default class ProductListScreen extends Component {
 
     renderProductItem = ({ item }) => {
         return (
-           <ListItem item={item}/>
+           <ListItem gotoDetail={() => this.props.navigation.navigate('ProductDetail',{item})} item={item}/>
         )
     }
 

@@ -19,8 +19,9 @@ export default class ProductStack extends Component {
                 <stack.Screen name='Categories' component={CategoriesScreen}
                     options={{
                         title: '',
-                        headerTransparent: {position: 'absolute',
-                        backgroundColor: 'transparent',
+                        headerTransparent: {
+                            position: 'absolute',
+                            backgroundColor: 'transparent',
                         },
                         headerRight: () => (
                             <TouchableOpacity
@@ -31,7 +32,7 @@ export default class ProductStack extends Component {
                         ),
                         headerLeft: () => (
                             <TouchableOpacity
-                                onPress={() => alert('This is a button!')}
+                                onPress={() => this.props.navigation.openDrawer()}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>

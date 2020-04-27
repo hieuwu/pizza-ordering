@@ -8,20 +8,22 @@ import color from '../resources/colors';
 import HomeScreen from '../views/Home/Home.screen'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import dimension from '../resources/dimensions';
-import HomeStack from '../navigation/Home.stack'
+import HomeStack from '../navigation/Home.stack';
+import Null from '../components/Null.component'
 const Drawer = createDrawerNavigator();
+const isShown = false;
+
 export default function MainMenuDrawer() {
     return (
         <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}
-            drawerContentOptions={{ labelStyle: {color:color.white, fontSize: dimension.itemTitleSize, fontWeight: 'bold' }  }}
+            drawerContentOptions={{ labelStyle: { color: color.white, fontSize: dimension.itemTitleSize, fontWeight: 'bold', } }}
             initialRouteName='Home'
             drawerStyle={{ backgroundColor: color.mainColor }} >
-            <Drawer.Screen  options={{
+            <Drawer.Screen options={{
                 drawerIcon: () => (
-                    <Ionicons  color={color.white} size={dimension.iconSize} name='ios-home'/>)
+                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-home' />)
             }}
-            name='Home' component={HomeStack} />
+                name='Home' component={HomeStack} />
         </Drawer.Navigator>
     )
-
 }

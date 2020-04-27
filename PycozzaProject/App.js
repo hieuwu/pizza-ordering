@@ -29,7 +29,7 @@ const App: () => React$Node = () => {
     <>
       {/* <StatusBar barStyle="dark-content" /> */}
       <NavigationContainer>
-        <MainMenuDrawer />
+        <ProductStack />
       </NavigationContainer>
     </>
   );

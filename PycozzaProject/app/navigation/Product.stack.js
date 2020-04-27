@@ -8,6 +8,7 @@ import color from '../resources/colors'
 import string from '../resources/strings'
 import dimension from '../resources/dimensions'
 import { StyleSheet } from 'react-native';
+import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
 const stack = createStackNavigator();
 export default class ProductStack extends Component {
     render() {
@@ -20,17 +21,18 @@ export default class ProductStack extends Component {
                             <TouchableOpacity
                                 onPress={() => alert('This is a button!')}
                                 style={styles.headerButton}>
-                               <Ionicons name='ios-wallet'  color={color.white} size={dimension.iconSize}/>
+                                <Ionicons name='ios-wallet' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
                             <TouchableOpacity
-                                onPress={() => alert('This is a button!')}
+                                onPress={() => this.props.navigation.openDrawer()}
                                 style={styles.headerButton}>
-                               <Ionicons name='ios-list' color={color.white} size={dimension.iconSize}/>
+                                <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
                         ),
                     }} />
+                <stack.Screen name='ProductDetail' component={ProductDetailScreen} options={{title: 'Detail'}}/>
             </stack.Navigator>
         )
     }
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
         padding: 5,
         width: dimension.headerButton,
         height: dimension.headerButton,
-        borderRadius: 64/2,
+        borderRadius: 64 / 2,
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 15,

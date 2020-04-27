@@ -5,8 +5,6 @@ import colors from '../../modules/resources/colors/Colors';
 
 import CategoriesStack from '../Stacks/CategoriesStack';
 import CartStack from '../Stacks/CartStack';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {View} from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -16,7 +14,7 @@ export default class MainStack extends Component {
       <Drawer.Navigator
         initialRouteName="Categories"
         drawerStyle={{
-          backgroundColor: colors.startOrder,
+          backgroundColor: colors.ovalColor,
           width: 250,
         }}
         drawerContentOptions={{

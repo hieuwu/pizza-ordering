@@ -3,11 +3,6 @@ import {Image, View, Text, TouchableOpacity} from 'react-native';
 import welcomeStyle from './Welcome.style';
 import welcomeStrings from '../../resources/strings/Welcome.strings';
 
-const image = {
-  uri:
-    'https://images.unsplash.com/photo-1586032340517-0475038cee18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-};
-
 const localImage = require('../../resources/images/welcome03.jpg');
 
 export default class Welcome extends Component {

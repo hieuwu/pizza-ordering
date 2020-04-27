@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Welcome from '../modules/view/Welcome/Welcome.screen';
+import Welcome from '../modules/view/Welcome/Welcome.Screen';
 import MainDrawer from './Drawers/MainDrawer';
 
 const Stack = createStackNavigator();

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {View, FlatList, TouchableOpacity} from 'react-native';
-import Products from '../../../components/Menu/Products.component';
-import MenuUseCase from '../../../UseCase/MenuUseCase';
-import menuStyles from './Categories.style';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import colors from '../../resources/colors/Colors';
+
+import CategoryItem from '../../../components/CategoryItem/CategoryItem.component';
+import CategoriesStyles from './Categories.style';
+import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
+
+import CategoriesUseCase from '../../../UseCase/CategoriesUseCase';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -12,12 +13,11 @@ export default class Menu extends Component {
     this.state = {data: ''};
   }
 
-  async componentDidMount() {
-    this.props.navigation.setOptions({
-      title: 'Home',
-      headerStyle: {
-        backgroundColor: colors.startOrder,
-      },
+  setHeaderBar() {
+    return this.props.navigation.setOptions({
+      title: null,
+      headerTransparent: true,
+      headerStyle: {},
       headerTintColor: '#fff',
       headerTitleStyle: {
         alignSelf: 'center',
@@ -25,34 +25,47 @@ export default class Menu extends Component {
       },
       headerLeft: navigation => (
         <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
-          <Icon name="bars" size={30} color="white" style={{margin: 10}} />
+          <HeaderIcon iconName="bars" />
         </TouchableOpacity>
       ),
       headerRight: navigation => (
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('cart')}>
-          <Icon
-            name="shopping-cart"
-            size={30}
-            color="white"
-            style={{margin: 10}}
-          />
+          <HeaderIcon iconName="shopping-cart" />
         </TouchableOpacity>
       ),
     });
-    let getData = await new MenuUseCase().getMenuList();
+  }
+
+  async componentDidMount() {
+    this.setHeaderBar();
+    let getData = await new CategoriesUseCase().getCategoriesList();
     this.setState({data: getData});
   }
 
+  renderCategoryItem = ({item}) => (
+    <TouchableOpacity
+      onPress={() => {
+        switch (item.title) {
+          case 'Pizza':
+            this.props.navigation.navigate('pizzaMenu');
+            break;
+
+          default:
+            break;
+        }
+      }}>
+      <CategoryItem title={item.title} imageSource={item.imageSource} />
+    </TouchableOpacity>
+  );
+
   render() {
     return (
-      <View styles={menuStyles.container}>
+      <View styles={CategoriesStyles.container}>
         <View>
           <FlatList
             data={this.state.data}
-            renderItem={({item}) => (
-              <Products title={item.title} imageSource={item.imageSource} />
-            )}
+            renderItem={this.renderCategoryItem}
             keyExtractor={item => item.id}
           />
         </View>

@@ -5,18 +5,17 @@ import colors from '../../modules/resources/colors/Colors';
 
 import CategoriesStack from '../Stacks/CategoriesStack';
 import CartStack from '../Stacks/CartStack';
-import Icon from 'react-native-vector-icons/Ionicons';
-import {View} from 'react-native';
+import PizzaMenuStack from '../Stacks/PizzaMenuStack';
 
 const Drawer = createDrawerNavigator();
 
-export default class MainStack extends Component {
+export default class MainDrawer extends Component {
   render() {
     return (
       <Drawer.Navigator
         initialRouteName="Categories"
         drawerStyle={{
-          backgroundColor: colors.startOrder,
+          backgroundColor: colors.ovalColor,
           width: 250,
         }}
         drawerContentOptions={{
@@ -28,6 +27,7 @@ export default class MainStack extends Component {
           },
         }}>
         <Drawer.Screen name="Home" component={CategoriesStack} />
+        <Drawer.Screen name="PizzaMenu" component={PizzaMenuStack} />
         <Drawer.Screen name="Cart" component={CartStack} />
       </Drawer.Navigator>
     );

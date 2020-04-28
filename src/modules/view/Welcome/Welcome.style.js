@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../resources/colors/Colors';
-import dimensions from '../../resources/dimensions/Welcome.dimensions';
+import dimensions from '../../resources/dimensions/Dimensions';
 
 export default StyleSheet.create({
   container: {
@@ -29,7 +29,7 @@ export default StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
-    backgroundColor: colors.startOrder,
+    backgroundColor: colors.mainRed,
     borderRadius: 20,
     justifyContent: 'center',
   },
@@ -38,8 +38,8 @@ export default StyleSheet.create({
     color: colors.text,
     fontWeight: 'bold',
     alignSelf: 'center',
-    height: dimensions.buttonText.height,
-    lineHeight: dimensions.buttonText.lineHeight,
+    height: dimensions.startOrderBtn.height,
+    lineHeight: dimensions.startOrderBtn.lineHeight,
     margin: 2,
   },
 });

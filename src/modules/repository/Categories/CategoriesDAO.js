@@ -1,4 +1,4 @@
-const menuData = [
+const categoriesList = [
   {
     id: 1,
     title: 'Pizza',
@@ -26,11 +26,11 @@ const menuData = [
   },
 ];
 
-class MenuDAO {
-  getMenuList() {
-    let data = menuData;
+class CategoriesDAO {
+  getCategoriesList() {
+    let data = categoriesList;
     return data;
   }
 }
 
-export default MenuDAO;
+export default CategoriesDAO;

@@ -79,6 +79,8 @@ target 'PizzaApp' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'RNCPicker', :path => '../node_modules/@react-native-community/picker'
+
   target 'PizzaAppTests' do
     inherit! :complete
     # Pods for testing

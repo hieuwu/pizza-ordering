@@ -1,14 +1,14 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-const w=Dimensions.get('window').width
-const h= Dimensions.get('window').height
+const w = Dimensions.get('window').width;
+const h = Dimensions.get('window').height;
 
 const dimensionStyles = StyleSheet.create({
   container: {
     flex: 1,
   },
 
-  splashScreenContainer: {
+  containerCenter: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -33,7 +33,7 @@ const dimensionStyles = StyleSheet.create({
 
   StartOrderButton: {
     marginTop: 10,
-    width: 0.45*w,
+    width: 0.45 * w,
     height: 38,
     backgroundColor: '#e5293e',
     borderRadius: 19,
@@ -49,13 +49,13 @@ const dimensionStyles = StyleSheet.create({
 
   CategoryContainer: {
     width: w,
-    height: 0.35*h,
+    height: 0.35 * h,
     justifyContent: 'flex-end',
   },
 
   CategoryImg: {
     width: w,
-    height: 0.35*h,
+    height: 0.35 * h,
     position: 'absolute',
   },
 
@@ -64,7 +64,7 @@ const dimensionStyles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    marginTop: 0.08*h,
+    marginTop: 0.08 * h,
     marginLeft: 16,
     backgroundColor: '#e5293e',
     alignItems: 'center',
@@ -76,7 +76,7 @@ const dimensionStyles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    marginTop: 0.08*h,
+    marginTop: 0.08 * h,
     right: 16,
     backgroundColor: '#e5293e',
     alignItems: 'center',
@@ -85,18 +85,19 @@ const dimensionStyles = StyleSheet.create({
 
   NavigationPanel: {
     position: 'absolute',
-    width: 0.72*w,
-    height: 0.95*h,
+    width: 0.72 * w,
+    height: 0.95 * h,
     backgroundColor: '#e4283d',
+    elevation: 10,
   },
 
   XIconNavigationPanel: {
-    marginLeft: 0.6*w,
-    marginTop: 0.07*h,
+    marginLeft: 0.6 * w,
+    marginTop: 0.07 * h,
   },
 
   LineNavigationPanel: {
-    width: 0.53*w,
+    width: 0.53 * w,
     height: 65,
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -107,7 +108,7 @@ const dimensionStyles = StyleSheet.create({
 
   DropDownMenuIcon: {
     position: 'absolute',
-    marginLeft: 0.6*w,
+    marginLeft: 0.6 * w,
   },
 
   MenuLineNavigationPanel: {
@@ -116,7 +117,7 @@ const dimensionStyles = StyleSheet.create({
   },
 
   LineCategoryMenu: {
-    width: 0.53*w,
+    width: 0.53 * w,
     height: 65,
     flexDirection: 'row',
     borderBottomWidth: 1,
@@ -126,80 +127,80 @@ const dimensionStyles = StyleSheet.create({
     marginLeft: 50,
   },
 
-  CarouselBackground:{
+  CarouselBackground: {
     position: 'absolute',
-    width:1000,
-    height:1000,
-    top: -(900 - w/2),
+    width: 1000,
+    height: 1000,
+    top: -(900 - w / 2),
     alignSelf: 'center',
     borderRadius: 1000,
     backgroundColor: '#0b2031',
   },
 
-  CarouselContainer:{
-    height: 0.5*h,
+  CarouselContainer: {
+    height: 0.5 * h,
     width: w,
   },
 
-  imageCarousel:{
-    width: 0.8*w,
-    height: 0.6*w,
+  imageCarousel: {
+    width: 0.8 * w,
+    height: 0.6 * w,
   },
 
-  itemCarouselContainer:{
-    overflow: "hidden",
-    backgroundColor:'#FFFFFF',
+  itemCarouselContainer: {
+    overflow: 'hidden',
+    backgroundColor: '#FFFFFF',
     borderRadius: 20,
-    elevation:10,
+    elevation: 10,
     alignItems: 'center',
   },
 
-  headerCategoryName:{
-    height: 0.17*h,
+  headerCategoryName: {
+    height: 0.17 * h,
     alignItems: 'center',
-    paddingTop: 0.08*h,
+    paddingTop: 0.08 * h,
   },
 
-  favoriteProductInfoContainer:{
-    width: 0.8*w,
-    height: 0.16*h,
+  favoriteProductInfoContainer: {
+    width: 0.8 * w,
+    height: 0.16 * h,
     paddingTop: 10,
     paddingLeft: 20,
-    backgroundColor:'#0b2031',
+    backgroundColor: '#0b2031',
   },
 
-  orderNowButtonCarousel:{
+  orderNowButtonCarousel: {
     position: 'absolute',
     alignSelf: 'flex-end',
-    width: 0.25*w,
-    height: 0.16*h,
+    width: 0.25 * w,
+    height: 0.16 * h,
     borderWidth: 5,
     borderColor: '#0b2031',
-    borderBottomRightRadius:20,
-    backgroundColor:'#e5293e',
+    borderBottomRightRadius: 20,
+    backgroundColor: '#e5293e',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  favoriteProductInfo:{
+  favoriteProductInfo: {
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
     height: 15,
-    width: 0.44*w,
+    width: 0.44 * w,
   },
 
   separateLine: {
     marginTop: 10,
     marginBottom: 10,
-    width: 0.9*w,
+    width: 0.9 * w,
     height: 2.3,
     backgroundColor: '#e4e4e4',
     alignSelf: 'center',
   },
 
-  ItemProductListContainer:{
-    flex:1,
+  ItemProductListContainer: {
+    flex: 1,
     flexDirection: 'row',
     marginTop: 10,
     marginBottom: 10,
@@ -208,57 +209,57 @@ const dimensionStyles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 10,
-    width: 0.9*w,
-    height: 0.14*h,
+    width: 0.9 * w,
+    height: 0.14 * h,
     elevation: 3,
     borderRadius: 10,
     backgroundColor: '#FFFFFF',
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 
-  ProductListImg:{
-    width: 0.21*w,
-    height: 0.11*h,
+  ProductListImg: {
+    width: 0.21 * w,
+    height: 0.11 * h,
   },
 
-  ProductListInfo:{
-    flex:2,
-    height: 0.11*h,
+  ProductListInfo: {
+    flex: 2,
+    height: 0.11 * h,
     justifyContent: 'center',
   },
 
-  orderNowButtonProductList:{
-    flex:1,
-    height:0.14*h,
+  orderNowButtonProductList: {
+    flex: 1,
+    height: 0.14 * h,
     borderWidth: 5,
     borderColor: '#FFFFFF',
-    borderTopRightRadius:10,
-    borderBottomRightRadius:10,
-    backgroundColor:'#e5293e',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
+    backgroundColor: '#e5293e',
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  ProductListPrice:{
-    marginLeft:10,
+  ProductListPrice: {
+    marginLeft: 10,
     marginTop: 5,
     flexDirection: 'row',
     alignItems: 'center',
     height: 10,
   },
 
-  ImageProductDetail:{
+  ImageProductDetail: {
     width: w,
-    height: 0.38*h,
+    height: 0.38 * h,
   },
 
-  goBackIconDetailScreen:{
+  goBackIconDetailScreen: {
     position: 'absolute',
-    marginTop: 0.39*h,
+    marginTop: 0.39 * h,
     marginLeft: 10,
   },
 
-  ProductDetailRate:{
+  ProductDetailRate: {
     marginTop: 10,
     marginBottom: 10,
     height: 16,
@@ -267,7 +268,7 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  ProductDetailPrice:{
+  ProductDetailPrice: {
     marginTop: 20,
     marginBottom: 10,
     marginLeft: 20,
@@ -276,14 +277,119 @@ const dimensionStyles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  orderButtonDetailScreen:{
-    width: 0.9*w,
+  orderButtonDetailScreen: {
+    width: 0.9 * w,
     height: 54,
     alignSelf: 'center',
     justifyContent: 'center',
-    backgroundColor: '#e4283d',
+    backgroundColor: '#e5293e',
     borderRadius: 27,
   },
+
+  OrderPanel: {
+    alignSelf: 'center',
+    marginTop: 0.025 * h,
+    backgroundColor: '#FFFFFF',
+    position: 'absolute',
+    width: 0.9 * w,
+    height: 0.95 * h,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#e5293e',
+    elevation: 10,
+  },
+
+  XIconOrderPanel: {
+    marginLeft: 0.8 * w,
+    marginTop: 10,
+  },
+
+  ImageOrderPanel:{
+    width: 0.8*w,
+    height: 0.4*h,
+    marginTop: 10,
+    alignSelf: 'center',
+  },
+
+  SizePicker:{
+    marginTop: 10,
+    marginLeft: 5,
+    marginRight: 5,
+    paddingTop: 10,
+    width: 0.4*w,
+    height: 0.22*h,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#e5293e',
+    alignItems: 'center',
+  },
+
+  SizePickerUnpick:{
+    marginTop: 10,
+    marginLeft: 5,
+    marginRight: 5,
+    paddingTop: 10,
+    width: 0.4*w,
+    height: 0.22*h,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#aeaeae',
+    alignItems: 'center',
+  },
+
+  checkIcon:{
+    position: 'absolute',
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: '#e5293e',
+    left: 0.4*w-22,
+    bottom: 0.22*h-22,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  SizeModifyContainer:{
+    alignSelf: 'center',
+    height: 0.27*h,
+  },
+
+  quantityPicker:{
+    alignSelf: 'center',
+    justifyContent: 'center',
+    borderColor: '#e5293e',
+    borderWidth: 1,
+    borderRadius: 5,
+    marginTop: 10,
+    marginBottom: 10,
+    width: 0.8*w,
+    height: 50,
+  },
+
+  PriceContainer:{
+    paddingRight: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  addToCartButton:{
+    marginTop: 10,
+    marginBottom: 10,
+    width: 0.8 * w,
+    height: 54,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e5293e',
+    borderRadius: 27,
+  },
+
+  goBackIconSignUpScreen:{
+    position: 'absolute',
+    marginTop: 10,
+    marginLeft: 10,
+  }
+
+
 });
 
 export {dimensionStyles};

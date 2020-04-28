@@ -15,26 +15,25 @@ export default class HomeScreen extends Component {
   };
   render() {
     return (
-        <View style={dimensionStyles.HomeContainer}>        
-          <ImageBackground
-            style={dimensionStyles.HomeImg}
-            source={HomeImg}
-            resizeMode="cover"
-          />
-          <View style={dimensionStyles.HomeNameContainer}>
-            <Text style={textStyle.restaurant}>Restaurant</Text>
-            <Text style={textStyle.restaurantName}>{string.restaurantName}</Text>
-            <TouchableOpacity
-              style={dimensionStyles.StartOrderButton}
-              onPress={()=>this.navigateToCategoryScreen()}>
-              <Text style={textStyle.StartOrderButton}>START ORDER</Text>
-              <View style={dimensionStyles.ArrowRightIconHome}>
-                <Icon name="angle-right" size={20} color="#FFFFFF" />
-              </View>
-            </TouchableOpacity> 
-          </View>               
+      <View style={dimensionStyles.HomeContainer}>
+        <ImageBackground
+          style={dimensionStyles.HomeImg}
+          source={HomeImg}
+          resizeMode="cover"
+        />
+        <View style={dimensionStyles.HomeNameContainer}>
+          <Text style={textStyle.restaurant}>Restaurant</Text>
+          <Text style={textStyle.restaurantName}>{string.restaurantName}</Text>
+          <TouchableOpacity
+            style={dimensionStyles.StartOrderButton}
+            onPress={() => this.navigateToCategoryScreen()}>
+            <Text style={textStyle.StartOrderButton}>START ORDER</Text>
+            <View style={dimensionStyles.ArrowRightIconHome}>
+              <Icon name="angle-right" size={20} color="#FFFFFF" />
+            </View>
+          </TouchableOpacity>
         </View>
-
+      </View>
     );
   }
 }

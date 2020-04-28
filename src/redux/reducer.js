@@ -1,8 +1,9 @@
-import {SET_CATEGORYDATA, SET_ISLOADING} from './actions.js';
+import {SET_CATEGORYDATA, SET_USERTOKEN, ADD_TOCART} from './actions.js';
 
 const initState = {
-  isLoading: true,
   categoryData: [],
+  orderLineArray: [],
+  userToken: null,
 };
 
 const reducer = (state = initState, action) => {
@@ -10,8 +11,11 @@ const reducer = (state = initState, action) => {
     case SET_CATEGORYDATA: {
       return {...state, categoryData: action.data};
     }
-    case SET_ISLOADING: {
-      return {...state, isLoading: action.bool};
+    case SET_USERTOKEN: {
+      return {...state, userToken: action.userToken};
+    }
+    case ADD_TOCART: {
+      return {...state, orderLineArray: [...state.orderLineArray, action.orderLine]};
     }
     default:
       return state;

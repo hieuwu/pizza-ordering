@@ -1,7 +1,7 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-const w=Dimensions.get('window').width
-const h= Dimensions.get('window').height
+const w = Dimensions.get('window').width;
+const h = Dimensions.get('window').height;
 
 const textStyle = StyleSheet.create({
   restaurant: {
@@ -38,41 +38,41 @@ const textStyle = StyleSheet.create({
     color: '#FFFFFF',
   },
 
-  headerCategoryName:{
+  headerCategoryName: {
     fontSize: 28,
     color: '#FFFFFF',
     letterSpacing: 0.2,
   },
 
-  favoriteProductName:{
-    width: 0.44*w,
+  favoriteProductName: {
+    width: 0.44 * w,
     fontSize: 19.728,
     color: '#FFFFFF',
     letterSpacing: 0.26,
   },
 
-  orderNowButton:{
+  orderNowButton: {
     fontSize: 20,
     textAlign: 'center',
     color: '#FFFFFF',
     letterSpacing: 0.16,
   },
 
-  favoriteProductInfo:{
+  favoriteProductInfo: {
     fontSize: 13,
-    marginLeft:10,
+    marginLeft: 10,
     color: '#FFFFFF',
     letterSpacing: 0.16,
   },
 
-  ProductListName:{
+  ProductListName: {
     fontSize: 13,
-    marginLeft:10,
+    marginLeft: 10,
     color: '#0b2031',
     letterSpacing: 0.16,
   },
 
-  ProductListDescription:{
+  ProductListDescription: {
     fontSize: 11,
     marginLeft: 10,
     marginRight: 10,
@@ -80,7 +80,7 @@ const textStyle = StyleSheet.create({
     letterSpacing: 0.26,
   },
 
-  ProductListRate:{
+  ProductListRate: {
     fontSize: 11,
     marginLeft: 5,
     marginRight: 10,
@@ -88,23 +88,24 @@ const textStyle = StyleSheet.create({
     letterSpacing: 0.26,
   },
 
-  ProductDetailName:{
+  ProductDetailName: {
+    paddingTop: 10,
     fontSize: 25,
     color: '#0b2031',
     letterSpacing: 0.2,
-    alignSelf:'center',
+    alignSelf: 'center',
     textAlign: 'center',
-    width: 0.8*w,
+    width: 0.8 * w,
   },
 
-  ProductDetailRate:{
+  ProductDetailRate: {
     marginLeft: 10,
     fontSize: 20,
     color: '#ffd93f',
     letterSpacing: 0.1,
   },
 
-  DescriptionHeader:{
+  DescriptionHeader: {
     marginTop: 10,
     marginBottom: 10,
     marginLeft: 20,
@@ -113,7 +114,7 @@ const textStyle = StyleSheet.create({
     letterSpacing: 0.2,
   },
 
-  DecriptionInfo:{
+  DecriptionInfo: {
     marginLeft: 20,
     marginRight: 20,
     textAlign: 'justify',
@@ -122,18 +123,53 @@ const textStyle = StyleSheet.create({
     letterSpacing: 0.1,
   },
 
-  ProductDetailPrice:{
+  ProductDetailPrice: {
     marginLeft: 10,
     fontSize: 15,
     color: '#0b2031',
     letterSpacing: 0.1,
   },
 
-  AllProduct:{
+  AllProduct: {
     marginLeft: 20,
     fontSize: 20,
     color: '#0b2031',
     letterSpacing: 0.2,
+  },
+
+  ModifyType:{
+    paddingTop: 10,
+    paddingLeft: 10,
+    fontSize: 20,
+    color: '#0b2031',
+    letterSpacing: 1.5,
+  },
+
+  SizeText:{
+    paddingTop: 5,
+    fontSize: 15,
+    color: '#0b2031',
+  },
+
+  SizeTextUnpick:{
+    paddingTop: 5,
+    fontSize: 15,
+    color: '#aeaeae',
+  },
+
+  quantityPicker:{
+    alignSelf: 'center',
+    textAlign: 'center',
+    fontSize: 17,
+  },
+
+  StringInput: {
+    height: 45,
+    width: 0.7*w,
+    marginTop: 3,
+    marginBottom: 3,
+    fontSize: 15,
+    borderWidth: 1,
   },
 });
 

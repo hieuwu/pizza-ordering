@@ -19,15 +19,19 @@ class CategoryScreen extends Component {
     isOpenPanel: false,
   };
 
-  navigateToProductListScreen = (_id,title) => {
+  navigateToProductListScreen = (_id, title) => {
     const {navigation} = this.props;
-    navigation.navigate('Product List Screen', {CategoryId: _id, CategoryTitle: title});
+    navigation.navigate('Product List Screen', {
+      CategoryId: _id,
+      CategoryTitle: title,
+    });
   };
 
   ShowCategory = ({item}) => {
-    const { imageUrl, title, _id } = item;
+    const {imageUrl, title, _id} = item;
     return (
-      <TouchableOpacity onPress={() => this.navigateToProductListScreen(_id,title)}>
+      <TouchableOpacity
+        onPress={() => this.navigateToProductListScreen(_id, title)}>
         <View style={dimensionStyles.CategoryContainer}>
           <ImageBackground
             style={dimensionStyles.CategoryImg}
@@ -37,8 +41,8 @@ class CategoryScreen extends Component {
           <Text style={textStyle.CategoryText}>{title}</Text>
         </View>
       </TouchableOpacity>
-  )
-}
+    );
+  };
 
   render() {
     const {categoryData, navigation} = this.props;
@@ -48,13 +52,17 @@ class CategoryScreen extends Component {
         <NavigationPanel
           modalVisible={this.state.isOpenPanel}
           onClose={() => this.setState({isOpenPanel: false})}
+          RequestClose={() => this.setState({isOpenPanel: false})}
           onClickHome={() => {
             this.setState({isOpenPanel: false});
             navigation.navigate('Home Screen');
           }}
           onClickMenu={(_id, title) => {
             this.setState({isOpenPanel: false});
-            navigation.push('Product List Screen', {CategoryId: _id, CategoryTitle: title});
+            navigation.push('Product List Screen', {
+              CategoryId: _id,
+              CategoryTitle: title,
+            });
           }}
           onClickCart={() => {
             this.setState({isOpenPanel: false});

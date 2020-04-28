@@ -1,15 +1,23 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import getAPI from '../repository/getAPI.js';
-import {Modal, Text, TouchableOpacity, View, FlatList, ScrollView} from 'react-native';
+import {
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {setUserToken} from '../redux/actions.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconComunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
-import DropDownItem from 'react-native-drop-down-item';
+import {AsyncStorage} from 'react-native';
 
 class NavigationPanel extends Component {
   state = {
@@ -17,8 +25,8 @@ class NavigationPanel extends Component {
   };
 
   showMenu = ({item}) => {
-    const { _id, title } = item;
-    const {onClickMenu}=this.props
+    const {_id, title} = item;
+    const {onClickMenu} = this.props;
     return (
       <TouchableOpacity
         onPress={() => onClickMenu(_id, title)}
@@ -26,23 +34,35 @@ class NavigationPanel extends Component {
         <Text style={textStyle.TextNavigationPanel}>{title}</Text>
       </TouchableOpacity>
     );
+  };
+
+  LogOut = async () => {
+    const {setUserToken}=this.props
+    try {
+      await AsyncStorage.removeItem('userToken')
+      setUserToken(null)
+    } catch (errorMessage) {
+      alert(errorMessage);
+      console.log(errorMessage);
+    }
   }
 
-  render() { 
-    const {categoryData} = this.props;
+  render() {
+    const {categoryData, userToken} = this.props;
     const {
       modalVisible,
       onClose,
       onClickHome,
       onClickCart,
       onClickLogIn,
+      RequestClose,
     } = this.props;
     return (
       <Modal
         animationType="none"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => alert('Modal has been closed.')}>      
+        onRequestClose={RequestClose}>
         <View style={dimensionStyles.NavigationPanel}>
           <ScrollView>
             <TouchableOpacity
@@ -75,7 +95,7 @@ class NavigationPanel extends Component {
                     <Icon name="angle-up" size={36} color="#FFFFFF" />
                   </TouchableOpacity>
                 </View>
-                <View style={{height:65*categoryData.length}}>
+                <View style={{height: 65 * categoryData.length}}>
                   <FlatList
                     numColumns={1}
                     showsVerticalScrollIndicator={false}
@@ -110,14 +130,28 @@ class NavigationPanel extends Component {
               onPress={onClickCart}
               style={dimensionStyles.LineNavigationPanel}>
               <Icon name="shopping-bag" size={36} color="#FFFFFF" />
-              <Text style={textStyle.TextNavigationPanel}>Your Bag</Text>
+              <Text style={textStyle.TextNavigationPanel}>Your Cart</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={onClickLogIn}
-              style={dimensionStyles.LineNavigationPanel}>
-              <IconEntypo name="login" size={36} color="#FFFFFF" />
-              <Text style={textStyle.TextNavigationPanel}>Log In</Text>
-            </TouchableOpacity>
+            {(userToken===null) ? (
+              <TouchableOpacity
+                onPress={onClickLogIn}
+                style={dimensionStyles.LineNavigationPanel}>
+                <IconEntypo name="login" size={36} color="#FFFFFF" />
+                <Text style={textStyle.TextNavigationPanel}>Log In</Text>
+              </TouchableOpacity>
+            ) : (
+              <>
+                <View style={dimensionStyles.LineNavigationPanel}>
+                  <Text style={textStyle.TextNavigationPanel}>Welcome {userToken.user.name}</Text>
+                </View>
+                <TouchableOpacity
+                  onPress={this.LogOut}
+                  style={dimensionStyles.LineNavigationPanel}>
+                  <IconEntypo name="log-out" size={36} color="#FFFFFF" />
+                  <Text style={textStyle.TextNavigationPanel}>Log Out</Text>
+                </TouchableOpacity>
+              </>
+            )}
           </ScrollView>
         </View>
       </Modal>
@@ -133,13 +167,19 @@ NavigationPanel.propTypes = {
   onClickMenu: PropTypes.func,
   onClickCart: PropTypes.func,
   onClickLogIn: PropTypes.func,
+  RequestClose: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   categoryData: state.categoryData,
+  userToken: state.userToken,
+});
+
+const mapDispatchToProps = dispatch => ({
+  setUserToken: userToken => dispatch(setUserToken(userToken)),
 });
 
 export default connect(
   mapStateToProps,
-  null,
+  mapDispatchToProps,
 )(NavigationPanel);

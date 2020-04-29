@@ -1,11 +1,20 @@
 import {ADDTOCART, REMOVEFROMCART} from '../actions/type';
-import cartItem from './cartItemReducer'
+import todo from './cartItemReducer'
 
-export default cartReducer = (state = [], action) => {
+const todos = (state = [], action) => {
     switch (action.type) {
-        case ADDTOCART:
-            return [...state, cartItem(undefined,action)];
+        case 'ADD_TODO':
+            return [
+                ...state,
+                todo(undefined, action.orderLine)
+            ];
+        case 'TOGGLE_TODO':
+            return state.map(t =>
+                todo(t, action)
+            );
         default:
             return state;
     }
-}
+};
+
+export default todos;

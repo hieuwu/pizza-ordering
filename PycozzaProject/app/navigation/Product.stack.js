@@ -9,19 +9,20 @@ import string from '../resources/strings'
 import dimension from '../resources/dimensions'
 import { StyleSheet } from 'react-native';
 import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
+import CartStack from './Cart.stack';
 const stack = createStackNavigator();
 export default class ProductStack extends Component {
     render() {
         return (
             <stack.Navigator initialRouteName='ProductList' screenOptions={headerStyle}>
                 <stack.Screen name='ProductList' component={ProductListScreen}
-                    options={{
+                    options= {{
                         title: string.listScreenTitle,
                         headerRight: () => (
                             <TouchableOpacity
-                                onPress={() => alert('This is a button!')}
+                                onPress={() => this.props.navigation.navigate('Cart')}
                                 style={styles.headerButton}>
-                                <Ionicons name='ios-wallet' color={color.white} size={dimension.iconSize} />
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -33,6 +34,7 @@ export default class ProductStack extends Component {
                         ),
                     }} />
                 <stack.Screen name='ProductDetail' component={ProductDetailScreen} options={{title: 'Detail'}}/>
+                <stack.Screen name='Cart' component={CartStack}/>
             </stack.Navigator>
         )
     }

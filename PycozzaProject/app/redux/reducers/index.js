@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux'
-import cartReducer from './cartReducer'
+import todos from './cartReducer'
 
-export default combineReducers({
-    cartReducer
+const todoApp = combineReducers({
+    todos
 });
+
+export default todoApp;

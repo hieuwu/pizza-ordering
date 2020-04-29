@@ -27,7 +27,7 @@ export default class ProductStack extends Component {
                             <TouchableOpacity
                                 onPress={() => alert('This is a button!')}
                                 style={styles.headerButton}>
-                                <Ionicons name='ios-wallet' color={color.white} size={dimension.iconSize} />
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (

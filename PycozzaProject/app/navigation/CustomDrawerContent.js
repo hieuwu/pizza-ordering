@@ -64,10 +64,6 @@ function CustomDrawerContent(props) {
         </View>
       ) : null}
       <DrawerItem
-        icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-wallet' />) }}
-        labelStyle={styles.labelStyle}
-        label="Your bag" onPress={() => alert('Link to help')} />
-      <DrawerItem
         icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='md-call' />) }}
         labelStyle={styles.labelStyle}
         label="Contact us" onPress={() => alert('Link to help')} />

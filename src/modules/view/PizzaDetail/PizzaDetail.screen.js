@@ -35,6 +35,7 @@ export default class PizzaDetail extends Component {
       extraCheese: false,
       doubleCheese: false,
       tripleCheese: false,
+      quantity: 0,
     };
   }
 
@@ -124,6 +125,16 @@ export default class PizzaDetail extends Component {
     }
   };
 
+  increaseQuantity = () => {
+    this.setState({quantity: this.state.quantity + 1});
+  };
+
+  decreaseQuantity = () => {
+    if (this.state.quantity > 0) {
+      this.setState({quantity: this.state.quantity - 1});
+    }
+  };
+
   render() {
     return (
       <View style={pizzaDetailStyles.container}>
@@ -158,7 +169,7 @@ export default class PizzaDetail extends Component {
               <CheckBox
                 value={this.state.mediumSize}
                 onValueChange={() =>
-                  this.setState({mediumSize: !this.state.mediumSize})
+                  this.setState({mediumSize: !this.state.largeSize})
                 }
               />
               <Text> Medium size </Text>
@@ -191,10 +202,26 @@ export default class PizzaDetail extends Component {
                   this.setState({newYorkCurst: !this.state.newYorkCurst})
                 }
               />
-              <Text> New York Curst </Text>
+              <Text> New York Crust </Text>
             </View>
           </View>
           <View>{this.renderCheeseOptions()}</View>
+          <Text style={pizzaDetailStyles.optionTitleText}> Quantity </Text>
+          <View style={pizzaDetailStyles.quantityContainer}>
+            <TouchableOpacity
+              style={pizzaDetailStyles.quantityIcon}
+              onPress={this.increaseQuantity}>
+              <Icon name="plus-square" size={30} color={colors.ovalColor} />
+            </TouchableOpacity>
+            <Text style={pizzaDetailStyles.quantityText}>
+              {this.state.quantity}
+            </Text>
+            <TouchableOpacity
+              style={pizzaDetailStyles.quantityIcon}
+              onPress={this.decreaseQuantity}>
+              <Icon name="minus-square" size={30} color={colors.ovalColor} />
+            </TouchableOpacity>
+          </View>
         </ScrollView>
         <TouchableOpacity style={pizzaDetailStyles.addCartBtn}>
           <Text style={pizzaDetailStyles.addCartText}> ADD TO CART </Text>

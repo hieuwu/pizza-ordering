@@ -4,19 +4,17 @@ import dimensions from '../../resources/dimensions/Dimensions';
 
 export default StyleSheet.create({
   container: {
-    // width: '100%',
-    // height: '100%',
-    flex: 1,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
     flexDirection: 'column',
   },
   scrollViewContainer: {
     width: '100%',
-    height: '100%',
-    flexDirection: 'column',
   },
   imageContainer: {
     width: '100%',
-    height: dimensions.screenSize.height / 2,
+    height: dimensions.screenSize.height / 3,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -41,7 +39,7 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   sizeOptionContainer: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     margin: 8,
     borderRadius: 10,
     flexWrap: 'wrap',
@@ -49,7 +47,7 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
   },
   verticalOptionContainer: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     margin: 8,
     borderRadius: 10,
     flexWrap: 'wrap',
@@ -68,8 +66,9 @@ export default StyleSheet.create({
   },
   addCartBtn: {
     flexDirection: 'row',
-    width: '100%',
+    width: '95%',
     height: 40,
+    alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.mainRed,
@@ -81,5 +80,20 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: colors.text,
+  },
+  quantityContainer: {
+    backgroundColor: colors.white,
+    margin: 8,
+    borderRadius: 10,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  quantityIcon: {
+    margin: 8,
+  },
+  quantityText: {
+    fontSize: 30,
   },
 });

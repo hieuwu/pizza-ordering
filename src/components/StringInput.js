@@ -11,13 +11,14 @@ export class StringInput extends Component {
   };
 
   render() {
-    const {text, onTextChange, placeholder, keyboard} = this.props;
+    const {text, onTextChange, placeholder, keyboard, isSecure} = this.props;
     return (
       <TextInput
         style={textStyle.StringInput}
         placeholder={placeholder}
         onChangeText={onTextChange}
         keyboardType={keyboard}
+        secureTextEntry={isSecure}
         value={text}
       />
     );

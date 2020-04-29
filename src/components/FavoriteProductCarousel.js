@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, TouchableOpacity, Image, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {dimensionStyles} from '../resources/dimension.js';
-import Carousel from 'react-native-anchor-carousel';
+import Carousel from 'react-native-snap-carousel';
 import {Dimensions} from 'react-native';
 import {textStyle} from '../resources/textStyle.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,17 +11,16 @@ class FavoriteProductCarousel extends Component {
   static propTypes = {
     data: PropTypes.array,
     onClickOrder: PropTypes.func,
+    onClickImage: PropTypes.func,
   };
 
   renderItem = ({item, index}) => {
     const {imageUrl, title, rate, price} = item;
-    const {onClickOrder} = this.props;
+    const {onClickOrder, onClickImage} = this.props;
     return (
       <TouchableOpacity
         style={dimensionStyles.itemCarouselContainer}
-        onPress={() => {
-          this.numberCarousel.scrollToIndex(index);
-        }}>
+        onPress={() => onClickImage(item)}>
         <Image
           source={{uri: imageUrl}}
           style={dimensionStyles.imageCarousel}
@@ -58,10 +57,8 @@ class FavoriteProductCarousel extends Component {
         data={data}
         renderItem={this.renderItem}
         itemWidth={0.8 * Dimensions.get('window').width}
-        inActiveOpacity={0.3}
-        ref={c => {
-          this.numberCarousel = c;
-        }}
+        sliderWidth={Dimensions.get('window').width}
+        ref={(c) => { this._carousel = c; }}
       />
     );
   }

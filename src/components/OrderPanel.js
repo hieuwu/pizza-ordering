@@ -112,8 +112,7 @@ class OrderPanel extends Component {
       return(
         <TouchableOpacity
           onPress={() => this.setState({size: title})}
-          style={dimensionStyles.SizePicker}>
-          <Icon5 name="pizza-slice" size={0.1*h} color="#e5293e" />
+          style={dimensionStyles.SizePicker}>    
           <Text style={textStyle.SizeText}>{title}</Text>
           <Text style={textStyle.SizeText}>Price: +{price}$</Text>
           <View style={dimensionStyles.checkIcon}>
@@ -126,7 +125,6 @@ class OrderPanel extends Component {
         <TouchableOpacity
           onPress={() => this.setState({size: title})}
           style={dimensionStyles.SizePickerUnpick}>
-          <Icon5 name="pizza-slice" size={0.1*h} color="#aeaeae" />
           <Text style={textStyle.SizeTextUnpick}>{title}</Text>
           <Text style={textStyle.SizeTextUnpick}>Price: +{price}$</Text>
         </TouchableOpacity>
@@ -142,7 +140,6 @@ class OrderPanel extends Component {
         <TouchableOpacity
           onPress={() => this.setState({crust: title})}
           style={dimensionStyles.SizePicker}>
-          <IconComunity name="pizza" size={0.1*h} color="#e5293e" />
           <Text style={textStyle.SizeText}>{title}</Text>
           <Text style={textStyle.SizeText}>Price: +{price}$</Text>
           <View style={dimensionStyles.checkIcon}>
@@ -155,7 +152,6 @@ class OrderPanel extends Component {
         <TouchableOpacity
           onPress={() => this.setState({crust: title})}
           style={dimensionStyles.SizePickerUnpick}>
-          <IconComunity name="pizza" size={0.1*h} color="#aeaeae" />
           <Text style={textStyle.SizeTextUnpick}>{title}</Text>
           <Text style={textStyle.SizeTextUnpick}>Price: +{price}$</Text>
         </TouchableOpacity>
@@ -176,7 +172,6 @@ class OrderPanel extends Component {
             this.setState({topping: topping});
           }}
           style={dimensionStyles.SizePicker}>
-          <IconComunity name="mushroom" size={0.1*h} color="#e5293e" />
           <Text style={textStyle.SizeText}>{title}</Text>
           <Text style={textStyle.SizeText}>Price: +{price}$</Text>
           <View style={dimensionStyles.checkIcon}>
@@ -192,7 +187,6 @@ class OrderPanel extends Component {
             this.setState({topping: topping});
           }}
           style={dimensionStyles.SizePickerUnpick}>
-          <IconComunity name="mushroom" size={0.1*h} color="#aeaeae" />
           <Text style={textStyle.SizeTextUnpick}>{title}</Text>
           <Text style={textStyle.SizeTextUnpick}>Price: +{price}$</Text>
         </TouchableOpacity>
@@ -203,31 +197,34 @@ class OrderPanel extends Component {
   calculatePrice = () => {
     const {productData}=this.props;
     let {price}=productData;
+    let totalPrice=price
+
     const {sizeArray, crustArray, toppingArray, size, crust, topping, quantity}=this.state;
 
     let sizeOption=sizeArray.find((unitData) => (unitData.title===size))
     if (sizeOption!==undefined) {
-      price=eval(`${price}+${sizeOption.price}`)
+      totalPrice=eval(`${totalPrice}+${sizeOption.price}`)
     }
 
     let crustOption=crustArray.find((unitData) => (unitData.title===crust))
     if (crustOption!==undefined) {
-      price=eval(`${price}+${crustOption.price}`)
+      totalPrice=eval(`${totalPrice}+${crustOption.price}`)
     }
 
     topping.forEach((toppingUnit)=> {
         let toppingOption=toppingArray.find((unitData) => (unitData.title===toppingUnit))
         if (toppingOption!==undefined) {
-          price=eval(`${price}+${toppingOption.price}`)
+          totalPrice=eval(`${totalPrice}+${toppingOption.price}`)
         }
       }
     )
 
-    price=eval(`${price}*${quantity}`)
-    return price
+    totalPrice=eval(`${totalPrice}*${quantity}`)
+
+    return totalPrice
   }
 
-  createOrderLine = (price) => {
+  createOrderLine = (totalPrice) => {
     const {addToCart}=this.props;
     const {productData}=this.props;
     const {sizeArray, crustArray, toppingArray, size, crust, topping, quantity}=this.state;
@@ -256,7 +253,7 @@ class OrderPanel extends Component {
 
     orderLine['productData']=productData
 
-    orderLine['productPrice']=Number(price)
+    orderLine['productPrice']=Number(totalPrice)
 
     addToCart(orderLine)
   }
@@ -265,7 +262,7 @@ class OrderPanel extends Component {
     const {modalVisible, onClose, RequestClose, productData} = this.props;
     const {imageUrl, title} = productData;
     const {sizeArray, crustArray, toppingArray, quantity, size, crust} = this.state;
-    const price=this.calculatePrice()
+    const totalPrice=this.calculatePrice()
 
     return (
       <Modal
@@ -370,7 +367,7 @@ class OrderPanel extends Component {
                 <View style={dimensionStyles.separateLine} />
                   <View style={dimensionStyles.PriceContainer}>
                     <Text numberOfLines={1} style={textStyle.ModifyType}>Price:</Text>
-                    <Text numberOfLines={1} style={textStyle.ModifyType}>{price}$</Text>
+                    <Text numberOfLines={1} style={textStyle.ModifyType}>{totalPrice}$</Text>
                   </View>
                 <View style={dimensionStyles.separateLine} />
                 <TouchableOpacity
@@ -381,7 +378,7 @@ class OrderPanel extends Component {
                     } else if (crustArray.length!==0 && crust==='') {
                       alert('Please pick crust')
                     } else {
-                      this.createOrderLine(price)
+                      this.createOrderLine(totalPrice)
                       RequestClose()
                     }
                   }}>

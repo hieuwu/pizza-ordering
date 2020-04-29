@@ -127,7 +127,7 @@ const dimensionStyles = StyleSheet.create({
     marginLeft: 50,
   },
 
-  CarouselBackground: {
+  curtainBackground: {
     position: 'absolute',
     width: 1000,
     height: 1000,
@@ -315,26 +315,26 @@ const dimensionStyles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    paddingTop: 10,
     width: 0.4*w,
-    height: 0.22*h,
+    height: 0.11*h,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#e5293e',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 
   SizePickerUnpick:{
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    paddingTop: 10,
     width: 0.4*w,
-    height: 0.22*h,
+    height: 0.11*h,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#aeaeae',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 
   checkIcon:{
@@ -344,14 +344,14 @@ const dimensionStyles = StyleSheet.create({
     borderRadius: 13,
     backgroundColor: '#e5293e',
     left: 0.4*w-22,
-    bottom: 0.22*h-22,
+    bottom: 0.11*h-22,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
   SizeModifyContainer:{
     alignSelf: 'center',
-    height: 0.27*h,
+    height: 0.15*h,
   },
 
   quantityPicker:{
@@ -387,9 +387,63 @@ const dimensionStyles = StyleSheet.create({
     position: 'absolute',
     marginTop: 10,
     marginLeft: 10,
-  }
+  },
 
+  cartBox:{
+    width: 0.9*w,
+    height: 0.8*h,
+    elevation: 10,
+    borderRadius: 10,
+    alignSelf: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+  },
 
+  checkOutButton:{
+    width: 0.9 * w,
+    height: 54,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e5293e',
+    borderRadius: 27,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+
+  cartBoxHeader:{
+    width: 0.9*w,
+    height: 0.09*h,
+    backgroundColor: '#e5293e',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+
+  ItemCartListContainer:{
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 10,
+    alignSelf: 'center',
+    alignItems: 'center',
+    padding: 10,
+    width: 0.85 * w,
+    height: 0.14 * h,
+    elevation: 3,
+    borderRadius: 10,
+    backgroundColor: '#FFFFFF',
+    overflow: 'hidden',
+  },
+
+  LogInButton:{
+    marginTop: 3,
+    width: 0.7 * w,
+    height: 45,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#0b2031',
+    borderRadius: 5,
+  },
 });
 
 export {dimensionStyles};

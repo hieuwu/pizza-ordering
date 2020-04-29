@@ -146,13 +146,11 @@ const textStyle = StyleSheet.create({
   },
 
   SizeText:{
-    paddingTop: 5,
     fontSize: 15,
     color: '#0b2031',
   },
 
   SizeTextUnpick:{
-    paddingTop: 5,
     fontSize: 15,
     color: '#aeaeae',
   },
@@ -170,6 +168,13 @@ const textStyle = StyleSheet.create({
     marginBottom: 3,
     fontSize: 15,
     borderWidth: 1,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 5,
+  },
+
+  cartBoxHeader:{
+    fontSize: 17,
+    color: '#FFFFFF',
   },
 });
 

@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {setUserToken} from '../redux/actions.js';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
+import {string} from '../resources/string.js';
 import {StringInput} from '../components/StringInput.js';
 import postAPI from '../repository/postAPI.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AsyncStorage} from 'react-native';
+import background from '../../assets/background.jpg';
 
 class LogInScreen extends Component {
   state = {
+    isLoading: false,
     phone: '',
     password: '',
   };
@@ -48,6 +51,7 @@ class LogInScreen extends Component {
       alert(errorMessage);
       console.log(errorMessage);
     }
+    this.setState({isLoading: false})
   }
 
   render() {
@@ -55,31 +59,72 @@ class LogInScreen extends Component {
 
     return (
       <View style={dimensionStyles.container}>
+        <ImageBackground
+          style={dimensionStyles.HomeImg}
+          source={background}
+          resizeMode="cover"
+        />
         <TouchableOpacity
             style={dimensionStyles.goBackIconSignUpScreen}
             onPress={this.navigateBack}>
-            <Icon name="angle-left" size={30} color="#0a1e2f" />
+            <Icon name="angle-left" size={30} color="#FFFFFF" />
         </TouchableOpacity>
         <View style={dimensionStyles.containerCenter}>
-          <Text>Log in screen</Text>
+          <Text style={{
+            fontSize: 30,
+            color: '#FFFFFF',
+          }}>
+            Welcome to
+          </Text>
+          <Text style={{
+            fontSize: 40,
+            color: '#FFFFFF',
+            marginBottom: 0.1*Dimensions.get('window').height,
+          }}>
+            {string.restaurantName}
+          </Text>
           <StringInput 
           	text={phone} 
           	onTextChange={(text)=>this.setState({phone: text})} 
-          	playholder={'Your phone number'} 
+          	placeholder={'Your phone number'} 
           	keyboard={'number-pad'}
+            isSecure={false}
       	/>
           <StringInput 
   	        text={password} 
   	        onTextChange={(text)=>this.setState({password: text})} 
-  	        playholder={'Password'} 
+  	        placeholder={'Password'} 
   	        keyboard={'default'}
+            isSecure={true}
           />
-          <TouchableOpacity
-            style={dimensionStyles.orderButtonDetailScreen}
-            onPress={() => this.CreateLogInData()}>
-            <Text style={textStyle.orderNowButton}>Log in</Text>
-          </TouchableOpacity>
-          <Text onPress={this.navigateToSignUpScreen}>Sign up</Text>
+          {this.state.isLoading ?
+            <TouchableOpacity
+              style={dimensionStyles.LogInButton}
+              disabled={true}>
+              <Text style={textStyle.orderNowButton}>Please wait...</Text>
+            </TouchableOpacity>
+            :
+            <TouchableOpacity
+              style={dimensionStyles.LogInButton}
+              onPress={() => {
+                this.setState({isLoading: true})
+                this.CreateLogInData()
+              }}>
+              <Text style={textStyle.orderNowButton}>Log in</Text>
+            </TouchableOpacity>
+          }
+          <Text style={{
+            marginTop: 0.1*Dimensions.get('window').height,
+            fontSize: 20,
+            textAlign: 'center',
+            color: '#FFFFFF',
+            letterSpacing: 0.16,
+            textDecorationLine: 'underline',
+          }}
+            onPress={this.navigateToSignUpScreen}
+          >
+            Sign up
+          </Text>
         </View>
       </View>
     );

@@ -14,6 +14,11 @@ export default class ProductDetailScreen extends Component {
     isOpenOrderPanel: false,
   };
 
+  navigateBack = () => {
+    const {navigation} = this.props;
+    navigation.goBack();
+  }
+
   render() {
     const {navigation} = this.props;
     const {item} = this.props.route.params;
@@ -58,7 +63,7 @@ export default class ProductDetailScreen extends Component {
           />
           <TouchableOpacity
             style={dimensionStyles.goBackIconDetailScreen}
-            onPress={() => navigation.goBack()}>
+            onPress={this.navigateBack}>
             <Icon name="angle-left" size={30} color="#0a1e2f" />
           </TouchableOpacity>
           <Text numberOfLines={2} style={textStyle.ProductDetailName}>

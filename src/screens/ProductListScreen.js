@@ -142,7 +142,7 @@ export default class ProductListScreen extends Component {
           renderItem={this.showProductList}
           ListHeaderComponent={
             <>
-              <View style={dimensionStyles.CarouselBackground} />
+              <View style={dimensionStyles.curtainBackground} />
               <View style={dimensionStyles.headerCategoryName}>
                 <Text style={textStyle.headerCategoryName}>
                   {CategoryTitle}
@@ -154,6 +154,9 @@ export default class ProductListScreen extends Component {
                   data={favoriteProduct}
                   onClickOrder={item =>
                     this.setState({isOpenOrderPanel: true, productData: item})
+                  }
+                  onClickImage={item =>
+                    this.navigateToProductDetailScreen(item)
                   }
                 />
               </View>

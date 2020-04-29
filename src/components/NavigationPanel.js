@@ -37,15 +37,15 @@ class NavigationPanel extends Component {
   };
 
   LogOut = async () => {
-    const {setUserToken}=this.props
+    const {setUserToken} = this.props;
     try {
-      await AsyncStorage.removeItem('userToken')
-      setUserToken(null)
+      await AsyncStorage.removeItem('userToken');
+      setUserToken(null);
     } catch (errorMessage) {
       alert(errorMessage);
       console.log(errorMessage);
     }
-  }
+  };
 
   render() {
     const {categoryData, userToken} = this.props;
@@ -132,7 +132,7 @@ class NavigationPanel extends Component {
               <Icon name="shopping-bag" size={36} color="#FFFFFF" />
               <Text style={textStyle.TextNavigationPanel}>Your Cart</Text>
             </TouchableOpacity>
-            {(userToken===null) ? (
+            {userToken === null ? (
               <TouchableOpacity
                 onPress={onClickLogIn}
                 style={dimensionStyles.LineNavigationPanel}>
@@ -142,7 +142,9 @@ class NavigationPanel extends Component {
             ) : (
               <>
                 <View style={dimensionStyles.LineNavigationPanel}>
-                  <Text style={textStyle.TextNavigationPanel}>Welcome {userToken.user.name}</Text>
+                  <Text style={textStyle.TextNavigationPanel}>
+                    Welcome {userToken.user.name}
+                  </Text>
                 </View>
                 <TouchableOpacity
                   onPress={this.LogOut}

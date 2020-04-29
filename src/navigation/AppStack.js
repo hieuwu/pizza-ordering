@@ -20,9 +20,9 @@ import getAPI from '../repository/getAPI.js';
 const Stack = createStackNavigator();
 
 class AppStack extends Component {
-  state={
+  state = {
     isLoading: true,
-  }
+  };
 
   render() {
     const {isLoading} = this.state;
@@ -50,11 +50,11 @@ class AppStack extends Component {
   }
 
   async componentDidMount() {
-    const {setCategoryData, setUserToken} =this.props
+    const {setCategoryData, setUserToken} = this.props;
     try {
-      let userToken = await AsyncStorage.getItem('userToken')
-      let item=JSON.parse(userToken)
-      setUserToken(item)
+      let userToken = await AsyncStorage.getItem('userToken');
+      let item = JSON.parse(userToken);
+      setUserToken(item);
     } catch (errorMessage) {
       alert(errorMessage);
       console.log(errorMessage);

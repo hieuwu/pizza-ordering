@@ -17,7 +17,7 @@ export default class ProductDetailScreen extends Component {
   navigateBack = () => {
     const {navigation} = this.props;
     navigation.goBack();
-  }
+  };
 
   render() {
     const {navigation} = this.props;

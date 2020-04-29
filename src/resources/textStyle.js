@@ -137,7 +137,7 @@ const textStyle = StyleSheet.create({
     letterSpacing: 0.2,
   },
 
-  ModifyType:{
+  ModifyType: {
     paddingTop: 10,
     paddingLeft: 10,
     fontSize: 20,
@@ -145,17 +145,17 @@ const textStyle = StyleSheet.create({
     letterSpacing: 1.5,
   },
 
-  SizeText:{
+  SizeText: {
     fontSize: 15,
     color: '#0b2031',
   },
 
-  SizeTextUnpick:{
+  SizeTextUnpick: {
     fontSize: 15,
     color: '#aeaeae',
   },
 
-  quantityPicker:{
+  quantityPicker: {
     alignSelf: 'center',
     textAlign: 'center',
     fontSize: 17,
@@ -163,7 +163,7 @@ const textStyle = StyleSheet.create({
 
   StringInput: {
     height: 45,
-    width: 0.7*w,
+    width: 0.7 * w,
     marginTop: 3,
     marginBottom: 3,
     fontSize: 15,
@@ -172,9 +172,27 @@ const textStyle = StyleSheet.create({
     borderRadius: 5,
   },
 
-  cartBoxHeader:{
+  cartBoxHeader: {
     fontSize: 17,
     color: '#FFFFFF',
+  },
+
+  ItemCartListName: {
+    fontSize: 17,
+    color: '#0b2031',
+    width: 0.4 * w,
+  },
+
+  ItemCartListOption: {
+    fontSize: 13,
+    color: '#0b2031',
+    width: 0.4 * w,
+  },
+
+  ItemCartListPrice: {
+    fontSize: 17,
+    color: '#20ab2c',
+    width: 0.4 * w,
   },
 });
 

@@ -58,7 +58,9 @@ class FavoriteProductCarousel extends Component {
         renderItem={this.renderItem}
         itemWidth={0.8 * Dimensions.get('window').width}
         sliderWidth={Dimensions.get('window').width}
-        ref={(c) => { this._carousel = c; }}
+        ref={c => {
+          this._carousel = c;
+        }}
       />
     );
   }

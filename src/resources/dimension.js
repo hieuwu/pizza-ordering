@@ -304,19 +304,19 @@ const dimensionStyles = StyleSheet.create({
     marginTop: 10,
   },
 
-  ImageOrderPanel:{
-    width: 0.8*w,
-    height: 0.4*h,
+  ImageOrderPanel: {
+    width: 0.8 * w,
+    height: 0.4 * h,
     marginTop: 10,
     alignSelf: 'center',
   },
 
-  SizePicker:{
+  SizePicker: {
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    width: 0.4*w,
-    height: 0.11*h,
+    width: 0.4 * w,
+    height: 0.11 * h,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#e5293e',
@@ -324,12 +324,12 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  SizePickerUnpick:{
+  SizePickerUnpick: {
     marginTop: 10,
     marginLeft: 5,
     marginRight: 5,
-    width: 0.4*w,
-    height: 0.11*h,
+    width: 0.4 * w,
+    height: 0.11 * h,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#aeaeae',
@@ -337,24 +337,24 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  checkIcon:{
+  checkIcon: {
     position: 'absolute',
     width: 26,
     height: 26,
     borderRadius: 13,
     backgroundColor: '#e5293e',
-    left: 0.4*w-22,
-    bottom: 0.11*h-22,
+    left: 0.4 * w - 22,
+    bottom: 0.11 * h - 22,
     alignItems: 'center',
     justifyContent: 'center',
   },
 
-  SizeModifyContainer:{
+  SizeModifyContainer: {
     alignSelf: 'center',
-    height: 0.15*h,
+    height: 0.15 * h,
   },
 
-  quantityPicker:{
+  quantityPicker: {
     alignSelf: 'center',
     justifyContent: 'center',
     borderColor: '#e5293e',
@@ -362,17 +362,17 @@ const dimensionStyles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 10,
     marginBottom: 10,
-    width: 0.8*w,
+    width: 0.8 * w,
     height: 50,
   },
 
-  PriceContainer:{
+  PriceContainer: {
     paddingRight: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
 
-  addToCartButton:{
+  addToCartButton: {
     marginTop: 10,
     marginBottom: 10,
     width: 0.8 * w,
@@ -383,15 +383,15 @@ const dimensionStyles = StyleSheet.create({
     borderRadius: 27,
   },
 
-  goBackIconSignUpScreen:{
+  goBackIconSignUpScreen: {
     position: 'absolute',
     marginTop: 10,
     marginLeft: 10,
   },
 
-  cartBox:{
-    width: 0.9*w,
-    height: 0.8*h,
+  cartBox: {
+    width: 0.9 * w,
+    height: 0.8 * h,
     elevation: 10,
     borderRadius: 10,
     alignSelf: 'center',
@@ -399,7 +399,7 @@ const dimensionStyles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
 
-  checkOutButton:{
+  checkOutButton: {
     width: 0.9 * w,
     height: 54,
     alignSelf: 'center',
@@ -410,16 +410,16 @@ const dimensionStyles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  cartBoxHeader:{
-    width: 0.9*w,
-    height: 0.09*h,
+  cartBoxHeader: {
+    width: 0.9 * w,
+    height: 0.09 * h,
     backgroundColor: '#e5293e',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 10,
   },
 
-  ItemCartListContainer:{
+  ItemCartListContainer: {
     flex: 1,
     flexDirection: 'row',
     marginTop: 10,
@@ -435,7 +435,7 @@ const dimensionStyles = StyleSheet.create({
     overflow: 'hidden',
   },
 
-  LogInButton:{
+  LogInButton: {
     marginTop: 3,
     width: 0.7 * w,
     height: 45,
@@ -443,6 +443,24 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#0b2031',
     borderRadius: 5,
+  },
+
+  ItemCartListInfo: {
+    flex: 3,
+    height: 0.14 * h,
+    paddingLeft: 10,
+    justifyContent: 'center',
+  },
+
+  XIconCartScreen: {
+    position: 'absolute',
+    top: 5,
+    right: 5,
+  },
+
+  ItemCartListImage: {
+    width: 0.2 * w,
+    height: 0.11 * h,
   },
 });
 

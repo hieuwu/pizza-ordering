@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {setUserToken} from '../redux/actions.js';
-import {View, Text, TouchableOpacity, ImageBackground, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+  Dimensions,
+} from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {string} from '../resources/string.js';
@@ -26,36 +32,36 @@ class LogInScreen extends Component {
   navigateBack = () => {
     const {navigation} = this.props;
     navigation.goBack();
-  }
+  };
 
   CreateLogInData = () => {
-    const {phone, password}=this.state;
-    let LogInData={
-      'phone': phone,
-      'password': password, 
-    }
+    const {phone, password} = this.state;
+    let LogInData = {
+      phone: phone,
+      password: password,
+    };
 
-    this.LogIn(LogInData)
-  }
+    this.LogIn(LogInData);
+  };
 
-  LogIn = async (LogInData) => {
-    const {setUserToken}=this.props
+  LogIn = async LogInData => {
+    const {setUserToken} = this.props;
     try {
-      let response = await postAPI('/user/login',LogInData);
-      let userToken = response.data
-      await AsyncStorage.setItem('userToken', JSON.stringify(userToken))
-      setUserToken(userToken)
-      alert('Log in successfully!')
-      this.navigateBack()
+      let response = await postAPI('/user/login', LogInData);
+      let userToken = response.data;
+      await AsyncStorage.setItem('userToken', JSON.stringify(userToken));
+      setUserToken(userToken);
+      alert('Log in successfully!');
+      this.navigateBack();
     } catch (errorMessage) {
       alert(errorMessage);
       console.log(errorMessage);
     }
-    this.setState({isLoading: false})
-  }
+    this.setState({isLoading: false});
+  };
 
   render() {
-  	const {phone, password} = this.state;
+    const {phone, password} = this.state;
 
     return (
       <View style={dimensionStyles.container}>
@@ -65,64 +71,66 @@ class LogInScreen extends Component {
           resizeMode="cover"
         />
         <TouchableOpacity
-            style={dimensionStyles.goBackIconSignUpScreen}
-            onPress={this.navigateBack}>
-            <Icon name="angle-left" size={30} color="#FFFFFF" />
+          style={dimensionStyles.goBackIconSignUpScreen}
+          onPress={this.navigateBack}>
+          <Icon name="angle-left" size={30} color="#FFFFFF" />
         </TouchableOpacity>
         <View style={dimensionStyles.containerCenter}>
-          <Text style={{
-            fontSize: 30,
-            color: '#FFFFFF',
-          }}>
+          <Text
+            style={{
+              fontSize: 30,
+              color: '#FFFFFF',
+            }}>
             Welcome to
           </Text>
-          <Text style={{
-            fontSize: 40,
-            color: '#FFFFFF',
-            marginBottom: 0.1*Dimensions.get('window').height,
-          }}>
+          <Text
+            style={{
+              fontSize: 40,
+              color: '#FFFFFF',
+              marginBottom: 0.1 * Dimensions.get('window').height,
+            }}>
             {string.restaurantName}
           </Text>
-          <StringInput 
-          	text={phone} 
-          	onTextChange={(text)=>this.setState({phone: text})} 
-          	placeholder={'Your phone number'} 
-          	keyboard={'number-pad'}
+          <StringInput
+            text={phone}
+            onTextChange={text => this.setState({phone: text})}
+            placeholder={'Your phone number'}
+            keyboard={'number-pad'}
             isSecure={false}
-      	/>
-          <StringInput 
-  	        text={password} 
-  	        onTextChange={(text)=>this.setState({password: text})} 
-  	        placeholder={'Password'} 
-  	        keyboard={'default'}
+          />
+          <StringInput
+            text={password}
+            onTextChange={text => this.setState({password: text})}
+            placeholder={'Password'}
+            keyboard={'default'}
             isSecure={true}
           />
-          {this.state.isLoading ?
+          {this.state.isLoading ? (
             <TouchableOpacity
               style={dimensionStyles.LogInButton}
               disabled={true}>
               <Text style={textStyle.orderNowButton}>Please wait...</Text>
             </TouchableOpacity>
-            :
+          ) : (
             <TouchableOpacity
               style={dimensionStyles.LogInButton}
               onPress={() => {
-                this.setState({isLoading: true})
-                this.CreateLogInData()
+                this.setState({isLoading: true});
+                this.CreateLogInData();
               }}>
               <Text style={textStyle.orderNowButton}>Log in</Text>
             </TouchableOpacity>
-          }
-          <Text style={{
-            marginTop: 0.1*Dimensions.get('window').height,
-            fontSize: 20,
-            textAlign: 'center',
-            color: '#FFFFFF',
-            letterSpacing: 0.16,
-            textDecorationLine: 'underline',
-          }}
-            onPress={this.navigateToSignUpScreen}
-          >
+          )}
+          <Text
+            style={{
+              marginTop: 0.1 * Dimensions.get('window').height,
+              fontSize: 20,
+              textAlign: 'center',
+              color: '#FFFFFF',
+              letterSpacing: 0.16,
+              textDecorationLine: 'underline',
+            }}
+            onPress={this.navigateToSignUpScreen}>
             Sign up
           </Text>
         </View>

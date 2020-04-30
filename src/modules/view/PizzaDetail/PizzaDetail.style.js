@@ -40,11 +40,10 @@ export default StyleSheet.create({
   },
   sizeOptionContainer: {
     backgroundColor: colors.white,
-    margin: 8,
     borderRadius: 10,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    alignContent: 'center',
+    margin: 8,
   },
   verticalOptionContainer: {
     backgroundColor: colors.white,
@@ -95,5 +94,16 @@ export default StyleSheet.create({
   },
   quantityText: {
     fontSize: 30,
+  },
+  radioHorizontalForm: {
+    margin: 8,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  radioVerticalForm: {
+    margin: 8,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignContent: 'center',
   },
 });

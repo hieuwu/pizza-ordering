@@ -1,18 +1,12 @@
 import React, {Component} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  CheckBox,
-} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView, Image} from 'react-native';
 import pizzaDetailStyles from './PizzaDetail.style';
 import colors from '../../resources/colors/Colors';
 
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import OvalShape from '../../../components/OvalShape/OvalShape.component';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import RadioForm from 'react-native-simple-radio-button';
 
 const singleData = {
   title: 'PRIME BEEF',
@@ -22,20 +16,31 @@ const singleData = {
   cheese: true,
 };
 
+let pizzaSize = [
+  {label: 'Large', value: 'large'},
+  {label: 'Medium', value: 'medium'},
+];
+let pizzaCrust = [
+  {label: 'Thin Crust', value: 'thin'},
+  {label: 'Hand Tossed Crust', value: 'handTossed'},
+  {label: 'New York Crust', value: 'newYork'},
+];
+let pizzaCheese = [
+  {label: 'Extra cheese', value: 'extra'},
+  {label: 'Double cheese', value: 'double'},
+  {label: 'Triple cheese', value: 'triple'},
+];
+
 export default class PizzaDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: '',
-      largeSize: false,
-      mediumSize: false,
-      thinCrust: false,
-      handTossed: false,
-      newYorkCurst: false,
-      extraCheese: false,
-      doubleCheese: false,
-      tripleCheese: false,
+      sizeType: 'large',
+      crustType: 'thin',
+      cheeseType: 'extra',
       quantity: 0,
+      cheese: true,
     };
   }
 
@@ -82,43 +87,19 @@ export default class PizzaDetail extends Component {
       return (
         <View>
           <Text style={pizzaDetailStyles.optionTitleText}> Cheese </Text>
-          <View style={pizzaDetailStyles.verticalOptionContainer}>
-            <View style={pizzaDetailStyles.cheeseContainer}>
-              <View style={pizzaDetailStyles.checkBoxContainer}>
-                <CheckBox
-                  value={this.state.extraCheese}
-                  onValueChange={() =>
-                    this.setState({extraCheese: !this.state.extraCheese})
-                  }
-                />
-                <Text> Extra Cheese </Text>
-              </View>
-              <Text> $20.00 </Text>
-            </View>
-            <View style={pizzaDetailStyles.cheeseContainer}>
-              <View style={pizzaDetailStyles.checkBoxContainer}>
-                <CheckBox
-                  value={this.state.doubleCheese}
-                  onValueChange={() =>
-                    this.setState({doubleCheese: !this.state.doubleCheese})
-                  }
-                />
-                <Text> Double Cheese </Text>
-              </View>
-              <Text> $13.00 </Text>
-            </View>
-            <View style={pizzaDetailStyles.cheeseContainer}>
-              <View style={pizzaDetailStyles.checkBoxContainer}>
-                <CheckBox
-                  value={this.state.tripleCheese}
-                  onValueChange={() =>
-                    this.setState({tripleCheese: !this.state.tripleCheese})
-                  }
-                />
-                <Text> Triple Cheese </Text>
-              </View>
-              <Text> $6.00 </Text>
-            </View>
+          <View style={pizzaDetailStyles.sizeOptionContainer}>
+            <RadioForm
+              formHorizontal={false}
+              buttonColor={'black'}
+              selectedButtonColor={'black'}
+              radio_props={pizzaCheese}
+              style={pizzaDetailStyles.radioVerticalForm}
+              initial={-1}
+              onPress={value => {
+                this.setState({cheeseType: value});
+              }}
+            />
+            <Text> current cheese : {this.state.cheeseType}</Text>
           </View>
         </View>
       );
@@ -156,54 +137,33 @@ export default class PizzaDetail extends Component {
         <ScrollView style={pizzaDetailStyles.scrollViewContainer}>
           <Text style={pizzaDetailStyles.optionTitleText}> Size </Text>
           <View style={pizzaDetailStyles.sizeOptionContainer}>
-            <View style={pizzaDetailStyles.checkBoxContainer}>
-              <CheckBox
-                value={this.state.largeSize}
-                onValueChange={() =>
-                  this.setState({largeSize: !this.state.largeSize})
-                }
-              />
-              <Text> Large size </Text>
-            </View>
-            <View style={pizzaDetailStyles.checkBoxContainer}>
-              <CheckBox
-                value={this.state.mediumSize}
-                onValueChange={() =>
-                  this.setState({mediumSize: !this.state.largeSize})
-                }
-              />
-              <Text> Medium size </Text>
-            </View>
+            <RadioForm
+              formHorizontal={true}
+              buttonColor={'black'}
+              selectedButtonColor={'black'}
+              radio_props={pizzaSize}
+              style={pizzaDetailStyles.radioHorizontalForm}
+              initial={-1}
+              onPress={value => {
+                this.setState({sizeType: value});
+              }}
+            />
+            <Text> current size : {this.state.sizeType}</Text>
           </View>
           <Text style={pizzaDetailStyles.optionTitleText}> Crust </Text>
-          <View style={pizzaDetailStyles.verticalOptionContainer}>
-            <View style={pizzaDetailStyles.checkBoxContainer}>
-              <CheckBox
-                value={this.state.thinCrust}
-                onValueChange={() =>
-                  this.setState({thinCrust: !this.state.thinCrust})
-                }
-              />
-              <Text> Thin Crust </Text>
-            </View>
-            <View style={pizzaDetailStyles.checkBoxContainer}>
-              <CheckBox
-                value={this.state.handTossed}
-                onValueChange={() =>
-                  this.setState({handTossed: !this.state.handTossed})
-                }
-              />
-              <Text> Hand Tossed </Text>
-            </View>
-            <View style={pizzaDetailStyles.checkBoxContainer}>
-              <CheckBox
-                value={this.state.newYorkCurst}
-                onValueChange={() =>
-                  this.setState({newYorkCurst: !this.state.newYorkCurst})
-                }
-              />
-              <Text> New York Crust </Text>
-            </View>
+          <View style={pizzaDetailStyles.sizeOptionContainer}>
+            <RadioForm
+              formHorizontal={false}
+              buttonColor={'black'}
+              selectedButtonColor={'black'}
+              radio_props={pizzaCrust}
+              style={pizzaDetailStyles.radioVerticalForm}
+              initial={-1}
+              onPress={value => {
+                this.setState({crustType: value});
+              }}
+            />
+            <Text> current crust : {this.state.crustType}</Text>
           </View>
           <View>{this.renderCheeseOptions()}</View>
           <Text style={pizzaDetailStyles.optionTitleText}> Quantity </Text>

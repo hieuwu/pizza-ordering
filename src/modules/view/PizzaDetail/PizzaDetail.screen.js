@@ -40,7 +40,6 @@ export default class PizzaDetail extends Component {
       crustType: 'thin',
       cheeseType: 'extra',
       quantity: 0,
-      cheese: true,
     };
   }
 
@@ -87,11 +86,11 @@ export default class PizzaDetail extends Component {
       return (
         <View>
           <Text style={pizzaDetailStyles.optionTitleText}> Cheese </Text>
-          <View style={pizzaDetailStyles.sizeOptionContainer}>
+          <View style={pizzaDetailStyles.radioContainer}>
             <RadioForm
               formHorizontal={false}
-              buttonColor={'black'}
-              selectedButtonColor={'black'}
+              buttonColor={colors.ovalColor}
+              selectedButtonColor={colors.ovalColor}
               radio_props={pizzaCheese}
               style={pizzaDetailStyles.radioVerticalForm}
               initial={-1}
@@ -136,11 +135,11 @@ export default class PizzaDetail extends Component {
         </View>
         <ScrollView style={pizzaDetailStyles.scrollViewContainer}>
           <Text style={pizzaDetailStyles.optionTitleText}> Size </Text>
-          <View style={pizzaDetailStyles.sizeOptionContainer}>
+          <View style={pizzaDetailStyles.radioContainer}>
             <RadioForm
               formHorizontal={true}
-              buttonColor={'black'}
-              selectedButtonColor={'black'}
+              buttonColor={colors.ovalColor}
+              selectedButtonColor={colors.ovalColor}
               radio_props={pizzaSize}
               style={pizzaDetailStyles.radioHorizontalForm}
               initial={-1}
@@ -151,11 +150,11 @@ export default class PizzaDetail extends Component {
             <Text> current size : {this.state.sizeType}</Text>
           </View>
           <Text style={pizzaDetailStyles.optionTitleText}> Crust </Text>
-          <View style={pizzaDetailStyles.sizeOptionContainer}>
+          <View style={pizzaDetailStyles.radioContainer}>
             <RadioForm
               formHorizontal={false}
-              buttonColor={'black'}
-              selectedButtonColor={'black'}
+              buttonColor={colors.ovalColor}
+              selectedButtonColor={colors.ovalColor}
               radio_props={pizzaCrust}
               style={pizzaDetailStyles.radioVerticalForm}
               initial={-1}

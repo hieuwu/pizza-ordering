@@ -38,30 +38,12 @@ export default StyleSheet.create({
     margin: 4,
     textAlign: 'center',
   },
-  sizeOptionContainer: {
+  radioContainer: {
     backgroundColor: colors.white,
     borderRadius: 10,
     justifyContent: 'center',
     alignContent: 'center',
     margin: 8,
-  },
-  verticalOptionContainer: {
-    backgroundColor: colors.white,
-    margin: 8,
-    borderRadius: 10,
-    flexWrap: 'wrap',
-    flexDirection: 'column',
-  },
-  checkBoxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  cheeseContainer: {
-    width: '95%',
-    margin: 8,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   addCartBtn: {
     flexDirection: 'row',

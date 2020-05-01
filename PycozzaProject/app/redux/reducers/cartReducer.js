@@ -1,4 +1,4 @@
-import {ADDTOCART, REMOVEFROMCART} from '../actions/type';
+import { ADDTOCART, REMOVEFROMCART } from '../actions/type';
 import todo from './cartItemReducer'
 
 const todos = (state = [], action) => {
@@ -8,13 +8,18 @@ const todos = (state = [], action) => {
                 ...state,
                 todo(undefined, action.orderLine)
             ];
-        case 'TOGGLE_TODO':
-            return state.map(t =>
-                todo(t, action)
-            );
+        case 'REMOVE_TODO':
+            {
+               
+                    let newArr = [...state.filter((elem, idx) => {
+                        return elem.id != action.id
+                    })];
+                    return newArr;
+            }
         default:
             return state;
     }
 };
+
 
 export default todos;

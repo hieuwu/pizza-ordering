@@ -1,23 +1,18 @@
 import {ADDTOCART, REMOVEFROMCART} from '../actions/type';
 
-const initialState = 0;
 
 const  todo = (state, action) => {
     switch (action.type) {
         case 'ADD_TODO':
             return {
                 id: action.id,
-                text: action.text,
-                completed: false
-            };
-        case 'TOGGLE_TODO':
-            if (state.id !== action.id) {
-                return state;
-            }
-            return {
-                ...state,
-                completed: !state.completed
-            };
+                name: action.name,
+                price: action.price,
+                quantity: action.quantity,
+                size: action.size,
+                crust: action.crust,
+                imgLink: action.imgLink,
+                };
         default:
             return state;
     }

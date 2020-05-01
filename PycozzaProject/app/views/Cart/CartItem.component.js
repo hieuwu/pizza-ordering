@@ -8,11 +8,11 @@ export default class CartItem extends Component {
     render() {
         return (
             <View style={styles.itemWraper}>
-                <Image style={styles.itemImage} source={{ uri: this.props.item.imageURL }} />
+                <Image style={styles.itemImage} source={{ uri: this.props.item.imgLink }} />
                 <View style={{ marginLeft: 50, }}>
                     <Text style={styles.title}>{this.props.item.name}</Text>
                     <Text>{this.props.item.size}</Text>
-                    <Text style={styles.price}>{this.props.item.price * this.props.item.quantity} {string.currency}</Text>
+                    <Text style={styles.price}>{this.props.item.price * this.props.item.quantity +'.000'} {string.currency}</Text>
                 </View>
                 <Text style={{ fontWeight: 'bold' }}>x{this.props.item.quantity}</Text>
                 <TouchableOpacity onPress={this.props.deleteItem}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image,AsyncStorage } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -14,6 +14,7 @@ import dimension from '../../resources/dimensions';
 import CartItem from '../../views/Cart/CartItem.component';
 import { Divider } from 'react-native-elements';
 import { connect } from 'react-redux';
+import { removeFromCart } from '../../redux/actions/index';
 let productList = [
     {
         id: '1',
@@ -80,57 +81,78 @@ let productList = [
     },
 
 ];
-function Item({ title }) {
-    return (
-      <View>
-        <Text>{title}</Text>
-      </View>
-    );
-  }
 
 class CartScreen extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         data: this.props.state,
-    //         total: this.countMoney(productList),
-    //     }
-    // }
-    // removeItem = (item) => {
-    //     const index = productList.indexOf(item);
-    //     if (index > -1) {
-    //         productList.splice(index, 1);
-    //     }
-    //     this.setState({ data: productList });
-    //     this.setState({ total: this.countMoney(productList) })
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            total: this.countMoney(),
+            cart: []
+        }
+    }
+    removeItem = (item) => {
+        const { removeFromCart } = this.props;
+        let orderLine = {};
+        orderLine.id = item.id;
+        console.log('Clicked ID: ', orderLine.id);
+        removeFromCart(orderLine);
+        this.setState({ total: this.countMoney() })
+    }
 
-    // countMoney = (productList) => {
-    //     let sum = 0;
-    //     productList.forEach(element => {
-    //         sum += element.price * element.quantity;
-    //     });
-    //     return sum;
-    // }
+    countMoney = () => {
+        const { todos } = this.props;
+        if (todos.length == 0) {
+            return 0;
+        }
+        let sum = 0;
+        todos.forEach(element => {
+            sum += element.price * element.quantity;
+        });
+        return sum;
+    }
 
-    // renderProductItem = ({ item }) => {
-    //     return (
-    //         <CartItem item={item} deleteItem={() => this.removeItem(item)} />
-    //     )
-    // }
+    renderProductItem = ({ item }) => {
+        return (
+            <CartItem item={item} deleteItem={() => this.removeItem(item)} />
+        )
+    
+    }
+
+
+     componentDidMount() {
+    //    const {todos} = this.props;
+    //     try {
+    //         await AsyncStorage.setItem('mycart', JSON.stringify(todos));
+    //     } catch (error) {
+    //         // Error retrieving data
+    //         console.log(error.message);
+    //     }
+    }
+
+     showUserId() {
+        // let userId = '';
+        // try {
+        //     userId = await AsyncStorage.getItem('mycart') || 'none';
+        // } catch (error) {
+        //     // Error retrieving data
+        //     console.log(error.message);
+        // }
+        // let mycart = JSON.parse(userId);
+        console.log("mycart la: ");
+    }
 
     render() {
-        const {todos} = this.props;
-        console.log(todos);
+        const { todos } = this.props;
+        const totalPrice = this.countMoney();
         return (
             <View style={styles.container}>
                 <OvalShape />
-                {/* <View style={styles.table}>
+                <View style={styles.table}>
                     <View style={styles.tableHeader}>
                         <Text style={styles.headerTitle}>{productList.length} {string.promptItemCost} {this.state.total} {string.currency}</Text>
                     </View>
-                    {this.state.total ? (<View style={styles.listWraper}>
-                        <FlatList data={this.state.data} renderItem={this.renderProductItem}
+                    {totalPrice ? (<View style={styles.listWraper}>
+                        <FlatList data={todos} renderItem={this.renderProductItem}
                             keyExtractor={(productInfo) => productInfo.id} />
                     </View>) :
                         (<View style={styles.emptyCart}>
@@ -140,10 +162,11 @@ class CartScreen extends Component {
                     <View style={styles.dottedLine}></View>
                     <View style={styles.totalContainer}>
                         <Text style={styles.promptText}>{string.promptTotal}</Text>
-                        <Text style={styles.price}>{this.state.total} {string.currency}</Text>
+                        <Text style={styles.price}>{totalPrice + ',000'} {string.currency}</Text>
                     </View>
                 </View>
                 <Button title={string.buttonCheckOut}
+                    onPress={this.showUserId}
                     icon={
                         <Icon
                             name="arrow-right"
@@ -154,21 +177,18 @@ class CartScreen extends Component {
                     }
                     titleStyle={{ justifyContent: 'center', fontWeight: 'bold' }}
                     iconRight
-                    buttonStyle={styles.buttonCheckOut} /> */}
-                <FlatList
-                    data={todos}
-                    renderItem={({ item }) => <Item title={item.text} />}
-                    keyExtractor={item => item.id}
-                />
+                    buttonStyle={styles.buttonCheckOut} />
             </View>
         )
     }
 }
 
-const mapStateToProps = state => ({ 
-     todos: state.todos});
+const mapStateToProps = state => ({
+    todos: state.todos
+});
 
 const mapDispatchToProps = dispatch => ({
-  
+    removeFromCart: orderLine => dispatch(removeFromCart(orderLine))
+
 });
-export default connect(mapStateToProps,mapDispatchToProps)(CartScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(CartScreen)

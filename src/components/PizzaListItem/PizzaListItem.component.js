@@ -7,6 +7,9 @@ export default class PizzaListItem extends Component {
     super(props);
     this.state = {};
   }
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   render() {
     return (
@@ -25,11 +28,13 @@ export default class PizzaListItem extends Component {
         <View style={PizzaListItemStyles.sizeContainer}>
           <View style={PizzaListItemStyles.sizeItemContainer}>
             <Text> Size L: </Text>
-            <Text> {this.props.pizzaItemLargePrice} </Text>
+            <Text>{this.numberWithCommas(this.props.pizzaItemLargePrice)}</Text>
           </View>
           <View style={PizzaListItemStyles.sizeItemContainer}>
             <Text> Size M: </Text>
-            <Text> {this.props.pizzaItemMediumPrice} </Text>
+            <Text>
+              {this.numberWithCommas(this.props.pizzaItemMediumPrice)}
+            </Text>
           </View>
         </View>
       </View>

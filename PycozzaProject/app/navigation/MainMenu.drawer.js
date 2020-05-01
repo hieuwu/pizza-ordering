@@ -18,7 +18,7 @@ const isShown = false;
 
 export default function MainMenuDrawer() {
     return (
-        <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}
+        <Drawer.Navigator// drawerContent={props => <CustomDrawerContent {...props} />}
             drawerContentOptions={{ labelStyle: { color: color.white, fontSize: dimension.itemTitleSize, fontWeight: 'bold', } }}
             initialRouteName='Home'
             drawerStyle={{ backgroundColor: color.mainColor }} >
@@ -37,9 +37,10 @@ export default function MainMenuDrawer() {
                     <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />)
             }}
                 name='Cart' component={CartStack} />
-                 <Drawer.Screen options={{
+            <Drawer.Screen options={{
+                title: 'Pizza',
                 drawerIcon: () => (
-                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />)
+                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-list-box' />)
             }}
                 name='Product' component={ProductStack} />
         </Drawer.Navigator>

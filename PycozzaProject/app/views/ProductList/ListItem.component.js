@@ -3,12 +3,12 @@ import { Text, View, StyleSheet, Image } from 'react-native'
 import dimension from '../../resources/dimensions';
 import color from '../../resources/colors'
 import { TouchableOpacity } from 'react-native-gesture-handler';
-export default class ListItem extends Component {
+ class ListItem extends Component {
     render() {
         return (
             <TouchableOpacity onPress={this.props.gotoDetail}>
                 <View style={styles.itemWrapper}>
-                    <Image style={styles.itemImage} source={{ uri: this.props.item.imageURL }} />
+                   <Image style={styles.itemImage} source={{ uri: this.props.item.imageURL }} />
                     <View style={{
                         alignItems: 'center',
                         justifyContent: 'center'
@@ -21,12 +21,11 @@ export default class ListItem extends Component {
         )
     }
 }
-const styles = StyleSheet.create({
+const itemStyles = StyleSheet.create({
     itemWrapper: {
-        flexDirection: 'column',
+        flexDirection: 'row',
         marginVertical: 10,
-        backgroundColor: 'white',
-        marginHorizontal: 10,
+        backgroundColor: color.white,
         borderRadius: 15,
         padding: 8,
         shadowColor: color.shadowColor,
@@ -37,10 +36,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        marginHorizontal: 15,
         alignItems: 'center',
-        justifyContent: 'center',
-        width: dimension.window.width / 2.5,
+        justifyContent: 'space-around',
+        flex: 1,
+        width: dimension.window.width,
+        
     },
     itemTitle: {
         fontWeight: 'bold',
@@ -55,3 +55,5 @@ const styles = StyleSheet.create({
     }
 
 })
+
+export default itemStyles;

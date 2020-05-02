@@ -10,7 +10,7 @@ export default class CartItem extends Component {
 
   renderCheese(cheese) {
     if (cheese !== '') {
-      return <Text> {this.props.pizzaCheese} cheese </Text>;
+      return <Text> {this.props.pizzaCheese} </Text>;
     }
   }
 
@@ -32,7 +32,9 @@ export default class CartItem extends Component {
             {this.renderCheese(this.props.pizzaCheese)}
             <Text> {this.props.pizzaTitle} </Text>
           </View>
-          <Text style={styles.priceText}>Price : {this.props.totalPrice}</Text>
+          <Text style={styles.priceText}>
+            Price : {this.numberWithCommas(this.props.totalPrice)}
+          </Text>
         </View>
       </View>
     );

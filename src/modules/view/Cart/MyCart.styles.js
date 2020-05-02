@@ -48,4 +48,16 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     margin: 8,
   },
+  totalPriceContainer: {
+    // borderRadius: 8,
+    width: '100%',
+    backgroundColor: colors.ovalColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  priceText: {
+    color: colors.text,
+    fontSize: 20,
+    margin: 8,
+  },
 });

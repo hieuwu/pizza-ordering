@@ -15,18 +15,35 @@ import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
 
 let cartId = 0;
 let checkoutPrice = 0;
+const LARGE_SIZE_LABEL = 'Large - 12 inch';
+const MEDIUM_SIZE_LABEL = 'Medium - 9 inch';
+const EXTRA_CHEESE_LABEL = 'Extra cheese';
+const DOUBLE_CHEESE_LABEL = 'Double cheese';
+const TRIPLE_CHEESE_LABEL = 'Triple cheese';
+const THIN_CRUST_LABEL = 'Thin Crust';
+const HT_CRUST_LABEL = 'Hand Tossed Crust';
+const NY_CRUST_LABEL = 'New York Crust';
+
+const RADIO_LARGE_SIZE_TYPE = '12 inch';
+const RADIO_MEDIUM_LARGE_SIZE_TYPE = '9 inch';
+const RADIO_EXTRA_CHEESE_TYPE = 'extra cheese';
+const RADIO_DOUBLE_CHEESE_TYPE = 'double cheese';
+const RADIO_TRIPLE_CHEESE_TYPE = 'triple cheese';
+
+const RADIO_THIN_CRUST_TYPE = 'thin crust';
+const RADIO_HT_CRUST_TYPE = 'hand tossed crust';
+const RADIO_NY_CRUST_TYPE = 'new york crust';
 
 class PizzaDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sizeType: '12 inch',
-      crustType: 'thin crust',
-      cheeseType: 'extra cheese',
+      sizeType: RADIO_LARGE_SIZE_TYPE,
+      crustType: RADIO_THIN_CRUST_TYPE,
+      cheeseType: RADIO_EXTRA_CHEESE_TYPE,
       quantity: 1,
       sizePrice: this.props.route.params.data.largePrice,
       cheesePrice: 0,
-      totalPrice: 0,
     };
   }
 
@@ -78,16 +95,12 @@ class PizzaDetail extends Component {
               selectedButtonColor={colors.ovalColor}
               radio_props={pizzaCheese}
               style={pizzaDetailStyles.radioVerticalForm}
-              initial={-1}
+              initial={3}
               onPress={value => {
                 this.setState({cheesePrice: value.price});
                 this.setState({cheeseType: value.radioCheeseType});
               }}
             />
-            <Text>
-              current cheese price:
-              {this.numberWithCommas(this.state.cheesePrice)}
-            </Text>
           </View>
         </View>
       );
@@ -100,19 +113,17 @@ class PizzaDetail extends Component {
         <Text style={pizzaDetailStyles.optionTitleText}> Size </Text>
         <View style={pizzaDetailStyles.radioContainer}>
           <RadioForm
-            formHorizontal={true}
+            formHorizontal={false}
             buttonColor={colors.ovalColor}
             selectedButtonColor={colors.ovalColor}
             radio_props={pizzaSize}
-            style={pizzaDetailStyles.radioHorizontalForm}
+            style={pizzaDetailStyles.radioVerticalForm}
             initial={0}
             onPress={value => {
               this.setState({sizePrice: value.price});
               this.setState({sizeType: value.radioSizeType});
-              console.log('change choose size: ' + this.state.sizePrice);
             }}
           />
-          <Text> current size : {this.state.sizePrice}</Text>
         </View>
       </View>
     );
@@ -134,7 +145,6 @@ class PizzaDetail extends Component {
               this.setState({crustType: value});
             }}
           />
-          <Text> current crust : {this.state.crustType}</Text>
         </View>
       </View>
     );
@@ -165,14 +175,15 @@ class PizzaDetail extends Component {
     );
   }
 
+  calculateTotalPrice = () => {
+    return (
+      (this.state.sizePrice + this.state.cheesePrice) * this.state.quantity
+    );
+  };
+
   createCartLine = () => {
     const {addItemToCart} = this.props;
-    this.setState({
-      totalPrice:
-        (this.state.sizePrice + this.state.cheesePrice) * this.state.quantity,
-    });
-    checkoutPrice =
-      (this.state.sizePrice + this.state.cheesePrice) * this.state.quantity;
+    checkoutPrice = this.calculateTotalPrice();
     let cartLine = {};
     cartLine.type = ADD_ITEM_TO_CART;
     cartLine.id = String(cartId);
@@ -187,50 +198,69 @@ class PizzaDetail extends Component {
     cartId += 1;
   };
 
+  getMoneyDisplayed = (title, money) => {
+    return title + ' ( $' + this.numberWithCommas(money) + ' )';
+  };
+
   render() {
     const pizzaSize = [
       {
-        label: 'Large - 12 inch',
+        label: this.getMoneyDisplayed(
+          LARGE_SIZE_LABEL,
+          this.props.route.params.data.largePrice,
+        ),
         value: {
           price: this.props.route.params.data.largePrice,
-          radioSizeType: '12 inch',
+          radioSizeType: RADIO_LARGE_SIZE_TYPE,
         },
       },
       {
-        label: 'Medium - 9 inch',
+        label: this.getMoneyDisplayed(
+          MEDIUM_SIZE_LABEL,
+          this.props.route.params.data.mediumPrice,
+        ),
         value: {
           price: this.props.route.params.data.mediumPrice,
-          radioSizeType: '9 inch',
+          radioSizeType: RADIO_MEDIUM_LARGE_SIZE_TYPE,
         },
       },
     ];
     const pizzaCrust = [
-      {label: 'Thin Crust', value: 'thin crust'},
-      {label: 'Hand Tossed Crust', value: 'hand tossed crust'},
-      {label: 'New York Crust', value: 'new york crust'},
+      {label: THIN_CRUST_LABEL, value: RADIO_THIN_CRUST_TYPE},
+      {label: HT_CRUST_LABEL, value: RADIO_HT_CRUST_TYPE},
+      {label: NY_CRUST_LABEL, value: RADIO_NY_CRUST_TYPE},
     ];
     let pizzaCheese;
     if (this.props.route.params.data.cheesePrice !== undefined) {
       pizzaCheese = [
         {
-          label: 'Extra cheese',
+          label: this.getMoneyDisplayed(
+            EXTRA_CHEESE_LABEL,
+            this.props.route.params.data.cheesePrice.extra,
+          ),
           value: {
             price: this.props.route.params.data.cheesePrice.extra,
-            radioCheeseType: 'extra cheese',
+            radioCheeseType: RADIO_EXTRA_CHEESE_TYPE,
           },
         },
         {
-          label: 'Double cheese',
+          label: this.getMoneyDisplayed(
+            DOUBLE_CHEESE_LABEL,
+            this.props.route.params.data.cheesePrice.double,
+          ),
           value: {
             price: this.props.route.params.data.cheesePrice.double,
-            radioCheeseType: 'double cheese',
+            radioCheeseType: RADIO_DOUBLE_CHEESE_TYPE,
           },
         },
         {
-          label: 'Triple cheese',
+          label: this.getMoneyDisplayed(
+            TRIPLE_CHEESE_LABEL,
+            this.props.route.params.data.cheesePrice.triple,
+          ),
           value: {
             price: this.props.route.params.data.cheesePrice.triple,
-            radioCheeseType: 'triple cheese',
+            radioCheeseType: RADIO_TRIPLE_CHEESE_TYPE,
           },
         },
         {
@@ -242,6 +272,8 @@ class PizzaDetail extends Component {
         },
       ];
     }
+
+    const totalPrice = this.calculateTotalPrice();
 
     return (
       <View style={pizzaDetailStyles.container}>
@@ -260,6 +292,11 @@ class PizzaDetail extends Component {
             {this.props.route.params.data.description}
           </Text>
           {this.renderPrice()}
+          <View style={pizzaDetailStyles.priceContainer}>
+            <Text style={pizzaDetailStyles.priceText}>
+              Total : {this.numberWithCommas(totalPrice)}
+            </Text>
+          </View>
         </View>
         <ScrollView style={pizzaDetailStyles.scrollViewContainer}>
           <View>{this.renderSizeOptions(pizzaSize)}</View>
@@ -280,11 +317,6 @@ class PizzaDetail extends Component {
               onPress={this.decreaseQuantity}>
               <Icon name="minus-square" size={30} color={colors.ovalColor} />
             </TouchableOpacity>
-          </View>
-          <View style={pizzaDetailStyles.priceContainer}>
-            <Text style={pizzaDetailStyles.priceText}>
-              Total : {this.numberWithCommas(this.state.totalPrice)}
-            </Text>
           </View>
         </ScrollView>
         <View>

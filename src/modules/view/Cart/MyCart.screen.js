@@ -11,67 +11,10 @@ import CartItem from '../../../components/CartItem/CartItem.component';
 import {connect} from 'react-redux';
 import {removeItemFromCart} from '../../../redux/actions/index';
 
-const listCart = [
-  {
-    id: 1,
-    title: 'PRIME BEEF',
-    imageUrl: 'https://dominos.vn/Data/Sites/1/Product/577/prime-beef-full.png',
-    sizeType: '12 inch',
-    crustType: 'thin crust',
-    cheeseType: 'extra cheese',
-    quantity: 1,
-    totalPrice: 209000,
-  },
-  {
-    id: 2,
-    title: 'SINGAPORE STYLE SEAFOOD',
-    imageUrl:
-      'https://dominos.vn/Data/Sites/1/Product/576/sing-seafood2-full.png',
-    sizeType: '12 inch',
-    crustType: 'thin crust',
-    cheeseType: 'extra cheese',
-    quantity: 1,
-    totalPrice: 893000,
-  },
-  {
-    id: 3,
-    title: 'NEW YORK STYLE SEAFOOD',
-    imageUrl:
-      'https://dominos.vn/Data/Sites/1/Product/576/sing-seafood2-full.png',
-    sizeType: '12 inch',
-    crustType: 'thin crust',
-    cheeseType: 'extra cheese',
-    quantity: 1,
-    totalPrice: 345000,
-  },
-  {
-    id: 4,
-    title: 'PIZZA 04',
-    imageUrl:
-      'https://dominos.vn/Data/Sites/1/Product/576/sing-seafood2-full.png',
-    sizeType: '12 inch',
-    crustType: 'thin crust',
-    cheeseType: 'extra cheese',
-    quantity: 1,
-    totalPrice: 1540000,
-  },
-  {
-    id: 5,
-    title: 'PIZZA 05',
-    imageUrl:
-      'https://dominos.vn/Data/Sites/1/Product/576/sing-seafood2-full.png',
-    sizeType: '12 inch',
-    crustType: 'thin crust',
-    cheeseType: 'extra cheese',
-    quantity: 1,
-    totalPrice: 235000,
-  },
-];
-
 class MyCart extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: listCart};
+    this.state = {data: ''};
   }
 
   setHeaderBar() {
@@ -125,6 +68,24 @@ class MyCart extends Component {
     </View>
   );
 
+  summaryPrice = () => {
+    const {jobs} = this.props;
+    let totalPrice = 0;
+
+    if (jobs.length > 0) {
+      jobs.forEach(element => {
+        totalPrice += element.totalPrice;
+      });
+    } else {
+      totalPrice = 0;
+    }
+    return totalPrice;
+  };
+
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   removeCartLine = item => {
     const {removeItemFromCart} = this.props;
     let cartLine = {};
@@ -134,6 +95,7 @@ class MyCart extends Component {
 
   render() {
     const {jobs} = this.props;
+    const totalPrice = this.summaryPrice();
     return (
       <View style={cartStyles.container}>
         <OvalShape />
@@ -143,12 +105,17 @@ class MyCart extends Component {
           renderItem={this.renderCartItem}
           keyExtractor={item => item.id}
         />
-        <TouchableOpacity
-          style={cartStyles.checkOutBtn}
-          onPress={() => console.log('check out ')}>
-          <Text style={cartStyles.checkOutBtnText}> CHECK OUT </Text>
-          <Icon name="arrow-circle-right" size={35} color={colors.icon} />
-        </TouchableOpacity>
+        <View style={cartStyles.totalPriceContainer}>
+          <Text style={cartStyles.priceText}>
+            Total price: {this.numberWithCommas(totalPrice)}
+          </Text>
+          <TouchableOpacity
+            style={cartStyles.checkOutBtn}
+            onPress={() => this.summaryPrice}>
+            <Text style={cartStyles.checkOutBtnText}> CHECK OUT </Text>
+            <Icon name="arrow-circle-right" size={35} color={colors.icon} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

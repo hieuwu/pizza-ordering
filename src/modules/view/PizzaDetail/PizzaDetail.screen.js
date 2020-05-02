@@ -8,10 +8,19 @@ import OvalShape from '../../../components/OvalShape/OvalShape.component';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import RadioForm from 'react-native-simple-radio-button';
 
-export default class PizzaDetail extends Component {
+//redux:
+import {connect} from 'react-redux';
+import {addItemToCart} from '../../../redux/actions/index';
+import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
+
+let cartId = 0;
+let checkoutPrice = 0;
+
+class PizzaDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      sizeType: '12 inch',
       crustType: 'thin crust',
       cheeseType: 'extra cheese',
       quantity: 1,
@@ -98,7 +107,8 @@ export default class PizzaDetail extends Component {
             style={pizzaDetailStyles.radioHorizontalForm}
             initial={0}
             onPress={value => {
-              this.setState({sizePrice: value});
+              this.setState({sizePrice: value.price});
+              this.setState({sizeType: value.radioSizeType});
               console.log('change choose size: ' + this.state.sizePrice);
             }}
           />
@@ -155,23 +165,43 @@ export default class PizzaDetail extends Component {
     );
   }
 
-  calculateTotalPrice = () => {
+  createCartLine = () => {
+    const {addItemToCart} = this.props;
     this.setState({
       totalPrice:
         (this.state.sizePrice + this.state.cheesePrice) * this.state.quantity,
     });
-    console.log(this.state);
+    checkoutPrice =
+      (this.state.sizePrice + this.state.cheesePrice) * this.state.quantity;
+    let cartLine = {};
+    cartLine.type = ADD_ITEM_TO_CART;
+    cartLine.id = String(cartId);
+    cartLine.title = this.props.route.params.data.title;
+    cartLine.imageUrl = this.props.route.params.data.imageSource;
+    cartLine.sizeType = this.state.sizeType;
+    cartLine.crustType = this.state.crustType;
+    cartLine.cheeseType = this.state.cheeseType;
+    cartLine.quantity = this.state.quantity;
+    cartLine.totalPrice = checkoutPrice;
+    addItemToCart(cartLine);
+    cartId += 1;
   };
 
   render() {
     const pizzaSize = [
       {
         label: 'Large - 12 inch',
-        value: this.props.route.params.data.largePrice,
+        value: {
+          price: this.props.route.params.data.largePrice,
+          radioSizeType: '12 inch',
+        },
       },
       {
         label: 'Medium - 9 inch',
-        value: this.props.route.params.data.mediumPrice,
+        value: {
+          price: this.props.route.params.data.mediumPrice,
+          radioSizeType: '9 inch',
+        },
       },
     ];
     const pizzaCrust = [
@@ -260,7 +290,7 @@ export default class PizzaDetail extends Component {
         <View>
           <TouchableOpacity
             style={pizzaDetailStyles.addCartBtn}
-            onPress={this.calculateTotalPrice}>
+            onPress={this.createCartLine}>
             <Text style={pizzaDetailStyles.addCartText}> ADD TO CART </Text>
             <Icon name="cart-arrow-down" size={20} color={colors.icon} />
           </TouchableOpacity>
@@ -269,3 +299,14 @@ export default class PizzaDetail extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+  addItemToCart: cartLine => dispatch(addItemToCart(cartLine)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PizzaDetail);

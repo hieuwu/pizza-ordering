@@ -33,4 +33,19 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: colors.text,
   },
+  iconContainer: {
+    height: '100%',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+  },
+  cartLineContainer: {
+    backgroundColor: colors.white,
+    flexDirection: 'row',
+    height: 130,
+    width: '95%',
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    margin: 8,
+  },
 });

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import styles from './CartItem.style';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import colors from '../../modules/resources/colors/Colors';
 
 export default class CartItem extends Component {
   constructor(props) {
@@ -35,14 +33,6 @@ export default class CartItem extends Component {
             <Text> {this.props.pizzaTitle} </Text>
           </View>
           <Text style={styles.priceText}>Price : {this.props.totalPrice}</Text>
-        </View>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity>
-            <Icon name="times" size={30} color={colors.ovalColor} />
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Icon name="edit" size={30} color={colors.ovalColor} />
-          </TouchableOpacity>
         </View>
       </View>
     );

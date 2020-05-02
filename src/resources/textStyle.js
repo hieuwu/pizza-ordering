@@ -177,6 +177,16 @@ const textStyle = StyleSheet.create({
     color: '#FFFFFF',
   },
 
+  cartBoxFooter: {
+    fontSize: 17,
+    color: '#0b2031',
+  },
+
+  cartBoxFooterPrice:{
+    fontSize: 20,
+    color: '#20ab2c',
+  },
+
   ItemCartListName: {
     fontSize: 17,
     color: '#0b2031',
@@ -193,6 +203,54 @@ const textStyle = StyleSheet.create({
     fontSize: 17,
     color: '#20ab2c',
     width: 0.4 * w,
+  },
+
+  CheckOutHeaderInfo: {
+    fontSize: 17,
+    color: '#FFFFFF',
+  },
+
+  OrderInfoTitle:{
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 20,
+    color: '#0b2031',
+    fontWeight: 'bold',
+  },
+
+  OrderInfoField:{
+    marginTop: 15,
+    marginBottom: 3,
+    fontSize: 15,
+    color: '#0b2031',
+  },
+
+  StringInputCheckOut:{
+    height: 45,
+    width: 0.9 * w,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: '#d1d5d8',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 5,
+  },
+
+  StringInputCheckOutNote:{
+    height: 90,
+    width: 0.9 * w,
+    fontSize: 15,
+    borderWidth: 1,
+    borderColor: '#d1d5d8',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 5,
+    textAlignVertical: 'top',
+  },
+
+  backButtonCheckOut:{
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#0b2031',
+    letterSpacing: 0.16,
   },
 });
 

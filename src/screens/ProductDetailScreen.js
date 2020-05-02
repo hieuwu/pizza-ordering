@@ -48,6 +48,10 @@ export default class ProductDetailScreen extends Component {
             this.setState({isOpenPanel: false});
             navigation.navigate('Log In Screen');
           }}
+          onClickUser={() => {
+            this.setState({isOpenPanel: false});
+            navigation.navigate('User Profile Screen');
+          }}
         />
         <OrderPanel
           modalVisible={this.state.isOpenOrderPanel}
@@ -61,11 +65,6 @@ export default class ProductDetailScreen extends Component {
             source={{uri: imageUrl}}
             resizeMode="cover"
           />
-          <TouchableOpacity
-            style={dimensionStyles.goBackIconDetailScreen}
-            onPress={this.navigateBack}>
-            <Icon name="angle-left" size={30} color="#0a1e2f" />
-          </TouchableOpacity>
           <Text numberOfLines={2} style={textStyle.ProductDetailName}>
             {title}
           </Text>
@@ -80,9 +79,14 @@ export default class ProductDetailScreen extends Component {
             <Text style={textStyle.ProductDetailPrice}>Price: {price}</Text>
           </View>
           <TouchableOpacity
-            style={dimensionStyles.orderButtonDetailScreen}
+            style={dimensionStyles.checkOutButton}
             onPress={() => this.setState({isOpenOrderPanel: true})}>
             <Text style={textStyle.orderNowButton}>ORDER NOW</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={dimensionStyles.goBackIconDetailScreen}
+            onPress={this.navigateBack}>
+            <Icon name="angle-left" size={30} color="#0a1e2f" />
           </TouchableOpacity>
         </ScrollView>
         <BarsIcon onClick={() => this.setState({isOpenPanel: true})} />

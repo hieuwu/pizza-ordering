@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
+import {View, Text, ImageBackground, TouchableOpacity, StatusBar} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {dimensionStyles} from '../resources/dimension.js';
 import {string} from '../resources/string.js';
@@ -16,6 +16,7 @@ export default class HomeScreen extends Component {
   render() {
     return (
       <View style={dimensionStyles.HomeContainer}>
+        <StatusBar hidden />
         <ImageBackground
           style={dimensionStyles.HomeImg}
           source={HomeImg}

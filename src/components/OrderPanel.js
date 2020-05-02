@@ -90,7 +90,7 @@ class OrderPanel extends Component {
   };
 
   getProductOption = async () => {
-    this.setState({isLoading: true});
+    //this.setState({isLoading: true});
     const {productData, modifiedOrderLineIndex, oldState} = this.props;
     const {_id} = productData;
     try {
@@ -118,7 +118,8 @@ class OrderPanel extends Component {
       alert(errorMessage);
       console.log(errorMessage);
     }
-    this.filterOptionByType(this.state.data);
+    const data=JSON.parse(JSON.stringify(this.state.data));
+    this.filterOptionByType(data);
     this.setState({isLoading: false});
   };
 
@@ -189,7 +190,7 @@ class OrderPanel extends Component {
 
   showTopping = ({item}) => {
     const {title, price} = item;
-    const {topping} = this.state;
+    let topping = [...this.state.topping];
     let checkInclude = topping.includes(title);
     if (checkInclude === true) {
       return (
@@ -225,6 +226,7 @@ class OrderPanel extends Component {
   calculatePrice = () => {
     const {productData} = this.props;
     let {price} = productData;
+
     let totalPrice = price;
 
     const {
@@ -260,6 +262,7 @@ class OrderPanel extends Component {
 
     return totalPrice;
   };
+
   createOrderLine = totalPrice => {
     const {addToCart} = this.props;
     const {productData} = this.props;
@@ -334,7 +337,10 @@ class OrderPanel extends Component {
         animationType="none"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={RequestClose}
+        onRequestClose={() => {
+          RequestClose();
+          this.setState({isLoading: true});
+        }}
         onShow={this.getProductOption}>
         {this.state.isLoading ? (
           <View style={dimensionStyles.OrderPanel}>
@@ -345,7 +351,10 @@ class OrderPanel extends Component {
             <View style={dimensionStyles.OrderPanel}>
               <ScrollView>
                 <TouchableOpacity
-                  onPress={onClose}
+                  onPress={() => {
+                    onClose();
+                    this.setState({isLoading: true});
+                  }}
                   style={dimensionStyles.XIconOrderPanel}>
                   <Icon name="close" size={30} color="#e5293e" />
                 </TouchableOpacity>
@@ -458,6 +467,7 @@ class OrderPanel extends Component {
                       } else {
                         this.createOrderLine(totalPrice);
                         RequestClose();
+                        this.setState({isLoading: true});
                       }
                     }}>
                     <Text style={textStyle.orderNowButton}>ADD TO CART</Text>
@@ -473,6 +483,7 @@ class OrderPanel extends Component {
                       } else {
                         this.createOrderLine(totalPrice);
                         RequestClose();
+                        this.setState({isLoading: true});
                       }
                     }}>
                     <Text style={textStyle.orderNowButton}>MODIFY</Text>

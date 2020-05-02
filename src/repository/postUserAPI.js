@@ -7,13 +7,13 @@ let config = {
   }
 }
 
-async function getAPI(url) {
+async function postUserAPI(url, data) {
   try {
-    let response = await API.get(url, config);
+    let response = await API.post(url, data, config);
     return response;
   } catch (error) {
     return Promise.reject(error);
   }
 }
 
-export default getAPI;
+export default postUserAPI;

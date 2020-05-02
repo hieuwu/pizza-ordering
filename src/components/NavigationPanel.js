@@ -7,6 +7,7 @@ import {
   View,
   FlatList,
   ScrollView,
+  StatusBar
 } from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -55,9 +56,12 @@ class NavigationPanel extends Component {
       onClickHome,
       onClickCart,
       onClickLogIn,
+      onClickUser,
       RequestClose,
     } = this.props;
     return (
+      <>
+      <StatusBar hidden={true} />
       <Modal
         animationType="none"
         transparent={true}
@@ -141,11 +145,13 @@ class NavigationPanel extends Component {
               </TouchableOpacity>
             ) : (
               <>
-                <View style={dimensionStyles.LineNavigationPanel}>
-                  <Text style={textStyle.TextNavigationPanel}>
-                    Welcome {userToken.user.name}
+                <TouchableOpacity
+                  onPress={onClickUser}
+                  style={dimensionStyles.LineNavigationPanel}>
+                  <Text numberOfLines={2} style={textStyle.TextNavigationPanel}>
+                    {`Welcome \n${userToken.user.name}`}
                   </Text>
-                </View>
+                </TouchableOpacity>
                 <TouchableOpacity
                   onPress={this.LogOut}
                   style={dimensionStyles.LineNavigationPanel}>
@@ -157,6 +163,7 @@ class NavigationPanel extends Component {
           </ScrollView>
         </View>
       </Modal>
+      </>
     );
   }
 }
@@ -169,6 +176,7 @@ NavigationPanel.propTypes = {
   onClickMenu: PropTypes.func,
   onClickCart: PropTypes.func,
   onClickLogIn: PropTypes.func,
+  onClickUser: PropTypes.func,
   RequestClose: PropTypes.func,
 };
 

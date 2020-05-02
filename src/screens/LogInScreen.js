@@ -12,7 +12,7 @@ import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {string} from '../resources/string.js';
 import {StringInput} from '../components/StringInput.js';
-import postAPI from '../repository/postAPI.js';
+import postUserAPI from '../repository/postUserAPI.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {AsyncStorage} from 'react-native';
 import background from '../../assets/background.jpg';
@@ -47,15 +47,19 @@ class LogInScreen extends Component {
   LogIn = async LogInData => {
     const {setUserToken} = this.props;
     try {
-      let response = await postAPI('/user/login', LogInData);
+      let response = await postUserAPI('/user/login', LogInData);
       let userToken = response.data;
       await AsyncStorage.setItem('userToken', JSON.stringify(userToken));
       setUserToken(userToken);
       alert('Log in successfully!');
       this.navigateBack();
     } catch (errorMessage) {
-      alert(errorMessage);
-      console.log(errorMessage);
+      if (errorMessage===401) {
+        alert("Invalid user's phone number or password")
+      } else {
+        alert(errorMessage);
+        console.log(errorMessage);
+      }
     }
     this.setState({isLoading: false});
   };

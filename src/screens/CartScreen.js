@@ -8,12 +8,14 @@ import {
   ScrollView,
   FlatList,
   Image,
+  Dimensions
 } from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {deleteOrderLine} from '../redux/actions.js';
 import OrderPanel from '../components/OrderPanel.js';
+import TearLines from '../components/TearLines.js';
 
 class CartScreen extends Component {
   state = {
@@ -92,9 +94,21 @@ class CartScreen extends Component {
     });
   };
 
+  navigateToLogInScreen = () => {
+    const {navigation} = this.props;
+    navigation.navigate('Log In Screen');
+  }
+
+  navigateToCheckOutScreen = () => {
+    const totalPrice = this.calculateTotalPrice();
+    const {navigation} = this.props;
+    navigation.navigate('Check Out Screen', {
+      totalPrice: totalPrice,
+    });
+  };
+
   render() {
-    const {orderLineArray} = this.props;
-    console.log(orderLineArray);
+    const {orderLineArray, userToken} = this.props;
     const totalPrice = this.calculateTotalPrice();
     const {productData, oldState, modifiedOrderLineIndex} = this.state;
 
@@ -125,16 +139,40 @@ class CartScreen extends Component {
               </Text>
             </View>
             <FlatList
+              nestedScrollEnabled={true}
               numColumns={1}
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
               data={orderLineArray}
               renderItem={this.showCartList}
             />
+            <View style={dimensionStyles.dashLine} />
+            <View style={dimensionStyles.cartBoxFooter}>
+              <Text style={textStyle.cartBoxFooter}>
+                TOTAL
+              </Text>
+              <Text style={textStyle.cartBoxFooterPrice}>
+                ${totalPrice}
+              </Text>
+            </View>         
           </View>
+          <TearLines
+              isUnder
+              width={0.9 * Dimensions.get('window').width}
+              color="#FFFFFF"
+          />
           <TouchableOpacity
             style={dimensionStyles.checkOutButton}
-            onPress={() => this.setState({isOpenOrderPanel: true})}>
+            onPress={() => {
+              if (userToken===null) {
+                alert('Please log in first!')
+                this.navigateToLogInScreen()
+              } else if (orderLineArray.length===0) {
+                alert('Your cart is still empty!')
+              } else {
+                this.navigateToCheckOutScreen()
+              }
+            }}>
             <Text style={textStyle.orderNowButton}>CHECK OUT</Text>
           </TouchableOpacity>
         </ScrollView>
@@ -145,10 +183,12 @@ class CartScreen extends Component {
 
 CartScreen.propTypes = {
   orderLineArray: PropTypes.array,
+  userToken: PropTypes.object,
 };
 
 const mapStateToProps = state => ({
   orderLineArray: state.orderLineArray,
+  userToken: state.userToken,
 });
 
 const mapDispatchToProps = dispatch => ({

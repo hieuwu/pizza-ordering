@@ -98,7 +98,8 @@ export default class ProductListScreen extends Component {
       return <SplashScreen />;
     }
 
-    const sortedData = this.sortByRate(this.state.data);
+    const data=JSON.parse(JSON.stringify(this.state.data));
+    const sortedData = this.sortByRate(data);
     const favoriteProduct = this.pickFavoriteProduct(sortedData);
 
     return (
@@ -125,6 +126,10 @@ export default class ProductListScreen extends Component {
           onClickLogIn={() => {
             this.setState({isOpenPanel: false});
             navigation.navigate('Log In Screen');
+          }}
+          onClickUser={() => {
+            this.setState({isOpenPanel: false});
+            navigation.navigate('User Profile Screen');
           }}
         />
         <OrderPanel

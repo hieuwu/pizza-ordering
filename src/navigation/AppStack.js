@@ -15,6 +15,9 @@ import ProductDetailScreen from '../screens/ProductDetailScreen.js';
 import CartScreen from '../screens/CartScreen.js';
 import LogInScreen from '../screens/LogInScreen.js';
 import SignUpScreen from '../screens/SignUpScreen.js';
+import CheckOutScreen from '../screens/CheckOutScreen.js';
+import ConfirmScreen from '../screens/ConfirmScreen.js';
+import UserProfileScreen from '../screens/UserProfileScreen.js';
 import getAPI from '../repository/getAPI.js';
 
 const Stack = createStackNavigator();
@@ -45,6 +48,9 @@ class AppStack extends Component {
         <Stack.Screen name="Cart Screen" component={CartScreen} />
         <Stack.Screen name="Log In Screen" component={LogInScreen} />
         <Stack.Screen name="Sign Up Screen" component={SignUpScreen} />
+        <Stack.Screen name="Check Out Screen" component={CheckOutScreen} />
+        <Stack.Screen name="Confirm Screen" component={ConfirmScreen} />
+        <Stack.Screen name="User Profile Screen" component={UserProfileScreen} />
       </Stack.Navigator>
     );
   }

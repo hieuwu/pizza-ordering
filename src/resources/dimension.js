@@ -138,7 +138,7 @@ const dimensionStyles = StyleSheet.create({
   },
 
   CarouselContainer: {
-    height: 0.5 * h,
+    height: 0.55 * h,
     width: w,
   },
 
@@ -163,7 +163,7 @@ const dimensionStyles = StyleSheet.create({
 
   favoriteProductInfoContainer: {
     width: 0.8 * w,
-    height: 0.16 * h,
+    height: 0.17 * h,
     paddingTop: 10,
     paddingLeft: 20,
     backgroundColor: '#0b2031',
@@ -173,7 +173,7 @@ const dimensionStyles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'flex-end',
     width: 0.25 * w,
-    height: 0.16 * h,
+    height: 0.17 * h,
     borderWidth: 5,
     borderColor: '#0b2031',
     borderBottomRightRadius: 20,
@@ -183,7 +183,7 @@ const dimensionStyles = StyleSheet.create({
   },
 
   favoriteProductInfo: {
-    marginTop: 10,
+    marginTop: 3,
     flexDirection: 'row',
     alignItems: 'center',
     height: 15,
@@ -254,6 +254,8 @@ const dimensionStyles = StyleSheet.create({
   },
 
   goBackIconDetailScreen: {
+    width: 30,
+    height: 30,
     position: 'absolute',
     marginTop: 0.39 * h,
     marginLeft: 10,
@@ -275,15 +277,6 @@ const dimensionStyles = StyleSheet.create({
     height: 16,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-
-  orderButtonDetailScreen: {
-    width: 0.9 * w,
-    height: 54,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e5293e',
-    borderRadius: 27,
   },
 
   OrderPanel: {
@@ -384,16 +377,19 @@ const dimensionStyles = StyleSheet.create({
   },
 
   goBackIconSignUpScreen: {
+    width: 30,
+    height: 30,
     position: 'absolute',
-    marginTop: 10,
-    marginLeft: 10,
+    top: 10,
+    left: 10,
   },
 
   cartBox: {
     width: 0.9 * w,
     height: 0.8 * h,
     elevation: 10,
-    borderRadius: 10,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     alignSelf: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
@@ -461,6 +457,127 @@ const dimensionStyles = StyleSheet.create({
   ItemCartListImage: {
     width: 0.2 * w,
     height: 0.11 * h,
+  },
+
+  cartBoxFooter: {
+    padding: 10,
+    width: 0.9 * w,
+    height: 0.09 * h,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 10,
+  },
+
+  dashLine: {
+    width: 0.9 * w, 
+    borderRadius: 1, 
+    borderWidth: 1, 
+    borderColor: '#0b2031', 
+    borderStyle: 'dashed',
+  },
+
+  dashLineCheckOut:{
+    width: 0.9 * w, 
+    borderRadius: 1, 
+    borderWidth: 1, 
+    borderColor: '#FFFFFF', 
+    borderStyle: 'dashed',
+  },
+
+  CheckOutHeaderContainer: {
+    width: w,
+    height: 0.28*h,
+    backgroundColor: '#e5293e',
+    alignItems: 'center',
+  },
+
+  CheckOutHeaderInfo: {
+    width: 0.9*w,
+    height: 0.1*h,
+    justifyContent: 'center',
+  },
+
+  CheckOutHeaderDatePrice:{
+    marginTop: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  orderInfoContainer:{
+    marginTop: 10,
+    width: 0.9*w,
+    alignSelf: 'center',
+  },
+
+  paymentMethodPicker:{
+    marginTop: 10,
+    marginBottom: 30,
+    marginLeft: 5,
+    marginRight: 5,
+    width: 0.3 * w,
+    height: 0.18 * h,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#e5293e',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  paymentMethodPickerUnpick:{
+    marginTop: 10,
+    marginBottom: 30,
+    marginLeft: 5,
+    marginRight: 5,
+    width: 0.3 * w,
+    height: 0.18 * h,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#aeaeae',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  ImagePaymentMethod:{
+    width: 0.22*w,
+    height: 0.12*h,
+    marginTop: 5,
+    marginBottom: 5,
+  },
+
+  checkIconPaymentMethod:{
+    position: 'absolute',
+    width: 26,
+    height: 26,
+    borderRadius: 13,
+    backgroundColor: '#e5293e',
+    left: 0.3 * w - 22,
+    bottom: 0.18 * h - 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  continueButtonCheckOut:{
+    width: 0.9 * w,
+    height: 54,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e5293e',
+    borderRadius: 27,
+    marginTop: 20,
+    marginBottom: 5,
+  },
+
+  backButtonCheckOut:{
+    width: 0.9 * w,
+    height: 54,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderRadius: 27,
+    marginTop: 5,
+    marginBottom: 20,
   },
 });
 

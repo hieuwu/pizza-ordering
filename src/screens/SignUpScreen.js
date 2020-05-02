@@ -10,7 +10,7 @@ import {
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {StringInput} from '../components/StringInput.js';
-import postAPI from '../repository/postAPI.js';
+import postUserAPI from '../repository/postUserAPI.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import background from '../../assets/background.jpg';
 
@@ -49,7 +49,7 @@ export default class SignUpScreen extends Component {
 
   SignUp = async SignUpData => {
     try {
-      let response = await postAPI('/user', SignUpData);
+      let response = await postUserAPI('/user', SignUpData);
       //console.log(response.data)
       alert('Sign up successfully!');
     } catch (errorMessage) {

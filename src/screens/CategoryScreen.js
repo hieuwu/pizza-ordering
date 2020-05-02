@@ -72,6 +72,10 @@ class CategoryScreen extends Component {
             this.setState({isOpenPanel: false});
             navigation.navigate('Log In Screen');
           }}
+          onClickUser={() => {
+            this.setState({isOpenPanel: false});
+            navigation.navigate('User Profile Screen');
+          }}
         />
         <FlatList
           numColumns={1}

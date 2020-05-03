@@ -1,6 +1,7 @@
 const string = {
-    promptFirstName: 'First name',
+    promptFullName: 'Full name',
     promptLastName: 'Last name',
+    promptAddress: 'Shipping address:',
     promptPhone: 'Phone number',
     promptEmail: 'Email',
     buttonSignIn: 'Sign in',
@@ -17,8 +18,8 @@ const string = {
     categories: {
         pizza: 'Pizza',
         sidedish: 'Side dish',
-        dessert: 'Desert',
-        beverage: 'Bevergae',
+        dessert: 'Dessert',
+        beverage: 'Beverage',
     },
     promptTotal: 'Total: ',
     currency: 'VNĐ'

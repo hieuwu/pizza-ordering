@@ -14,21 +14,21 @@ export default StyleSheet.create({
   },
   imageContainer: {
     width: '100%',
-    height: dimensions.screenSize.height / 3,
+    height: dimensions.screenSize.height / 4,
     justifyContent: 'center',
     alignItems: 'center',
   },
   image: {
-    width: '80%',
-    height: '80%',
-    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
   },
   pizzaTitle: {
     fontSize: 30,
     fontWeight: 'bold',
+    alignSelf: 'center',
   },
   pizzaDescription: {
-    margin: 8,
     fontSize: 15,
     textAlign: 'center',
   },
@@ -53,7 +53,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.mainRed,
-    // margin: 8,
     marginBottom: 4,
     borderRadius: 20,
   },
@@ -87,5 +86,13 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignContent: 'center',
+  },
+  priceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  priceText: {
+    fontSize: 20,
   },
 });

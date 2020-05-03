@@ -8,38 +8,42 @@ import OvalShape from '../../../components/OvalShape/OvalShape.component';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import RadioForm from 'react-native-simple-radio-button';
 
-const singleData = {
-  title: 'PRIME BEEF',
-  imageUrl: 'https://dominos.vn/Data/Sites/1/Product/577/prime-beef-full.png',
-  description:
-    'Mozzarella cheese, Pizza Sauce, Onion, Tomato, Cheese Sauce, Meat ball, Mexico Beef',
-  cheese: true,
-};
+//redux:
+import {connect} from 'react-redux';
+import {addItemToCart} from '../../../redux/actions/index';
+import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
 
-let pizzaSize = [
-  {label: 'Large', value: 'large'},
-  {label: 'Medium', value: 'medium'},
-];
-let pizzaCrust = [
-  {label: 'Thin Crust', value: 'thin'},
-  {label: 'Hand Tossed Crust', value: 'handTossed'},
-  {label: 'New York Crust', value: 'newYork'},
-];
-let pizzaCheese = [
-  {label: 'Extra cheese', value: 'extra'},
-  {label: 'Double cheese', value: 'double'},
-  {label: 'Triple cheese', value: 'triple'},
-];
+let cartId = 0;
+let checkoutPrice = 0;
+const LARGE_SIZE_LABEL = 'Large - 12 inch';
+const MEDIUM_SIZE_LABEL = 'Medium - 9 inch';
+const EXTRA_CHEESE_LABEL = 'Extra cheese';
+const DOUBLE_CHEESE_LABEL = 'Double cheese';
+const TRIPLE_CHEESE_LABEL = 'Triple cheese';
+const THIN_CRUST_LABEL = 'Thin Crust';
+const HT_CRUST_LABEL = 'Hand Tossed Crust';
+const NY_CRUST_LABEL = 'New York Crust';
 
-export default class PizzaDetail extends Component {
+const RADIO_LARGE_SIZE_TYPE = '12 inch';
+const RADIO_MEDIUM_LARGE_SIZE_TYPE = '9 inch';
+const RADIO_EXTRA_CHEESE_TYPE = 'extra cheese';
+const RADIO_DOUBLE_CHEESE_TYPE = 'double cheese';
+const RADIO_TRIPLE_CHEESE_TYPE = 'triple cheese';
+
+const RADIO_THIN_CRUST_TYPE = 'thin crust';
+const RADIO_HT_CRUST_TYPE = 'hand tossed crust';
+const RADIO_NY_CRUST_TYPE = 'new york crust';
+
+class PizzaDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: '',
-      sizeType: 'large',
-      crustType: 'thin',
-      cheeseType: 'extra',
-      quantity: 0,
+      sizeType: RADIO_LARGE_SIZE_TYPE,
+      crustType: RADIO_THIN_CRUST_TYPE,
+      cheeseType: RADIO_EXTRA_CHEESE_TYPE,
+      quantity: 1,
+      sizePrice: this.props.route.params.data.largePrice,
+      cheesePrice: 0,
     };
   }
 
@@ -72,8 +76,6 @@ export default class PizzaDetail extends Component {
     this.setHeaderBar();
     switch (this.props.route.params.pizzaTitle) {
       case 'PRIME BEEF':
-        this.setState({data: singleData});
-        console.log(singleData);
         // let .... return data
         break;
       default:
@@ -81,8 +83,8 @@ export default class PizzaDetail extends Component {
     }
   }
 
-  renderCheeseOptions = () => {
-    if (this.state.data.cheese) {
+  renderCheeseOptions = pizzaCheese => {
+    if (pizzaCheese !== undefined) {
       return (
         <View>
           <Text style={pizzaDetailStyles.optionTitleText}> Cheese </Text>
@@ -93,16 +95,59 @@ export default class PizzaDetail extends Component {
               selectedButtonColor={colors.ovalColor}
               radio_props={pizzaCheese}
               style={pizzaDetailStyles.radioVerticalForm}
-              initial={-1}
+              initial={3}
               onPress={value => {
-                this.setState({cheeseType: value});
+                this.setState({cheesePrice: value.price});
+                this.setState({cheeseType: value.radioCheeseType});
               }}
             />
-            <Text> current cheese : {this.state.cheeseType}</Text>
           </View>
         </View>
       );
     }
+  };
+
+  renderSizeOptions = pizzaSize => {
+    return (
+      <View>
+        <Text style={pizzaDetailStyles.optionTitleText}> Size </Text>
+        <View style={pizzaDetailStyles.radioContainer}>
+          <RadioForm
+            formHorizontal={false}
+            buttonColor={colors.ovalColor}
+            selectedButtonColor={colors.ovalColor}
+            radio_props={pizzaSize}
+            style={pizzaDetailStyles.radioVerticalForm}
+            initial={0}
+            onPress={value => {
+              this.setState({sizePrice: value.price});
+              this.setState({sizeType: value.radioSizeType});
+            }}
+          />
+        </View>
+      </View>
+    );
+  };
+
+  renderCrustOptions = pizzaCrust => {
+    return (
+      <View>
+        <Text style={pizzaDetailStyles.optionTitleText}> Crust </Text>
+        <View style={pizzaDetailStyles.radioContainer}>
+          <RadioForm
+            formHorizontal={false}
+            buttonColor={colors.ovalColor}
+            selectedButtonColor={colors.ovalColor}
+            radio_props={pizzaCrust}
+            style={pizzaDetailStyles.radioVerticalForm}
+            initial={0}
+            onPress={value => {
+              this.setState({crustType: value});
+            }}
+          />
+        </View>
+      </View>
+    );
   };
 
   increaseQuantity = () => {
@@ -110,61 +155,153 @@ export default class PizzaDetail extends Component {
   };
 
   decreaseQuantity = () => {
-    if (this.state.quantity > 0) {
+    if (this.state.quantity > 1) {
       this.setState({quantity: this.state.quantity - 1});
     }
   };
 
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  renderPrice() {
+    return (
+      <View style={pizzaDetailStyles.priceContainer}>
+        <Text style={pizzaDetailStyles.priceText}>
+          {this.numberWithCommas(this.props.route.params.data.mediumPrice)} -
+          {this.numberWithCommas(this.props.route.params.data.largePrice)}
+        </Text>
+      </View>
+    );
+  }
+
+  calculateTotalPrice = () => {
+    return (
+      (this.state.sizePrice + this.state.cheesePrice) * this.state.quantity
+    );
+  };
+
+  createCartLine = () => {
+    const {addItemToCart} = this.props;
+    checkoutPrice = this.calculateTotalPrice();
+    let cartLine = {};
+    cartLine.type = ADD_ITEM_TO_CART;
+    cartLine.id = String(cartId);
+    cartLine.title = this.props.route.params.data.title;
+    cartLine.imageUrl = this.props.route.params.data.imageSource;
+    cartLine.sizeType = this.state.sizeType;
+    cartLine.crustType = this.state.crustType;
+    cartLine.cheeseType = this.state.cheeseType;
+    cartLine.quantity = this.state.quantity;
+    cartLine.totalPrice = checkoutPrice;
+    addItemToCart(cartLine);
+    cartId += 1;
+  };
+
+  getMoneyDisplayed = (title, money) => {
+    return title + ' ( $' + this.numberWithCommas(money) + ' )';
+  };
+
   render() {
+    const pizzaSize = [
+      {
+        label: this.getMoneyDisplayed(
+          LARGE_SIZE_LABEL,
+          this.props.route.params.data.largePrice,
+        ),
+        value: {
+          price: this.props.route.params.data.largePrice,
+          radioSizeType: RADIO_LARGE_SIZE_TYPE,
+        },
+      },
+      {
+        label: this.getMoneyDisplayed(
+          MEDIUM_SIZE_LABEL,
+          this.props.route.params.data.mediumPrice,
+        ),
+        value: {
+          price: this.props.route.params.data.mediumPrice,
+          radioSizeType: RADIO_MEDIUM_LARGE_SIZE_TYPE,
+        },
+      },
+    ];
+    const pizzaCrust = [
+      {label: THIN_CRUST_LABEL, value: RADIO_THIN_CRUST_TYPE},
+      {label: HT_CRUST_LABEL, value: RADIO_HT_CRUST_TYPE},
+      {label: NY_CRUST_LABEL, value: RADIO_NY_CRUST_TYPE},
+    ];
+    let pizzaCheese;
+    if (this.props.route.params.data.cheesePrice !== undefined) {
+      pizzaCheese = [
+        {
+          label: this.getMoneyDisplayed(
+            EXTRA_CHEESE_LABEL,
+            this.props.route.params.data.cheesePrice.extra,
+          ),
+          value: {
+            price: this.props.route.params.data.cheesePrice.extra,
+            radioCheeseType: RADIO_EXTRA_CHEESE_TYPE,
+          },
+        },
+        {
+          label: this.getMoneyDisplayed(
+            DOUBLE_CHEESE_LABEL,
+            this.props.route.params.data.cheesePrice.double,
+          ),
+          value: {
+            price: this.props.route.params.data.cheesePrice.double,
+            radioCheeseType: RADIO_DOUBLE_CHEESE_TYPE,
+          },
+        },
+        {
+          label: this.getMoneyDisplayed(
+            TRIPLE_CHEESE_LABEL,
+            this.props.route.params.data.cheesePrice.triple,
+          ),
+          value: {
+            price: this.props.route.params.data.cheesePrice.triple,
+            radioCheeseType: RADIO_TRIPLE_CHEESE_TYPE,
+          },
+        },
+        {
+          label: 'None',
+          value: {
+            price: 0,
+            radioCheeseType: 'none',
+          },
+        },
+      ];
+    }
+
+    const totalPrice = this.calculateTotalPrice();
+
     return (
       <View style={pizzaDetailStyles.container}>
         <OvalShape />
-        <View style={{marginTop: 60}}>
+        <View style={{marginTop: 10}}>
           <View style={pizzaDetailStyles.imageContainer}>
             <Image
               style={pizzaDetailStyles.image}
-              source={{uri: this.state.data.imageUrl}}
+              source={{uri: this.props.route.params.data.imageSource}}
             />
-            <Text style={pizzaDetailStyles.pizzaTitle}>
-              {this.state.data.title}
+          </View>
+          <Text style={pizzaDetailStyles.pizzaTitle}>
+            {this.props.route.params.data.title}
+          </Text>
+          <Text style={pizzaDetailStyles.pizzaDescription}>
+            {this.props.route.params.data.description}
+          </Text>
+          {this.renderPrice()}
+          <View style={pizzaDetailStyles.priceContainer}>
+            <Text style={pizzaDetailStyles.priceText}>
+              Total : {this.numberWithCommas(totalPrice)}
             </Text>
           </View>
-          <Text style={pizzaDetailStyles.pizzaDescription}>
-            {this.state.data.description}
-          </Text>
         </View>
         <ScrollView style={pizzaDetailStyles.scrollViewContainer}>
-          <Text style={pizzaDetailStyles.optionTitleText}> Size </Text>
-          <View style={pizzaDetailStyles.radioContainer}>
-            <RadioForm
-              formHorizontal={true}
-              buttonColor={colors.ovalColor}
-              selectedButtonColor={colors.ovalColor}
-              radio_props={pizzaSize}
-              style={pizzaDetailStyles.radioHorizontalForm}
-              initial={-1}
-              onPress={value => {
-                this.setState({sizeType: value});
-              }}
-            />
-            <Text> current size : {this.state.sizeType}</Text>
-          </View>
-          <Text style={pizzaDetailStyles.optionTitleText}> Crust </Text>
-          <View style={pizzaDetailStyles.radioContainer}>
-            <RadioForm
-              formHorizontal={false}
-              buttonColor={colors.ovalColor}
-              selectedButtonColor={colors.ovalColor}
-              radio_props={pizzaCrust}
-              style={pizzaDetailStyles.radioVerticalForm}
-              initial={-1}
-              onPress={value => {
-                this.setState({crustType: value});
-              }}
-            />
-            <Text> current crust : {this.state.crustType}</Text>
-          </View>
-          <View>{this.renderCheeseOptions()}</View>
+          <View>{this.renderSizeOptions(pizzaSize)}</View>
+          <View>{this.renderCrustOptions(pizzaCrust)}</View>
+          <View>{this.renderCheeseOptions(pizzaCheese)}</View>
           <Text style={pizzaDetailStyles.optionTitleText}> Quantity </Text>
           <View style={pizzaDetailStyles.quantityContainer}>
             <TouchableOpacity
@@ -182,11 +319,26 @@ export default class PizzaDetail extends Component {
             </TouchableOpacity>
           </View>
         </ScrollView>
-        <TouchableOpacity style={pizzaDetailStyles.addCartBtn}>
-          <Text style={pizzaDetailStyles.addCartText}> ADD TO CART </Text>
-          <Icon name="cart-arrow-down" size={20} color={colors.icon} />
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity
+            style={pizzaDetailStyles.addCartBtn}
+            onPress={this.createCartLine}>
+            <Text style={pizzaDetailStyles.addCartText}> ADD TO CART </Text>
+            <Icon name="cart-arrow-down" size={20} color={colors.icon} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+  addItemToCart: cartLine => dispatch(addItemToCart(cartLine)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PizzaDetail);

@@ -3,8 +3,12 @@ import 'react-native-gesture-handler';
 
 import {NavigationContainer} from '@react-navigation/native';
 import AppStack from './src/navigation/AppStack';
+import {Provider} from 'react-redux';
 
-export default class App extends Component {
+import store from './src/redux/store/index';
+
+const generalStore = store;
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,9 +16,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <NavigationContainer>
-        <AppStack />
-      </NavigationContainer>
+      <Provider store={generalStore}>
+        <NavigationContainer>
+          <AppStack />
+        </NavigationContainer>
+      </Provider>
     );
   }
 }
+
+export default App;

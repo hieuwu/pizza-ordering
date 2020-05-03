@@ -46,9 +46,9 @@ export default class PizzaMenu extends Component {
   renderPizzaItem = ({item}) => (
     <TouchableOpacity
       style={pizzaMenuStyles.touchContainer}
-      onPress={() =>
-        this.props.navigation.navigate('pizzaDetail', {pizzaTitle: item.title})
-      }>
+      onPress={() => {
+        this.props.navigation.navigate('pizzaDetail', {data: item});
+      }}>
       <PizzaListItem
         imageSource={item.imageSource}
         pizzaItemTitle={item.title}

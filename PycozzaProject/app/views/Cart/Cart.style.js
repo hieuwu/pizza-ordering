@@ -68,6 +68,57 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 24,
+    },
+    modalView: {
+        margin: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: color.headerBackground,
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        width: dimension.window.width -100,
+        height: dimension.window.height -400,
+    },
+    textStyle: {
+        fontWeight: 'bold',
+        fontSize: 24,
+        color: color.white
+    },
+    okButton: {
+        backgroundColor: color.mainColor,
+        borderRadius: 15,
+        width: 80,
+        marginHorizontal: 25,
+    },
+    cancelButton: {
+        backgroundColor: color.inactiveStatus,
+        borderRadius: 15,
+        width: 80,
+        marginHorizontal: 25,
+    },
+    textInput: {
+        borderBottomColor: color.inactiveStatus,
+        backgroundColor: 'white',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        borderRadius: 15,
+        marginHorizontal: 10,
+        marginVertical: 25,
     }
 
 });

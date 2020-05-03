@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image,AsyncStorage } from 'react-native';
+import { Text, View, Image, AsyncStorage, Modal } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from '../Cart/Cart.style';
 import string from '../../resources/strings'
 import OvalShape from '../../components/OvalShape.component';
-import { Button } from 'react-native-elements'
+import { Button, Input } from 'react-native-elements'
 import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import dimension from '../../resources/dimensions';
@@ -15,79 +15,14 @@ import CartItem from '../../views/Cart/CartItem.component';
 import { Divider } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { removeFromCart } from '../../redux/actions/index';
-let productList = [
-    {
-        id: '1',
-        name: 'Pizza Chinese',
-        price: 100000,
-        quantity: 3,
-        size: 'M',
-        crust: 'Thin',
-        imageURL: 'https://thepizzacompany.vn/345-home_default/bread-pizza.jpg',
-    },
-    {
-        id: '2',
-        name: 'Pizza Seafood',
-        price: 100000,
-        quantity: 1,
-        size: 'M',
-        crust: 'Think',
-        imageURL: 'https://thepizzacompany.vn/345-home_default/bread-pizza.jpg'
-    },
-    {
-        id: '3',
-        name: 'Pizza Beef',
-        price: 50000,
-        quantity: 6,
-        size: 'L',
-        crust: 'Thin',
-        imageURL: 'https://thepizzacompany.vn/114-home_default/pizza-hawaii.jpg'
-    },
-    {
-        id: '4',
-        name: 'Pizza Beef',
-        price: 12000,
-        quantity: 3,
-        size: 'L',
-        crust: 'Thin',
-        imageURL: 'https://thepizzacompany.vn/114-home_default/pizza-hawaii.jpg'
-    },
-    {
-        id: '5',
-        name: 'Pizza Beef',
-        price: 50000,
-        quantity: 6,
-        size: 'L',
-        crust: 'Thin',
-        imageURL: 'https://thepizzacompany.vn/114-home_default/pizza-hawaii.jpg'
-    },
-    {
-        id: '6',
-        name: 'Pizza Beef',
-        price: 50000,
-        quantity: 1,
-        size: 'L',
-        crust: 'Thin',
-        imageURL: 'https://thepizzacompany.vn/114-home_default/pizza-hawaii.jpg'
-    },
-    {
-        id: '7',
-        name: 'Pizza Beef',
-        price: 50000,
-        quantity: 3,
-        size: 'L',
-        crust: 'Thin',
-        imageURL: 'https://thepizzacompany.vn/114-home_default/pizza-hawaii.jpg'
-    },
-
-];
+import AppConfig from '../../config/AppConfig'
 
 class CartScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
             total: this.countMoney(),
-            cart: []
+            modalVisible: false,
         }
     }
     removeItem = (item) => {
@@ -100,12 +35,12 @@ class CartScreen extends Component {
     }
 
     countMoney = () => {
-        const { todos } = this.props;
-        if (todos.length == 0) {
+        const { cartReducer } = this.props;
+        if (cartReducer.length == 0) {
             return 0;
         }
         let sum = 0;
-        todos.forEach(element => {
+        cartReducer.forEach(element => {
             sum += element.price * element.quantity;
         });
         return sum;
@@ -115,44 +50,93 @@ class CartScreen extends Component {
         return (
             <CartItem item={item} deleteItem={() => this.removeItem(item)} />
         )
-    
+
     }
 
 
-     componentDidMount() {
-    //    const {todos} = this.props;
-    //     try {
-    //         await AsyncStorage.setItem('mycart', JSON.stringify(todos));
-    //     } catch (error) {
-    //         // Error retrieving data
-    //         console.log(error.message);
-    //     }
+    componentDidMount() {
+        //    const {todos} = this.props;
+        //     try {
+        //         await AsyncStorage.setItem('mycart', JSON.stringify(todos));
+        //     } catch (error) {
+        //         // Error retrieving data
+        //         console.log(error.message);
+        //     }
     }
+    gotoAuthenn = () => {
+        const { navigation } = this.props;
+        navigation.navigate('LoginScreen');
 
-     showUserId() {
-        // let userId = '';
-        // try {
-        //     userId = await AsyncStorage.getItem('mycart') || 'none';
-        // } catch (error) {
-        //     // Error retrieving data
-        //     console.log(error.message);
-        // }
-        // let mycart = JSON.parse(userId);
-        console.log("mycart la: ");
+    }
+    async goCheckOut() {
+        const { cartReducer } = this.props;
+        if (cartReducer.length > 0) {
+            this.setState({ modalVisible: true })
+            // let userId = '';
+            // try {
+            //     userId = await AsyncStorage.getItem('mycart') || 'none';
+            // } catch (error) {
+            //     // Error retrieving data
+            //     console.log(error.message);
+            // }
+            // if (userId !== 'none')
+            //     console.log("Da dang nhap");
+
+            // else {
+            //     console.log("Chua dang nhap")
+            //     this.gotoAuthenn();
+
+            // }
+        }
+        else {
+            alert('Your cart is empty')
+        }
+
     }
 
     render() {
-        const { todos } = this.props;
+        const { cartReducer } = this.props;
+        console.log(cartReducer);
         const totalPrice = this.countMoney();
         return (
             <View style={styles.container}>
+                <Modal animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}>
+                    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.textStyle}>{string.promptAddress}</Text>
+                            <Input inputContainerStyle={styles.textInput}
+                                placeholder={string.promptAddress}
+                                errorMessage={this.state.phoneError} />
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <Button
+                                    title='Cancel'
+                                    buttonStyle={styles.cancelButton}
+                                    onPress={() => {
+                                        this.setState({ modalVisible: false });
+                                    }}
+                                />
+
+                                <Button
+                                    title='OK'
+                                    buttonStyle={styles.okButton}
+                                    onPress={() => {
+                                        this.setState({ modalVisible: false });
+                                    }}
+                                />
+
+                            </View>
+                        </View>
+                    </View>
+                </Modal>
                 <OvalShape />
                 <View style={styles.table}>
                     <View style={styles.tableHeader}>
-                        <Text style={styles.headerTitle}>{productList.length} {string.promptItemCost} {this.state.total} {string.currency}</Text>
+                        <Text style={styles.headerTitle}>{cartReducer.length} {string.promptItemCost} {this.state.total + ',000'} {string.currency}</Text>
                     </View>
                     {totalPrice ? (<View style={styles.listWraper}>
-                        <FlatList data={todos} renderItem={this.renderProductItem}
+                        <FlatList data={cartReducer} renderItem={this.renderProductItem}
                             keyExtractor={(productInfo) => productInfo.id} />
                     </View>) :
                         (<View style={styles.emptyCart}>
@@ -166,7 +150,7 @@ class CartScreen extends Component {
                     </View>
                 </View>
                 <Button title={string.buttonCheckOut}
-                    onPress={this.showUserId}
+                    onPress={() => this.goCheckOut()}
                     icon={
                         <Icon
                             name="arrow-right"
@@ -184,7 +168,7 @@ class CartScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-    todos: state.todos
+    cartReducer: state.cartReducer
 });
 
 const mapDispatchToProps = dispatch => ({

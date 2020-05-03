@@ -37,7 +37,7 @@ const itemStyles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         flex: 1,
         width: dimension.window.width,
         
@@ -50,8 +50,14 @@ const itemStyles = StyleSheet.create({
     itemImage: {
         width: dimension.imageItem.height,
         height: dimension.imageItem.height,
-        resizeMode: 'center',
-        borderRadius: 200,
+        alignSelf: 'center',
+        marginLeft: 15,
+    },
+    price: {
+        textAlign: 'right',
+        color: color.mainColor,
+        fontSize: dimension.itemTitleSize,
+        fontWeight: 'bold',
     }
 
 })

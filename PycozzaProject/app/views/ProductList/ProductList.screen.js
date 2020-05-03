@@ -8,6 +8,7 @@ import { RecyclerListView, DataProvider, LayoutProvider, } from "recyclerlistvie
 import dimension from '../../resources/dimensions';
 import itemStyles from './ListItem.component'
 import color from '../../resources/colors';
+import AppConfig from '../../config/AppConfig'
 
 
 
@@ -17,7 +18,6 @@ export default class ProductListScreen extends Component {
         let dataProvider = new DataProvider((r1, r2) => {
             return r1 !== r2;
         }, (index) => this.state.items[index].id);
-
         this._layoutProvider = new LayoutProvider(
             index => 0,
             (type, dim) => {
@@ -32,9 +32,7 @@ export default class ProductListScreen extends Component {
                 }
             }
         );
-
         this._rowRenderer = this._rowRenderer.bind(this);
-
         this.state = {
             dataProvider: dataProvider.cloneWithRows([]),
             items: []
@@ -51,19 +49,18 @@ export default class ProductListScreen extends Component {
 
 
     _rowRenderer(type, item) {
+        const { title } = this.props.route.params;
         switch (type) {
             case 0:
                 return (
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('ProductDetail', { item })} style={itemStyles.itemWrapper}>
-
-                        <Image style={itemStyles.itemImage} source={{ uri: item.imgLink }} />
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('ProductDetail', { item: item, title:  title})} style={itemStyles.itemWrapper}>
+                        <Image style={itemStyles.itemImage} source={{ uri: AppConfig.IMAGE.baseURL+item.imgLink }} />
                         <View style={{
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            marginRight: 25,
                         }}>
                             <Text style={itemStyles.itemTitle}>{item.name}</Text>
-
-                            <Text>{item.price + ',000'} - {item.maxPrice + ',000'} VNĐ</Text>
+                            <Text style={itemStyles.price}>{item.price + ',000'} - {item.maxPrice + ',000'} VNĐ</Text>
                         </View>
                     </TouchableOpacity>
                 );
@@ -73,25 +70,25 @@ export default class ProductListScreen extends Component {
     }
 
     async componentDidMount() {
+        const {type} = this.props.route.params;
         try {
-            
-        let products = await new ProductUseCase().getListProduct();
-        console.log(products);
-
-        }
+        let products = await new ProductUseCase().getListProduct(type);
+        console.log(products.data.products);
+        this.setState(state => {
+            const items = [
+              ...products.data.products, 
+            ];
+            return {
+              dataProvider: state.dataProvider.cloneWithRows(items),
+              items
+            }
+          })
+    }
         catch(error)
         {
             console.log('Loi la: ',error)
         }
-        //   this.setState(state => {
-        //           const items = [
-        //             ...products, 
-        //           ];
-        //           return {
-        //             dataProvider: state.dataProvider.cloneWithRows(items),
-        //             items
-        //           }
-        //         })
+         
         this.setHeaderTitle()
     }
 
@@ -99,19 +96,14 @@ export default class ProductListScreen extends Component {
         return (
             <View style={styles.container}>
                 <OvalShape />
-                {/* <View style={{flex: 1}}> 
+                <View style={{flex: 1}}> 
                 <RecyclerListView
                         layoutProvider={this._layoutProvider}
                         dataProvider={this.state.dataProvider}
                         rowRenderer={this._rowRenderer}
                         scrollViewProps= {{horizontal: true}}
                     />
-                </View> */}
-                {/* <FlatList
-                    data={this.state.items} renderItem={this.renderProductItem}
-                    keyExtractor={(productInfo) => productInfo.id}
-                    numColumns={2}
-                    style={styles.productList}/> */}
+                </View>
             </View>
         )
     }

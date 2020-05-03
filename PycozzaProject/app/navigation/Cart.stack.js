@@ -10,6 +10,7 @@ import dimension from '../resources/dimensions'
 import { StyleSheet } from 'react-native';
 import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
 import CartScreen from '../views/Cart/Cart.screen';
+import AuthenStack from './Authen.stack';
 const stack = createStackNavigator();
 export default class CartStack extends Component {
     render() {

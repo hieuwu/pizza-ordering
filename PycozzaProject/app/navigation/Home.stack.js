@@ -14,6 +14,7 @@ import ProductStack from './Product.stack';
 import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
 import CartScreen from '../views/Cart/Cart.screen';
 import CartStack from './Cart.stack';
+import AuthenStack from './Authen.stack'
 const stack = createStackNavigator();
 export default class HomeStack extends Component {
     render(){
@@ -101,6 +102,31 @@ export default class HomeStack extends Component {
                         ),
                     }}
                 />
+        <stack.Screen name='LoginScreen' component={AuthenStack}
+                    options={{
+                        title: '',
+                        headerTransparent: {
+                            position: 'absolute',
+                            backgroundColor: 'transparent',
+                        },
+                        headerRight: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.navigate('CartScreen')}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                        headerLeft: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.openDrawer()}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                    }}
+                />
+
+                
             </stack.Navigator>
         )
     }}

@@ -19,17 +19,20 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: '100%',
+    width: '80%',
     height: '100%',
-    resizeMode: 'contain',
+    resizeMode: 'cover',
   },
   pizzaTitle: {
-    fontSize: 30,
+    textAlign: 'center',
+    fontSize: 20,
     fontWeight: 'bold',
     alignSelf: 'center',
   },
   pizzaDescription: {
-    fontSize: 15,
+    marginLeft: 8,
+    marginRight: 8,
+    fontSize: 14,
     textAlign: 'center',
   },
   optionTitleText: {

@@ -17,6 +17,7 @@ let cartId = 0;
 let checkoutPrice = 0;
 const LARGE_SIZE_LABEL = 'Large - 12 inch';
 const MEDIUM_SIZE_LABEL = 'Medium - 9 inch';
+const SMALL_SIZE_LABEL = 'Small - 6 inch';
 const EXTRA_CHEESE_LABEL = 'Extra cheese';
 const DOUBLE_CHEESE_LABEL = 'Double cheese';
 const TRIPLE_CHEESE_LABEL = 'Triple cheese';
@@ -26,6 +27,7 @@ const NY_CRUST_LABEL = 'New York Crust';
 
 const RADIO_LARGE_SIZE_TYPE = '12 inch';
 const RADIO_MEDIUM_LARGE_SIZE_TYPE = '9 inch';
+const RADIO_SMALL_LARGE_SIZE_TYPE = '6 inch';
 const RADIO_EXTRA_CHEESE_TYPE = 'extra cheese';
 const RADIO_DOUBLE_CHEESE_TYPE = 'double cheese';
 const RADIO_TRIPLE_CHEESE_TYPE = 'triple cheese';
@@ -42,7 +44,7 @@ class PizzaDetail extends Component {
       crustType: RADIO_THIN_CRUST_TYPE,
       cheeseType: RADIO_EXTRA_CHEESE_TYPE,
       quantity: 1,
-      sizePrice: this.props.route.params.data.largePrice,
+      sizePrice: this.props.route.params.data.price.sizeL,
       cheesePrice: 0,
     };
   }
@@ -168,8 +170,8 @@ class PizzaDetail extends Component {
     return (
       <View style={pizzaDetailStyles.priceContainer}>
         <Text style={pizzaDetailStyles.priceText}>
-          {this.numberWithCommas(this.props.route.params.data.mediumPrice)} -
-          {this.numberWithCommas(this.props.route.params.data.largePrice)}
+          {this.numberWithCommas(this.props.route.params.data.price.sizeS)} -
+          {this.numberWithCommas(this.props.route.params.data.price.sizeL)}
         </Text>
       </View>
     );
@@ -187,8 +189,8 @@ class PizzaDetail extends Component {
     let cartLine = {};
     cartLine.type = ADD_ITEM_TO_CART;
     cartLine.id = String(cartId);
-    cartLine.title = this.props.route.params.data.title;
-    cartLine.imageUrl = this.props.route.params.data.imageSource;
+    cartLine.title = this.props.route.params.data.name;
+    cartLine.imageUrl = this.props.route.params.data.imgUrl;
     cartLine.sizeType = this.state.sizeType;
     cartLine.crustType = this.state.crustType;
     cartLine.cheeseType = this.state.cheeseType;
@@ -207,21 +209,31 @@ class PizzaDetail extends Component {
       {
         label: this.getMoneyDisplayed(
           LARGE_SIZE_LABEL,
-          this.props.route.params.data.largePrice,
+          this.props.route.params.data.price.sizeL,
         ),
         value: {
-          price: this.props.route.params.data.largePrice,
+          price: this.props.route.params.data.price.sizeL,
           radioSizeType: RADIO_LARGE_SIZE_TYPE,
         },
       },
       {
         label: this.getMoneyDisplayed(
           MEDIUM_SIZE_LABEL,
-          this.props.route.params.data.mediumPrice,
+          this.props.route.params.data.price.sizeM,
         ),
         value: {
-          price: this.props.route.params.data.mediumPrice,
+          price: this.props.route.params.data.price.sizeM,
           radioSizeType: RADIO_MEDIUM_LARGE_SIZE_TYPE,
+        },
+      },
+      {
+        label: this.getMoneyDisplayed(
+          SMALL_SIZE_LABEL,
+          this.props.route.params.data.price.sizeS,
+        ),
+        value: {
+          price: this.props.route.params.data.price.sizeS,
+          radioSizeType: RADIO_SMALL_LARGE_SIZE_TYPE,
         },
       },
     ];
@@ -278,15 +290,15 @@ class PizzaDetail extends Component {
     return (
       <View style={pizzaDetailStyles.container}>
         <OvalShape />
-        <View style={{marginTop: 10}}>
+        <View style={{marginTop: 20}}>
           <View style={pizzaDetailStyles.imageContainer}>
             <Image
               style={pizzaDetailStyles.image}
-              source={{uri: this.props.route.params.data.imageSource}}
+              source={{uri: this.props.route.params.data.imgUrl}}
             />
           </View>
           <Text style={pizzaDetailStyles.pizzaTitle}>
-            {this.props.route.params.data.title}
+            {this.props.route.params.data.name}
           </Text>
           <Text style={pizzaDetailStyles.pizzaDescription}>
             {this.props.route.params.data.description}

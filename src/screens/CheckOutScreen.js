@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {View, ScrollView, Dimensions, Text, TextInput, FlatList, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  ScrollView,
+  Dimensions,
+  Text,
+  TextInput,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import TearLines from '../components/TearLines.js';
@@ -15,34 +24,32 @@ import Icon5 from 'react-native-vector-icons/FontAwesome5';
 // 	{title:'Pay Pal', imageUrl: CashImg},
 // ]
 
-const mockDataPaymentMethod=[
-	{title:'COD', imageUrl: CashImg},
-]
+const mockDataPaymentMethod = [{title: 'COD', imageUrl: CashImg}];
 
-const date=new Date().toDateString()
+const date = new Date().toDateString();
 
 class CheckOutScreen extends Component {
-	state={
-		name: '',
-		phone: '',
-		address: '',
-		note: '',
-		paymentMethod: '',
-	}
+  state = {
+    name: '',
+    phone: '',
+    address: '',
+    note: '',
+    paymentMethod: '',
+  };
 
-	componentDidMount() {
-		const {userToken}=this.props;
-  	const {user}=userToken;
-  	const {name, phone, address}=user;
-  	this.setState({name: name, phone: phone, address: address})
-	}
+  componentDidMount() {
+    const {userToken} = this.props;
+    const {user} = userToken;
+    const {name, phone, address} = user;
+    this.setState({name: name, phone: phone, address: address});
+  }
 
-	navigateBack = () => {
+  navigateBack = () => {
     const {navigation} = this.props;
     navigation.goBack();
   };
 
-	showPaymentMethod = ({item}) => {
+  showPaymentMethod = ({item}) => {
     const {title, imageUrl} = item;
     const {paymentMethod} = this.state;
     if (paymentMethod === title) {
@@ -78,93 +85,110 @@ class CheckOutScreen extends Component {
   };
 
   createOrderInfo = () => {
-  	const {name, phone, address, note, paymentMethod}=this.state
-  	let orderInfo={
-      name: name,
-      phone: phone,
-      address: address,
-      note: note,
-      paymentMethod: paymentMethod,
+    const {name, phone, address, note, paymentMethod} = this.state;
+    const phone_regex = /((09|03|07|08|05)+([0-9]{8,9})\b)/g;
+    const checkPhone = phone_regex.test(phone);
+
+    if (paymentMethod === '') {
+      alert('Please pick payment method!');
+    } else if (name === '') {
+      alert('Name is required');
+    } else if (phone === '') {
+      alert('Phone is required');
+    } else if (checkPhone === false) {
+      alert('Please enter a valid phone number');
+    } else if (address === '') {
+      alert('Address is required');
+    } else {
+      let orderInfo = {
+        name: name,
+        phone: phone,
+        address: address,
+        note: note,
+        paymentMethod: paymentMethod,
+      };
+
+      this.navigateToConfirmScreen(orderInfo);
     }
+  };
 
-  	this.navigateToConfirmScreen(orderInfo)
-  }
-
-  navigateToConfirmScreen = (orderInfo) => {
-  	const {totalPrice} = this.props.route.params;
+  navigateToConfirmScreen = orderInfo => {
+    const {totalPrice} = this.props.route.params;
     const {navigation} = this.props;
     navigation.navigate('Confirm Screen', {
       orderInfo: orderInfo,
       totalPrice: totalPrice,
     });
-  }
+  };
 
   render() {
-  	const {totalPrice} = this.props.route.params;
-  	const {name, phone, address, note, paymentMethod}=this.state
+    const {totalPrice} = this.props.route.params;
+    const {name, phone, address, note, paymentMethod} = this.state;
 
     return (
       <View style={[dimensionStyles.container, {backgroundColor: '#FFFFFF'}]}>
-  			<ScrollView>
-       	  <View style={dimensionStyles.CheckOutHeaderContainer}>
-	       	  <View style={dimensionStyles.headerCategoryName}>
-		          <Text style={textStyle.headerCategoryName}>CHECK OUT</Text>
-		        </View>
-		        <View style={dimensionStyles.CheckOutHeaderInfo}>
-		        	<View style={dimensionStyles.dashLineCheckOut} />
-		        	<View style={dimensionStyles.CheckOutHeaderDatePrice}>
-		          	<Text style={textStyle.CheckOutHeaderInfo}>Date:</Text>
-		          	<Text style={textStyle.CheckOutHeaderInfo}>{date}</Text>
-		          </View>
-		          <View style={dimensionStyles.CheckOutHeaderDatePrice}>
-		          	<Text style={textStyle.CheckOutHeaderInfo}>Total bill:</Text>
-		          	<Text style={textStyle.CheckOutHeaderInfo}>${totalPrice}</Text>
-		          </View>
-		        </View>
-       	  </View>
-       	  <TearLines
-	          isUnder
-	          width={Dimensions.get('window').width}
-	          color='#e5293e'
+        <ScrollView>
+          <View style={dimensionStyles.CheckOutHeaderContainer}>
+            <View style={dimensionStyles.headerCategoryName}>
+              <Text style={textStyle.headerCategoryName}>CHECK OUT</Text>
+            </View>
+            <View style={dimensionStyles.CheckOutHeaderInfo}>
+              <View style={dimensionStyles.dashLineCheckOut} />
+              <View style={dimensionStyles.CheckOutHeaderDatePrice}>
+                <Text style={textStyle.CheckOutHeaderInfo}>Date:</Text>
+                <Text style={textStyle.CheckOutHeaderInfo}>{date}</Text>
+              </View>
+              <View style={dimensionStyles.CheckOutHeaderDatePrice}>
+                <Text style={textStyle.CheckOutHeaderInfo}>Total bill:</Text>
+                <Text style={textStyle.CheckOutHeaderInfo}>${totalPrice}</Text>
+              </View>
+            </View>
+          </View>
+          <TearLines
+            isUnder
+            width={Dimensions.get('window').width}
+            color="#e5293e"
           />
           <View style={dimensionStyles.orderInfoContainer}>
-          	<Text style={textStyle.OrderInfoTitle}>1. Contact information</Text>
-          	<Text style={textStyle.OrderInfoField}>Receiver's name</Text>
-          	<TextInput
-			        style={textStyle.StringInputCheckOut}
-			        onChangeText={text => this.setState({name: text})}
-			        keyboardType='default'
-			        secureTextEntry={false}
-			        value={name}
-			      />
-			      <Text style={textStyle.OrderInfoField}>Receiver's phone number</Text>
-          	<TextInput
-			        style={textStyle.StringInputCheckOut}
-			        onChangeText={text => this.setState({phone: text})}
-			        keyboardType='number-pad'
-			        secureTextEntry={false}
-			        value={phone}
-			      />
-			      <Text style={textStyle.OrderInfoField}>Delivery address</Text>
-          	<TextInput
-			        style={textStyle.StringInputCheckOut}
-			        onChangeText={text => this.setState({address: text})}
-			        keyboardType='default'
-			        secureTextEntry={false}
-			        value={address}
-			      />
-			      <Text style={textStyle.OrderInfoField}>Your note</Text>
-          	<TextInput
-          		placeholder='Your note'
-          		multiline
-			        style={textStyle.StringInputCheckOutNote}
-			        onChangeText={text => this.setState({note: text})}
-			        keyboardType='default'
-			        secureTextEntry={false}
-			        value={note}
-			      />
-			      <Text style={textStyle.OrderInfoTitle}>2. Payment method</Text>
-			      <FlatList
+            <Text style={textStyle.OrderInfoTitle}>1. Contact information</Text>
+            <Text style={textStyle.OrderInfoField}>Receiver's name</Text>
+            <TextInput
+              style={textStyle.StringInputCheckOut}
+              onChangeText={text => this.setState({name: text})}
+              keyboardType="default"
+              secureTextEntry={false}
+              value={name}
+            />
+            <Text style={textStyle.OrderInfoField}>
+              Receiver's phone number
+            </Text>
+            <TextInput
+              style={textStyle.StringInputCheckOut}
+              onChangeText={text => this.setState({phone: text})}
+              keyboardType="number-pad"
+              secureTextEntry={false}
+              value={phone}
+            />
+            <Text style={textStyle.OrderInfoField}>Delivery address</Text>
+            <TextInput
+              style={textStyle.StringInputCheckOut}
+              onChangeText={text => this.setState({address: text})}
+              keyboardType="default"
+              secureTextEntry={false}
+              value={address}
+            />
+            <Text style={textStyle.OrderInfoField}>Note</Text>
+            <TextInput
+              placeholder="Your note"
+              multiline
+              style={textStyle.StringInputCheckOutNote}
+              onChangeText={text => this.setState({note: text})}
+              keyboardType="default"
+              secureTextEntry={false}
+              value={note}
+            />
+            <Text style={textStyle.OrderInfoTitle}>2. Payment method</Text>
+            <FlatList
               horizontal={true}
               showsVerticalScrollIndicator={false}
               showsHorizontalScrollIndicator={false}
@@ -176,17 +200,7 @@ class CheckOutScreen extends Component {
           <TouchableOpacity
             style={dimensionStyles.continueButtonCheckOut}
             onPress={() => {
-            	if (paymentMethod==='') {
-            		alert('Please pick payment method!')
-          		} else if (name==='') {
-          			alert("Please let us know the receiver's name!")
-          		} else if (phone==='') {
-          			alert("Please let us know the receiver's phone number!")
-          		} else if (address==='') {
-          			alert("Please fill in delivery address!")
-            	} else {
-            		this.createOrderInfo()
-            	}
+              this.createOrderInfo();
             }}>
             <Text style={textStyle.orderNowButton}>CONTINUE</Text>
           </TouchableOpacity>
@@ -195,7 +209,7 @@ class CheckOutScreen extends Component {
             onPress={this.navigateBack}>
             <Text style={textStyle.backButtonCheckOut}>BACK</Text>
           </TouchableOpacity>
-   	  	</ScrollView>
+        </ScrollView>
       </View>
     );
   }
@@ -209,9 +223,7 @@ const mapStateToProps = state => ({
   userToken: state.userToken,
 });
 
-const mapDispatchToProps = dispatch => ({
-  
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(
   mapStateToProps,

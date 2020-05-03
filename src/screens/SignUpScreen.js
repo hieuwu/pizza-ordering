@@ -19,6 +19,7 @@ export default class SignUpScreen extends Component {
     isLoading: false,
     phone: '',
     password: '',
+    confirmPassword: '',
     name: '',
     address: '',
   };
@@ -29,13 +30,27 @@ export default class SignUpScreen extends Component {
   };
 
   CreateSignUpData = () => {
-    const {phone, password, name, address} = this.state;
-    if (password.length < 6) {
-      alert("Password is too short, it's length should be between 6 and 20");
-      this.setState({isLoading: false});
-    } else if (password.length > 20) {
-      alert("Password is too long, it's length should be between 6 and 20");
-      this.setState({isLoading: false});
+    const {phone, password, confirmPassword, name, address} = this.state;
+    const phone_regex = /((09|03|07|08|05)+([0-9]{8,9})\b)/g;
+    const password_regex = /^(?=.*\d)(?=.*[A-Za-z]).{6,20}$/;
+    const checkPhone = phone_regex.test(phone);
+    const checkPassword = password_regex.test(password);
+    if (phone === '') {
+      alert('Phone is required');
+    } else if (checkPhone === false) {
+      alert('Please enter a valid phone number');
+    } else if (password === '') {
+      alert('Password is required');
+    } else if (password.length < 6 || password.length > 20) {
+      alert('Password length must be between 6 and 20');
+    } else if (checkPassword === false) {
+      alert('Password must contain number and character');
+    } else if (password !== confirmPassword) {
+      alert('Confirm password and password must be the same');
+    } else if (name === '') {
+      alert('Name is required');
+    } else if (address === '') {
+      alert('Addess is required');
     } else {
       let SignUpData = {
         phone: phone,
@@ -43,6 +58,7 @@ export default class SignUpScreen extends Component {
         name: name,
         address: address,
       };
+      this.setState({isLoading: true});
       this.SignUp(SignUpData);
     }
   };
@@ -52,6 +68,7 @@ export default class SignUpScreen extends Component {
       let response = await postUserAPI('/user', SignUpData);
       //console.log(response.data)
       alert('Sign up successfully!');
+      this.navigateBack();
     } catch (errorMessage) {
       alert(errorMessage);
       console.log(errorMessage);
@@ -61,7 +78,7 @@ export default class SignUpScreen extends Component {
 
   render() {
     const {navigation} = this.props;
-    const {phone, password, name, address} = this.state;
+    const {phone, password, confirmPassword, name, address} = this.state;
 
     return (
       <View style={dimensionStyles.container}>
@@ -99,6 +116,13 @@ export default class SignUpScreen extends Component {
             isSecure={true}
           />
           <StringInput
+            text={confirmPassword}
+            onTextChange={text => this.setState({confirmPassword: text})}
+            placeholder={'Confirm password'}
+            keyboard={'default'}
+            isSecure={true}
+          />
+          <StringInput
             text={name}
             onTextChange={text => this.setState({name: text})}
             placeholder={'Your name'}
@@ -122,7 +146,6 @@ export default class SignUpScreen extends Component {
             <TouchableOpacity
               style={dimensionStyles.LogInButton}
               onPress={() => {
-                this.setState({isLoading: true});
                 this.CreateSignUpData();
               }}>
               <Text style={textStyle.orderNowButton}>Sign up</Text>

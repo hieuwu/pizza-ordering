@@ -18,6 +18,7 @@ import SignUpScreen from '../screens/SignUpScreen.js';
 import CheckOutScreen from '../screens/CheckOutScreen.js';
 import ConfirmScreen from '../screens/ConfirmScreen.js';
 import UserProfileScreen from '../screens/UserProfileScreen.js';
+import ThankYouScreen from '../screens/ThankYouScreen.js';
 import getAPI from '../repository/getAPI.js';
 
 const Stack = createStackNavigator();
@@ -50,7 +51,11 @@ class AppStack extends Component {
         <Stack.Screen name="Sign Up Screen" component={SignUpScreen} />
         <Stack.Screen name="Check Out Screen" component={CheckOutScreen} />
         <Stack.Screen name="Confirm Screen" component={ConfirmScreen} />
-        <Stack.Screen name="User Profile Screen" component={UserProfileScreen} />
+        <Stack.Screen
+          name="User Profile Screen"
+          component={UserProfileScreen}
+        />
+        <Stack.Screen name="Thank You Screen" component={ThankYouScreen} />
       </Stack.Navigator>
     );
   }

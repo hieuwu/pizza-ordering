@@ -54,8 +54,8 @@ class LogInScreen extends Component {
       alert('Log in successfully!');
       this.navigateBack();
     } catch (errorMessage) {
-      if (errorMessage===401) {
-        alert("Invalid user's phone number or password")
+      if (errorMessage === 401) {
+        alert('Invalid phone or password');
       } else {
         alert(errorMessage);
         console.log(errorMessage);

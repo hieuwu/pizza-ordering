@@ -17,12 +17,8 @@ import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
-import IconComunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import {addToCart, modifyOrderLine} from '../redux/actions.js';
 import {Dimensions} from 'react-native';
-
-const w = Dimensions.get('window').width;
-const h = Dimensions.get('window').height;
 
 const mockData = [
   {
@@ -118,7 +114,7 @@ class OrderPanel extends Component {
       alert(errorMessage);
       console.log(errorMessage);
     }
-    const data=JSON.parse(JSON.stringify(this.state.data));
+    const data = JSON.parse(JSON.stringify(this.state.data));
     this.filterOptionByType(data);
     this.setState({isLoading: false});
   };

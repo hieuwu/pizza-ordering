@@ -8,14 +8,13 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {dimensionStyles} from '../resources/dimension.js';
-import {string} from '../resources/string.js';
 import {textStyle} from '../resources/textStyle.js';
-import HomeImg from '../../assets/HomeImg.jpg';
+import ThankYou from '../../assets/ThankYou.jpg';
 
-export default class HomeScreen extends Component {
-  navigateToCategoryScreen = () => {
+export default class ThankYouScreen extends Component {
+  navigateToHomeScreen = () => {
     const {navigation} = this.props;
-    navigation.navigate('Category Screen');
+    navigation.navigate('Home Screen');
   };
   render() {
     return (
@@ -23,16 +22,14 @@ export default class HomeScreen extends Component {
         <StatusBar hidden />
         <ImageBackground
           style={dimensionStyles.HomeImg}
-          source={HomeImg}
+          source={ThankYou}
           resizeMode="cover"
         />
         <View style={dimensionStyles.HomeNameContainer}>
-          <Text style={textStyle.restaurant}>Restaurant</Text>
-          <Text style={textStyle.restaurantName}>{string.restaurantName}</Text>
           <TouchableOpacity
-            style={dimensionStyles.StartOrderButton}
-            onPress={() => this.navigateToCategoryScreen()}>
-            <Text style={textStyle.StartOrderButton}>START ORDER</Text>
+            style={dimensionStyles.BackHomeButton}
+            onPress={() => this.navigateToHomeScreen()}>
+            <Text style={textStyle.StartOrderButton}>BACK HOME</Text>
             <View style={dimensionStyles.ArrowRightIconHome}>
               <Icon name="angle-right" size={20} color="#FFFFFF" />
             </View>

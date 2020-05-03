@@ -182,7 +182,7 @@ const textStyle = StyleSheet.create({
     color: '#0b2031',
   },
 
-  cartBoxFooterPrice:{
+  cartBoxFooterPrice: {
     fontSize: 20,
     color: '#20ab2c',
   },
@@ -210,7 +210,7 @@ const textStyle = StyleSheet.create({
     color: '#FFFFFF',
   },
 
-  OrderInfoTitle:{
+  OrderInfoTitle: {
     marginTop: 10,
     marginBottom: 10,
     fontSize: 20,
@@ -218,14 +218,14 @@ const textStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  OrderInfoField:{
+  OrderInfoField: {
     marginTop: 15,
     marginBottom: 3,
     fontSize: 15,
     color: '#0b2031',
   },
 
-  StringInputCheckOut:{
+  StringInputCheckOut: {
     height: 45,
     width: 0.9 * w,
     fontSize: 15,
@@ -235,7 +235,7 @@ const textStyle = StyleSheet.create({
     borderRadius: 5,
   },
 
-  StringInputCheckOutNote:{
+  StringInputCheckOutNote: {
     height: 90,
     width: 0.9 * w,
     fontSize: 15,
@@ -246,7 +246,7 @@ const textStyle = StyleSheet.create({
     textAlignVertical: 'top',
   },
 
-  backButtonCheckOut:{
+  backButtonCheckOut: {
     fontSize: 20,
     textAlign: 'center',
     color: '#0b2031',

@@ -98,7 +98,7 @@ export default class ProductListScreen extends Component {
       return <SplashScreen />;
     }
 
-    const data=JSON.parse(JSON.stringify(this.state.data));
+    const data = JSON.parse(JSON.stringify(this.state.data));
     const sortedData = this.sortByRate(data);
     const favoriteProduct = this.pickFavoriteProduct(sortedData);
 

@@ -8,7 +8,7 @@ import {
   ScrollView,
   FlatList,
   Image,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
@@ -97,7 +97,7 @@ class CartScreen extends Component {
   navigateToLogInScreen = () => {
     const {navigation} = this.props;
     navigation.navigate('Log In Screen');
-  }
+  };
 
   navigateToCheckOutScreen = () => {
     const totalPrice = this.calculateTotalPrice();
@@ -148,29 +148,25 @@ class CartScreen extends Component {
             />
             <View style={dimensionStyles.dashLine} />
             <View style={dimensionStyles.cartBoxFooter}>
-              <Text style={textStyle.cartBoxFooter}>
-                TOTAL
-              </Text>
-              <Text style={textStyle.cartBoxFooterPrice}>
-                ${totalPrice}
-              </Text>
-            </View>         
+              <Text style={textStyle.cartBoxFooter}>TOTAL</Text>
+              <Text style={textStyle.cartBoxFooterPrice}>${totalPrice}</Text>
+            </View>
           </View>
           <TearLines
-              isUnder
-              width={0.9 * Dimensions.get('window').width}
-              color="#FFFFFF"
+            isUnder
+            width={0.9 * Dimensions.get('window').width}
+            color="#FFFFFF"
           />
           <TouchableOpacity
             style={dimensionStyles.checkOutButton}
             onPress={() => {
-              if (userToken===null) {
-                alert('Please log in first!')
-                this.navigateToLogInScreen()
-              } else if (orderLineArray.length===0) {
-                alert('Your cart is still empty!')
+              if (userToken === null) {
+                alert('Please log in first!');
+                this.navigateToLogInScreen();
+              } else if (orderLineArray.length === 0) {
+                alert('Your cart is still empty!');
               } else {
-                this.navigateToCheckOutScreen()
+                this.navigateToCheckOutScreen();
               }
             }}>
             <Text style={textStyle.orderNowButton}>CHECK OUT</Text>

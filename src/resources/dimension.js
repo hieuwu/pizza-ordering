@@ -470,47 +470,47 @@ const dimensionStyles = StyleSheet.create({
   },
 
   dashLine: {
-    width: 0.9 * w, 
-    borderRadius: 1, 
-    borderWidth: 1, 
-    borderColor: '#0b2031', 
+    width: 0.9 * w,
+    borderRadius: 1,
+    borderWidth: 1,
+    borderColor: '#0b2031',
     borderStyle: 'dashed',
   },
 
-  dashLineCheckOut:{
-    width: 0.9 * w, 
-    borderRadius: 1, 
-    borderWidth: 1, 
-    borderColor: '#FFFFFF', 
+  dashLineCheckOut: {
+    width: 0.9 * w,
+    borderRadius: 1,
+    borderWidth: 1,
+    borderColor: '#FFFFFF',
     borderStyle: 'dashed',
   },
 
   CheckOutHeaderContainer: {
     width: w,
-    height: 0.28*h,
+    height: 0.28 * h,
     backgroundColor: '#e5293e',
     alignItems: 'center',
   },
 
   CheckOutHeaderInfo: {
-    width: 0.9*w,
-    height: 0.1*h,
+    width: 0.9 * w,
+    height: 0.1 * h,
     justifyContent: 'center',
   },
 
-  CheckOutHeaderDatePrice:{
+  CheckOutHeaderDatePrice: {
     marginTop: 3,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
 
-  orderInfoContainer:{
+  orderInfoContainer: {
     marginTop: 10,
-    width: 0.9*w,
+    width: 0.9 * w,
     alignSelf: 'center',
   },
 
-  paymentMethodPicker:{
+  paymentMethodPicker: {
     marginTop: 10,
     marginBottom: 30,
     marginLeft: 5,
@@ -524,7 +524,7 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  paymentMethodPickerUnpick:{
+  paymentMethodPickerUnpick: {
     marginTop: 10,
     marginBottom: 30,
     marginLeft: 5,
@@ -538,14 +538,14 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  ImagePaymentMethod:{
-    width: 0.22*w,
-    height: 0.12*h,
+  ImagePaymentMethod: {
+    width: 0.22 * w,
+    height: 0.12 * h,
     marginTop: 5,
     marginBottom: 5,
   },
 
-  checkIconPaymentMethod:{
+  checkIconPaymentMethod: {
     position: 'absolute',
     width: 26,
     height: 26,
@@ -557,7 +557,7 @@ const dimensionStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  continueButtonCheckOut:{
+  continueButtonCheckOut: {
     width: 0.9 * w,
     height: 54,
     alignSelf: 'center',
@@ -568,7 +568,7 @@ const dimensionStyles = StyleSheet.create({
     marginBottom: 5,
   },
 
-  backButtonCheckOut:{
+  backButtonCheckOut: {
     width: 0.9 * w,
     height: 54,
     alignSelf: 'center',
@@ -578,6 +578,16 @@ const dimensionStyles = StyleSheet.create({
     borderRadius: 27,
     marginTop: 5,
     marginBottom: 20,
+  },
+
+  BackHomeButton: {
+    marginTop: 10,
+    width: 0.45 * w,
+    height: 38,
+    backgroundColor: '#0b2031',
+    borderRadius: 19,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

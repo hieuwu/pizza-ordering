@@ -77,6 +77,10 @@ target 'PycozzaProject' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'PycozzaProjectTests' do
     inherit! :complete
     # Pods for testing

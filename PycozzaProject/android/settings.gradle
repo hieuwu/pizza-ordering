@@ -1,4 +1,8 @@
 rootProject.name = 'PycozzaProject'
+include ':@react-native-community_async-storage'
+project(':@react-native-community_async-storage').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/async-storage/android')
+include ':react-native-screens'
+project(':react-native-screens').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-screens/android')
 include ':tipsi-dash-line'
 project(':tipsi-dash-line').projectDir = new File(rootProject.projectDir, '../node_modules/tipsi-dash-line/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)

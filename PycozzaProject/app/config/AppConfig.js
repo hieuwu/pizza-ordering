@@ -1,7 +1,10 @@
 const AppConfig = {
     API: {
-        baseURL: 'https://ec2-52-221-225-178.ap-southeast-1.compute.amazonaws.com:8080/pycozza',
-}
+        baseURL: 'http://192.168.1.9:8080/pycozza'
+},
+    IMAGE: {
+        baseURL: 'https://drive.google.com/uc?export=view&id=',
+    }
 };
 
 export default AppConfig;

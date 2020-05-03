@@ -12,7 +12,7 @@ import string from '../../resources/strings';
 import store from '../../redux/store';
 import { connect } from 'react-redux';
 import { addToCart } from '../../redux/actions/index';
-
+import AppConfig from '../../config/AppConfig'
 let i = 1;
 let id = 0;
 let cartID = 0;
@@ -26,6 +26,7 @@ class ProductDetailScreen extends Component {
             quantity: 1,
             size: 'L',
             crust: 'Thick',
+            isPizza: false,
         }
     }
     mediumSizeChecked = () => {
@@ -44,43 +45,50 @@ class ProductDetailScreen extends Component {
         this.setState({ crustChecked: false });
         this.setState({ crust: 'Thick' });
     }
-    getParam =() => {
-        const {item} = this.props.route.params;
+    getParam = () => {
+        const { item } = this.props.route.params;
         let param = {};
-        param.id= JSON.stringify(item.id).replace(/['"]+/g, '');
-        param.name= JSON.stringify(item.name).replace(/['"]+/g, '') ;
-        param.categoryId= JSON.stringify(item.categoryId).replace(/['"]+/g, '');
-        param.imgLink= JSON.stringify(item.imgLink).replace(/['"]+/g, '');
-        param.price= JSON.stringify(item.price).replace(/['"]+/g, '') ;
-        param.maxPrice= JSON.stringify(item.maxPrice).replace(/['"]+/g, '');
-        param.description= JSON.stringify(item.description).replace(/['"]+/g, '');
+        param.id = JSON.stringify(item.id).replace(/['"]+/g, '');
+        param.name = JSON.stringify(item.name).replace(/['"]+/g, '');
+        param.categoryId = JSON.stringify(item.categoryId).replace(/['"]+/g, '');
+        param.imgLink = JSON.stringify(item.imgLink).replace(/['"]+/g, '');
+        param.price = JSON.stringify(item.price).replace(/['"]+/g, '');
+        param.maxPrice = JSON.stringify(item.maxPrice).replace(/['"]+/g, '');
+        param.description = JSON.stringify(item.description).replace(/['"]+/g, '');
         return param;
-
     }
-      createOrderLine = () => {
-        const {addToCart} = this.props;
+    createOrderLine = () => {
+        const { addToCart } = this.props;
         const item = this.getParam();
         let orderLine = {};
-        orderLine.type = 'ADD_TODO'
-        orderLine.id =   String(cartID);
+        orderLine.id = String(cartID);
         orderLine.name = item.name;
-        if (this.state.size === 'M')
-        {
+        if (this.state.size === 'M') {
             orderLine.price = item.price;
         } else {
             orderLine.price = item.maxPrice;
+            if (item.maxPrice <= 0) {
+                orderLine.price = item.price;
+            }
         }
-        orderLine.quantity= this.state.quantity;
-        orderLine.size= this.state.size;
-        orderLine.crust= this.state.crust;
-        orderLine.imgLink= item.imgLink;
+        orderLine.type = 'ADD_CART';
+        orderLine.quantity = this.state.quantity;
+        orderLine.size = this.state.size;
+        orderLine.crust = this.state.crust;
+        orderLine.imgLink = item.imgLink;
         addToCart(orderLine);
-        console.log('Cart ID: ',cartID);
+        console.log('Cart ID: ', cartID);
         cartID = cartID + 1;
+    }
+    componentDidMount() {
+        const { title } = this.props.route.params;
+        if (title == 'Pizza') {
+            this.setState({ isPizza: true })
+        }
     }
 
     render() {
-        const item  = this.getParam();
+        const item = this.getParam();
         return (
             <View style={styles.container}>
                 <ScrollView>
@@ -88,60 +96,68 @@ class ProductDetailScreen extends Component {
                         <OvalShape />
                     </View>
                     <View style={{ alignItems: 'center' }}>
-                        <Image style={{ width: 200, height: 200, borderRadius: 200 / 2, resizeMode: 'contain' }} source={{ uri:item.imgLink}} />
+                        <Image style={{ width: 200, height: 200, borderRadius: 200 / 2, resizeMode: 'contain' }} source={{ uri: AppConfig.IMAGE.baseURL + item.imgLink }} />
                         <Text style={styles.productTitle}>{item.name}</Text>
-                        <Text style={styles.priceTitle}>{item.price + ',000'} - {item.maxPrice+ ',000'} VNĐ</Text>
+                        <Text style={styles.priceTitle}>{item.price + ',000'} - {item.maxPrice + ',000'} VNĐ</Text>
                     </View>
                     <View style={{ marginHorizontal: 15, }}>
                         <Text style={styles.subTitle}>Description:</Text>
                         <Text style={styles.content}>{item.description} </Text>
                     </View>
-                    <View style={{ marginHorizontal: 15, }}>
-                        <Text style={[styles.subTitle, { marginTop: 15 }]}>Size:</Text>
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
-                            <CheckBox
-                                center
-                                containerStyle={{ backgroundColor: 'transparent' }}
-                                title='M'
-                                checkedIcon='dot-circle-o'
-                                uncheckedIcon='circle-o'
-                                checked={this.state.sizeChecked}
-                                onPress={this.mediumSizeChecked}
-                            />
-                            <CheckBox
-                                center
-                                containerStyle={{ backgroundColor: 'transparent' }}
-                                title='L'
-                                checkedIcon='dot-circle-o'
-                                checked={!this.state.sizeChecked}
-                                onPress={this.largeSizeChecked}
-                                uncheckedIcon='circle-o'
-                            />
-                        </View>
-                    </View>
-                    <View style={{ marginHorizontal: 15, }}>
-                        <Text style={styles.subTitle}>Crust:</Text>
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
-                            <CheckBox
-                                center
-                                containerStyle={{ backgroundColor: 'transparent' }}
-                                title='Thin'
-                                checkedIcon='dot-circle-o'
-                                uncheckedIcon='circle-o'
-                                checked={this.state.crustChecked}
-                                onPress={this.thinCrustChecked}
-                            />
-                            <CheckBox
-                                center
-                                containerStyle={{ backgroundColor: 'transparent' }}
-                                title='Thick'
-                                checkedIcon='dot-circle-o'
-                                checked={!this.state.crustChecked}
-                                onPress={this.thickCrustChecked}
-                                uncheckedIcon='circle-o'
-                            />
-                        </View>
-                    </View>
+                    {
+                        this.state.isPizza ? (
+                            <View>
+                                <View style={{ marginHorizontal: 15, }}>
+                                    <Text style={[styles.subTitle, { marginTop: 15 }]}>Size:</Text>
+                                    <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
+                                        <CheckBox
+                                            center
+                                            containerStyle={{ backgroundColor: 'transparent' }}
+                                            title='M'
+                                            checkedIcon='dot-circle-o'
+                                            uncheckedIcon='circle-o'
+                                            checked={this.state.sizeChecked}
+                                            onPress={this.mediumSizeChecked}
+                                        />
+                                        <CheckBox
+                                            center
+                                            containerStyle={{ backgroundColor: 'transparent' }}
+                                            title='L'
+                                            checkedIcon='dot-circle-o'
+                                            checked={!this.state.sizeChecked}
+                                            onPress={this.largeSizeChecked}
+                                            uncheckedIcon='circle-o'
+                                        />
+                                    </View>
+                                </View>
+                                <View style={{ marginHorizontal: 15, }}>
+                                    <Text style={styles.subTitle}>Crust:</Text>
+                                    <View style={{ flexDirection: 'row', justifyContent: 'center', }}>
+                                        <CheckBox
+                                            center
+                                            containerStyle={{ backgroundColor: 'transparent' }}
+                                            title='Thin'
+                                            checkedIcon='dot-circle-o'
+                                            uncheckedIcon='circle-o'
+                                            checked={this.state.crustChecked}
+                                            onPress={this.thinCrustChecked}
+                                        />
+                                        <CheckBox
+                                            center
+                                            containerStyle={{ backgroundColor: 'transparent' }}
+                                            title='Thick'
+                                            checkedIcon='dot-circle-o'
+                                            checked={!this.state.crustChecked}
+                                            onPress={this.thickCrustChecked}
+                                            uncheckedIcon='circle-o'
+                                        />
+                                    </View>
+                                </View>
+                            </View>
+                        ) : null
+                    }
+
+
                     <View style={{ marginHorizontal: 15, }}>
                         <Text style={styles.subTitle}>Quantity:</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 15, }}>
@@ -154,7 +170,7 @@ class ProductDetailScreen extends Component {
                         </View>
                     </View>
                 </ScrollView>
-                <Button onPress={ 
+                <Button onPress={
                     this.createOrderLine} title={string.buttonAddToCart} buttonStyle={styles.addCart} />
             </View>
         )

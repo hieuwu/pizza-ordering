@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import todos from './cartReducer'
+import cartReducer from './cartReducer'
 
-const todoApp = combineReducers({
-    todos
+const PizzaApp = combineReducers({
+    cartReducer
 });
 
-export default todoApp;
+export default PizzaApp;

@@ -1,17 +1,16 @@
 import { ADDTOCART, REMOVEFROMCART } from '../actions/type';
-import todo from './cartItemReducer'
+import cartItem from './cartItemReducer'
 
-const todos = (state = [], action) => {
+const cartReducer = (state = [], action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case ADDTOCART:
             return [
                 ...state,
-                todo(undefined, action.orderLine)
+                cartItem(undefined, action.orderLine)
             ];
-        case 'REMOVE_TODO':
+        case REMOVEFROMCART:
             {
-               
-                    let newArr = [...state.filter((elem, idx) => {
+                let newArr = [...state.filter((elem, idx) => {
                         return elem.id != action.id
                     })];
                     return newArr;
@@ -22,4 +21,4 @@ const todos = (state = [], action) => {
 };
 
 
-export default todos;
+export default cartReducer;

@@ -2,14 +2,14 @@ import {ADDTOCART, REMOVEFROMCART} from './type.js';
 
 export const addToCart = (orderLine) => {
     return {
-        type: 'ADD_TODO',
+        type: ADDTOCART,
         orderLine,
     }
 }
 
 export const removeFromCart = (orderLine) => {
     return {
-        type: 'REMOVE_TODO',
+        type: REMOVEFROMCART,
         id: orderLine.id,
     }
 }

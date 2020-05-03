@@ -1,2 +1,2 @@
-export const ADDTOCART = 'addtocart';
-export const REMOVEFROMCART = 'removefromcart';
+export const ADDTOCART = 'ADD_CART';
+export const REMOVEFROMCART = 'REMOVE_CART';

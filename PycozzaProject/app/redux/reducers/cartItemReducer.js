@@ -1,9 +1,9 @@
 import {ADDTOCART, REMOVEFROMCART} from '../actions/type';
 
 
-const  todo = (state, action) => {
+const  cartItem = (state, action) => {
     switch (action.type) {
-        case 'ADD_TODO':
+        case ADDTOCART:
             return {
                 id: action.id,
                 name: action.name,
@@ -18,4 +18,4 @@ const  todo = (state, action) => {
     }
 };
 
-export default todo;
+export default cartItem;

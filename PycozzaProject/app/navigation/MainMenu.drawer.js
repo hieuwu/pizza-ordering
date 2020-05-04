@@ -13,20 +13,21 @@ import Null from '../components/Null.component';
 import ProfileScreen from '../views/Profile/Profile.screen'
 import ProfileStack from './Profile.stack'
 import CartStack from './Cart.stack'
+import CategoriesScreen from '../views/Categories/Categories.screen'
 const Drawer = createDrawerNavigator();
 const isShown = false;
 
 export default function MainMenuDrawer() {
     return (
-        <Drawer.Navigator// drawerContent={props => <CustomDrawerContent {...props} />}
+        <Drawer.Navigator
             drawerContentOptions={{ labelStyle: { color: color.white, fontSize: dimension.itemTitleSize, fontWeight: 'bold', } }}
-            initialRouteName='Home'
+            initialRouteName='Menu'
             drawerStyle={{ backgroundColor: color.mainColor }} >
             <Drawer.Screen options={{
                 drawerIcon: () => (
                     <Ionicons color={color.white} size={dimension.iconSize} name='ios-home' />)
             }}
-                name='Home' component={HomeStack} />
+                name='Menu' component={HomeStack} />
             <Drawer.Screen options={{
                 drawerIcon: () => (
                     <Ionicons color={color.white} size={dimension.iconSize} name='ios-person' />)
@@ -37,12 +38,7 @@ export default function MainMenuDrawer() {
                     <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />)
             }}
                 name='Cart' component={CartStack} />
-            <Drawer.Screen options={{
-                title: 'Pizza',
-                drawerIcon: () => (
-                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-list-box' />)
-            }}
-                name='Product' component={ProductStack} />
+
         </Drawer.Navigator>
     )
 }

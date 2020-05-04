@@ -22,13 +22,13 @@ export default class Login extends Component {
     super(props);
     this.toggleSwitch = this.toggleSwitch.bind(this);
     this.state = {
-      icon: 'eye-slash',
+      icon: strings.login.closeEye,
       showPassword: true,
       email: '',
       password: '',
       emailInvalidMess: '',
       passInvalidMess: '',
-      loginStatus: 'Sign in failed',
+      loginStatus: strings.login.loginStatusFailedMess,
       displayModal: false,
     };
   }
@@ -37,7 +37,7 @@ export default class Login extends Component {
     if (this.checkEmail(input)) {
       this.setState({emailInvalidMess: ''});
     } else {
-      this.setState({emailInvalidMess: 'Invalid email'});
+      this.setState({emailInvalidMess: strings.login.invalidEmailMess});
     }
   };
 
@@ -45,7 +45,7 @@ export default class Login extends Component {
     if (this.checkPassword(inputPass)) {
       this.setState({passInvalidMess: ''});
     } else {
-      this.setState({passInvalidMess: 'Invalid password'});
+      this.setState({passInvalidMess: strings.login.invalidPassMess});
     }
   };
 
@@ -80,13 +80,19 @@ export default class Login extends Component {
       this.checkPassword(this.state.password)
     ) {
       // do login here
+      //move to checkout screen
     } else {
       this.setState({displayModal: true});
     }
   }
 
   changeIcon() {
-    this.setState({icon: this.state.icon === 'eye' ? 'eye-slash' : 'eye'});
+    this.setState({
+      icon:
+        this.state.icon === strings.login.openEye
+          ? strings.login.closeEye
+          : strings.login.openEye,
+    });
   }
 
   toggleSwitch() {
@@ -124,17 +130,14 @@ export default class Login extends Component {
           <Modal
             animationType="slide"
             visible={this.state.displayModal}
-            transparent={true}
-            onRequestClose={() => {
-              console.log('modal close');
-            }}>
+            transparent={true}>
             <View style={styles.modalContainer}>
               <View style={styles.modalView}>
                 <Text style={styles.loginStatusTxt}>
                   {this.state.loginStatus}
                 </Text>
                 <Button
-                  title="OK"
+                  title={strings.login.okTxt}
                   onPress={() => {
                     this.setState({displayModal: false});
                   }}
@@ -142,17 +145,17 @@ export default class Login extends Component {
               </View>
             </View>
           </Modal>
-          <Text style={styles.subTxt}>Login</Text>
+          <Text style={styles.subTxt}>{strings.login.txtLoginTitle}</Text>
           <View style={styles.txtInputContainer}>
             <Input
-              placeholder="Email/Phone number"
+              placeholder={strings.login.txtEmailPlaceholder}
               errorMessage={this.state.emailInvalidMess}
               onChangeText={inputEmail => this.setState({email: inputEmail})}
             />
           </View>
           <View style={styles.txtInputContainer}>
             <Input
-              placeholder="Password"
+              placeholder={strings.login.txtPasswordPlaceholder}
               secureTextEntry={this.state.showPassword}
               errorMessage={this.state.passInvalidMess}
               onChangeText={password => this.setState({password: password})}
@@ -161,7 +164,7 @@ export default class Login extends Component {
               onPress={() => {
                 this.toggleSwitch();
               }}>
-              <Icon name={this.state.icon} size={20} color={'black'} />
+              <Icon name={this.state.icon} size={20} color={colors.black} />
             </TouchableOpacity>
           </View>
           <TouchableWithoutFeedback>
@@ -171,13 +174,13 @@ export default class Login extends Component {
                 this.signInOnClick();
                 Keyboard.dismiss();
               }}>
-              <Text style={styles.btnTxt}>LOGIN</Text>
+              <Text style={styles.btnTxt}>{strings.login.btnLogin}</Text>
             </TouchableOpacity>
           </TouchableWithoutFeedback>
 
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('signup')}>
-            <Text style={styles.signUpText}>Sign up</Text>
+            <Text style={styles.signUpText}>{strings.login.btnSingUp}</Text>
           </TouchableOpacity>
         </View>
       </View>

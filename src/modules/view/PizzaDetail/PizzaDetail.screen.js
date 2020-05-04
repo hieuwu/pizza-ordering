@@ -318,16 +318,16 @@ class PizzaDetail extends Component {
           <View style={pizzaDetailStyles.quantityContainer}>
             <TouchableOpacity
               style={pizzaDetailStyles.quantityIcon}
-              onPress={this.increaseQuantity}>
-              <Icon name="plus-square" size={30} color={colors.ovalColor} />
+              onPress={this.decreaseQuantity}>
+              <Icon name="minus-square" size={30} color={colors.ovalColor} />
             </TouchableOpacity>
             <Text style={pizzaDetailStyles.quantityText}>
               {this.state.quantity}
             </Text>
             <TouchableOpacity
               style={pizzaDetailStyles.quantityIcon}
-              onPress={this.decreaseQuantity}>
-              <Icon name="minus-square" size={30} color={colors.ovalColor} />
+              onPress={this.increaseQuantity}>
+              <Icon name="plus-square" size={30} color={colors.ovalColor} />
             </TouchableOpacity>
           </View>
         </ScrollView>

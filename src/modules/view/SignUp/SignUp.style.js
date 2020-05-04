@@ -13,7 +13,7 @@ export default StyleSheet.create({
   subView: {
     marginTop: 60,
     flexDirection: 'column',
-    backgroundColor: colors.white,
+    backgroundColor: colors.pizzaMenuListBackground,
     height: dimensions.login.subViewHeight,
     borderTopRightRadius: 40,
     borderTopLeftRadius: 40,
@@ -34,11 +34,15 @@ export default StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
   },
-  nameInput: {
-    height: 40,
-    width: 270,
-    borderBottomWidth: 1,
-    marginTop: 16,
+  txtInputContainer: {
+    margin: 8,
+    flexDirection: 'column',
+    height: dimensions.login.txtInputHeight,
+    width: dimensions.login.txtInputWidth,
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    width: '90%',
   },
   btn: {
     height: dimensions.login.btnHeight,
@@ -70,5 +74,40 @@ export default StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginTop: 17,
+  },
+  modalContainer: {
+    width: '100%',
+    height: '100%',
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+  modalView: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.white,
+    width: '90%',
+    height: dimensions.screenSize.height / 4,
+    borderRadius: 40,
+  },
+  btnOkContainer: {
+    flexDirection: 'column',
+    width: 100,
+    height: 30,
+    marginTop: 16,
+    backgroundColor: colors.mainRed,
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+  txtOk: {
+    fontSize: 15,
+    color: colors.white,
+    textAlign: 'center',
+  },
+  signUpStatusTxt: {
+    fontSize: 20,
+    color: colors.black,
   },
 });

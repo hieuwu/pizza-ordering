@@ -15,4 +15,20 @@ export default {
     btnLogin: 'LOGIN',
     btnSingUp: 'Sign up',
   },
+  signUp: {
+    txtFirstNamePlaceholder: 'First name',
+    txtLastNamePlaceholder: 'Last name',
+    txtEmailPlaceholder: 'Email',
+    txtPhoneNumberPlaceholder: 'Phone number',
+    txtPasswordPlaceholder: 'Password',
+    txtConfirmPasswordPlaceholder: 'Confirm password',
+
+    invalidNameMess: 'Invalid name',
+    invalidPhoneNumMess: 'Invalid phone number',
+    invalidEmailMess: 'Invalid email',
+    invalidPassMess: 'Invalid password',
+    invalidConfirmPassMess: 'Password not match',
+
+    signUpFailedMess: 'Sign up failed',
+  },
 };

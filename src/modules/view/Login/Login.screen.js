@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
@@ -67,11 +66,6 @@ export default class Login extends Component {
     );
   };
 
-  checkPhoneNum = phoneNum => {
-    let phoneNumRe = /(03|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
-    return phoneNumRe.test(String(phoneNum));
-  };
-
   signInOnClick() {
     this.updateEmailErrorMess(this.state.email);
     this.updatePasswordErrorMess(this.state.password);
@@ -83,6 +77,7 @@ export default class Login extends Component {
       //move to checkout screen
     } else {
       this.setState({displayModal: true});
+      console.log('set modal to : ' + this.state.displayModal);
     }
   }
 
@@ -136,12 +131,13 @@ export default class Login extends Component {
                 <Text style={styles.loginStatusTxt}>
                   {this.state.loginStatus}
                 </Text>
-                <Button
-                  title={strings.login.okTxt}
+                <TouchableOpacity
+                  style={styles.btnOkContainer}
                   onPress={() => {
                     this.setState({displayModal: false});
-                  }}
-                />
+                  }}>
+                  <Text style={styles.txtOk}>{strings.login.okTxt}</Text>
+                </TouchableOpacity>
               </View>
             </View>
           </Modal>

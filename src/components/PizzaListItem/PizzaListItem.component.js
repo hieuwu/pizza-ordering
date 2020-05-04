@@ -36,6 +36,10 @@ export default class PizzaListItem extends Component {
               {this.numberWithCommas(this.props.pizzaItemMediumPrice)}
             </Text>
           </View>
+          <View style={PizzaListItemStyles.sizeItemContainer}>
+            <Text> Size S: </Text>
+            <Text>{this.numberWithCommas(this.props.pizzaItemSmallPrice)}</Text>
+          </View>
         </View>
       </View>
     );

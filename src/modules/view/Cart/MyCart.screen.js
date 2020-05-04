@@ -111,7 +111,7 @@ class MyCart extends Component {
           </Text>
           <TouchableOpacity
             style={cartStyles.checkOutBtn}
-            onPress={() => this.summaryPrice}>
+            onPress={() => this.props.navigation.navigate('login')}>
             <Text style={cartStyles.checkOutBtnText}> CHECK OUT </Text>
             <Icon name="arrow-circle-right" size={35} color={colors.icon} />
           </TouchableOpacity>

@@ -8,7 +8,7 @@ export default StyleSheet.create({
     height: '100%',
     backgroundColor: colors.pizzaItemBackground,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     borderRadius: 10,
   },
   imageContainer: {
@@ -23,24 +23,27 @@ export default StyleSheet.create({
     resizeMode: 'stretch',
   },
   titleContainer: {
-    width: '90%',
-    height: '10%',
+    width: '95%',
+    height: '20%',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   titleText: {
-    fontSize: 16,
+    textAlign: 'center',
+    fontSize: 15,
     fontWeight: 'bold',
   },
   sizeContainer: {
     flexDirection: 'column',
     width: '90%',
-    height: '20%',
+    height: '30%',
     alignItems: 'center',
   },
   sizeItemContainer: {
     flexDirection: 'row',
     width: '90%',
-    height: '50%',
-    justifyContent: 'space-around',
+    height: '30%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

@@ -50,10 +50,11 @@ export default class PizzaMenu extends Component {
         this.props.navigation.navigate('pizzaDetail', {data: item});
       }}>
       <PizzaListItem
-        imageSource={item.imageSource}
-        pizzaItemTitle={item.title}
-        pizzaItemLargePrice={item.largePrice}
-        pizzaItemMediumPrice={item.mediumPrice}
+        imageSource={item.imgUrl}
+        pizzaItemTitle={item.name}
+        pizzaItemLargePrice={item.price.sizeL}
+        pizzaItemMediumPrice={item.price.sizeM}
+        pizzaItemSmallPrice={item.price.sizeS}
       />
     </TouchableOpacity>
   );

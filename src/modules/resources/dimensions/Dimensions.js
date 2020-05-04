@@ -12,4 +12,12 @@ export default {
     height: dimensionHeight,
     width: dimensionWidth,
   },
+  login: {
+    containerHeight: 700,
+    subViewHeight: '90%',
+    txtInputWidth: '80%',
+    txtInputHeight: 40,
+    btnHeight: 50,
+    btnWidth: '90%',
+  },
 };

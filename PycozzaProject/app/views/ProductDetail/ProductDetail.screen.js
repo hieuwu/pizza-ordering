@@ -12,7 +12,10 @@ import string from '../../resources/strings';
 import store from '../../redux/store';
 import { connect } from 'react-redux';
 import { addToCart } from '../../redux/actions/index';
-import AppConfig from '../../config/AppConfig'
+import AppConfig from '../../config/AppConfig';
+import { saveCart } from '../../redux/actions/index';
+import CartUseCase from '../../usecase/CartUsceCase'
+import { ADDTOCART } from '../../redux/actions/type'
 let i = 1;
 let id = 0;
 let cartID = 0;
@@ -57,10 +60,14 @@ class ProductDetailScreen extends Component {
         param.description = JSON.stringify(item.description).replace(/['"]+/g, '');
         return param;
     }
-    createOrderLine = () => {
+
+    createOrderLine = async () => {
         const { addToCart } = this.props;
+        const {cartReducer} = this.props;
+        const {saveCart} = this.props;
         const item = this.getParam();
         let orderLine = {};
+        orderLine.type = ADDTOCART;
         orderLine.id = String(cartID);
         orderLine.name = item.name;
         if (this.state.size === 'M') {
@@ -71,23 +78,28 @@ class ProductDetailScreen extends Component {
                 orderLine.price = item.price;
             }
         }
-        orderLine.type = 'ADD_CART';
         orderLine.quantity = this.state.quantity;
         orderLine.size = this.state.size;
         orderLine.crust = this.state.crust;
         orderLine.imgLink = item.imgLink;
+        console.log("Orderline: ",orderLine);
         addToCart(orderLine);
-        console.log('Cart ID: ', cartID);
+        saveCart();
         cartID = cartID + 1;
     }
-    componentDidMount() {
+
+    showCurrentCart = async () => {
+        let currentCart = await new CartUseCase().getCart();
+        console.log("Current cart: ", currentCart);
+    }
+    async componentDidMount() {
         const { title } = this.props.route.params;
         if (title == 'Pizza') {
             this.setState({ isPizza: true })
         }
     }
 
-    render() {
+     render() {
         const item = this.getParam();
         return (
             <View style={styles.container}>
@@ -156,8 +168,6 @@ class ProductDetailScreen extends Component {
                             </View>
                         ) : null
                     }
-
-
                     <View style={{ marginHorizontal: 15, }}>
                         <Text style={styles.subTitle}>Quantity:</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 15, }}>
@@ -172,14 +182,20 @@ class ProductDetailScreen extends Component {
                 </ScrollView>
                 <Button onPress={
                     this.createOrderLine} title={string.buttonAddToCart} buttonStyle={styles.addCart} />
+                     
+                     <Button onPress={
+                    this.showCurrentCart} title={"Show current order"} buttonStyle={styles.addCart} />
             </View>
         )
     }
 }
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    cartReducer: state.cartReducer
+});
 
 const mapDispatchToProps = dispatch => ({
-    addToCart: orderLine => dispatch(addToCart(orderLine))
+    addToCart: orderLine => dispatch(addToCart(orderLine)),
+    saveCart: () => dispatch(saveCart())
 })
 
 export default connect(

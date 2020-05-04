@@ -15,6 +15,7 @@ import dimensions from '../../resources/dimensions/Dimensions';
 import strings from '../../resources/strings/strings';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import UserUseCase from '../../../UseCase/UserUseCase';
 
 export default class Login extends Component {
   constructor(props) {
@@ -66,15 +67,23 @@ export default class Login extends Component {
     );
   };
 
-  signInOnClick() {
+  async signInOnClick() {
     this.updateEmailErrorMess(this.state.email);
     this.updatePasswordErrorMess(this.state.password);
     if (
       this.checkEmail(this.state.email) &&
       this.checkPassword(this.state.password)
     ) {
-      // do login here
-      //move to checkout screen
+      let userData = {
+        email: this.state.email,
+        password: this.state.password,
+      };
+      let loginResponse = await new UserUseCase().signInUser(userData);
+      if (String(loginResponse.data) > 0) {
+        this.setState({displayModal: false});
+        await new UserUseCase().saveUserInfo(userData);
+        // navigate to checkout screen:
+      }
     } else {
       this.setState({displayModal: true});
       console.log('set modal to : ' + this.state.displayModal);

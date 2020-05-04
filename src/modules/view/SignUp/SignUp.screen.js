@@ -6,6 +6,7 @@ import styles from './SignUp.style';
 import strings from '../../resources/strings/strings';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../resources/colors/Colors';
+import UserUseCase from '../../../UseCase/UserUseCase';
 
 export default class SignUp extends Component {
   constructor(props) {
@@ -78,10 +79,29 @@ export default class SignUp extends Component {
     }
   }
 
-  btnSignUpOnClick() {
+  async btnSignUpOnClick() {
     this.updateErrorMess();
     if (this.isValidateAllInput()) {
       // doing sing up promise
+      let userData = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        phoneNum: this.state.phoneNum,
+        password: this.state.password,
+      };
+      let signUpResponse = await new UserUseCase().signUpUser(userData);
+      if (String(signUpResponse.status) === 201) {
+        // sign in user :
+        let signInData = {
+          email: this.state.email,
+          password: this.state.password,
+        };
+        let signInResponse = await new UserUseCase().signInUser(signInData);
+        await new UserUseCase().saveUserInfo(signInResponse.data);
+        let currentUser = await new UserUseCase().getUserInfo();
+        console.log('current user data : ' + currentUser);
+      }
     } else {
       this.setState({displayModal: true});
     }

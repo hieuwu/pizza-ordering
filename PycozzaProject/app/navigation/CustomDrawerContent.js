@@ -15,40 +15,14 @@ import dimension from '../resources/dimensions';
 import string from '../resources/strings';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-function CustomDrawerContent(props) {
-  const [isVisible, setIsVisible] = useState(false);
-  function showhideComponent() {
-    if (isVisible == true) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  };
+function CustomDrawerContent(props, {navigation}) {
   return (
     <DrawerContentScrollView {...props} >
-      <DrawerItemList {...props} />
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <DrawerItem
-          activeTintColor={color.white}
-          icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-list-box' />) }}
-          labelStyle={styles.labelStyle}
-          label="Menu" onPress={showhideComponent} >
-        </DrawerItem>
-        {isVisible ? (
-          <TouchableOpacity onPress={showhideComponent}>
-            <Ionicons color={color.white} size={dimension.iconSize} name='ios-arrow-up' />
-          </TouchableOpacity>
-
-        ) : (<TouchableOpacity onPress={showhideComponent}>
-          <Ionicons color={color.white} size={dimension.iconSize} name='ios-arrow-down' />
-        </TouchableOpacity>)}
-      </View>
-      {isVisible ? (
-        <View style={{ marginLeft: 32 }}>
+      <DrawerItemList {...props} />  
           <DrawerItem
             icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-pizza' />) }}
             labelStyle={styles.labelStyle}
-            label={string.categories.pizza} onPress={() => alert('Link to help')}/>
+            label={string.categories.pizza} onPress={() => navigation.navigate('Product')}/>
           <DrawerItem
             icon={() => { return (<MaterialCommunityIcons color={color.white} size={dimension.iconSize} name='bowl' />) }}
             labelStyle={styles.labelStyle}
@@ -61,16 +35,7 @@ function CustomDrawerContent(props) {
             icon={() => { return (<Entypo color={color.white} size={dimension.iconSize} name='drink' />) }}
             labelStyle={styles.labelStyle}
             label={string.categories.beverage} onPress={() => alert('Link to help')} />
-        </View>
-      ) : null}
-      <DrawerItem
-        icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='md-call' />) }}
-        labelStyle={styles.labelStyle}
-        label="Contact us" onPress={() => alert('Link to help')} />
-      <DrawerItem
-        icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-information-circle' />) }}
-        labelStyle={styles.labelStyle}
-        label="Policy" onPress={() => alert('Link to help')} />
+       
     </DrawerContentScrollView>
   );
 }

@@ -73,7 +73,6 @@ export default class ProductListScreen extends Component {
         const {type} = this.props.route.params;
         try {
         let products = await new ProductUseCase().getListProduct(type);
-        console.log(products.data.products);
         this.setState(state => {
             const items = [
               ...products.data.products, 

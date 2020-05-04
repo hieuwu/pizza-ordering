@@ -69,7 +69,6 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     margin: 8,
   },
-  endBtn: {},
   loginTxt: {
     fontSize: 20,
     fontWeight: 'bold',

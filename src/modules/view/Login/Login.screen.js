@@ -6,12 +6,10 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Modal,
-  Button,
 } from 'react-native';
 import {Input} from 'react-native-elements';
 import styles from './Login.style';
 import colors from '../../resources/colors/Colors';
-import dimensions from '../../resources/dimensions/Dimensions';
 import strings from '../../resources/strings/strings';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import Icon from 'react-native-vector-icons/FontAwesome';

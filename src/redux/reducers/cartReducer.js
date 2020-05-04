@@ -8,7 +8,7 @@ const jobs = (state = [], action) => {
     case REMOVE_ITEM_FROM_CART: {
       let newArr = [
         ...state.filter((elem, idx) => {
-          return elem.id != action.id;
+          return elem.id !== action.id;
         }),
       ];
       return newArr;

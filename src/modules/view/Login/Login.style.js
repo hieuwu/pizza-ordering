@@ -27,13 +27,11 @@ export default StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
   },
-  nameInput: {
+  txtInputContainer: {
+    margin: 16,
     flexDirection: 'row',
     height: dimensions.login.txtInputHeight,
     width: dimensions.login.txtInputWidth,
-    borderBottomWidth: 1,
-    marginTop: 30,
-    justifyContent: 'space-between',
   },
   btnLogin: {
     height: dimensions.login.btnHeight,
@@ -55,5 +53,28 @@ export default StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  errorTxt: {
+    color: colors.mainRed,
+  },
+  modalContainer: {
+    width: '100%',
+    height: '100%',
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+  modalView: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    backgroundColor: colors.mainRed,
+    width: '90%',
+    height: dimensions.screenSize.height / 3,
+    borderRadius: 40,
+  },
+  loginStatusTxt: {
+    fontSize: 20,
+    color: colors.white,
   },
 });

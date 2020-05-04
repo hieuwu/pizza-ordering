@@ -14,14 +14,16 @@ import dimension from '../../resources/dimensions';
 import CartItem from '../../views/Cart/CartItem.component';
 import { Divider } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { removeFromCart } from '../../redux/actions/index';
+import { removeFromCart,loadCart,saveCart } from '../../redux/actions/index';
 import AppConfig from '../../config/AppConfig'
+import CartUseCase from '../../usecase/CartUsceCase';
+import { addToCart } from '../../redux/actions/index';
+import { ADDTOCART } from '../../redux/actions/type';
 
 class CartScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            total: this.countMoney(),
             modalVisible: false,
         }
     }
@@ -32,6 +34,11 @@ class CartScreen extends Component {
         console.log('Clicked ID: ', orderLine.id);
         removeFromCart(orderLine);
         this.setState({ total: this.countMoney() })
+    }
+    
+    loadCart = () => {
+        const {loadCart} = this.props;
+        loadCart();
     }
 
     countMoney = () => {
@@ -50,23 +57,29 @@ class CartScreen extends Component {
         return (
             <CartItem item={item} deleteItem={() => this.removeItem(item)} />
         )
-
     }
 
 
-    componentDidMount() {
-        //    const {todos} = this.props;
-        //     try {
-        //         await AsyncStorage.setItem('mycart', JSON.stringify(todos));
-        //     } catch (error) {
-        //         // Error retrieving data
-        //         console.log(error.message);
-        //     }
+    async componentDidMount() {
+        const {addToCart} = this.props;
+        const {cartReducer} = this.props;
+        if (cartReducer.length == 0) {
+            let newState = await new CartUseCase().getCart();
+            if (newState == 'none') {
+                return;
+            }
+            console.log("Curr cart in CartScreen: ", newState);
+            newState.forEach(element => {
+                element.type = ADDTOCART;
+                addToCart(element);
+            })
+        }
+       
+        
     }
     gotoAuthenn = () => {
         const { navigation } = this.props;
         navigation.navigate('LoginScreen');
-
     }
     async goCheckOut() {
         const { cartReducer } = this.props;
@@ -96,7 +109,6 @@ class CartScreen extends Component {
 
     render() {
         const { cartReducer } = this.props;
-        console.log(cartReducer);
         const totalPrice = this.countMoney();
         return (
             <View style={styles.container}>
@@ -133,7 +145,7 @@ class CartScreen extends Component {
                 <OvalShape />
                 <View style={styles.table}>
                     <View style={styles.tableHeader}>
-                        <Text style={styles.headerTitle}>{cartReducer.length} {string.promptItemCost} {this.state.total + ',000'} {string.currency}</Text>
+                        <Text style={styles.headerTitle}>{cartReducer.length} {string.promptItemCost} {totalPrice + ',000'} {string.currency}</Text>
                     </View>
                     {totalPrice ? (<View style={styles.listWraper}>
                         <FlatList data={cartReducer} renderItem={this.renderProductItem}
@@ -172,7 +184,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    removeFromCart: orderLine => dispatch(removeFromCart(orderLine))
-
+    removeFromCart: orderLine => dispatch(removeFromCart(orderLine)),
+    loadCart: () => dispatch(loadCart()),
+    addToCart: orderLine => dispatch(addToCart(orderLine)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CartScreen)

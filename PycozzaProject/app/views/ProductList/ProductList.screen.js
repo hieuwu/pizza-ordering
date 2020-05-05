@@ -71,11 +71,13 @@ export default class ProductListScreen extends Component {
 
     async componentDidMount() {
         const {type} = this.props.route.params;
+        console.log("Man hinh nay la: ", type);
         try {
         let products = await new ProductUseCase().getListProduct(type);
+       await new ProductUseCase().saveListProduct(type, products);
         this.setState(state => {
             const items = [
-              ...products.data.products, 
+              ...products, 
             ];
             return {
               dataProvider: state.dataProvider.cloneWithRows(items),

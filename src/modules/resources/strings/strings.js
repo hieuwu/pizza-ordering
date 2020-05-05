@@ -22,13 +22,22 @@ export default {
     txtPhoneNumberPlaceholder: 'Phone number',
     txtPasswordPlaceholder: 'Password',
     txtConfirmPasswordPlaceholder: 'Confirm password',
-
     invalidNameMess: 'Invalid name',
     invalidPhoneNumMess: 'Invalid phone number',
     invalidEmailMess: 'Invalid email',
     invalidPassMess: 'Invalid password',
     invalidConfirmPassMess: 'Password not match',
-
     signUpFailedMess: 'Sign up failed',
+  },
+  checkOut: {
+    txtData: 'Date: ',
+    txtTotalBill: 'Total Bill: ',
+  },
+  userInfo: {
+    firstName: ' FIRST NAME',
+    lastName: 'LAST NAME',
+    phoneNum: 'PHONE NUMBER ',
+    email: 'EMAIL',
+    address: 'ADDRESS',
   },
 };

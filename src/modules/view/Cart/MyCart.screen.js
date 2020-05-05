@@ -61,9 +61,6 @@ class MyCart extends Component {
         <TouchableOpacity onPress={() => this.removeCartLine(item)}>
           <Icon name="times" size={30} color={colors.ovalColor} />
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="edit" size={30} color={colors.ovalColor} />
-        </TouchableOpacity>
       </View>
     </View>
   );

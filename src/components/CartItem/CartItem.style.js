@@ -26,8 +26,8 @@ export default StyleSheet.create({
     flexWrap: 'wrap',
   },
   priceText: {
+    color: colors.green,
     fontSize: 15,
-    fontWeight: 'bold',
   },
   iconContainer: {
     height: '100%',

@@ -33,7 +33,7 @@ export default class CartItem extends Component {
             <Text> {this.props.pizzaTitle} </Text>
           </View>
           <Text style={styles.priceText}>
-            Price : {this.numberWithCommas(this.props.totalPrice)}
+            $ {this.numberWithCommas(this.props.totalPrice)}
           </Text>
         </View>
       </View>

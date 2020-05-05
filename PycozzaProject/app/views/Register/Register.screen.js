@@ -66,11 +66,11 @@ export default class RegisterScreen extends Component {
 
 
     validateForm = async () => {
-        this.checkEmail;
-        this.checkName;
-        this.checkPassword;
-        this.checkPhoneNumber;
-        this.checkConfirm;
+        this.checkEmail();
+        this.checkName();
+        this.checkPassword();
+        this.checkPhoneNumber();
+        this.checkConfirm();
         if (this.isValidName(this.state.fullName) && this.isValidPhoneNumber(this.state.phone)
             && this.isValidEmail(this.state.email) && this.isValidPassword(this.state.password)
             && this.isValidConfirm(this.state.password, this.state.confirmPassword)) {
@@ -128,7 +128,7 @@ export default class RegisterScreen extends Component {
             this.setState({ emailError: '' });
 
         } else {
-            this.setState({ emailError: 'Invalid value' });
+            this.setState({ emailError: 'Invalid email' });
         }
     }
 

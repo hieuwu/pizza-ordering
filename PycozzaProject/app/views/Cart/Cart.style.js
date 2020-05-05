@@ -85,24 +85,23 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        width: dimension.window.width -100,
-        height: dimension.window.height -400,
     },
     textStyle: {
         fontWeight: 'bold',
-        fontSize: 24,
+        fontSize: 18,
+        textAlign: 'left',
         color: color.white
     },
     okButton: {
         backgroundColor: color.mainColor,
         borderRadius: 15,
-        width: 80,
+        width: 150,
         marginHorizontal: 25,
     },
     cancelButton: {
         backgroundColor: color.inactiveStatus,
         borderRadius: 15,
-        width: 80,
+        width: 150,
         marginHorizontal: 25,
     },
     textInput: {
@@ -118,7 +117,19 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 15,
         marginHorizontal: 10,
+        marginVertical: 10,
+    },
+    textButton : {
+        fontWeight: 'bold',
+        fontSize: 18,
+        textAlign: 'left',
+        color: color.mainColor
+    },
+    touchButton: {
+        backgroundColor: color.white, 
         marginVertical: 25,
+        borderRadius: 10, 
+        padding: 8
     }
 
 });

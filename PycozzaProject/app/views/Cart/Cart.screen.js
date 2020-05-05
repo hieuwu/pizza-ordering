@@ -66,6 +66,7 @@ class CartScreen extends Component {
         if (cartReducer.length == 0) {
             let newState = await new CartUseCase().getCart();
             if (newState == 'none') {
+                console.log('cart is None')
                 return;
             }
             console.log("Curr cart in CartScreen: ", newState);

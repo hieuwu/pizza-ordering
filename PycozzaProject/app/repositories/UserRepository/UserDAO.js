@@ -1,4 +1,4 @@
-import {  AsyncStorage} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 
 class UserDAO {
     async saveUserInformation(userInfo) {
@@ -15,6 +15,10 @@ class UserDAO {
         let userInfo = '';
         try {
             userInfo = await AsyncStorage.getItem('userInfo') || 'none';
+            if (userInfo === 'none')
+            {
+                return 'none';
+            }
         } catch (error) {
             // Error retrieving data
             console.log(error.message);

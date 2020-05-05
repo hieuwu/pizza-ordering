@@ -14,6 +14,7 @@ export default class CartItem extends Component {
                     <View style={{ justifyContent: 'center' }}>
                         <Text style={styles.title}>{this.props.item.name}</Text>
                     </View>
+                    <Text>{this.props.item.crust}</Text>
                     <Text>{this.props.item.size}</Text>
                     <Text style={styles.price}>{this.props.item.price * this.props.item.quantity + '.000'} {string.currency}</Text>
                     <Text style={{ fontWeight: 'bold' }}>x{this.props.item.quantity}</Text>

@@ -1,9 +1,13 @@
-import {  AsyncStorage} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage';
 class CartDAO {
     async getCart(){
         let currentCart = '';
         try {
             currentCart = await AsyncStorage.getItem('currentCart') || 'none';
+            if (currentCart === 'none')
+            {
+                return 'none';
+            }
         } catch (error) {
             // Error retrieving data
             console.log(error.message);

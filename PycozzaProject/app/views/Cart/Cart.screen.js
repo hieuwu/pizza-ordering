@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, AsyncStorage, Modal } from 'react-native';
+import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -14,9 +14,10 @@ import dimension from '../../resources/dimensions';
 import CartItem from '../../views/Cart/CartItem.component';
 import { Divider } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { removeFromCart,loadCart,saveCart } from '../../redux/actions/index';
+import { removeFromCart, loadCart, saveCart } from '../../redux/actions/index';
 import AppConfig from '../../config/AppConfig'
 import CartUseCase from '../../usecase/CartUsceCase';
+import UserUseCase from '../../usecase/UserUseCase'
 import { addToCart } from '../../redux/actions/index';
 import { ADDTOCART } from '../../redux/actions/type';
 
@@ -25,6 +26,7 @@ class CartScreen extends Component {
         super(props);
         this.state = {
             modalVisible: false,
+            isSignedIn: false,
         }
     }
     removeItem = (item) => {
@@ -35,9 +37,9 @@ class CartScreen extends Component {
         removeFromCart(orderLine);
         this.setState({ total: this.countMoney() })
     }
-    
+
     loadCart = () => {
-        const {loadCart} = this.props;
+        const { loadCart } = this.props;
         loadCart();
     }
 
@@ -61,8 +63,8 @@ class CartScreen extends Component {
 
 
     async componentDidMount() {
-        const {addToCart} = this.props;
-        const {cartReducer} = this.props;
+        const { addToCart } = this.props;
+        const { cartReducer } = this.props;
         if (cartReducer.length == 0) {
             let newState = await new CartUseCase().getCart();
             if (newState == 'none') {
@@ -75,32 +77,34 @@ class CartScreen extends Component {
                 addToCart(element);
             })
         }
-       
-        
+
+
     }
     gotoAuthenn = () => {
         const { navigation } = this.props;
+        this.setState({ modalVisible: false })
         navigation.navigate('LoginScreen');
+
     }
     async goCheckOut() {
         const { cartReducer } = this.props;
         if (cartReducer.length > 0) {
-            this.setState({ modalVisible: true })
-            // let userId = '';
-            // try {
-            //     userId = await AsyncStorage.getItem('mycart') || 'none';
-            // } catch (error) {
-            //     // Error retrieving data
-            //     console.log(error.message);
-            // }
-            // if (userId !== 'none')
-            //     console.log("Da dang nhap");
+            let currentUser = await new UserUseCase().getUserInformation();
+            if (currentUser == 'none') {
+                //If not logged in
+                //show information dialog
+                this.setState({ isSignedIn: false });
+                console.log("Not logged in", currentUser);
+                this.setState({ modalVisible: true });
+            }
+            else {
+                //If logged in
+                //show address dialog
+                this.setState({ isSignedIn: true });
+                console.log("Current: ",currentUser);
+                this.setState({ modalVisible: true })
+            }
 
-            // else {
-            //     console.log("Chua dang nhap")
-            //     this.gotoAuthenn();
-
-            // }
         }
         else {
             alert('Your cart is empty')
@@ -113,36 +117,81 @@ class CartScreen extends Component {
         const totalPrice = this.countMoney();
         return (
             <View style={styles.container}>
-                <Modal animationType="slide"
-                    transparent={true}
-                    visible={this.state.modalVisible}>
-                    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
-                        <View style={styles.modalView}>
-                            <Text style={styles.textStyle}>{string.promptAddress}</Text>
-                            <Input inputContainerStyle={styles.textInput}
-                                placeholder={string.promptAddress}
-                                errorMessage={this.state.phoneError} />
-                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                <Button
-                                    title='Cancel'
-                                    buttonStyle={styles.cancelButton}
-                                    onPress={() => {
-                                        this.setState({ modalVisible: false });
-                                    }}
+                {
+                    this.state.isSignedIn ? (<Modal animationType="slide"
+                        transparent={true}
+                        visible={this.state.modalVisible}>
+                        <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                            <View style={styles.modalView}>
+                                <Text style={styles.textStyle}>{string.promptAddress}</Text>
+                                <Input inputContainerStyle={styles.textInput}
+                                    placeholder={string.promptAddress}
                                 />
-
-                                <Button
-                                    title='OK'
-                                    buttonStyle={styles.okButton}
-                                    onPress={() => {
-                                        this.setState({ modalVisible: false });
-                                    }}
-                                />
-
+                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                    <Button
+                                        title='Cancel'
+                                        buttonStyle={styles.cancelButton}
+                                        onPress={() => {
+                                            this.setState({ modalVisible: false });
+                                        }}
+                                    />
+                                    <Button
+                                        title='OK'
+                                        buttonStyle={styles.okButton}
+                                        onPress={() => {
+                                            this.setState({ modalVisible: false });
+                                        }}
+                                    />
+                                </View>
                             </View>
                         </View>
-                    </View>
-                </Modal>
+                    </Modal>
+                    ) :
+                        (
+                            <Modal animationType="slide"
+                                transparent={true}
+                                visible={this.state.modalVisible}>
+                                <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                                    <View style={styles.modalView}>
+                                        <Text style={styles.textStyle}>Your name</Text>
+                                        <Input inputContainerStyle={styles.textInput}
+                                            placeholder={string.promptFullName}
+                                        />
+                                        <Text style={styles.textStyle}>Phone</Text>
+                                        <Input inputContainerStyle={styles.textInput}
+                                            placeholder={string.promptPhone}
+                                        />
+                                        <Text style={styles.textStyle}>{string.promptAddress}</Text>
+                                        <Input inputContainerStyle={styles.textInput}
+                                            placeholder={string.promptAddress}
+                                        />
+                                        <Text style={styles.textStyle}>or</Text>
+                                        <TouchableOpacity
+                                            onPress={() => this.gotoAuthenn()}
+                                            style={styles.touchButton}>
+                                            <Text style={styles.textButton}>Buy as member</Text>
+                                        </TouchableOpacity>
+                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                            <Button
+                                                title='Cancel'
+                                                buttonStyle={styles.cancelButton}
+                                                onPress={() => {
+                                                    this.setState({ modalVisible: false });
+                                                }}
+                                            />
+                                            <Button
+                                                title='OK'
+                                                buttonStyle={styles.okButton}
+                                                onPress={() => {
+                                                    this.setState({ modalVisible: false });
+                                                }}
+                                            />
+                                        </View>
+                                    </View>
+                                </View>
+                            </Modal>
+                        )
+                }
                 <OvalShape />
                 <View style={styles.table}>
                     <View style={styles.tableHeader}>

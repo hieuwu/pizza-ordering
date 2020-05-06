@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, FlatList, TouchableOpacity, Image, Text } from 'react-native'
+import { View, FlatList, TouchableOpacity, RefreshControl, Image, Text } from 'react-native'
 import styles from './ProductList.style';
 import ProductUseCase from '../../usecase/ProductUseCase'
 import OvalShape from '../../components/OvalShape.component'
@@ -9,6 +9,7 @@ import dimension from '../../resources/dimensions';
 import itemStyles from './ListItem.component'
 import color from '../../resources/colors';
 import AppConfig from '../../config/AppConfig'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -35,7 +36,8 @@ export default class ProductListScreen extends Component {
         this._rowRenderer = this._rowRenderer.bind(this);
         this.state = {
             dataProvider: dataProvider.cloneWithRows([]),
-            items: []
+            items: [],
+            isRefreshing: false
         };
     }
 
@@ -53,8 +55,8 @@ export default class ProductListScreen extends Component {
         switch (type) {
             case 0:
                 return (
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('ProductDetail', { item: item, title:  title})} style={itemStyles.itemWrapper}>
-                        <Image style={itemStyles.itemImage} source={{ uri: AppConfig.IMAGE.baseURL+item.imgLink }} />
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('ProductDetail', { item: item, title: title })} style={itemStyles.itemWrapper}>
+                        <Image style={itemStyles.itemImage} source={{ uri: AppConfig.IMAGE.baseURL + item.imgLink }} />
                         <View style={{
                             alignItems: 'center',
                             marginRight: 25,
@@ -70,39 +72,66 @@ export default class ProductListScreen extends Component {
     }
 
     async componentDidMount() {
-        const {type} = this.props.route.params;
+        const { type } = this.props.route.params;
         console.log("Man hinh nay la: ", type);
         try {
-        let products = await new ProductUseCase().getListProduct(type);
-       await new ProductUseCase().saveListProduct(type, products);
-        this.setState(state => {
-            const items = [
-              ...products, 
-            ];
-            return {
-              dataProvider: state.dataProvider.cloneWithRows(items),
-              items
-            }
-          })
-    }
-        catch(error)
-        {
-            console.log('Loi la: ',error)
+            let products = await new ProductUseCase().getListProduct(type);
+            await new ProductUseCase().saveListProduct(type, products);
+            this.setState(state => {
+                const items = [
+                    ...products,
+                ];
+                return {
+                    dataProvider: state.dataProvider.cloneWithRows(items),
+                    items
+                }
+            })
         }
-         
+        catch (error) {
+            console.log('Loi la: ', error)
+        }
+
         this.setHeaderTitle()
     }
-
+    onRefresh = async () => {
+        this.setState({isRefreshing: true});
+        // const { type } = this.props.route.params;
+        // try {
+        //     let products = await new ProductUseCase().getListProduct(type);
+        //     await new ProductUseCase().saveListProduct(type, products);
+        //     this.setState(state => {
+        //         const items = [
+        //             ...products,
+        //         ];
+        //         return {
+        //             dataProvider: state.dataProvider.cloneWithRows(items),
+        //             items
+        //         }
+        //     })
+        //     this.setState({isRefreshing: false});
+        // }
+        // catch (error) {
+        //     this.setState({isRefreshing: false});
+        //     console.log('Loi la: ', error)
+        // }
+        this.setState({isRefreshing: false});
+        console.log("Data fetched");
+    }
     render() {
         return (
             <View style={styles.container}>
                 <OvalShape />
-                <View style={{flex: 1}}> 
-                <RecyclerListView
+                <ScrollView style={{ height: 10, backgroundColor: 'red' }}
+                    refreshControl={
+                        <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
+                />
+
+                <View style={{ flex: 1 }}>
+                    <RecyclerListView
                         layoutProvider={this._layoutProvider}
                         dataProvider={this.state.dataProvider}
                         rowRenderer={this._rowRenderer}
-                        scrollViewProps= {{horizontal: true}}
+                        scrollViewProps={{ horizontal: true }}
                     />
                 </View>
             </View>

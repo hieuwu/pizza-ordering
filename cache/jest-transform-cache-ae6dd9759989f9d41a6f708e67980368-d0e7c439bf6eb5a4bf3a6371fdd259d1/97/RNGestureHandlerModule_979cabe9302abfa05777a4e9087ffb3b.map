@@ -1,0 +1,1 @@
+{"version":3,"sources":["RNGestureHandlerModule.js"],"names":["RNGestureHandlerModule","NativeModules"],"mappings":";;;;;AAAA;;IAEQA,sB,GAA2BC,0B,CAA3BD,sB;eAEOA,sB","sourcesContent":["import { NativeModules } from 'react-native';\n\nconst { RNGestureHandlerModule } = NativeModules;\n\nexport default RNGestureHandlerModule;\n"]}

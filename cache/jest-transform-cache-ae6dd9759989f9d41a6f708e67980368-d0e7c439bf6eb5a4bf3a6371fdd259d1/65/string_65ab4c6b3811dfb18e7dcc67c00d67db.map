@@ -1,0 +1,1 @@
+{"version":3,"sources":["string.js"],"names":["string","restaurantName"],"mappings":";;;;AAAA,IAAMA,MAAM,GAAG;AACbC,EAAAA,cAAc,EAAE;AADH,CAAf","sourcesContent":["const string = {\r\n  restaurantName: 'Pizza Pazzi',\r\n};\r\n\r\nexport {string};\r\n"]}

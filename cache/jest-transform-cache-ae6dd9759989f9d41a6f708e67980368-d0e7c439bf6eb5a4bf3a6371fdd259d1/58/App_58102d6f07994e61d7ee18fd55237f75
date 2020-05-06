@@ -1,0 +1,65 @@
+25dd4e3a9df399e899d45bac81f69d81
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+require("react-native-gesture-handler");
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _redux = require("redux");
+
+var _reduxThunk = _interopRequireDefault(require("redux-thunk"));
+
+var _reactRedux = require("react-redux");
+
+var _native = require("@react-navigation/native");
+
+var _AppStack = _interopRequireDefault(require("./src/navigation/AppStack.js"));
+
+var _reducer = _interopRequireDefault(require("./src/redux/reducer.js"));
+
+function _createSuper(Derived) { return function () { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+var store = (0, _redux.createStore)(_reducer.default, (0, _redux.applyMiddleware)(_reduxThunk.default));
+
+var App = function (_Component) {
+  (0, _inherits2.default)(App, _Component);
+
+  var _super = _createSuper(App);
+
+  function App() {
+    (0, _classCallCheck2.default)(this, App);
+    return _super.apply(this, arguments);
+  }
+
+  (0, _createClass2.default)(App, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_reactRedux.Provider, {
+        store: store
+      }, _react.default.createElement(_native.NavigationContainer, null, _react.default.createElement(_AppStack.default, null)));
+    }
+  }]);
+  return App;
+}(_react.Component);
+
+exports.default = App;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC5qcyJdLCJuYW1lcyI6WyJzdG9yZSIsInJlZHVjZXIiLCJSZWR1eFRodW5rIiwiQXBwIiwiQ29tcG9uZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7O0FBQ0E7Ozs7OztBQUVBLElBQU1BLEtBQUssR0FBRyx3QkFBWUMsZ0JBQVosRUFBcUIsNEJBQWdCQyxtQkFBaEIsQ0FBckIsQ0FBZDs7SUFFcUJDLEc7Ozs7Ozs7Ozs7Ozs2QkFDVjtBQUNQLGFBQ0UsNkJBQUMsb0JBQUQ7QUFBVSxRQUFBLEtBQUssRUFBRUg7QUFBakIsU0FDRSw2QkFBQywyQkFBRCxRQUNFLDZCQUFDLGlCQUFELE9BREYsQ0FERixDQURGO0FBT0Q7OztFQVQ4QkksZ0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgJ3JlYWN0LW5hdGl2ZS1nZXN0dXJlLWhhbmRsZXInO1xuaW1wb3J0IFJlYWN0LCB7Q29tcG9uZW50fSBmcm9tICdyZWFjdCc7XG5pbXBvcnQge2NyZWF0ZVN0b3JlLCBhcHBseU1pZGRsZXdhcmUsIGNvbXBvc2V9IGZyb20gJ3JlZHV4JztcbmltcG9ydCBSZWR1eFRodW5rIGZyb20gJ3JlZHV4LXRodW5rJztcbmltcG9ydCB7UHJvdmlkZXJ9IGZyb20gJ3JlYWN0LXJlZHV4JztcbmltcG9ydCB7TmF2aWdhdGlvbkNvbnRhaW5lcn0gZnJvbSAnQHJlYWN0LW5hdmlnYXRpb24vbmF0aXZlJztcbmltcG9ydCBBcHBTdGFjayBmcm9tICcuL3NyYy9uYXZpZ2F0aW9uL0FwcFN0YWNrLmpzJztcbmltcG9ydCByZWR1Y2VyIGZyb20gJy4vc3JjL3JlZHV4L3JlZHVjZXIuanMnO1xuXG5jb25zdCBzdG9yZSA9IGNyZWF0ZVN0b3JlKHJlZHVjZXIsIGFwcGx5TWlkZGxld2FyZShSZWR1eFRodW5rKSk7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEFwcCBleHRlbmRzIENvbXBvbmVudCB7XG4gIHJlbmRlcigpIHtcbiAgICByZXR1cm4gKFxuICAgICAgPFByb3ZpZGVyIHN0b3JlPXtzdG9yZX0+XG4gICAgICAgIDxOYXZpZ2F0aW9uQ29udGFpbmVyPlxuICAgICAgICAgIDxBcHBTdGFjayAvPlxuICAgICAgICA8L05hdmlnYXRpb25Db250YWluZXI+XG4gICAgICA8L1Byb3ZpZGVyPlxuICAgICk7XG4gIH1cbn1cbiJdfQ==

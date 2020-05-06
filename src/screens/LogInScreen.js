@@ -50,6 +50,7 @@ class LogInScreen extends Component {
       let response = await postUserAPI('/user/login', LogInData);
       let userToken = response.data;
       await AsyncStorage.setItem('userToken', JSON.stringify(userToken));
+      console.log(userToken)
       setUserToken(userToken);
       alert('Log in successfully!');
       this.navigateBack();

@@ -1,0 +1,34 @@
+5b95ec5178c10ff7923c0bc72dd9b617
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "FA5Style", {
+  enumerable: true,
+  get: function get() {
+    return _createIconSetFromFontawesome.FA5Style;
+  }
+});
+exports.getImageSource = exports.ToolbarAndroid = exports.TabBarItemIOS = exports.TabBarItem = exports.Button = exports.default = void 0;
+
+var _createIconSetFromFontawesome = require("./lib/create-icon-set-from-fontawesome5");
+
+var _FontAwesome5Free = _interopRequireDefault(require("./glyphmaps/FontAwesome5Free.json"));
+
+var _FontAwesome5Free_meta = _interopRequireDefault(require("./glyphmaps/FontAwesome5Free_meta.json"));
+
+var iconSet = (0, _createIconSetFromFontawesome.createFA5iconSet)(_FontAwesome5Free.default, _FontAwesome5Free_meta.default, false);
+var _default = iconSet;
+exports.default = _default;
+var Button = iconSet.Button;
+exports.Button = Button;
+var TabBarItem = iconSet.TabBarItem;
+exports.TabBarItem = TabBarItem;
+var TabBarItemIOS = iconSet.TabBarItemIOS;
+exports.TabBarItemIOS = TabBarItemIOS;
+var ToolbarAndroid = iconSet.ToolbarAndroid;
+exports.ToolbarAndroid = ToolbarAndroid;
+var getImageSource = iconSet.getImageSource;
+exports.getImageSource = getImageSource;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkZvbnRBd2Vzb21lNS5qcyJdLCJuYW1lcyI6WyJpY29uU2V0IiwiZ2x5cGhNYXAiLCJtZXRhZGF0YSIsIkJ1dHRvbiIsIlRhYkJhckl0ZW0iLCJUYWJCYXJJdGVtSU9TIiwiVG9vbGJhckFuZHJvaWQiLCJnZXRJbWFnZVNvdXJjZSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7OztBQUtBOztBQUVBOztBQUNBOztBQUlBLElBQU1BLE9BQU8sR0FBRyxvREFBaUJDLHlCQUFqQixFQUEyQkMsOEJBQTNCLEVBQXFDLEtBQXJDLENBQWhCO2VBRWVGLE87O0FBRVIsSUFBTUcsTUFBTSxHQUFHSCxPQUFPLENBQUNHLE1BQXZCOztBQUNBLElBQU1DLFVBQVUsR0FBR0osT0FBTyxDQUFDSSxVQUEzQjs7QUFDQSxJQUFNQyxhQUFhLEdBQUdMLE9BQU8sQ0FBQ0ssYUFBOUI7O0FBQ0EsSUFBTUMsY0FBYyxHQUFHTixPQUFPLENBQUNNLGNBQS9COztBQUNBLElBQU1DLGNBQWMsR0FBR1AsT0FBTyxDQUFDTyxjQUEvQiIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogRm9udEF3ZXNvbWU1IGljb24gc2V0IGNvbXBvbmVudC5cbiAqIFVzYWdlOiA8Rm9udEF3ZXNvbWU1IG5hbWU9XCJpY29uLW5hbWVcIiBzaXplPXsyMH0gY29sb3I9XCIjNEY4RUY3XCIgLz5cbiAqL1xuXG5pbXBvcnQgeyBjcmVhdGVGQTVpY29uU2V0IH0gZnJvbSAnLi9saWIvY3JlYXRlLWljb24tc2V0LWZyb20tZm9udGF3ZXNvbWU1JztcblxuaW1wb3J0IGdseXBoTWFwIGZyb20gJy4vZ2x5cGhtYXBzL0ZvbnRBd2Vzb21lNUZyZWUuanNvbic7XG5pbXBvcnQgbWV0YWRhdGEgZnJvbSAnLi9nbHlwaG1hcHMvRm9udEF3ZXNvbWU1RnJlZV9tZXRhLmpzb24nO1xuXG5leHBvcnQgeyBGQTVTdHlsZSB9IGZyb20gJy4vbGliL2NyZWF0ZS1pY29uLXNldC1mcm9tLWZvbnRhd2Vzb21lNSc7XG5cbmNvbnN0IGljb25TZXQgPSBjcmVhdGVGQTVpY29uU2V0KGdseXBoTWFwLCBtZXRhZGF0YSwgZmFsc2UpO1xuXG5leHBvcnQgZGVmYXVsdCBpY29uU2V0O1xuXG5leHBvcnQgY29uc3QgQnV0dG9uID0gaWNvblNldC5CdXR0b247XG5leHBvcnQgY29uc3QgVGFiQmFySXRlbSA9IGljb25TZXQuVGFiQmFySXRlbTtcbmV4cG9ydCBjb25zdCBUYWJCYXJJdGVtSU9TID0gaWNvblNldC5UYWJCYXJJdGVtSU9TO1xuZXhwb3J0IGNvbnN0IFRvb2xiYXJBbmRyb2lkID0gaWNvblNldC5Ub29sYmFyQW5kcm9pZDtcbmV4cG9ydCBjb25zdCBnZXRJbWFnZVNvdXJjZSA9IGljb25TZXQuZ2V0SW1hZ2VTb3VyY2U7XG4iXX0=

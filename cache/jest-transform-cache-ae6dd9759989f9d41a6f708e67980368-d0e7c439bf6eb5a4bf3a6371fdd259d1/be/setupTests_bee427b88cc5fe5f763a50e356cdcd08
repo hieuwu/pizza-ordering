@@ -1,0 +1,34 @@
+a82723b582b1290bd185f056a521e8b5
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _enzymeAdapterReact = _interopRequireDefault(require("enzyme-adapter-react-16"));
+
+var _enzyme = _interopRequireDefault(require("enzyme"));
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var _require = require('jsdom'),
+    JSDOM = _require.JSDOM;
+
+var jsdom = new JSDOM('<!doctype html><html><body></body></html>');
+var window = jsdom.window;
+
+function copyProps(src, target) {
+  Object.defineProperties(target, _objectSpread({}, Object.getOwnPropertyDescriptors(src), {}, Object.getOwnPropertyDescriptors(target)));
+}
+
+global.window = window;
+global.document = window.document;
+global.navigator = {
+  userAgent: 'node.js'
+};
+copyProps(window, global);
+
+_enzyme.default.configure({
+  adapter: new _enzymeAdapterReact.default()
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNldHVwVGVzdHMuanMiXSwibmFtZXMiOlsicmVxdWlyZSIsIkpTRE9NIiwianNkb20iLCJ3aW5kb3ciLCJjb3B5UHJvcHMiLCJzcmMiLCJ0YXJnZXQiLCJPYmplY3QiLCJkZWZpbmVQcm9wZXJ0aWVzIiwiZ2V0T3duUHJvcGVydHlEZXNjcmlwdG9ycyIsImdsb2JhbCIsImRvY3VtZW50IiwibmF2aWdhdG9yIiwidXNlckFnZW50IiwiRW56eW1lIiwiY29uZmlndXJlIiwiYWRhcHRlciIsIkFkYXB0ZXIiXSwibWFwcGluZ3MiOiI7Ozs7QUFBQTs7QUFDQTs7Ozs7O2VBS2tCQSxPQUFPLENBQUMsT0FBRCxDO0lBQWpCQyxLLFlBQUFBLEs7O0FBRVIsSUFBTUMsS0FBSyxHQUFHLElBQUlELEtBQUosQ0FBVSwyQ0FBVixDQUFkO0lBQ1FFLE0sR0FBV0QsSyxDQUFYQyxNOztBQUVSLFNBQVNDLFNBQVQsQ0FBbUJDLEdBQW5CLEVBQXdCQyxNQUF4QixFQUFnQztBQUM5QkMsRUFBQUEsTUFBTSxDQUFDQyxnQkFBUCxDQUF3QkYsTUFBeEIsb0JBQ0tDLE1BQU0sQ0FBQ0UseUJBQVAsQ0FBaUNKLEdBQWpDLENBREwsTUFFS0UsTUFBTSxDQUFDRSx5QkFBUCxDQUFpQ0gsTUFBakMsQ0FGTDtBQUlEOztBQUVESSxNQUFNLENBQUNQLE1BQVAsR0FBZ0JBLE1BQWhCO0FBQ0FPLE1BQU0sQ0FBQ0MsUUFBUCxHQUFrQlIsTUFBTSxDQUFDUSxRQUF6QjtBQUNBRCxNQUFNLENBQUNFLFNBQVAsR0FBbUI7QUFDakJDLEVBQUFBLFNBQVMsRUFBRTtBQURNLENBQW5CO0FBR0FULFNBQVMsQ0FBQ0QsTUFBRCxFQUFTTyxNQUFULENBQVQ7O0FBTUFJLGdCQUFPQyxTQUFQLENBQWlCO0FBQUVDLEVBQUFBLE9BQU8sRUFBRSxJQUFJQywyQkFBSjtBQUFYLENBQWpCIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEFkYXB0ZXIgZnJvbSAnZW56eW1lLWFkYXB0ZXItcmVhY3QtMTYnO1xyXG5pbXBvcnQgRW56eW1lIGZyb20gJ2VuenltZSc7XHJcblxyXG4vKipcclxuICogU2V0IHVwIERPTSBpbiBub2RlLmpzIGVudmlyb25tZW50IGZvciBFbnp5bWUgdG8gbW91bnQgdG9cclxuICovXHJcbmNvbnN0IHsgSlNET00gfSA9IHJlcXVpcmUoJ2pzZG9tJyk7XHJcblxyXG5jb25zdCBqc2RvbSA9IG5ldyBKU0RPTSgnPCFkb2N0eXBlIGh0bWw+PGh0bWw+PGJvZHk+PC9ib2R5PjwvaHRtbD4nKTtcclxuY29uc3QgeyB3aW5kb3cgfSA9IGpzZG9tO1xyXG5cclxuZnVuY3Rpb24gY29weVByb3BzKHNyYywgdGFyZ2V0KSB7XHJcbiAgT2JqZWN0LmRlZmluZVByb3BlcnRpZXModGFyZ2V0LCB7XHJcbiAgICAuLi5PYmplY3QuZ2V0T3duUHJvcGVydHlEZXNjcmlwdG9ycyhzcmMpLFxyXG4gICAgLi4uT2JqZWN0LmdldE93blByb3BlcnR5RGVzY3JpcHRvcnModGFyZ2V0KSxcclxuICB9KTtcclxufVxyXG5cclxuZ2xvYmFsLndpbmRvdyA9IHdpbmRvdztcclxuZ2xvYmFsLmRvY3VtZW50ID0gd2luZG93LmRvY3VtZW50O1xyXG5nbG9iYWwubmF2aWdhdG9yID0ge1xyXG4gIHVzZXJBZ2VudDogJ25vZGUuanMnLFxyXG59O1xyXG5jb3B5UHJvcHMod2luZG93LCBnbG9iYWwpO1xyXG5cclxuLyoqXHJcbiAqIFNldCB1cCBFbnp5bWUgdG8gbW91bnQgdG8gRE9NLCBzaW11bGF0ZSBldmVudHMsXHJcbiAqIGFuZCBpbnNwZWN0IHRoZSBET00gaW4gdGVzdHMuXHJcbiAqL1xyXG5Fbnp5bWUuY29uZmlndXJlKHsgYWRhcHRlcjogbmV3IEFkYXB0ZXIoKSB9KTsiXX0=

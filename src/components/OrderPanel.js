@@ -276,20 +276,24 @@ class OrderPanel extends Component {
     orderLine.product = productData._id;
 
     orderLine.optionArray = [];
+    orderLine.optionTitleArray = [];
     let sizeOption = sizeArray.find(unitData => unitData.title === size);
     if (sizeOption !== undefined) {
-      orderLine.optionArray.push(sizeOption);
+      orderLine.optionArray.push(sizeOption._id);
+      orderLine.optionTitleArray.push(sizeOption.title);
     }
     let crustOption = crustArray.find(unitData => unitData.title === crust);
     if (crustOption !== undefined) {
-      orderLine.optionArray.push(crustOption);
+      orderLine.optionArray.push(crustOption._id);
+      orderLine.optionTitleArray.push(crustOption.title);
     }
     topping.forEach(toppingUnit => {
       let toppingOption = toppingArray.find(
         unitData => unitData.title === toppingUnit,
       );
       if (toppingOption !== undefined) {
-        orderLine.optionArray.push(toppingOption);
+        orderLine.optionArray.push(toppingOption._id);
+        orderLine.optionTitleArray.push(toppingOption.title);
       }
     });
 

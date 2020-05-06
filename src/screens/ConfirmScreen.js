@@ -37,6 +37,7 @@ class ConfirmScreen extends Component {
       delete orderLine.productData;
       delete orderLine.productPrice;
       delete orderLine.oldState;
+      delete orderLine.optionTitleArray;
     });
 
     order.orderLineArray = orderLineArrayClone;
@@ -44,7 +45,6 @@ class ConfirmScreen extends Component {
     order.name = orderInfo.name;
     order.address = orderInfo.address;
     order.note = orderInfo.note;
-    order.totalPrice = totalPrice;
 
     this.postOrder(order);
   };

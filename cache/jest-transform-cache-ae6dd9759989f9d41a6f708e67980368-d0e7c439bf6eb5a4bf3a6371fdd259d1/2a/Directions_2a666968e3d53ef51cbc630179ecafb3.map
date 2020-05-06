@@ -1,0 +1,1 @@
+{"version":3,"sources":["Directions.js"],"names":["RNGestureHandlerModule","Direction"],"mappings":";;;;;;;AAAA;;eAEeA,gCAAuBC,S","sourcesContent":["import RNGestureHandlerModule from './RNGestureHandlerModule';\n\nexport default RNGestureHandlerModule.Direction;\n"]}

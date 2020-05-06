@@ -1,0 +1,10 @@
+53e9afe7914e0d37cff9db4d15f26929
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.string = void 0;
+var string = {
+  restaurantName: 'Pizza Pazzi'
+};
+exports.string = string;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0cmluZy5qcyJdLCJuYW1lcyI6WyJzdHJpbmciLCJyZXN0YXVyYW50TmFtZSJdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLElBQU1BLE1BQU0sR0FBRztBQUNiQyxFQUFBQSxjQUFjLEVBQUU7QUFESCxDQUFmIiwic291cmNlc0NvbnRlbnQiOlsiY29uc3Qgc3RyaW5nID0ge1xyXG4gIHJlc3RhdXJhbnROYW1lOiAnUGl6emEgUGF6emknLFxyXG59O1xyXG5cclxuZXhwb3J0IHtzdHJpbmd9O1xyXG4iXX0=

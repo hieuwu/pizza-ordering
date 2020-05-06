@@ -1,0 +1,13 @@
+c9392d1015cc29b8545baa92c82c37e7
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _RNGestureHandlerModule = _interopRequireDefault(require("./RNGestureHandlerModule"));
+
+var _default = _RNGestureHandlerModule.default.Direction;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkRpcmVjdGlvbnMuanMiXSwibmFtZXMiOlsiUk5HZXN0dXJlSGFuZGxlck1vZHVsZSIsIkRpcmVjdGlvbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztlQUVlQSxnQ0FBdUJDLFMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUk5HZXN0dXJlSGFuZGxlck1vZHVsZSBmcm9tICcuL1JOR2VzdHVyZUhhbmRsZXJNb2R1bGUnO1xuXG5leHBvcnQgZGVmYXVsdCBSTkdlc3R1cmVIYW5kbGVyTW9kdWxlLkRpcmVjdGlvbjtcbiJdfQ==

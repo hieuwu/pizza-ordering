@@ -42,10 +42,10 @@ class CartScreen extends Component {
   showCartList = ({item, index}) => {
     const {productData, oldState} = item;
     const {imageUrl, title} = productData;
-    const {quantity, optionArray, productPrice} = item;
+    const {quantity, optionTitleArray, productPrice} = item;
     let options = '';
-    optionArray.forEach(option => {
-      options = options + option.title + ',' + ' ';
+    optionTitleArray.forEach(optionTitle => {
+      options = options + optionTitle + ',' + ' ';
     });
     return (
       <TouchableOpacity

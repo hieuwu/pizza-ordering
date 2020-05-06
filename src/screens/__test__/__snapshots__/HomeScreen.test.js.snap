@@ -1,0 +1,405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Screen Test should render snapshot test for home screen 1`] = `
+<HomeScreen>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <StatusBar
+        animated={false}
+        hidden={true}
+        showHideTransition="fade"
+      />
+      <ImageBackground
+        resizeMode="cover"
+        source={
+          Object {
+            "testUri": "../../../assets/HomeImg.jpg",
+          }
+        }
+        style={
+          Object {
+            "height": 1334,
+            "position": "absolute",
+            "width": 750,
+          }
+        }
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "height": 1334,
+              "position": "absolute",
+              "width": 750,
+            }
+          }
+        >
+          <View
+            accessibilityIgnoresInvertColors={true}
+            style={
+              Object {
+                "height": 1334,
+                "position": "absolute",
+                "width": 750,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "testUri": "../../../assets/HomeImg.jpg",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Image
+                resizeMode="cover"
+                source={
+                  Object {
+                    "testUri": "../../../assets/HomeImg.jpg",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    Object {
+                      "height": 1334,
+                      "width": 750,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </Image>
+          </View>
+        </View>
+      </ImageBackground>
+      <View
+        style={
+          Object {
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginBottom": 10,
+              "marginLeft": 10,
+              "marginRight": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 47,
+                "letterSpacing": 0.1,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FFFFFF",
+                  "fontSize": 47,
+                  "letterSpacing": 0.1,
+                }
+              }
+            >
+              Restaurant
+            </Text>
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#FFFFFF",
+                "fontSize": 30,
+                "letterSpacing": 0.07,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#FFFFFF",
+                  "fontSize": 30,
+                  "letterSpacing": 0.07,
+                }
+              }
+            >
+              Pizza Pazzi
+            </Text>
+          </Text>
+          <ForwardRef
+            onPress={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#e5293e",
+                "borderRadius": 19,
+                "height": 38,
+                "justifyContent": "center",
+                "marginTop": 10,
+                "width": 337.5,
+              }
+            }
+          >
+            <TouchableOpacity
+              hostRef={null}
+              onPress={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#e5293e",
+                  "borderRadius": 19,
+                  "height": 38,
+                  "justifyContent": "center",
+                  "marginTop": 10,
+                  "width": 337.5,
+                }
+              }
+            >
+              <ForwardRef(AnimatedComponentWrapper)
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#e5293e",
+                      "borderRadius": 19,
+                      "height": 38,
+                      "justifyContent": "center",
+                      "marginTop": 10,
+                      "width": 337.5,
+                    },
+                    Object {
+                      "opacity": 1,
+                    },
+                  ]
+                }
+              >
+                <AnimatedComponent
+                  accessible={true}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#e5293e",
+                        "borderRadius": 19,
+                        "height": 38,
+                        "justifyContent": "center",
+                        "marginTop": 10,
+                        "width": 337.5,
+                      },
+                      Object {
+                        "opacity": 1,
+                      },
+                    ]
+                  }
+                >
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#e5293e",
+                        "borderRadius": 19,
+                        "height": 38,
+                        "justifyContent": "center",
+                        "marginTop": 10,
+                        "opacity": 1,
+                        "width": 337.5,
+                      }
+                    }
+                  >
+                    <View
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#e5293e",
+                          "borderRadius": 19,
+                          "height": 38,
+                          "justifyContent": "center",
+                          "marginTop": 10,
+                          "opacity": 1,
+                          "width": 337.5,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "alignSelf": "center",
+                            "color": "#FFFFFF",
+                            "fontSize": 15,
+                            "letterSpacing": 0.07,
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "alignSelf": "center",
+                              "color": "#FFFFFF",
+                              "fontSize": 15,
+                              "letterSpacing": 0.07,
+                            }
+                          }
+                        >
+                          START ORDER
+                        </Text>
+                      </Text>
+                      <View
+                        style={
+                          Object {
+                            "alignSelf": "flex-end",
+                            "paddingRight": 15,
+                            "position": "absolute",
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "alignSelf": "flex-end",
+                              "paddingRight": 15,
+                              "position": "absolute",
+                            }
+                          }
+                        >
+                          <Icon
+                            allowFontScaling={false}
+                            color="#FFFFFF"
+                            name="angle-right"
+                            size={20}
+                          >
+                            <Text
+                              allowFontScaling={false}
+                              style={
+                                Array [
+                                  Object {
+                                    "color": "#FFFFFF",
+                                    "fontSize": 20,
+                                  },
+                                  undefined,
+                                  Object {
+                                    "fontFamily": "FontAwesome",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                            >
+                              <Text
+                                allowFontScaling={false}
+                                style={
+                                  Array [
+                                    Object {
+                                      "color": "#FFFFFF",
+                                      "fontSize": 20,
+                                    },
+                                    undefined,
+                                    Object {
+                                      "fontFamily": "FontAwesome",
+                                      "fontStyle": "normal",
+                                      "fontWeight": "normal",
+                                    },
+                                    Object {},
+                                  ]
+                                }
+                              >
+                                
+                              </Text>
+                            </Text>
+                          </Icon>
+                        </View>
+                      </View>
+                      <PressabilityDebugView
+                        color="cyan"
+                      />
+                    </View>
+                  </View>
+                </AnimatedComponent>
+              </ForwardRef(AnimatedComponentWrapper)>
+            </TouchableOpacity>
+          </ForwardRef>
+        </View>
+      </View>
+    </View>
+  </View>
+</HomeScreen>
+`;

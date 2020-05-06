@@ -1,0 +1,1 @@
+{"version":3,"sources":["configAPI.js"],"names":["configAPI","baseURL"],"mappings":";;;;AAAA,IAAMA,SAAS,GAAG;AAChBC,EAAAA,OAAO,EAAE;AADO,CAAlB;eAKeD,S","sourcesContent":["const configAPI = {\r\n  baseURL: 'http://10.0.3.2:3000/',\r\n  //baseURL: 'http://192.168.1.7:3000/', //physical device\r\n};\r\n\r\nexport default configAPI;\r\n"]}

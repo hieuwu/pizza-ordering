@@ -11,11 +11,13 @@
     "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
+    "-": "0.0.1",
     "@react-native-community/masked-view": "^0.1.9",
     "@react-navigation/native": "^5.1.6",
     "@react-navigation/stack": "^5.2.11",
     "axios": "^0.19.2",
-    "react": "16.11.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-native": "0.62.2",
     "react-native-anchor-carousel": "^3.1.2",
     "react-native-drop-down-item": "^1.1.0",
@@ -30,7 +32,8 @@
     "react-native-vector-icons": "^6.6.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "save-dev": "0.0.1-security"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
@@ -38,17 +41,28 @@
     "@react-native-community/eslint-config": "0.0.5",
     "babel-eslint": "^10.1.0",
     "babel-jest": "24.9.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "jest": "^24.9.0",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "metro-react-native-babel-preset": "0.58.0",
-    "react-test-renderer": "16.11.0"
+    "react-test-renderer": "16.11.0",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
     "preset": "react-native",
-    "cacheDirectory": "./cache"
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    }
   }
 }

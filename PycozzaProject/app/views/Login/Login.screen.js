@@ -7,7 +7,10 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './Login.style'
 import UserUseCase from '../../usecase/UserUseCase'
-export default class LoginScreen extends Component {
+import {addUser} from '../../redux/actions/index';
+import { connect } from 'react-redux';
+
+ class LoginScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -68,6 +71,8 @@ export default class LoginScreen extends Component {
                     failedMessage: 'Sign in successfully'
                 });
                 await new UserUseCase().saveUserInformation(loginResponse.data);
+                const {addUser} = this.props;
+                addUser(loginResponse.data);
             }
             else {
                 this.setState({
@@ -115,3 +120,16 @@ export default class LoginScreen extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    
+});
+
+const mapDispatchToProps = dispatch => ({
+    addUser: user => dispatch(addUser(user)),
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(LoginScreen)

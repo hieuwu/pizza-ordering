@@ -94,22 +94,13 @@ class Shipping extends Component {
     const {jobs} = this.props;
     const totalBill = this.summaryPrice();
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.headerContainer}>
-          <Text
-            style={{
-              alignSelf: 'center',
-              marginTop: 16,
-              fontSize: 30,
-              fontWeight: 'bold',
-              color: colors.white,
-            }}>
-            SHIPPING ORDER
-          </Text>
+          <Text style={styles.headerTitle}>SHIPPING ORDER</Text>
           <View style={styles.billInfoView}>
             <View style={styles.billLineContainer}>
               <Text style={styles.headerTxt}>{strings.checkOut.txtData}</Text>
-              <Text style={styles.headerTxt}> {this.state.billDate} </Text>
+              <Text style={styles.headerTxt}>{this.state.billDate}</Text>
             </View>
             <View style={styles.billLineContainer}>
               <Text style={styles.headerTxt}>
@@ -122,7 +113,7 @@ class Shipping extends Component {
           </View>
           <TearLine />
         </View>
-        <ScrollView style={styles.mainView}>
+        <View style={styles.mainView}>
           <View style={styles.userInfoView}>
             <UserInfo userData={this.state.data} />
             <View style={styles.itemContainer}>
@@ -134,20 +125,20 @@ class Shipping extends Component {
               />
             </View>
           </View>
-          <TouchableOpacity
-            style={styles.continueBtn}
-            onPress={() => this.btnContinueOnClick(totalBill)}>
-            <Text style={styles.continueBtnText}> CONTINUE </Text>
-            <Icon name="arrow-circle-right" size={30} color={colors.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.goBackBtn}
-            onPress={() => this.props.navigation.navigate('cart')}>
-            <Icon name="arrow-circle-left" size={30} color={colors.black} />
-            <Text style={styles.goBackBtnText}> GO BACK </Text>
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
+        </View>
+        <TouchableOpacity
+          style={styles.continueBtn}
+          onPress={() => this.btnContinueOnClick(totalBill)}>
+          <Text style={styles.continueBtnText}> CONTINUE </Text>
+          <Icon name="arrow-circle-right" size={30} color={colors.icon} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.goBackBtn}
+          onPress={() => this.props.navigation.navigate('cart')}>
+          <Icon name="arrow-circle-left" size={30} color={colors.black} />
+          <Text style={styles.goBackBtnText}> GO BACK </Text>
+        </TouchableOpacity>
+      </ScrollView>
     );
   }
 }

@@ -4,19 +4,22 @@ import dimensions from '../../resources/dimensions/Dimensions';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.pizzaMenuListBackground,
-    flexDirection: 'column',
-    alignItems: 'center',
   },
   headerContainer: {
     width: '100%',
-    height: '20%',
     flexDirection: 'column',
     backgroundColor: colors.mainRed,
   },
+  headerTitle: {
+    alignSelf: 'center',
+    marginTop: 16,
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: colors.white,
+  },
   billInfoView: {
-    flex: 1,
+    width: '100%',
     flexDirection: 'column',
     justifyContent: 'flex-end',
     alignItems: 'center',
@@ -24,6 +27,7 @@ export default StyleSheet.create({
   },
   userInfoView: {
     marginTop: 8,
+    alignSelf: 'center',
     width: dimensions.screenSize.width - 20,
     borderRadius: 16,
     backgroundColor: colors.white,
@@ -43,7 +47,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
   },
   mainView: {
-    flex: 1,
+    // flex: 1,
     borderRadius: 16,
   },
   goBackBtn: {
@@ -81,7 +85,5 @@ export default StyleSheet.create({
   itemContainer: {
     flexDirection: 'column',
     marginTop: 8,
-    marginLeft: 16,
-    marginRight: 16,
   },
 });

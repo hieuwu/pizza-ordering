@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 40,
     position: 'absolute',
-    marginTop: dimensions.screenSize.height / 6 + 2,
+    marginTop: dimensions.screenSize.height / 6,
     alignItems: 'center',
   },
 });

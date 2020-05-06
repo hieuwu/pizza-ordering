@@ -116,7 +116,7 @@ class CheckOut extends Component {
           <View style={styles.billInfoView}>
             <View style={styles.billLineContainer}>
               <Text style={styles.headerTxt}>{strings.checkOut.txtData}</Text>
-              <Text style={styles.headerTxt}> {this.state.billDate} </Text>
+              <Text style={styles.headerTxt}>{this.state.billDate}</Text>
             </View>
             <View style={styles.billLineContainer}>
               <Text style={styles.headerTxt}>

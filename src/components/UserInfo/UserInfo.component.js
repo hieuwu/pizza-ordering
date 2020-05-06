@@ -16,13 +16,13 @@ export default class UserInfo extends Component {
         <TitleLine number={1} title={'Your information'} />
         <View style={styles.nameContainer}>
           <View style={styles.itemContainer}>
-            <Text style={styles.txtTitle}> {strings.userInfo.firstName}</Text>
+            <Text style={styles.txtTitle}>{strings.userInfo.firstName}</Text>
             <Text style={styles.txtContent}>
               {this.props.userData.firstName}
             </Text>
           </View>
           <View style={styles.itemContainer}>
-            <Text style={styles.txtTitle}> {strings.userInfo.lastName}</Text>
+            <Text style={styles.txtTitle}>{strings.userInfo.lastName}</Text>
             <Text style={styles.txtContent}>
               {this.props.userData.lastName}
             </Text>
@@ -30,14 +30,14 @@ export default class UserInfo extends Component {
         </View>
         <View style={styles.userInfoDesContainer}>
           <View style={styles.itemContainer}>
-            <Text style={styles.txtTitle}> {strings.userInfo.phoneNum}</Text>
+            <Text style={styles.txtTitle}>{strings.userInfo.phoneNum}</Text>
             <Text style={styles.txtContent}>
               {this.props.userData.phoneNum}
             </Text>
           </View>
           <View style={styles.itemContainer}>
-            <Text style={styles.txtTitle}> {strings.userInfo.email}</Text>
-            <Text style={styles.txtContent}> {this.props.userData.email}</Text>
+            <Text style={styles.txtTitle}>{strings.userInfo.email}</Text>
+            <Text style={styles.txtContent}>{this.props.userData.email}</Text>
           </View>
         </View>
       </View>

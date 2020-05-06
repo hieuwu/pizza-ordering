@@ -30,6 +30,7 @@ class ProductDetailScreen extends Component {
             size: 'L',
             crust: 'Thick',
             isPizza: false,
+            modalVisible: false,
         }
     }
     mediumSizeChecked = () => {
@@ -83,6 +84,7 @@ class ProductDetailScreen extends Component {
         orderLine.crust = this.state.crust;
         orderLine.imgLink = item.imgLink;
         console.log("Orderline: ",orderLine);
+        this.setState({modalVisible: true});
         addToCart(orderLine);
         saveCart();
         cartID = cartID + 1;
@@ -103,6 +105,24 @@ class ProductDetailScreen extends Component {
         const item = this.getParam();
         return (
             <View style={styles.container}>
+                 <Modal animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalVisible}>
+                    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.textStyle}>{this.state.failedMessage}</Text>
+                            <Button
+                                title='OK'
+                                buttonStyle={styles.okButton}
+                                onPress={() => {
+                                    this.setState({ modalVisible: false });
+                                    this.props.navigation.goBack();
+                                }}
+                            >
+                            </Button>
+                        </View>
+                    </View>
+                </Modal>
                 <ScrollView>
                     <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <OvalShape />

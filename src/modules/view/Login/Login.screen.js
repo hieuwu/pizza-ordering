@@ -84,7 +84,7 @@ export default class Login extends Component {
       }
     } else {
       //navigate to checkout screen :
-      this.props.navigation.navigate('checkout');
+      this.props.navigation.navigate('shipping');
       // this.setState({displayModal: true});
       // console.log('set modal to : ' + this.state.displayModal);
     }

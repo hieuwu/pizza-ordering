@@ -8,12 +8,13 @@ import TearLine from '../../../components/TearOffHeader/TearLine.component';
 import {connect} from 'react-redux';
 import CartItem from '../../../components/CartItem/CartItem.component';
 import UserInfo from '../../../components/UserInfo/UserInfo.component';
+import TitleLine from '../../../components/TitleLine/TitleLine.component';
 
 class CheckOut extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      billDate: '',
+      billDate: this.props.route.params.checkOutDate,
       firstName: '',
       lastName: '',
       email: '',
@@ -36,38 +37,12 @@ class CheckOut extends Component {
     </View>
   );
 
-  summaryPrice = () => {
-    const {jobs} = this.props;
-    let totalPrice = 0;
-
-    if (jobs.length > 0) {
-      jobs.forEach(element => {
-        totalPrice += element.totalPrice;
-      });
-    } else {
-      totalPrice = 0;
-    }
-    return totalPrice;
-  };
-
   numberWithCommas(x) {
     return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  getCurrentDate = () => {
-    let today = new Date();
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
-    today = mm + '/' + dd + '/' + yyyy;
-    this.setState({billDate: today});
-    return today;
-  };
-
   componentDidMount() {
     this.setHeaderBar();
-    this.getCurrentDate();
-    this.summaryPrice();
   }
 
   setHeaderBar() {
@@ -87,20 +62,27 @@ class CheckOut extends Component {
 
   displayListItem = jobs => {
     return (
-      <FlatList
-        style={styles.cartListView}
-        data={jobs}
-        renderItem={this.renderCartItem}
-        keyExtractor={item => item.id}
-      />
+      <View>
+        <TitleLine number={2} title={'Your order'} />
+
+        <FlatList
+          style={styles.cartListView}
+          data={jobs}
+          renderItem={this.renderCartItem}
+          keyExtractor={item => item.id}
+        />
+      </View>
     );
   };
 
   displayEmptyListItem() {
     return (
-      <View style={styles.txtEmptyContainer}>
-        <Text style={styles.txtEmptyItem}> Empty cart </Text>
-        <Icon name="exclamation-triangle" size={40} color={colors.black} />
+      <View>
+        <TitleLine number={2} title={'Your order'} />
+        <View style={styles.txtEmptyContainer}>
+          <Text style={styles.txtEmptyItem}> Empty cart </Text>
+          <Icon name="exclamation-triangle" size={40} color={colors.black} />
+        </View>
       </View>
     );
   }
@@ -118,7 +100,9 @@ class CheckOut extends Component {
 
   render() {
     const {jobs} = this.props;
-    const totalBill = this.summaryPrice();
+    let totalBill = this.props.route.params.checkOutPrice;
+    const userInfo = this.props.route.params.userInfo;
+    const userAddress = this.props.route.params.userAddress;
     let ListItemView, ConfirmBtn;
     if (jobs.length > 1) {
       ListItemView = this.displayListItem(jobs);
@@ -146,12 +130,18 @@ class CheckOut extends Component {
           <TearLine />
         </View>
         <ScrollView style={styles.mainView}>
-          <UserInfo />
+          <View style={styles.userInfoView}>
+            <UserInfo userData={userInfo} />
+            <View style={styles.itemContainer}>
+              <Text style={styles.txtTitle}> {strings.userInfo.address} </Text>
+              <Text style={styles.txtContent}>{userAddress}</Text>
+            </View>
+          </View>
           <View style={styles.cartListView}>{ListItemView}</View>
           {ConfirmBtn}
           <TouchableOpacity
             style={styles.goBackBtn}
-            onPress={() => this.props.navigation.navigate('cart')}>
+            onPress={() => this.props.navigation.navigate('shipping')}>
             <Icon name="arrow-circle-left" size={30} color={colors.black} />
             <Text style={styles.goBackBtnText}> GO BACK </Text>
           </TouchableOpacity>

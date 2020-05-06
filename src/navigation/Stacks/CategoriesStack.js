@@ -9,6 +9,7 @@ import PizzaDetail from '../../modules/view/PizzaDetail/PizzaDetail.screen';
 import Login from '../../modules/view/Login/Login.screen';
 import SignUp from '../../modules/view/SignUp/SignUp.screen';
 import CheckOut from '../../modules/view/CheckOut/CheckOut.screen';
+import Shipping from '../../modules/view/Shipping/Shipping.screen';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export default class CategoriesStack extends Component {
         <Stack.Screen name="pizzaDetail" component={PizzaDetail} />
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="signup" component={SignUp} />
+        <Stack.Screen name="shipping" component={Shipping} />
         <Stack.Screen name="checkout" component={CheckOut} />
       </Stack.Navigator>
     );

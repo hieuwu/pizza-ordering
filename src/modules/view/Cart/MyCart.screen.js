@@ -19,26 +19,20 @@ class MyCart extends Component {
 
   setHeaderBar() {
     return this.props.navigation.setOptions({
-      title: null,
+      title: 'My Cart',
       headerTransparent: true,
       headerStyle: {},
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold',
-        alignSelf: 'center',
-        justifyContent: 'center',
       },
+      headerTitleAlign: 'center',
       headerLeft: navigation => (
         <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
           <HeaderIcon iconName="arrow-left" />
         </TouchableOpacity>
       ),
-      headerRight: navigation => (
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('cart')}>
-          <HeaderIcon iconName="shopping-cart" />
-        </TouchableOpacity>
-      ),
+      headerRight: null,
     });
   }
 
@@ -104,7 +98,8 @@ class MyCart extends Component {
         />
         <View style={cartStyles.totalPriceContainer}>
           <Text style={cartStyles.priceText}>
-            Total price: {this.numberWithCommas(totalPrice)}
+            {jobs.length} items / Total cost $
+            {this.numberWithCommas(totalPrice)}
           </Text>
           <TouchableOpacity
             style={cartStyles.checkOutBtn}

@@ -16,7 +16,6 @@ export default StyleSheet.create({
   userInfoView: {
     marginTop: 8,
     width: dimensions.screenSize.width - 20,
-    // height: dimensions.screenSize.height / 4,
     borderRadius: 16,
     backgroundColor: colors.white,
     marginBottom: 16,
@@ -24,7 +23,6 @@ export default StyleSheet.create({
     alignContent: 'center',
   },
   nameContainer: {
-    // margin: 8,
     justifyContent: 'space-between',
     marginLeft: 16,
     marginRight: 16,

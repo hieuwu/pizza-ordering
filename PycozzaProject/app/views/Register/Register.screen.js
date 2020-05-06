@@ -6,8 +6,10 @@ import string from '../../resources/strings'
 import { ScrollView } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import UserUseCase from '../../usecase/UserUseCase';
-import styles from './Register.style'
-export default class RegisterScreen extends Component {
+import styles from './Register.style';
+import { connect } from 'react-redux';
+import { addUser } from '../../redux/actions/index';
+class RegisterScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -82,14 +84,14 @@ export default class RegisterScreen extends Component {
             console.log(registerForm);
             let registerResponse = await new UserUseCase().registerAccount(registerForm);
             if (registerResponse.data.status === 201) {
+                const {addUser} = this.props;
                 let loginForm = {};
                 loginForm.email = registerForm.email;
                 loginForm.password = registerForm.password;
                 let loginResponse = await new UserUseCase().loginAccount(loginForm);
                 new UserUseCase().saveUserInformation(loginResponse.data);
-                let currentUser = await new UserUseCase().getUserInformation();
                 this.setState({ modalVisible: true });
-                console.log("Current user: ", currentUser);
+                addUser(loginResponse.data);
             }
             else {
                 console.log("Failed");
@@ -207,3 +209,16 @@ export default class RegisterScreen extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    
+});
+
+const mapDispatchToProps = dispatch => ({
+    addUser: user => dispatch(addUser(user)),
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(RegisterScreen)

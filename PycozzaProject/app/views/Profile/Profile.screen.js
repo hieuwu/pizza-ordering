@@ -22,10 +22,9 @@ class ProfileScreen extends Component {
         let currentUser = await new UserUsecase().getUserInformation();
         if (currentUser !== 'none') {
             const { addUser } = this.props;
-
+            this.setState({isSignedIn: true})
             addUser(currentUser);
         }
-
     }
 
     async componentDidUpdate(prevProps, prevState) {

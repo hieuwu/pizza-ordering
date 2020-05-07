@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image, } from 'react-native'
+import { Text, View, Image,Modal } from 'react-native'
 import OvalShape from '../../components/OvalShape.component'
 import styles from '../../views/ProductDetail/ProductDetail.style'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
@@ -14,8 +14,8 @@ import { connect } from 'react-redux';
 import { addToCart } from '../../redux/actions/index';
 import AppConfig from '../../config/AppConfig';
 import { saveCart } from '../../redux/actions/index';
-import CartUseCase from '../../usecase/CartUsceCase'
-import { ADDTOCART } from '../../redux/actions/type'
+import CartUseCase from '../../usecase/CartUsceCase';
+import ADDTOCART from '../../redux/actions/type'
 let i = 1;
 let id = 0;
 let cartID = 0;
@@ -54,7 +54,6 @@ class ProductDetailScreen extends Component {
         let param = {};
         param.id = JSON.stringify(item.id).replace(/['"]+/g, '');
         param.name = JSON.stringify(item.name).replace(/['"]+/g, '');
-        param.categoryId = JSON.stringify(item.categoryId).replace(/['"]+/g, '');
         param.imgLink = JSON.stringify(item.imgLink).replace(/['"]+/g, '');
         param.price = JSON.stringify(item.price).replace(/['"]+/g, '');
         param.maxPrice = JSON.stringify(item.maxPrice).replace(/['"]+/g, '');
@@ -68,7 +67,7 @@ class ProductDetailScreen extends Component {
         const {saveCart} = this.props;
         const item = this.getParam();
         let orderLine = {};
-        orderLine.type = ADDTOCART;
+        orderLine.type = 'ADD_CART';
         orderLine.id = String(cartID);
         orderLine.name = item.name;
         if (this.state.size === 'M') {

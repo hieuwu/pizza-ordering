@@ -15,6 +15,14 @@ class UserUseCase {
         let user = await new UserRepo().getUserInformation();
         return user;
     }
+    async logoutAccount() {
+        await new UserRepo().logoutAccount();
+    }
+
+    async completeOrder(orderForm) {
+        let response = await new UserRepo().completeOrder(orderForm);
+        return response;
+    }
     
 }
 

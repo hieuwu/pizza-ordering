@@ -121,13 +121,14 @@ export default class ProductListScreen extends Component {
         return (
             <View style={styles.container}>
                 <OvalShape />
-                {/* <ScrollView style={{ height: 1, backgroundColor: 'transparent' }}
+                <View style={{ height: 50, backgroundColor: 'transparent' }}>
+                <ScrollView 
                     refreshControl={
                         <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
                 >
-                <OvalShape />
 
-                    </ScrollView> */}
+                    </ScrollView>
+                    </View>
 
                 <View style={{ flex: 1 }}>
                     <RecyclerListView

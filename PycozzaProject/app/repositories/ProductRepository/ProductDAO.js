@@ -1,72 +1,107 @@
-const productList = [
-    {
-        id: '1',
-        name: 'Pizza Chinese',
-        price: '100.000',
-        imageURL: 'https://thepizzacompany.vn/345-home_default/bread-pizza.jpg'
-    },
-    {
-        id: '2',
-        name: 'Pizza Seafood',
-        price: '100.000',
-        imageURL: 'https://thepizzacompany.vn/345-home_default/bread-pizza.jpg'
-    },
-    {
-        id: '3',
-        name: 'Pizza Beef',
-        price: '50.000',
-        imageURL: 'https://thepizzacompany.vn/114-home_default/pizza-hawaii.jpg'
-
-    },
-    {
-        id: '4',
-        name: 'Cheese Pizza',
-        price: '300.000',
-        imageURL: 'https://thepizzacompany.vn/117-home_default/pizza-hawaii.jpg'
-
-    },
-    {
-        id: '5',
-        name: 'Not Pizza',
-        price: '900.000',
-        imageURL: 'https://thepizzacompany.vn/243-home_default/pizza-hawaii.jpg'
-
-    },
-    {
-        id: '6',
-        name: 'Vegetable Pizza',
-        price: '200.000',
-        imageURL: 'https://thepizzacompany.vn/295-home_default/pizza-hawaii.jpg'
-
-    },
-    {
-        id: '7',
-        name: 'Vegetable Pizza',
-        price: '200.000',
-        imageURL: 'https://thepizzacompany.vn/121-home_default/pizza-hawaii.jpg'
-
-    },
-    {
-        id: '8',
-        name: 'Vegetable Pizza',
-        price: '200.000',
-        imageURL: 'https://thepizzacompany.vn/244-home_default/pizza-hawaii.jpg'
-
-    },
-    {
-        id: '9',
-        name: 'Vegetable Pizza',
-        price: '200.000',
-        imageURL: 'https://thepizzacompany.vn/244-home_default/pizza-hawaii.jpg'
-
-    },
-];
+import AsyncStorage from '@react-native-community/async-storage';
 
 class ProductDAO {
-    getListProduct(){
+    async getListProduct(type){
         console.log("Get from DAO...");
-        let data = productList;
-        return data;
+        let data = [];
+        switch(type) {
+            case 'pizza':
+                {
+                    console.log("Get data from", type);
+                    try {
+                        data = await AsyncStorage.getItem('pizza') || 'none';
+                        if (data === 'none')
+                        {
+                            return 'none';
+                        }
+                    } catch (error) {
+                        console.log(error.message);
+                    }
+                    return JSON.parse(data);
+                }
+            case 'sidedish':
+                {
+                    console.log("Get data from", type);
+                    try {
+                        data = await AsyncStorage.getItem('sidedish') || 'none';
+                        if (data === 'none')
+                        {
+                            return 'none';
+                        }
+                    } catch (error) {
+                        console.log(error.message);
+                    }
+                    return JSON.parse(data);
+                }
+            case 'dessert':
+                {
+                    console.log("Get data from", type);
+                    try {
+                        data = await AsyncStorage.getItem('dessert') || 'none';
+                        if (data === 'none')
+                        {
+                            return 'none';
+                        }
+                    } catch (error) {
+                        console.log(error.message);
+                    }
+                    return JSON.parse(data);
+                }
+            case 'beverage':
+                {
+                    console.log("Get data from", type);
+                    try {
+                        data = await AsyncStorage.getItem('beverage') || 'none';
+                        if (data === 'none')
+                        {
+                            return 'none';
+                        }
+                    } catch (error) {
+                        console.log(error.message);
+                    }
+                    return JSON.parse(data);
+                }
+        }
+
+    }
+    async saveListProduct(type, productList) {
+        console.log('Saved to local');
+        let productListJSON = JSON.stringify(productList);
+        switch(type) {
+            case 'pizza': {
+                try {
+                    await AsyncStorage.setItem('pizza', productListJSON);
+                } catch (error) {
+                    console.log(error.message);
+                }
+                break;
+            }
+            case 'sidedish': {
+                try {
+                    await AsyncStorage.setItem('sidedish', productListJSON);
+                } catch (error) {
+                    console.log(error.message);
+                }
+                break;
+            }
+            case 'dessert': {
+                try {
+                    await AsyncStorage.setItem('dessert', productListJSON);
+                } catch (error) {
+                    console.log(error.message);
+                }
+                break;
+            }
+            case 'beverage': {
+                try {
+                    await AsyncStorage.setItem('beverage', productListJSON);
+                } catch (error) {
+                    console.log(error.message);
+                }
+                break;
+            }
+        }
+
     }
 }
 

@@ -1,0 +1,8 @@
+import {combineReducers} from 'redux'
+import cartReducer from './cartReducer'
+
+const PizzaApp = combineReducers({
+    cartReducer
+});
+
+export default PizzaApp;

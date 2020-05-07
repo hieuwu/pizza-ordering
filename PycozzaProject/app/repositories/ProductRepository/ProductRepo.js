@@ -1,11 +1,17 @@
 import ProductDAO from './ProductDAO'
 import ProductAPI from './ProductAPI';
 class ProductRepo {
-    async getListProduct(){
-        // if DAO is empty, fetch data from API
-        console.log("Get from REPO...");
-        let a = await new ProductDAO().getListProduct();
-        return a;
+    async getListProduct(type){
+        let data = await new ProductDAO().getListProduct(type);
+        if (data == 'none') {
+            data = await new ProductAPI().getListProduct(type);
+            return data;
+        }
+        return data;
+    }
+
+    async saveListProduct(type,productList) {
+        await new ProductDAO().saveListProduct(type,productList)
     }
 }
 

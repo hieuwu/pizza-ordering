@@ -11,6 +11,10 @@ const dimension = {
         width: 80,
         height: 80,
     },
+    largeImage: {
+        width: 200,
+        height: 200,
+    },
     itemTitleSize:  18,
     iconSize: 24,
     headerButton: 40,

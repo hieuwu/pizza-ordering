@@ -10,13 +10,76 @@ import dimension from '../resources/dimensions'
 import { StyleSheet } from 'react-native';
 import HomeScreen from '../views/Home/Home.screen';
 import CategoriesScreen from '../views/Categories/Categories.screen';
+import ProductStack from './Product.stack';
+import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
+import CartScreen from '../views/Cart/Cart.screen';
+import CartStack from './Cart.stack';
+import AuthenStack from './Authen.stack'
 const stack = createStackNavigator();
-export default class ProductStack extends Component {
-    render() {
+export default class HomeStack extends Component {
+    render(){
         return (
-            <stack.Navigator initialRouteName='Home' screenOptions={headerStyle}>
-                <stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
+            <stack.Navigator initialRouteName='Categories' screenOptions={headerStyle}>
                 <stack.Screen name='Categories' component={CategoriesScreen}
+                    options={  {
+                        title: '',
+                        headerTransparent: {
+                            position: 'absolute',
+                            backgroundColor: 'transparent',
+                        },
+                        headerRight: () => (
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('CartScreen')}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                        headerLeft: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.openDrawer()}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                    }}
+                />
+                <stack.Screen name='ProductList' component={ProductListScreen}
+                    options={
+                    {
+                        headerRight: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.navigate('CartScreen')}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                        headerLeft: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.openDrawer()}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                    }} />
+                <stack.Screen name='ProductDetail' component={ProductDetailScreen}
+                    options={{
+                        title: 'Detail',
+                        headerRight: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.navigate('CartScreen')}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                        headerLeft: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.openDrawer()}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                    }} />
+                <stack.Screen name='CartScreen' component={CartStack}
                     options={{
                         title: '',
                         headerTransparent: {
@@ -25,24 +88,49 @@ export default class ProductStack extends Component {
                         },
                         headerRight: () => (
                             <TouchableOpacity
-                                onPress={() => alert('This is a button!')}
+                                onPress={() =>  this.props.navigation.navigate('CartScreen')}
                                 style={styles.headerButton}>
-                                <Ionicons name='ios-wallet' color={color.white} size={dimension.iconSize} />
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
                             <TouchableOpacity
-                                onPress={() => this.props.navigation.openDrawer()}
+                                onPress={() =>  this.props.navigation.openDrawer()}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
                         ),
                     }}
                 />
+        <stack.Screen name='LoginScreen' component={AuthenStack}
+                    options={{
+                        title: '',
+                        headerTransparent: {
+                            position: 'absolute',
+                            backgroundColor: 'transparent',
+                        },
+                        headerRight: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.navigate('CartScreen')}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                        headerLeft: () => (
+                            <TouchableOpacity
+                                onPress={() =>  this.props.navigation.openDrawer()}
+                                style={styles.headerButton}>
+                                <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
+                            </TouchableOpacity>
+                        ),
+                    }}
+                />
+
+                
             </stack.Navigator>
         )
-    }
-}
+    }}
+
 
 const styles = StyleSheet.create({
     headerButton: {

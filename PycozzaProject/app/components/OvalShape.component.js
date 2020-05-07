@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         borderRadius: 400,
         top: -dimension.window.height/2 - 230,
+        alignSelf: 'center'
     }
 })
 

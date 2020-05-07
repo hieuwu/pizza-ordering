@@ -8,5 +8,6 @@ const color = {
     shadow: '#000000',
     white: '#ffffff',
     headerTint: '#fff',
+    green: '#2bc253',
 };
 export default color;

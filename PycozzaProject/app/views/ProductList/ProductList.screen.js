@@ -95,25 +95,25 @@ export default class ProductListScreen extends Component {
     }
     onRefresh = async () => {
         this.setState({isRefreshing: true});
-        // const { type } = this.props.route.params;
-        // try {
-        //     let products = await new ProductUseCase().getListProduct(type);
-        //     await new ProductUseCase().saveListProduct(type, products);
-        //     this.setState(state => {
-        //         const items = [
-        //             ...products,
-        //         ];
-        //         return {
-        //             dataProvider: state.dataProvider.cloneWithRows(items),
-        //             items
-        //         }
-        //     })
-        //     this.setState({isRefreshing: false});
-        // }
-        // catch (error) {
-        //     this.setState({isRefreshing: false});
-        //     console.log('Loi la: ', error)
-        // }
+        const { type } = this.props.route.params;
+        try {
+            let products = await new ProductUseCase().getListProduct(type);
+            await new ProductUseCase().saveListProduct(type, products);
+            this.setState(state => {
+                const items = [
+                    ...products,
+                ];
+                return {
+                    dataProvider: state.dataProvider.cloneWithRows(items),
+                    items
+                }
+            })
+            this.setState({isRefreshing: false});
+        }
+        catch (error) {
+            this.setState({isRefreshing: false});
+            console.log('Loi la: ', error)
+        }
         this.setState({isRefreshing: false});
         console.log("Data fetched");
     }
@@ -121,10 +121,13 @@ export default class ProductListScreen extends Component {
         return (
             <View style={styles.container}>
                 <OvalShape />
-                <ScrollView style={{ height: 10, backgroundColor: 'red' }}
+                {/* <ScrollView style={{ height: 1, backgroundColor: 'transparent' }}
                     refreshControl={
                         <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
-                />
+                >
+                <OvalShape />
+
+                    </ScrollView> */}
 
                 <View style={{ flex: 1 }}>
                     <RecyclerListView

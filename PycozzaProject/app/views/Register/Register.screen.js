@@ -88,12 +88,21 @@ class RegisterScreen extends Component {
                 let loginForm = {};
                 loginForm.email = registerForm.email;
                 loginForm.password = registerForm.password;
+                this.setState({ modalVisible: true });
                 let loginResponse = await new UserUseCase().loginAccount(loginForm);
                 new UserUseCase().saveUserInformation(loginResponse.data);
-                this.setState({ modalVisible: true });
+                console.log("Register success");
                 addUser(loginResponse.data);
             }
             else {
+                if (registerResponse.data.status === 400)
+                {
+                    return;
+                }
+                if (registerResponse.data.status === 409)
+                {
+                    return;
+                }
                 console.log("Failed");
             }
         }

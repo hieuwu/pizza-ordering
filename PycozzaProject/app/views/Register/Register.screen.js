@@ -23,6 +23,7 @@ class RegisterScreen extends Component {
             emailError: '',
             passwordError: '',
             confirmError: '',
+            errorMessage: 'Sign up successfull',
             modalVisible: false,
         }
     }
@@ -97,10 +98,12 @@ class RegisterScreen extends Component {
             else {
                 if (registerResponse.data.status === 400)
                 {
+                    this.setState({errorMessage: 'This user is already existed'})
                     return;
                 }
                 if (registerResponse.data.status === 409)
                 {
+                    this.setState({errorMessage: 'This user is already existed'})
                     return;
                 }
                 console.log("Failed");

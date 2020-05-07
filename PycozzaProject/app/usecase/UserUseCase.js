@@ -23,6 +23,47 @@ class UserUseCase {
         let response = await new UserRepo().completeOrder(orderForm);
         return response;
     }
+
+    isValidEmail = (email) => {
+        let pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (pattern.test(String(email).toLowerCase()))
+            return true;
+        if (email.length < 1)
+            return false;
+        return false;
+    }
+
+    isValidName = (name) => {
+       return true;
+    }
+
+    isValidPhoneNumber = (phone) => {
+        let pattern = /^[0-9]*$/;
+        if (pattern.test(phone) && (phone.length == 10))
+            return true;
+        return false;
+    }
+
+    isValidPassword = (password) => {
+        if ((password.length > 7) && (password.length < 17)) {
+            return true;
+        }
+        return false;
+    }
+
+    isValidConfirm = (password, confirmPassword) => {
+        if ((password === confirmPassword) && this.isValidPassword(password)) {
+            return true;
+        }
+        return false;
+    }
+    isValidAddress = (someAddress) => {
+        if (someAddress.length > 5) {
+            return true;
+        }
+        else return false;
+    }
+
     
 }
 

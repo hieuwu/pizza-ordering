@@ -31,6 +31,10 @@ class CartScreen extends Component {
             noUserName: '',
             noUserPhone: '',
             noUserAddress: '',
+            modalSucess: false,
+            addressError: '',
+            phoneError: '',
+            nameError: '',
         }
     }
     removeItem = (item) => {
@@ -81,10 +85,39 @@ class CartScreen extends Component {
             })
         }
     }
+
     gotoAuthenn = () => {
         const { navigation } = this.props;
         this.setState({ modalVisible: false })
         navigation.navigate('LoginScreen');
+    }
+    
+    checkPhoneNumber = () => {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidPhoneNumber(this.state.noUserPhone)) {
+            this.setState({ phoneError: '' });
+
+        } else {
+            this.setState({ phoneError: 'Invalid phone' });
+        }
+    }
+
+    checkName = () => {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidName(this.state.noUserName)) {
+            this.setState({ nameError: '' });
+        } else {
+            this.setState({ nameError: 'Invalid name' });
+        }
+    }
+
+    checkAddress = (notUserAddress) => {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidAddress(notUserAddress)) {
+            this.setState({ addressError: '' });
+        } else {
+            this.setState({ addressError: 'Invalid address' });
+        }
     }
 
     createOrderRequest = async () => {
@@ -93,14 +126,8 @@ class CartScreen extends Component {
         let notUserInfor = {};
         const { userReducer } = this.props;
         const { cartReducer } = this.props;
-        cartReducer.forEach(element => {
-            let name = element.name + '' + element.size + '' + element.crust;
-            let quantity = Number(element.quantity)
-            let price = Number(element.price);
-            cart.push({ name: name, quantity: quantity, price })
-        })
-
         if (this.state.isSignedIn === true) {
+
             orderRequest.email = userReducer.email;
             orderRequest.orderUserInformation = {
                 fullName: userReducer.fullName,
@@ -110,16 +137,25 @@ class CartScreen extends Component {
             };
         }
         else {
+            this.checkAddress(this.state.userAddress);
+            this.checkName();
+            this.checkPhoneNumber();
             orderRequest.email = '';
-            orderRequest.note = '';
             notUserInfor = {
                 fullName: this.state.noUserName,
                 phone: this.state.noUserPhone,
                 email: '',
-                address: this.state.noUserAddress,
-            }
+                address: this.state.userAddress,
+            }  
             orderRequest.orderUserInformation = notUserInfor;
-        }   
+        }
+        cartReducer.forEach(element => {
+            let name = element.name + '' + element.size + '' + element.crust;
+            let quantity = Number(element.quantity)
+            let price = Number(element.price);
+            cart.push({ name: name, quantity: quantity, price })
+        })
+        orderRequest.note = '';
         orderRequest.cart = cart;
         orderRequest.orderTime = new Date().toDateString();
         orderRequest.paymentMethod = 'COD';
@@ -130,7 +166,6 @@ class CartScreen extends Component {
             const { removeCart } = this.props;
             await new CartUseCase().removeCart();
             removeCart();
-            console.log("Your order is completed !!!");
         }
     }
 
@@ -163,6 +198,25 @@ class CartScreen extends Component {
         const totalPrice = this.countMoney();
         return (
             <View style={styles.container}>
+                <Modal animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalSucess}>
+                    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.textStyle}>Your order is sent successfully !</Text>
+                            <Button
+                                title='OK'
+                                buttonStyle={styles.okButton}
+                                onPress={() => {
+                                    this.setState({ modalSucess: false });
+                                    this.props.navigation.goBack();
+                                }}
+                            >
+                            </Button>
+                        </View>
+                    </View>
+                </Modal>
+
                 {
                     this.state.isSignedIn ? (<Modal animationType="slide"
                         transparent={true}
@@ -173,6 +227,7 @@ class CartScreen extends Component {
                                 <Input inputContainerStyle={styles.textInput}
                                     placeholder={string.promptAddress}
                                     onChangeText={text => this.setState({ userAddress: text })}
+                                    errorMessage={this.state.addressError} 
                                 />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     <Button
@@ -188,6 +243,8 @@ class CartScreen extends Component {
                                         onPress={() => {
                                             this.createOrderRequest();
                                             this.setState({ modalVisible: false });
+                                            this.setState({ modalSucess: true });
+
                                         }}
                                     />
                                 </View>
@@ -205,16 +262,21 @@ class CartScreen extends Component {
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptFullName}
                                             onChangeText={text => this.setState({ noUserName: text })}
+                                            errorMessage={this.state.nameError} 
                                         />
                                         <Text style={styles.textStyle}>Phone</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptPhone}
                                             onChangeText={text => this.setState({ noUserPhone: text })}
+                                            errorMessage={this.state.phoneError} 
+
                                         />
                                         <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptAddress}
-                                            onChangeText={text => this.setState({ noUserAddress: text })}
+                                            onChangeText={text => this.setState({ userAddress: text })}
+                                            errorMessage={this.state.addressError} 
+
                                         />
                                         <Text style={styles.textStyle}>or</Text>
                                         <TouchableOpacity
@@ -236,6 +298,8 @@ class CartScreen extends Component {
                                                 onPress={() => {
                                                     this.createOrderRequest();
                                                     this.setState({ modalVisible: false });
+                                                    this.setState({ modalSucess: true });
+
                                                 }}
                                             />
                                         </View>

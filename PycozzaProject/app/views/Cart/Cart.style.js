@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     textStyle: {
         fontWeight: 'bold',
         fontSize: 18,
-        textAlign: 'left',
+        textAlign: 'center',
         color: color.white
     },
     okButton: {

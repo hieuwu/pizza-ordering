@@ -25,6 +25,16 @@ class CartDAO {
         }
         console.log('Save cart');
     }
+
+    async removeCart() {
+        try {
+            console.log('Remove from local');
+            await AsyncStorage.removeItem('currentCart');
+          } catch (error) {
+            // Error retrieving data
+            console.log(error.message);
+          } 
+    }
 }
 
 export default CartDAO;

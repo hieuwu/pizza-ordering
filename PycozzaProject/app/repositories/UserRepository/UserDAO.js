@@ -26,6 +26,14 @@ class UserDAO {
         console.log("Data retrieved !!!");
         return JSON.parse(userInfo);
     }
+    async logoutAccount() {
+        try {
+            await AsyncStorage.removeItem('userInfo');
+          } catch (error) {
+            // Error retrieving data
+            console.log(error.message);
+          } 
+    }
 }
 
 export default UserDAO;

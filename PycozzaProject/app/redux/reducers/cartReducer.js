@@ -1,4 +1,4 @@
-import { ADDTOCART, REMOVEFROMCART, LOADLOCALCART, SAVELOCALCART } from '../actions/type';
+import { ADDTOCART, REMOVEFROMCART, LOADLOCALCART, SAVELOCALCART, REMOVECART } from '../actions/type';
 import cartItem from './cartItemReducer'
 import CartUseCase from '../../usecase/CartUsceCase.js'
 const cartReducer = (state = [], action) => {
@@ -20,7 +20,7 @@ const cartReducer = (state = [], action) => {
         }
         case LOADLOCALCART:
             {
-            
+
                 //Load cart from local storage
                 console.log("Cart is loaded !!!");
                 const load = async () => {
@@ -40,8 +40,11 @@ const cartReducer = (state = [], action) => {
                 }
                 save();
                 return state;
-              
             }
+        case REMOVECART: {
+            console.log("Remove from redux");
+            return [];
+        }
         default:
             return state;
     }

@@ -1,4 +1,4 @@
-import {ADDTOCART, REMOVEFROMCART, LOADLOCALCART, SAVELOCALCART, ADDUSER, REMOVEUSER} from './type.js';
+import {ADDTOCART, REMOVEFROMCART, LOADLOCALCART, SAVELOCALCART, ADDUSER, REMOVEUSER, REMOVECART} from './type.js';
 
 export const addToCart = (orderLine) => {
     return {
@@ -34,5 +34,11 @@ export const addUser = (user) => {
 export const removeUser = () => {
     return {
         type: REMOVEUSER,
+    }
+}
+
+export const removeCart = () => {
+    return {
+        type: REMOVECART,
     }
 }

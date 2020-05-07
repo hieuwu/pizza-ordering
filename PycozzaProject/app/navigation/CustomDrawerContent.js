@@ -15,18 +15,21 @@ import dimension from '../resources/dimensions';
 import string from '../resources/strings';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-import { addUser,removeUser } from '../redux/actions/index';
+import { addUser, removeUser } from '../redux/actions/index';
+import UserUseCase from '../usecase/UserUseCase';
 class CustomDrawerContent extends Component {
   render() {
-    const {removeUser} = this.props;
+    const { removeUser } = this.props;
     return (
       <DrawerContentScrollView {...this.props} >
         <DrawerItemList {...this.props} />
         <DrawerItem
           icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-log-out' />) }}
           labelStyle={styles.labelStyle}
-          label='Log out' onPress={() => {removeUser()
-                alert('Log out successfully')
+          label='Log out' onPress={() => {
+            new UserUseCase().logoutAccount();
+            removeUser()
+            alert('Log out successfully')
           }} />
       </DrawerContentScrollView>
     );
@@ -41,15 +44,15 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    
+
 });
 
 const mapDispatchToProps = dispatch => ({
-    addUser: user => dispatch(addUser(user)),
-    removeUser: () => dispatch(removeUser())
+  addUser: user => dispatch(addUser(user)),
+  removeUser: () => dispatch(removeUser())
 })
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
+  mapStateToProps,
+  mapDispatchToProps,
 )(CustomDrawerContent)

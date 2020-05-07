@@ -17,28 +17,31 @@ import CategoriesScreen from '../views/Categories/Categories.screen'
 const Drawer = createDrawerNavigator();
 const isShown = false;
 
-export default function MainMenuDrawer() {
-    return (
-        <Drawer.Navigator
-            drawerContentOptions={{ labelStyle: { color: color.white, fontSize: dimension.itemTitleSize, fontWeight: 'bold', } }}
-            initialRouteName='Menu'
-            drawerStyle={{ backgroundColor: color.mainColor }} >
-            <Drawer.Screen options={{
-                drawerIcon: () => (
-                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-home' />)
-            }}
-                name='Menu' component={HomeStack} />
-            <Drawer.Screen options={{
-                drawerIcon: () => (
-                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-person' />)
-            }}
-                name='Profile' component={ProfileStack} />
-            <Drawer.Screen options={{
-                drawerIcon: () => (
-                    <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />)
-            }}
-                name='Cart' component={CartStack} />
+export default class MainMenuDrawer extends Component {
+    render() {
+        return (
+            <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}
+                drawerContentOptions={{ labelStyle: { color: color.white, fontSize: dimension.itemTitleSize, fontWeight: 'bold', } }}
+                initialRouteName='Menu'
+                drawerStyle={{ backgroundColor: color.mainColor }} >
+                <Drawer.Screen options={{
+                    drawerIcon: () => (
+                        <Ionicons color={color.white} size={dimension.iconSize} name='ios-home' />)
+                }}
+                    name='Menu' component={HomeStack} />
+                <Drawer.Screen options={{
+                    drawerIcon: () => (
+                        <Ionicons color={color.white} size={dimension.iconSize} name='ios-person' />)
+                }}
+                    name='Profile' component={ProfileStack} />
+                <Drawer.Screen options={{
+                    drawerIcon: () => (
+                        <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />)
+                }}
+                    name='Cart' component={CartStack} />
 
-        </Drawer.Navigator>
-    )
+            </Drawer.Navigator>
+        )
+    }
+
 }

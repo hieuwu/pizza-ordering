@@ -78,7 +78,7 @@ class RegisterScreen extends Component {
             && this.isValidEmail(this.state.email) && this.isValidPassword(this.state.password)
             && this.isValidConfirm(this.state.password, this.state.confirmPassword)) {
             let registerForm = {};
-            registerForm.name = this.state.fullName;
+            registerForm.fullName = this.state.fullName;
             registerForm.email = this.state.email;
             registerForm.phone = this.state.phone;
             registerForm.password = this.state.password;
@@ -89,11 +89,11 @@ class RegisterScreen extends Component {
                 let loginForm = {};
                 loginForm.email = registerForm.email;
                 loginForm.password = registerForm.password;
-                this.setState({ modalVisible: true });
                 let loginResponse = await new UserUseCase().loginAccount(loginForm);
                 new UserUseCase().saveUserInformation(loginResponse.data);
-                console.log("Register success");
+                console.log("Register success with:", this.state.fullName);
                 addUser(loginResponse.data);
+                this.setState({ modalVisible: true });
             }
             else {
                 if (registerResponse.data.status === 400)
@@ -140,7 +140,6 @@ class RegisterScreen extends Component {
     checkEmail = () => {
         if (this.isValidEmail(this.state.email)) {
             this.setState({ emailError: '' });
-
         } else {
             this.setState({ emailError: 'Invalid email' });
         }

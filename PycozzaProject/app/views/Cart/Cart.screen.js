@@ -18,7 +18,7 @@ import { removeFromCart, loadCart, saveCart } from '../../redux/actions/index';
 import AppConfig from '../../config/AppConfig'
 import CartUseCase from '../../usecase/CartUsceCase';
 import UserUseCase from '../../usecase/UserUseCase'
-import { addToCart } from '../../redux/actions/index';
+import { addToCart, removeCart } from '../../redux/actions/index';
 import { ADDTOCART } from '../../redux/actions/type';
 
 class CartScreen extends Component {
@@ -27,6 +27,10 @@ class CartScreen extends Component {
         this.state = {
             modalVisible: false,
             isSignedIn: false,
+            userAddress: '',
+            noUserName: '',
+            noUserPhone: '',
+            noUserAddress: '',
         }
     }
     removeItem = (item) => {
@@ -43,7 +47,7 @@ class CartScreen extends Component {
     }
 
     countMoney = () => {
-        const {cartReducer} = this.props;
+        const { cartReducer } = this.props;
         if (cartReducer.length == 0) {
             return 0;
         }
@@ -76,15 +80,60 @@ class CartScreen extends Component {
                 addToCart(element);
             })
         }
-
-
     }
     gotoAuthenn = () => {
         const { navigation } = this.props;
         this.setState({ modalVisible: false })
         navigation.navigate('LoginScreen');
-
     }
+
+    createOrderRequest = async () => {
+        let orderRequest = {};
+        let cart = [];
+        let notUserInfor = {};
+        const { userReducer } = this.props;
+        const { cartReducer } = this.props;
+        cartReducer.forEach(element => {
+            let name = element.name + '' + element.size + '' + element.crust;
+            let quantity = Number(element.quantity)
+            let price = Number(element.price);
+            cart.push({ name: name, quantity: quantity, price })
+        })
+
+        if (this.state.isSignedIn === true) {
+            orderRequest.email = userReducer.email;
+            orderRequest.orderUserInformation = {
+                fullName: userReducer.fullName,
+                phone: userReducer.phone,
+                emai: userReducer.email,
+                address: this.state.userAddress
+            };
+        }
+        else {
+            orderRequest.email = '';
+            orderRequest.note = '';
+            notUserInfor = {
+                fullName: this.state.noUserName,
+                phone: this.state.noUserPhone,
+                email: '',
+                address: this.state.noUserAddress,
+            }
+            orderRequest.orderUserInformation = notUserInfor;
+        }   
+        orderRequest.cart = cart;
+        orderRequest.orderTime = new Date().toDateString();
+        orderRequest.paymentMethod = 'COD';
+        orderRequest.totalPrice = this.countMoney();
+        console.log("Order request: ", orderRequest);
+        let orderStatus = await new UserUseCase().completeOrder(orderRequest);
+        if (orderStatus == 201) {
+            const { removeCart } = this.props;
+            await new CartUseCase().removeCart();
+            removeCart();
+            console.log("Your order is completed !!!");
+        }
+    }
+
     async goCheckOut() {
         const { cartReducer } = this.props;
         if (cartReducer.length > 0) {
@@ -100,15 +149,13 @@ class CartScreen extends Component {
                 //If logged in
                 //show address dialog
                 this.setState({ isSignedIn: true });
-                console.log("Current: ",currentUser);
+                console.log("Current: ", currentUser);
                 this.setState({ modalVisible: true })
             }
-
         }
         else {
             alert('Your cart is empty')
         }
-
     }
 
     render() {
@@ -125,6 +172,7 @@ class CartScreen extends Component {
                                 <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                 <Input inputContainerStyle={styles.textInput}
                                     placeholder={string.promptAddress}
+                                    onChangeText={text => this.setState({ userAddress: text })}
                                 />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     <Button
@@ -138,6 +186,7 @@ class CartScreen extends Component {
                                         title='OK'
                                         buttonStyle={styles.okButton}
                                         onPress={() => {
+                                            this.createOrderRequest();
                                             this.setState({ modalVisible: false });
                                         }}
                                     />
@@ -155,14 +204,17 @@ class CartScreen extends Component {
                                         <Text style={styles.textStyle}>Your name</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptFullName}
+                                            onChangeText={text => this.setState({ noUserName: text })}
                                         />
                                         <Text style={styles.textStyle}>Phone</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptPhone}
+                                            onChangeText={text => this.setState({ noUserPhone: text })}
                                         />
                                         <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptAddress}
+                                            onChangeText={text => this.setState({ noUserAddress: text })}
                                         />
                                         <Text style={styles.textStyle}>or</Text>
                                         <TouchableOpacity
@@ -182,6 +234,7 @@ class CartScreen extends Component {
                                                 title='OK'
                                                 buttonStyle={styles.okButton}
                                                 onPress={() => {
+                                                    this.createOrderRequest();
                                                     this.setState({ modalVisible: false });
                                                 }}
                                             />
@@ -229,11 +282,13 @@ class CartScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-    cartReducer: state.cartReducer
+    cartReducer: state.cartReducer,
+    userReducer: state.userReducer,
 });
 
 const mapDispatchToProps = dispatch => ({
     removeFromCart: orderLine => dispatch(removeFromCart(orderLine)),
     addToCart: orderLine => dispatch(addToCart(orderLine)),
+    removeCart: () => dispatch(removeCart())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CartScreen)

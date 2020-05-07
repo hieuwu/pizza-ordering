@@ -21,19 +21,20 @@ class ProfileScreen extends Component {
     async componentDidMount() {
         let currentUser = await new UserUsecase().getUserInformation();
         if (currentUser !== 'none') {
+            this.setState({ isSignedIn: true })
             const { addUser } = this.props;
-            this.setState({isSignedIn: true})
             addUser(currentUser);
         }
     }
 
-    async componentDidUpdate(prevProps, prevState) {
+     componentDidUpdate(prevProps, prevState) {
         if (prevProps.userReducer !== this.props.userReducer) {
-            let currentUser = await new UserUsecase().getUserInformation();
-            if (currentUser !== 'none') {
-                const { addUser } = this.props;
-                addUser(currentUser);
-            }
+            this.setState({ isSignedIn: true })
+            // let currentUser = await new UserUsecase().getUserInformation();
+            // if (currentUser !== 'none') {
+            //     const { addUser } = this.props;
+            //     addUser(currentUser);
+            // }
         }
     }
     render() {
@@ -46,7 +47,7 @@ class ProfileScreen extends Component {
                         <View style={styles.imageWrapper}>
                             <Image style={styles.imageStyle} source={{ uri: 'https://image.freepik.com/free-vector/profile-icon-male-avatar-hipster-man-wear-headphones_48369-8728.jpg' }} />
                             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Text style={styles.titleStyle}>{userReducer.name}</Text>
+                                <Text style={styles.titleStyle}>{userReducer.fullName}</Text>
                             </View>
                         </View>
                         <View style={styles.infoWrapper}>

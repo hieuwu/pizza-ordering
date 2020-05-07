@@ -9,15 +9,14 @@ import colors from '../../resources/colors/Colors';
 
 import CartItem from '../../../components/CartItem/CartItem.component';
 import {connect} from 'react-redux';
-import {
-  removeItemFromCart,
-  getItemLocalCart,
-} from '../../../redux/actions/index';
+import {removeItemFromCart, addItemToCart} from '../../../redux/actions/index';
+import CartUseCase from '../../../UseCase/CartUseCase';
+import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
 
 class MyCart extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: ''};
+    this.state = {};
   }
 
   setHeaderBar() {
@@ -39,8 +38,19 @@ class MyCart extends Component {
     });
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setHeaderBar();
+    const {addItemToCart} = this.props;
+    const {jobs} = this.props;
+    if (jobs.length === 0) {
+      let localCart = await new CartUseCase().getCurrentLocalCart();
+      if (localCart !== '') {
+        localCart.forEach(item => {
+          item.type = ADD_ITEM_TO_CART;
+          addItemToCart(item);
+        });
+      }
+    }
   }
 
   renderCartItem = ({item}) => (

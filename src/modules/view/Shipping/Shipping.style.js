@@ -14,7 +14,8 @@ export default StyleSheet.create({
   headerTitle: {
     alignSelf: 'center',
     marginTop: 16,
-    fontSize: 30,
+    marginBottom: 16,
+    fontSize: 20,
     fontWeight: 'bold',
     color: colors.white,
   },

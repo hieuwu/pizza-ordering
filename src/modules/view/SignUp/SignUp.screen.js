@@ -90,18 +90,27 @@ export default class SignUp extends Component {
         phoneNum: this.state.phoneNum,
         password: this.state.password,
       };
-      let signUpResponse = await new UserUseCase().signUpUser(userData);
-      if (String(signUpResponse.status) === 201) {
-        // sign in user :
-        let signInData = {
-          email: this.state.email,
-          password: this.state.password,
-        };
-        let signInResponse = await new UserUseCase().signInUser(signInData);
-        await new UserUseCase().saveUserInfo(signInResponse.data);
-        let currentUser = await new UserUseCase().getUserInfo();
-        console.log('current user data : ' + currentUser);
-      }
+      // let signUpResponse = await new UserUseCase().signUpUser(userData);
+      // if (String(signUpResponse.status) === 201) {
+      //   // sign in user :
+      //   let signInData = {
+      //     email: this.state.email,
+      //     password: this.state.password,
+      //   };
+      //   let signInResponse = await new UserUseCase().signInUser(signInData);
+      //   await new UserUseCase().saveUserInfo(signInResponse.data);
+      //   let currentUser = await new UserUseCase().getUserInfo();
+      //   console.log('current user data : ' + currentUser);
+      // }
+      let saveData = {
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        email: userData.email,
+        phoneNum: userData.phoneNum,
+      };
+      await new UserUseCase().saveUserInfo(saveData);
+      let currentUser = await new UserUseCase().getUserInfo();
+      console.log('current user data : ', currentUser);
     } else {
       this.setState({displayModal: true});
     }

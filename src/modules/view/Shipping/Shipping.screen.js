@@ -8,11 +8,12 @@ import TearLine from '../../../components/TearOffHeader/TearLine.component';
 import {connect} from 'react-redux';
 import UserInfo from '../../../components/UserInfo/UserInfo.component';
 import {Input} from 'react-native-elements';
+import UserUseCase from '../../../UseCase/UserUseCase';
 
 const mockData = {
-  firstName: 'Nam',
+  firstName: 'Man',
   lastName: 'Le',
-  phoneNum: '0932071087',
+  phoneNum: '124114',
   email: 'hoangnamele1998@gmail.com',
 };
 
@@ -73,11 +74,13 @@ class Shipping extends Component {
     this.setState({data: mockData});
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setHeaderBar();
-    this.mockUserData();
+    // this.mockUserData();
     this.getCurrentDate();
     this.summaryPrice();
+    let userData = await new UserUseCase().getUserInfo();
+    this.setState({data: userData});
   }
 
   btnContinueOnClick = totalBill => {

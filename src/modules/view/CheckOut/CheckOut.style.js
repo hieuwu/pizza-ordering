@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   headerContainer: {
     width: '100%',
-    height: '19.4%',
+    height: '19.8%',
     flexDirection: 'column',
     backgroundColor: colors.mainRed,
   },

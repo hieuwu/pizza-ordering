@@ -15,11 +15,6 @@ class CheckOut extends Component {
     super(props);
     this.state = {
       billDate: this.props.route.params.checkOutDate,
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNum: '',
-      address: '',
     };
   }
 

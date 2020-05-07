@@ -10,8 +10,12 @@ import RadioForm from 'react-native-simple-radio-button';
 
 //redux:
 import {connect} from 'react-redux';
-import {addItemToCart} from '../../../redux/actions/index';
+import {
+  addItemToCart,
+  storeItemToLocalCart,
+} from '../../../redux/actions/index';
 import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
+import CartUseCase from '../../../UseCase/CartUseCase';
 
 let cartId = 0;
 let checkoutPrice = 0;
@@ -76,6 +80,7 @@ class PizzaDetail extends Component {
 
   componentDidMount() {
     this.setHeaderBar();
+    this.getItemLocalCart();
     switch (this.props.route.params.pizzaTitle) {
       case 'PRIME BEEF':
         // let .... return data
@@ -183,8 +188,15 @@ class PizzaDetail extends Component {
     );
   };
 
-  createCartLine = () => {
+  getItemLocalCart = async () => {
+    let localCart = await new CartUseCase().getCurrentLocalCart();
+    console.log('current local cart in pizza detail : ', localCart);
+  };
+
+  createCartLine = async () => {
     const {addItemToCart} = this.props;
+    const {storeItemToLocalCart} = this.props;
+    const {CartReducer} = this.props;
     checkoutPrice = this.calculateTotalPrice();
     let cartLine = {};
     cartLine.type = ADD_ITEM_TO_CART;
@@ -197,6 +209,7 @@ class PizzaDetail extends Component {
     cartLine.quantity = this.state.quantity;
     cartLine.totalPrice = checkoutPrice;
     addItemToCart(cartLine);
+    storeItemToLocalCart();
     cartId += 1;
   };
 
@@ -344,10 +357,13 @@ class PizzaDetail extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  jobs: state.jobs,
+});
 
 const mapDispatchToProps = dispatch => ({
   addItemToCart: cartLine => dispatch(addItemToCart(cartLine)),
+  storeItemToLocalCart: () => dispatch(storeItemToLocalCart()),
 });
 
 export default connect(

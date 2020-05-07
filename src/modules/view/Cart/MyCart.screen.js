@@ -9,7 +9,10 @@ import colors from '../../resources/colors/Colors';
 
 import CartItem from '../../../components/CartItem/CartItem.component';
 import {connect} from 'react-redux';
-import {removeItemFromCart} from '../../../redux/actions/index';
+import {
+  removeItemFromCart,
+  getItemLocalCart,
+} from '../../../redux/actions/index';
 
 class MyCart extends Component {
   constructor(props) {

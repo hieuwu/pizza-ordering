@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, FlatList} from 'react-native';
+import {View, TouchableOpacity, FlatList, Slider} from 'react-native';
 import pizzaMenuStyles from './PizzaMenu.style';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import OvalShape from '../../../components/OvalShape/OvalShape.component';
 import PizzaListItem from '../../../components/PizzaListItem/PizzaListItem.component';
 import PizzaListUseCase from '../../../UseCase/PizzaListUseCase';
+import Splash from '../Splash.screen';
 
 export default class PizzaMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: ''};
+    this.state = {data: '', isLoading: true};
   }
 
   setHeaderBar() {
@@ -40,6 +41,9 @@ export default class PizzaMenu extends Component {
   async componentDidMount() {
     this.setHeaderBar();
     let getData = await new PizzaListUseCase().getPizzaList();
+    if (getData.length > 0) {
+      this.setState({isLoading: false});
+    }
     this.setState({data: getData});
   }
 
@@ -59,18 +63,32 @@ export default class PizzaMenu extends Component {
     </TouchableOpacity>
   );
 
+  renderLoadingScreen = () => {
+    if (this.state.isLoading === true) {
+      return (
+        <View style={pizzaMenuStyles.container}>
+          <OvalShape />
+          <Splash />
+        </View>
+      );
+    } else {
+      return (
+        <View style={pizzaMenuStyles.container}>
+          <OvalShape />
+          <FlatList
+            style={pizzaMenuStyles.flatListContainer}
+            data={this.state.data}
+            renderItem={this.renderPizzaItem}
+            keyExtractor={item => item.id}
+            numColumns={2}
+          />
+        </View>
+      );
+    }
+  };
+
   render() {
-    return (
-      <View style={pizzaMenuStyles.container}>
-        <OvalShape />
-        <FlatList
-          style={pizzaMenuStyles.flatListContainer}
-          data={this.state.data}
-          renderItem={this.renderPizzaItem}
-          keyExtractor={item => item.id}
-          numColumns={2}
-        />
-      </View>
-    );
+    const mainView = this.renderLoadingScreen();
+    return <View style={pizzaMenuStyles.container}>{mainView}</View>;
   }
 }

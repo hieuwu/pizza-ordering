@@ -40,6 +40,10 @@ const RADIO_THIN_CRUST_TYPE = 'thin crust';
 const RADIO_HT_CRUST_TYPE = 'hand tossed crust';
 const RADIO_NY_CRUST_TYPE = 'new york crust';
 
+const EXTRA_CHEESE_PRICE = 20000;
+const DOUBLE_CHEESE_PRICE = 30000;
+const TRIPLE_CHEESE_PRICE = 50000;
+
 class PizzaDetail extends Component {
   constructor(props) {
     super(props);
@@ -190,7 +194,6 @@ class PizzaDetail extends Component {
 
   getItemLocalCart = async () => {
     let localCart = await new CartUseCase().getCurrentLocalCart();
-    console.log('current local cart in pizza detail : ', localCart);
   };
 
   createCartLine = async () => {
@@ -214,7 +217,7 @@ class PizzaDetail extends Component {
   };
 
   getMoneyDisplayed = (title, money) => {
-    return title + ' ( $' + this.numberWithCommas(money) + ' )';
+    return title + ' ( ' + this.numberWithCommas(money) + ' )';
   };
 
   render() {
@@ -255,48 +258,36 @@ class PizzaDetail extends Component {
       {label: HT_CRUST_LABEL, value: RADIO_HT_CRUST_TYPE},
       {label: NY_CRUST_LABEL, value: RADIO_NY_CRUST_TYPE},
     ];
-    let pizzaCheese;
-    if (this.props.route.params.data.cheesePrice !== undefined) {
-      pizzaCheese = [
-        {
-          label: this.getMoneyDisplayed(
-            EXTRA_CHEESE_LABEL,
-            this.props.route.params.data.cheesePrice.extra,
-          ),
-          value: {
-            price: this.props.route.params.data.cheesePrice.extra,
-            radioCheeseType: RADIO_EXTRA_CHEESE_TYPE,
-          },
+    let pizzaCheese = [
+      {
+        label: this.getMoneyDisplayed(EXTRA_CHEESE_LABEL, EXTRA_CHEESE_PRICE),
+        value: {
+          price: EXTRA_CHEESE_PRICE,
+          radioCheeseType: RADIO_EXTRA_CHEESE_TYPE,
         },
-        {
-          label: this.getMoneyDisplayed(
-            DOUBLE_CHEESE_LABEL,
-            this.props.route.params.data.cheesePrice.double,
-          ),
-          value: {
-            price: this.props.route.params.data.cheesePrice.double,
-            radioCheeseType: RADIO_DOUBLE_CHEESE_TYPE,
-          },
+      },
+      {
+        label: this.getMoneyDisplayed(DOUBLE_CHEESE_LABEL, DOUBLE_CHEESE_PRICE),
+        value: {
+          price: DOUBLE_CHEESE_PRICE,
+          radioCheeseType: RADIO_DOUBLE_CHEESE_TYPE,
         },
-        {
-          label: this.getMoneyDisplayed(
-            TRIPLE_CHEESE_LABEL,
-            this.props.route.params.data.cheesePrice.triple,
-          ),
-          value: {
-            price: this.props.route.params.data.cheesePrice.triple,
-            radioCheeseType: RADIO_TRIPLE_CHEESE_TYPE,
-          },
+      },
+      {
+        label: this.getMoneyDisplayed(TRIPLE_CHEESE_LABEL, TRIPLE_CHEESE_PRICE),
+        value: {
+          price: TRIPLE_CHEESE_PRICE,
+          radioCheeseType: RADIO_TRIPLE_CHEESE_TYPE,
         },
-        {
-          label: 'None',
-          value: {
-            price: 0,
-            radioCheeseType: 'none',
-          },
+      },
+      {
+        label: 'None',
+        value: {
+          price: 0,
+          radioCheeseType: 'none',
         },
-      ];
-    }
+      },
+    ];
 
     const totalPrice = this.calculateTotalPrice();
 

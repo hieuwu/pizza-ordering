@@ -2,7 +2,7 @@ import BaseApi from '../../../core/services/BaseApi';
 
 class UserAPI {
   async signIn(loginData) {
-    let response = await BaseApi.post('', loginData);
+    let response = await BaseApi.post('h/user/login', loginData);
     return response;
   }
 

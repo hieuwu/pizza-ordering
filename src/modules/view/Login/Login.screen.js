@@ -69,24 +69,25 @@ export default class Login extends Component {
     this.updateEmailErrorMess(this.state.email);
     this.updatePasswordErrorMess(this.state.password);
     if (
-      this.checkEmail(this.state.email) &&
+      // this.checkEmail(this.state.email) &&
       this.checkPassword(this.state.password)
     ) {
       let userData = {
-        email: this.state.email,
+        emailorphone: this.state.email,
         password: this.state.password,
       };
       let loginResponse = await new UserUseCase().signInUser(userData);
+      console.log('login response is : ', loginResponse.data.token);
       if (String(loginResponse.data) > 0) {
         this.setState({displayModal: false});
         await new UserUseCase().saveUserInfo(userData);
         // navigate to checkout screen:
       }
     } else {
-      //navigate to checkout screen :
-      this.props.navigation.navigate('shipping');
-      // this.setState({displayModal: true});
-      // console.log('set modal to : ' + this.state.displayModal);
+      // //navigate to checkout screen :
+      // this.props.navigation.navigate('shipping');
+      this.setState({displayModal: true});
+      console.log('set modal to : ' + this.state.displayModal);
     }
   }
 

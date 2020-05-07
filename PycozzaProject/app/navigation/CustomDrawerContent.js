@@ -14,30 +14,21 @@ import {
 import dimension from '../resources/dimensions';
 import string from '../resources/strings';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
-function CustomDrawerContent(props, {navigation}) {
-  return (
-    <DrawerContentScrollView {...props} >
-      <DrawerItemList {...props} />  
-          <DrawerItem
-            icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-pizza' />) }}
-            labelStyle={styles.labelStyle}
-            label={string.categories.pizza} onPress={() => navigation.navigate('Product')}/>
-          <DrawerItem
-            icon={() => { return (<MaterialCommunityIcons color={color.white} size={dimension.iconSize} name='bowl' />) }}
-            labelStyle={styles.labelStyle}
-            label={string.categories.sidedish} onPress={() => alert('Link to help')} />
-          <DrawerItem
-            icon={() => { return (<MaterialCommunityIcons color={color.white} size={dimension.iconSize} name='cake' />) }}
-            labelStyle={styles.labelStyle}
-            label={string.categories.dessert} onPress={() => alert('Link to help')} />
-          <DrawerItem
-            icon={() => { return (<Entypo color={color.white} size={dimension.iconSize} name='drink' />) }}
-            labelStyle={styles.labelStyle}
-            label={string.categories.beverage} onPress={() => alert('Link to help')} />
-       
-    </DrawerContentScrollView>
-  );
+import { connect } from 'react-redux';
+import { addUser,removeUser } from '../../redux/actions/index';
+class CustomDrawerContent extends Component {
+  render() {
+    const {removeUser} = this.props;
+    return (
+      <DrawerContentScrollView {...props} >
+        <DrawerItemList {...props} />
+        <DrawerItem
+          icon={() => { return (<Ionicons color={color.white} size={dimension.iconSize} name='ios-log-out' />) }}
+          labelStyle={styles.labelStyle}
+          label={string.categories.pizza} onPress={() => removeUser()} />
+      </DrawerContentScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -47,4 +38,15 @@ const styles = StyleSheet.create({
   }
 })
 
-export default CustomDrawerContent;
+const mapStateToProps = state => ({
+    
+});
+
+const mapDispatchToProps = dispatch => ({
+    addUser: user => dispatch(addUser(user)),
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(CustomDrawerContent)

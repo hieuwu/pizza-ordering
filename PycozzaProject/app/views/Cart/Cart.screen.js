@@ -35,7 +35,6 @@ class CartScreen extends Component {
         orderLine.id = item.id;
         console.log('Clicked ID: ', orderLine.id);
         removeFromCart(orderLine);
-        this.setState({ total: this.countMoney() })
     }
 
     loadCart = () => {
@@ -44,7 +43,7 @@ class CartScreen extends Component {
     }
 
     countMoney = () => {
-        const { cartReducer } = this.props;
+        const {cartReducer} = this.props;
         if (cartReducer.length == 0) {
             return 0;
         }
@@ -235,7 +234,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     removeFromCart: orderLine => dispatch(removeFromCart(orderLine)),
-    loadCart: () => dispatch(loadCart()),
     addToCart: orderLine => dispatch(addToCart(orderLine)),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CartScreen)

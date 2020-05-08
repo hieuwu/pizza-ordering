@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, FlatList, TouchableOpacity, RefreshControl, Image, Text } from 'react-native'
+import { View, FlatList, TouchableOpacity, RefreshControl, Image, Text, ActivityIndicator } from 'react-native'
 import styles from './ProductList.style';
 import ProductUseCase from '../../usecase/ProductUseCase'
 import OvalShape from '../../components/OvalShape.component'
@@ -15,7 +15,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export default class ProductListScreen extends Component {
     constructor(props) {
-        console.disableYellowBox = true; 
+        console.disableYellowBox = true;
         super(props);
         let dataProvider = new DataProvider((r1, r2) => {
             return r1 !== r2;
@@ -40,17 +40,16 @@ export default class ProductListScreen extends Component {
             items: [],
             isRefreshing: false,
             isPizza: false,
+            isLoading: true,
         };
     }
 
     setHeaderTitle() {
         const { title } = this.props.route.params;
-
         return this.props.navigation.setOptions({
             title: title,
         })
     }
-
 
     _rowRenderer(type, item) {
         const { title } = this.props.route.params;
@@ -69,10 +68,10 @@ export default class ProductListScreen extends Component {
                                 <Text style={itemStyles.price}>{item.price + ',000'} </Text>
                                 {
                                     this.state.isPizza ? (<View style={{ flexDirection: 'row' }} >
-                                    <Text style={itemStyles.price}>{item.maxPrice + ',000'} </Text>
-                                    <Text style={itemStyles.price}>VNĐ</Text>
-                                </View>): (<View></View>)
-                            }
+                                        <Text style={itemStyles.price}>- {item.maxPrice + ',000'} </Text>
+                                        <Text style={itemStyles.price}>VNĐ</Text>
+                                    </View>) : (<View></View>)
+                                }
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -90,6 +89,7 @@ export default class ProductListScreen extends Component {
         try {
             let products = await new ProductUseCase().getListProduct(type);
             await new ProductUseCase().saveListProduct(type, products);
+            this.setState({isLoading: false});
             this.setState(state => {
                 const items = [
                     ...products,
@@ -98,12 +98,11 @@ export default class ProductListScreen extends Component {
                     dataProvider: state.dataProvider.cloneWithRows(items),
                     items
                 }
-            })
+            });
         }
         catch (error) {
             console.log('Loi la: ', error)
         }
-
         this.setHeaderTitle()
     }
     onRefresh = async () => {
@@ -133,22 +132,26 @@ export default class ProductListScreen extends Component {
         return (
             <View style={styles.container}>
                 <OvalShape />
-                <View style={{ height: 50, backgroundColor: 'transparent' }}>
-                    <ScrollView
-                        refreshControl={
-                            <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
-                    >
-                    </ScrollView>
-                </View>
-
-                <View style={{ flex: 1 }}>
-                    <RecyclerListView
-                        layoutProvider={this._layoutProvider}
-                        dataProvider={this.state.dataProvider}
-                        rowRenderer={this._rowRenderer}
-                        scrollViewProps={{ horizontal: true }}
-                    />
-                </View>
+                {
+                    this.state.isLoading ? <ActivityIndicator /> : (
+                        <View style={{flex:1}}>
+                            <View style={{ height: 50, backgroundColor: 'transparent' }}>
+                                <ScrollView
+                                    refreshControl={
+                                        <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
+                                >
+                                </ScrollView>
+                            </View>
+                            <View style={{ flex: 1 }}>
+                                <RecyclerListView
+                                    layoutProvider={this._layoutProvider}
+                                    dataProvider={this.state.dataProvider}
+                                    rowRenderer={this._rowRenderer}
+                                    scrollViewProps={{ horizontal: true }}
+                                />
+                            </View>
+                        </View>)
+                }
             </View>
         )
     }

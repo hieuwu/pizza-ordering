@@ -10,6 +10,7 @@ import itemStyles from './ListItem.component'
 import color from '../../resources/colors';
 import AppConfig from '../../config/AppConfig'
 import { ScrollView } from 'react-native-gesture-handler';
+import ProductAPI from '../../repositories/ProductRepository/ProductAPI';
 
 
 
@@ -109,7 +110,7 @@ export default class ProductListScreen extends Component {
         this.setState({ isRefreshing: true });
         const { type } = this.props.route.params;
         try {
-            let products = await new ProductUseCase().getListProduct(type);
+            let products = await new ProductAPI().getListProduct(type);
             await new ProductUseCase().saveListProduct(type, products);
             this.setState(state => {
                 const items = [

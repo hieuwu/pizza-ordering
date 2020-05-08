@@ -66,6 +66,8 @@ class ProductDetailScreen extends Component {
         const {cartReducer} = this.props;
         const {saveCart} = this.props;
         const item = this.getParam();
+        this.setState({quantity: 0});
+        i =0;
         let orderLine = {};
         orderLine.type = 'ADD_CART';
         orderLine.id = String(cartID);
@@ -82,7 +84,6 @@ class ProductDetailScreen extends Component {
         orderLine.size = this.state.size;
         orderLine.crust = this.state.crust;
         orderLine.imgLink = item.imgLink;
-        this.setState({quantity: 0});
         this.setState({modalVisible: true});
         addToCart(orderLine);
         saveCart();
@@ -198,11 +199,19 @@ class ProductDetailScreen extends Component {
                     <View style={{ marginHorizontal: 15, }}>
                         <Text style={styles.subTitle}>Quantity:</Text>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 15, }}>
-                            <TouchableOpacity onPress={() => this.setState({ quantity: i-- })}>
+                            <TouchableOpacity onPress={() => {
+                                if (this.state.quantity > 1) {
+                                    i--;
+                                this.setState({ quantity: i })
+                                } else return;
+                                }}>
                                 <AntDesign name='minuscircleo' color={color.black} size={dimension.iconSize} />
                             </TouchableOpacity>
                             <Text style={styles.subTitle} >{this.state.quantity}</Text>
-                            <TouchableOpacity onPress={() => this.setState({ quantity: i++ })}><AntDesign name='pluscircleo' color={color.black} size={dimension.iconSize} />
+                            <TouchableOpacity onPress={() => {
+                                i++;
+                                this.setState({ quantity: i})
+                                }}><AntDesign name='pluscircleo' color={color.black} size={dimension.iconSize} />
                             </TouchableOpacity>
                         </View>
                     </View>

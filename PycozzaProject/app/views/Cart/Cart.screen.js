@@ -111,7 +111,7 @@ class CartScreen extends Component {
     }
 
     checkAddress = () => {
-        if (this.state.noUserName.length > 5) {
+        if (this.state.userAddress.length > 5) {
             this.setState({ addressError: '' });
         } else {
             this.setState({ addressError: '  Invalid address!' });
@@ -238,9 +238,15 @@ class CartScreen extends Component {
                                         title='OK'
                                         buttonStyle={styles.okButton}
                                         onPress={() => {
-                                            this.createOrderRequest();
-                                            this.setState({ modalVisible: false });
-                                            this.setState({ modalSucess: true });
+                                            let userInstance = new UserUseCase();
+                                            this.checkAddress(this.state.userAddress);
+                                            if (userInstance.checkAddress(this.state.userAddress))
+                                            {
+
+                                                this.createOrderRequest();
+                                                this.setState({ modalVisible: false });
+                                                this.setState({ modalSucess: true });
+                                            }
 
                                         }}
                                     />
@@ -296,7 +302,7 @@ class CartScreen extends Component {
                                                     let userInstance = new UserUseCase();
                                                     this.checkName(this.state.noUserName);
                                                     this.checkPhoneNumber(this.state.noUserPhone);
-                                                    this.checkAddress(this.state.notUserAddress);
+                                                    this.checkAddress(this.state.userAddress);
                                                     if (userInstance.isValidName(this.state.noUserName)
                                                         && userInstance.isValidPhoneNumber(this.state.noUserPhone)
                                                         && userInstance.isValidAddress(this.state.userAddress)) {

@@ -2,7 +2,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 class ProductDAO {
     async getListProduct(type){
-        console.log("Get from DAO...");
         let data = [];
         try {
             data = await AsyncStorage.getItem(type) || 'none';
@@ -17,7 +16,6 @@ class ProductDAO {
     }
     
     async saveListProduct(type, productList) {
-        console.log('Saved to local');
         let productListJSON = JSON.stringify(productList);
         try {
             await AsyncStorage.setItem(type, productListJSON);

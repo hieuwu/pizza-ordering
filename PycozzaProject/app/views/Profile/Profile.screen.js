@@ -30,11 +30,6 @@ class ProfileScreen extends Component {
      componentDidUpdate(prevProps, prevState) {
         if (prevProps.userReducer !== this.props.userReducer) {
             this.setState({ isSignedIn: true })
-            // let currentUser = await new UserUsecase().getUserInformation();
-            // if (currentUser !== 'none') {
-            //     const { addUser } = this.props;
-            //     addUser(currentUser);
-            // }
         }
     }
     render() {

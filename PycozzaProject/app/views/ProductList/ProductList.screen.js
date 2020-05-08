@@ -84,7 +84,6 @@ export default class ProductListScreen extends Component {
 
     async componentDidMount() {
         const { type } = this.props.route.params;
-        console.log("Man hinh nay la: ", type);
         if (type == '1') {
             this.setState({ isPizza: true })
         }
@@ -129,7 +128,6 @@ export default class ProductListScreen extends Component {
             console.log('Loi la: ', error)
         }
         this.setState({ isRefreshing: false });
-        console.log("Data fetched");
     }
     render() {
         return (

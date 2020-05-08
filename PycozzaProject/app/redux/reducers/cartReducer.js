@@ -18,22 +18,8 @@ const cartReducer = (state = [], action) => {
             save();
             return newArr;
         }
-        case LOADLOCALCART:
-            {
-
-                //Load cart from local storage
-                console.log("Cart is loaded !!!");
-                const load = async () => {
-                    let data = await new CartUseCase().getCart();
-                    return data;
-                }
-                let newState = load();
-                return newState;
-            }
         case SAVELOCALCART:
             {
-                //Save cart to lo cal storage
-                console.log("Cart is storedd");
                 let newArr = [...state]
                 const save = async () => {
                     await new CartUseCase().saveCart(newArr);
@@ -42,7 +28,6 @@ const cartReducer = (state = [], action) => {
                 return state;
             }
         case REMOVECART: {
-            console.log("Remove from redux");
             return [];
         }
         default:

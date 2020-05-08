@@ -43,7 +43,6 @@ class RegisterScreen extends Component {
             registerForm.email = this.state.email;
             registerForm.phone = this.state.phone;
             registerForm.password = this.state.password;
-            console.log(registerForm);
             let registerResponse = {};
             try {
                 registerResponse = await new UserUseCase().registerAccount(registerForm);
@@ -65,7 +64,6 @@ class RegisterScreen extends Component {
                     console.log(e);
                 }
                 new UserUseCase().saveUserInformation(loginResponse.data);
-                console.log("Register success with:", this.state.fullName);
                 addUser(loginResponse.data);
                 this.setState({isSignedUp: true});
                 this.setState({ modalVisible: true });
@@ -73,7 +71,6 @@ class RegisterScreen extends Component {
             else {
                 this.setState({ errorMessage: 'This user is already existed' })
                 this.setState({ modalVisible: true });
-                console.log("Failed");
                 return;
             }
         }

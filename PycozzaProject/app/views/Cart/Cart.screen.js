@@ -45,7 +45,6 @@ class CartScreen extends Component {
         const { removeFromCart } = this.props;
         let orderLine = {};
         orderLine.id = item.id;
-        console.log('Clicked ID: ', orderLine.id);
         removeFromCart(orderLine);
     }
 
@@ -79,10 +78,8 @@ class CartScreen extends Component {
         if (cartReducer.length == 0) {
             let newState = await new CartUseCase().getCart();
             if (newState == 'none') {
-                console.log('cart is None')
                 return;
             }
-            console.log("Curr cart in CartScreen: ", newState);
             newState.forEach(element => {
                 element.type = ADDTOCART;
                 addToCart(element);
@@ -160,7 +157,6 @@ class CartScreen extends Component {
         orderRequest.orderTime = new Date().toDateString();
         orderRequest.paymentMethod = 'COD';
         orderRequest.totalPrice = this.countMoney();
-        console.log("Order request: ", orderRequest);
         let orderStatus = await new UserUseCase().completeOrder(orderRequest);
         if (orderStatus == 201) {
             const { removeCart } = this.props;
@@ -184,14 +180,12 @@ class CartScreen extends Component {
                         //If not logged in
                         //show information dialog
                         this.setState({ isSignedIn: false });
-                        console.log("Not logged in", currentUser);
                         this.setState({ modalVisible: true });
                     }
                     else {
                         //If logged in
                         //show address dialog
                         this.setState({ isSignedIn: true });
-                        console.log("Current: ", currentUser);
                         this.setState({ modalVisible: true })
                     }
                 }

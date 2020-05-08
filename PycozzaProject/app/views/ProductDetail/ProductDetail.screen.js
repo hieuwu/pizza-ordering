@@ -82,7 +82,6 @@ class ProductDetailScreen extends Component {
         orderLine.size = this.state.size;
         orderLine.crust = this.state.crust;
         orderLine.imgLink = item.imgLink;
-        console.log("Orderline: ",orderLine);
         this.setState({quantity: 0});
         this.setState({modalVisible: true});
         addToCart(orderLine);

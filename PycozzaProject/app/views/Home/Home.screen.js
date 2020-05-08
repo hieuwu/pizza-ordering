@@ -3,7 +3,16 @@ import { Text, View, ImageBackground, StyleSheet } from 'react-native';
 import color from '../../resources/colors'
 import { Button } from 'react-native-elements';
 import dimension from '../../resources/dimensions';
+import UserUsecase from '../../usecase/UserUseCase';
 export default class HomeScreen extends Component {
+
+    async componentDidMount() {
+        let currentUser = await new UserUsecase().getUserInformation();
+        if (currentUser !== 'none') {
+            this.props.navigation.navigate('Main');
+        }
+    }
+    
     render() {
         return (
             <View style={styles.container}>
@@ -21,7 +30,7 @@ export default class HomeScreen extends Component {
                         <Button title='Start order    >' buttonStyle={{
                             backgroundColor: color.mainColor, borderRadius: 20, width: 160
                         }} titleStyle={{ marginLeft: 20 }} 
-                            onPress={() => {this.props.navigation.navigate('Categories')}}
+                            onPress={() => {this.props.navigation.navigate('Main')}}
                         />
                     </View>
                 </ImageBackground>

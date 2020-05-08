@@ -30,6 +30,7 @@ import { Provider } from 'react-redux'
 
 import store from './app/redux/store/index'
 import ProductDetailScreen from './app/views/ProductDetail/ProductDetail.screen';
+import MainStack from './app/navigation/Main.stack';
 
 const appStore = store;
 const App: () => React$Node = () => {
@@ -44,7 +45,7 @@ const App: () => React$Node = () => {
       {/* <StatusBar barStyle="dark-content" /> */}
       <Provider store = {appStore}>
         <NavigationContainer>
-          <MainMenuDrawer />
+          <MainStack />
         </NavigationContainer>
       </Provider>
     </>

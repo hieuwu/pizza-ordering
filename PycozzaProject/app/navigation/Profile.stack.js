@@ -10,6 +10,7 @@ import dimension from '../resources/dimensions'
 import { StyleSheet } from 'react-native';
 import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
 import ProfileScreen from '../views/Profile/Profile.screen';
+import CartScreen from '../views/Cart/Cart.screen';
 const stack = createStackNavigator();
 export default class ProfileStack extends Component {
     render() {
@@ -20,7 +21,7 @@ export default class ProfileStack extends Component {
                         title: string.listScreenTitle,
                         headerRight: () => (
                             <TouchableOpacity
-                                onPress={() => alert('This is a button!')}
+                                onPress={() => this.props.navigation.navigate('Cart')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
                             </TouchableOpacity>
@@ -33,7 +34,7 @@ export default class ProfileStack extends Component {
                             </TouchableOpacity>
                         ),
                     }} />
-                <stack.Screen name='ProductDetail' component={ProductDetailScreen} options={{title: 'Detail'}}/>
+                <stack.Screen name='Cart' component={CartScreen} options={{title: 'Detail'}}/>
             </stack.Navigator>
         )
     }

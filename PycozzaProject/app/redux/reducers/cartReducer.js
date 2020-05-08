@@ -1,4 +1,4 @@
-import { ADDTOCART, REMOVEFROMCART, LOADLOCALCART, SAVELOCALCART } from '../actions/type';
+import { ADDTOCART, REMOVEFROMCART, LOADLOCALCART, SAVELOCALCART, REMOVECART } from '../actions/type';
 import cartItem from './cartItemReducer'
 import CartUseCase from '../../usecase/CartUsceCase.js'
 const cartReducer = (state = [], action) => {
@@ -18,30 +18,18 @@ const cartReducer = (state = [], action) => {
             save();
             return newArr;
         }
-        case LOADLOCALCART:
-            {
-            
-                //Load cart from local storage
-                console.log("Cart is loaded !!!");
-                const load = async () => {
-                    let data = await new CartUseCase().getCart();
-                    return data;
-                }
-                let newState = load();
-                return newState;
-            }
         case SAVELOCALCART:
             {
-                //Save cart to lo cal storage
-                console.log("Cart is storedd");
                 let newArr = [...state]
                 const save = async () => {
                     await new CartUseCase().saveCart(newArr);
                 }
                 save();
                 return state;
-              
             }
+        case REMOVECART: {
+            return [];
+        }
         default:
             return state;
     }

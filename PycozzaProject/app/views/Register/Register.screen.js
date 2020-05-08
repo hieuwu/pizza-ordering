@@ -23,121 +23,90 @@ class RegisterScreen extends Component {
             emailError: '',
             passwordError: '',
             confirmError: '',
+            errorMessage: 'Sign up successfully',
             modalVisible: false,
+            isSignedUp: false,
         }
     }
-
-    isValidEmail = (email) => {
-        let pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (pattern.test(String(email).toLowerCase()))
-            return true;
-        if (email.length < 1)
-            return false;
-        return false;
-    }
-
-    isValidName = (name) => {
-        let pattern = /^[A-Za-z]+$/;
-        if (pattern.test(name)) {
-            return true;
-        }
-        return false;
-    }
-
-    isValidPhoneNumber = (phone) => {
-        let pattern = /^[0-9]*$/;
-        if (pattern.test(phone) && (phone.length == 10))
-            return true;
-        return false;
-    }
-
-    isValidPassword = (password) => {
-        if ((password.length > 7) && (password.length < 17)) {
-            return true;
-        }
-        return false;
-    }
-
-    isValidConfirm = (password, confirmPassword) => {
-        if ((password === confirmPassword) && this.isValidPassword(password)) {
-            return true;
-        }
-        return false;
-    }
-
-
 
     validateForm = async () => {
+        let validateInstance = new UserUseCase();
         this.checkEmail();
-        this.checkName();
         this.checkPassword();
         this.checkPhoneNumber();
         this.checkConfirm();
-        if (this.isValidName(this.state.fullName) && this.isValidPhoneNumber(this.state.phone)
-            && this.isValidEmail(this.state.email) && this.isValidPassword(this.state.password)
-            && this.isValidConfirm(this.state.password, this.state.confirmPassword)) {
+        if (validateInstance.isValidName(this.state.fullName) && validateInstance.isValidPhoneNumber(this.state.phone)
+            && validateInstance.isValidEmail(this.state.email) && validateInstance.isValidPassword(this.state.password)
+            && validateInstance.isValidConfirm(this.state.password, this.state.confirmPassword)) {
             let registerForm = {};
-            registerForm.name = this.state.fullName;
+            registerForm.fullName = this.state.fullName;
             registerForm.email = this.state.email;
             registerForm.phone = this.state.phone;
             registerForm.password = this.state.password;
-            console.log(registerForm);
-            let registerResponse = await new UserUseCase().registerAccount(registerForm);
-            if (registerResponse.data.status === 201) {
-                const {addUser} = this.props;
+            let registerResponse = {};
+            try {
+                registerResponse = await new UserUseCase().registerAccount(registerForm);
+
+            } catch (e) {
+                console.log(e);
+            }
+
+            if (registerResponse.status === 201) {
+                const { addUser } = this.props;
                 let loginForm = {};
                 loginForm.email = registerForm.email;
                 loginForm.password = registerForm.password;
-                let loginResponse = await new UserUseCase().loginAccount(loginForm);
+                let loginResponse = null;
+                try {
+                    loginResponse = await new UserUseCase().loginAccount(loginForm);
+
+                } catch (e) {
+                    console.log(e);
+                }
                 new UserUseCase().saveUserInformation(loginResponse.data);
-                this.setState({ modalVisible: true });
                 addUser(loginResponse.data);
+                this.setState({isSignedUp: true});
+                this.setState({ modalVisible: true });
             }
             else {
-                console.log("Failed");
+                this.setState({ errorMessage: 'This user is already existed' })
+                this.setState({ modalVisible: true });
+                return;
             }
         }
     }
-
     checkPassword = () => {
-        if (this.isValidPassword(this.state.password)) {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidPassword(this.state.password)) {
             this.setState({ passwordError: '' });
-
         } else {
             this.setState({ passwordError: 'Invalid password' });
         }
     }
-
     checkPhoneNumber = () => {
-        if (this.isValidPhoneNumber(this.state.phone)) {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidPhoneNumber(this.state.password)) {
             this.setState({ phoneError: '' });
-
         } else {
             this.setState({ phoneError: 'Invalid phone' });
         }
     }
 
-    checkName = () => {
-        if (this.isValidName(this.state.fullName)) {
-            this.setState({ fullnameError: '' });
-        } else {
-            this.setState({ fullnameError: 'Invalid name' });
-        }
-    }
 
     checkEmail = () => {
-        if (this.isValidEmail(this.state.email)) {
-            this.setState({ emailError: '' });
+        let validateInstance = new UserUseCase();
 
+        if (validateInstance.isValidEmail(this.state.email)) {
+            this.setState({ emailError: '' });
         } else {
             this.setState({ emailError: 'Invalid email' });
         }
     }
 
     checkConfirm = () => {
-        if (this.isValidConfirm(this.state.password, this.state.confirmPassword)) {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidConfirm(this.state.password, this.state.confirmPassword)) {
             this.setState({ confirmError: '' });
-
         } else {
             this.setState({ confirmError: 'Invalid confirm password' });
         }
@@ -149,19 +118,23 @@ class RegisterScreen extends Component {
                 <Modal animationType="slide"
                     transparent={true}
                     visible={this.state.modalVisible}>
-                        <View style={{justifyContent: 'center', alignSelf: 'center', flex: 1,}}>
-                    <View style={styles.modalView}>
-                        <Text style={styles.textStyle}>Sign up successfully</Text>
-                        <Button
-                            title='OK'
-                            buttonStyle={styles.okButton}
-                            onPress={() => {
-                                this.setState({ modalVisible: false });
-                                this.props.navigation.navigate('CartScreen');
-                            }}
-                        >
-                        </Button>
-                    </View>
+                    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.textStyle}>{this.state.errorMessage}</Text>
+                            <Button
+                                title='OK'
+                                buttonStyle={styles.okButton}
+                                onPress={() => {
+                                    if (this.state.isSignedUp == true) {
+                                        this.setState({ modalVisible: false });
+                                        this.props.navigation.navigate('CartScreen');
+                                    } else {
+                                        this.setState({ modalVisible: false });
+                                    }
+                                }}
+                            >
+                            </Button>
+                        </View>
                     </View>
                 </Modal>
 
@@ -202,7 +175,7 @@ class RegisterScreen extends Component {
                         onPress={this.validateForm}
                     />
                     <Button title="Sign in" type="outline" buttonStyle={{ backgroundColor: 'white', marginHorizontal: 15, borderRadius: 15, marginBottom: 30 }}
-                        onPress={() => this.retrieveUserInfo()} />
+                        onPress={() => this.props.navigation.goBack()} />
                 </ScrollView>
             </View>
 
@@ -211,7 +184,7 @@ class RegisterScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-    
+
 });
 
 const mapDispatchToProps = dispatch => ({

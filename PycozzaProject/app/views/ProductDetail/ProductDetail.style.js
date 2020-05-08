@@ -47,12 +47,15 @@ const styles = StyleSheet.create({
     textStyle: {
         fontWeight: 'bold',
         fontSize: 24,
-        color: color.white
+        color: color.white,
+        textAlign: 'center',
+        marginBottom: 10,
     },
     okButton: {
         backgroundColor: color.mainColor,
         borderRadius: 15,
-        width: 80,
+        width: 100,
+        marginHorizontal: 10
     }
 })
 

@@ -8,7 +8,6 @@ class UserDAO {
         } catch (error) {
             console.log(error.message);
         }
-        console.log('User information is stored');
     }
 
     async getUserInformation() {
@@ -23,8 +22,15 @@ class UserDAO {
             // Error retrieving data
             console.log(error.message);
         }
-        console.log("Data retrieved !!!");
         return JSON.parse(userInfo);
+    }
+    async logoutAccount() {
+        try {
+            await AsyncStorage.removeItem('userInfo');
+          } catch (error) {
+            // Error retrieving data
+            console.log(error.message);
+          } 
     }
 }
 

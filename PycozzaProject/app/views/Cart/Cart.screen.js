@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity } from 'react-native';
+import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity, Platform } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -18,8 +18,9 @@ import { removeFromCart, loadCart, saveCart } from '../../redux/actions/index';
 import AppConfig from '../../config/AppConfig'
 import CartUseCase from '../../usecase/CartUsceCase';
 import UserUseCase from '../../usecase/UserUseCase'
-import { addToCart } from '../../redux/actions/index';
+import { addToCart, removeCart } from '../../redux/actions/index';
 import { ADDTOCART } from '../../redux/actions/type';
+import NetInfo from "@react-native-community/netinfo";
 
 class CartScreen extends Component {
     constructor(props) {
@@ -27,15 +28,24 @@ class CartScreen extends Component {
         this.state = {
             modalVisible: false,
             isSignedIn: false,
+            userAddress: '',
+            noUserName: '',
+            noUserPhone: '',
+            noUserAddress: '',
+            modalSucess: false,
+            addressError: '',
+            phoneError: '',
+            nameError: '',
         }
     }
+
+
+
     removeItem = (item) => {
         const { removeFromCart } = this.props;
         let orderLine = {};
         orderLine.id = item.id;
-        console.log('Clicked ID: ', orderLine.id);
         removeFromCart(orderLine);
-        this.setState({ total: this.countMoney() })
     }
 
     loadCart = () => {
@@ -68,48 +78,124 @@ class CartScreen extends Component {
         if (cartReducer.length == 0) {
             let newState = await new CartUseCase().getCart();
             if (newState == 'none') {
-                console.log('cart is None')
                 return;
             }
-            console.log("Curr cart in CartScreen: ", newState);
             newState.forEach(element => {
                 element.type = ADDTOCART;
                 addToCart(element);
             })
         }
 
-
     }
+
     gotoAuthenn = () => {
         const { navigation } = this.props;
         this.setState({ modalVisible: false })
         navigation.navigate('LoginScreen');
-
     }
+
+    checkPhoneNumber = () => {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidPhoneNumber(this.state.noUserPhone)) {
+            this.setState({ phoneError: '' });
+
+        } else {
+            this.setState({ phoneError: '  Invalid phone!' });
+        }
+    }
+
+    checkName = () => {
+        if (this.state.noUserName.length > 1) {
+            this.setState({ nameError: '' });
+        } else {
+            this.setState({ nameError: '  Invalid name!' });
+        }
+    }
+
+    checkAddress = () => {
+        if (this.state.userAddress.length > 5) {
+            this.setState({ addressError: '' });
+        } else {
+            this.setState({ addressError: '  Invalid address!' });
+        }
+    }
+
+    createOrderRequest = async () => {
+        let orderRequest = {};
+        let cart = [];
+        let notUserInfor = {};
+        const { userReducer } = this.props;
+        const { cartReducer } = this.props;
+        if (this.state.isSignedIn === true) {
+
+            orderRequest.email = userReducer.email;
+            orderRequest.orderUserInformation = {
+                fullName: userReducer.fullName,
+                phone: userReducer.phone,
+                emai: userReducer.email,
+                address: this.state.userAddress
+            };
+        }
+        else {
+            orderRequest.email = '';
+            notUserInfor = {
+                fullName: this.state.noUserName,
+                phone: this.state.noUserPhone,
+                email: '',
+                address: this.state.userAddress,
+            }
+            orderRequest.orderUserInformation = notUserInfor;
+        }
+        cartReducer.forEach(element => {
+            let name = element.name + '' + element.size + '' + element.crust;
+            let quantity = Number(element.quantity)
+            let price = Number(element.price);
+            cart.push({ name: name, quantity: quantity, price })
+        })
+        orderRequest.note = '';
+        orderRequest.cart = cart;
+        orderRequest.orderTime = new Date().toDateString();
+        orderRequest.paymentMethod = 'COD';
+        orderRequest.totalPrice = this.countMoney();
+        let orderStatus = await new UserUseCase().completeOrder(orderRequest);
+        if (orderStatus == 201) {
+            const { removeCart } = this.props;
+            await new CartUseCase().removeCart();
+            this.setState({ modalSucess: true });
+            removeCart();
+        }
+    }
+
     async goCheckOut() {
         const { cartReducer } = this.props;
         if (cartReducer.length > 0) {
-            let currentUser = await new UserUseCase().getUserInformation();
-            if (currentUser == 'none') {
-                //If not logged in
-                //show information dialog
-                this.setState({ isSignedIn: false });
-                console.log("Not logged in", currentUser);
-                this.setState({ modalVisible: true });
-            }
-            else {
-                //If logged in
-                //show address dialog
-                this.setState({ isSignedIn: true });
-                console.log("Current: ",currentUser);
-                this.setState({ modalVisible: true })
-            }
-
+            NetInfo.fetch().then(async state => {
+                if (state.isConnected == false) {
+                    alert("You are offline, can not order !")
+                    return;
+                }
+                else {
+                    let currentUser = await new UserUseCase().getUserInformation();
+                    if (currentUser == 'none') {
+                        //If not logged in
+                        //show information dialog
+                        this.setState({ isSignedIn: false });
+                        this.setState({ modalVisible: true });
+                    }
+                    else {
+                        //If logged in
+                        //show address dialog
+                        this.setState({ isSignedIn: true });
+                        this.setState({ modalVisible: true })
+                    }
+                }
+            })
+            
         }
         else {
             alert('Your cart is empty')
+            return;
         }
-
     }
 
     render() {
@@ -117,6 +203,25 @@ class CartScreen extends Component {
         const totalPrice = this.countMoney();
         return (
             <View style={styles.container}>
+                <Modal animationType="slide"
+                    transparent={true}
+                    visible={this.state.modalSucess}>
+                    <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.textStyle}>Your order is sent successfully !</Text>
+                            <Button
+                                title='OK'
+                                buttonStyle={styles.okButton}
+                                onPress={() => {
+                                    this.setState({ modalSucess: false });
+                                    this.props.navigation.navigate('ProductList');
+                                }}
+                            >
+                            </Button>
+                        </View>
+                    </View>
+                </Modal>
+
                 {
                     this.state.isSignedIn ? (<Modal animationType="slide"
                         transparent={true}
@@ -126,6 +231,9 @@ class CartScreen extends Component {
                                 <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                 <Input inputContainerStyle={styles.textInput}
                                     placeholder={string.promptAddress}
+                                    onChangeText={text => this.setState({ userAddress: text })}
+                                    errorMessage={this.state.addressError}
+                                    errorStyle={{ marginHorizontal: 15 }}
                                 />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     <Button
@@ -139,7 +247,14 @@ class CartScreen extends Component {
                                         title='OK'
                                         buttonStyle={styles.okButton}
                                         onPress={() => {
-                                            this.setState({ modalVisible: false });
+                                            let userInstance = new UserUseCase();
+                                            this.checkAddress(this.state.userAddress);
+                                            if (userInstance.isValidAddress(this.state.userAddress)) {
+                                                this.createOrderRequest();
+                                                this.setState({ modalVisible: false });
+                                                this.setState({ modalSucess: true });
+                                            }
+
                                         }}
                                     />
                                 </View>
@@ -156,14 +271,22 @@ class CartScreen extends Component {
                                         <Text style={styles.textStyle}>Your name</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptFullName}
+                                            onChangeText={text => this.setState({ noUserName: text })}
+                                            errorMessage={this.state.nameError}
                                         />
                                         <Text style={styles.textStyle}>Phone</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptPhone}
+                                            onChangeText={text => this.setState({ noUserPhone: text })}
+                                            errorMessage={this.state.phoneError}
+
                                         />
                                         <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptAddress}
+                                            onChangeText={text => this.setState({ userAddress: text })}
+                                            errorMessage={this.state.addressError}
+
                                         />
                                         <Text style={styles.textStyle}>or</Text>
                                         <TouchableOpacity
@@ -183,7 +306,16 @@ class CartScreen extends Component {
                                                 title='OK'
                                                 buttonStyle={styles.okButton}
                                                 onPress={() => {
-                                                    this.setState({ modalVisible: false });
+                                                    let userInstance = new UserUseCase();
+                                                    this.checkName();
+                                                    this.checkPhoneNumber();
+                                                    this.checkAddress();
+                                                    if (userInstance.isValidName(this.state.noUserName)
+                                                        && userInstance.isValidPhoneNumber(this.state.noUserPhone)
+                                                        && userInstance.isValidAddress(this.state.userAddress)) {
+                                                        this.createOrderRequest();
+                                                        this.setState({ modalVisible: false });
+                                                    }
                                                 }}
                                             />
                                         </View>
@@ -230,12 +362,13 @@ class CartScreen extends Component {
 }
 
 const mapStateToProps = state => ({
-    cartReducer: state.cartReducer
+    cartReducer: state.cartReducer,
+    userReducer: state.userReducer,
 });
 
 const mapDispatchToProps = dispatch => ({
     removeFromCart: orderLine => dispatch(removeFromCart(orderLine)),
-    loadCart: () => dispatch(loadCart()),
     addToCart: orderLine => dispatch(addToCart(orderLine)),
+    removeCart: () => dispatch(removeCart())
 });
 export default connect(mapStateToProps, mapDispatchToProps)(CartScreen)

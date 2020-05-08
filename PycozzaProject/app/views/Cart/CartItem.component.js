@@ -10,8 +10,8 @@ export default class CartItem extends Component {
         return (
             <View style={styles.itemWraper}>
                 <Image style={styles.itemImage} source={{ uri: AppConfig.IMAGE.baseURL + this.props.item.imgLink }} />
-                <View style={{ marginLeft: 50, }}>
-                    <View style={{ justifyContent: 'center' }}>
+                <View style={{ marginLeft: 0, }}>
+                    <View style={{}}>
                         <Text style={styles.title}>{this.props.item.name}</Text>
                     </View>
                     <Text>{this.props.item.crust}</Text>
@@ -30,7 +30,6 @@ export default class CartItem extends Component {
 const styles = StyleSheet.create({
     itemWraper: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         marginVertical: 8,
         backgroundColor: 'white',
         borderRadius: 15,
@@ -43,7 +42,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        marginHorizontal: 8,
+        marginHorizontal: 10,
     },
     itemImage: {
         width: dimension.imageItem.width,
@@ -62,6 +61,5 @@ const styles = StyleSheet.create({
     title: {
         fontWeight: 'bold',
         fontSize: dimension.itemTitleSize,
-        textAlign: 'justify'
     }
 })

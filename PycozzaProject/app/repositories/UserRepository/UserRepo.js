@@ -19,5 +19,14 @@ class UserRepo {
         let user = await new UserDAO().getUserInformation();
         return user;
     }
+
+    async logoutAccount() {
+        await new UserDAO().logoutAccount();
+    }
+
+    async completeOrder(orderForm) {
+        let response = await new UserAPI().completeOrder(orderForm);
+        return response;
+    }
 }
 export default UserRepo;

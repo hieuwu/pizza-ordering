@@ -8,6 +8,10 @@ class CartUseCase {
     async saveCart(currentCart) {
         await new CartRepo().saveCart(currentCart);
     }
+
+    async removeCart() {
+        await new CartRepo().removeCart();
+    }
 }
 
 export default CartUseCase;

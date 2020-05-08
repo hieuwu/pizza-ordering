@@ -24,7 +24,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const itemStyles = StyleSheet.create({
     itemWrapper: {
         flexDirection: 'row',
-        marginVertical: 10,
+        marginVertical: 5,
         backgroundColor: color.white,
         borderRadius: 15,
         padding: 8,

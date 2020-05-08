@@ -15,6 +15,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 export default class ProductListScreen extends Component {
     constructor(props) {
+        console.disableYellowBox = true; 
         super(props);
         let dataProvider = new DataProvider((r1, r2) => {
             return r1 !== r2;
@@ -37,7 +38,8 @@ export default class ProductListScreen extends Component {
         this.state = {
             dataProvider: dataProvider.cloneWithRows([]),
             items: [],
-            isRefreshing: false
+            isRefreshing: false,
+            isPizza: false,
         };
     }
 
@@ -62,7 +64,16 @@ export default class ProductListScreen extends Component {
                             marginRight: 25,
                         }}>
                             <Text style={itemStyles.itemTitle}>{item.name}</Text>
-                            <Text style={itemStyles.price}>{item.price + ',000'} - {item.maxPrice + ',000'} VNĐ</Text>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <Text style={itemStyles.price}>{item.price + ',000'} </Text>
+                                {
+                                    this.state.isPizza ? (<View style={{ flexDirection: 'row' }} >
+                                    <Text style={itemStyles.price}>{item.maxPrice + ',000'} </Text>
+                                    <Text style={itemStyles.price}>VNĐ</Text>
+                                </View>): (<View></View>)
+                            }
+                            </View>
                         </View>
                     </TouchableOpacity>
                 );
@@ -74,6 +85,9 @@ export default class ProductListScreen extends Component {
     async componentDidMount() {
         const { type } = this.props.route.params;
         console.log("Man hinh nay la: ", type);
+        if (type == '1') {
+            this.setState({ isPizza: true })
+        }
         try {
             let products = await new ProductUseCase().getListProduct(type);
             await new ProductUseCase().saveListProduct(type, products);
@@ -94,7 +108,7 @@ export default class ProductListScreen extends Component {
         this.setHeaderTitle()
     }
     onRefresh = async () => {
-        this.setState({isRefreshing: true});
+        this.setState({ isRefreshing: true });
         const { type } = this.props.route.params;
         try {
             let products = await new ProductUseCase().getListProduct(type);
@@ -108,13 +122,13 @@ export default class ProductListScreen extends Component {
                     items
                 }
             })
-            this.setState({isRefreshing: false});
+            this.setState({ isRefreshing: false });
         }
         catch (error) {
-            this.setState({isRefreshing: false});
+            this.setState({ isRefreshing: false });
             console.log('Loi la: ', error)
         }
-        this.setState({isRefreshing: false});
+        this.setState({ isRefreshing: false });
         console.log("Data fetched");
     }
     render() {
@@ -122,13 +136,12 @@ export default class ProductListScreen extends Component {
             <View style={styles.container}>
                 <OvalShape />
                 <View style={{ height: 50, backgroundColor: 'transparent' }}>
-                <ScrollView 
-                    refreshControl={
-                        <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
-                >
-
+                    <ScrollView
+                        refreshControl={
+                            <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}
+                    >
                     </ScrollView>
-                    </View>
+                </View>
 
                 <View style={{ flex: 1 }}>
                     <RecyclerListView

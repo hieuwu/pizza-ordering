@@ -7,6 +7,8 @@ import strings from '../../resources/strings/strings';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../resources/colors/Colors';
 import UserUseCase from '../../../UseCase/UserUseCase';
+import {Formik} from 'formik';
+import * as yup from 'yup';
 
 export default class SignUp extends Component {
   constructor(props) {

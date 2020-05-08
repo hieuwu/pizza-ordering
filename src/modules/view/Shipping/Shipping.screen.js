@@ -80,6 +80,7 @@ class Shipping extends Component {
     this.getCurrentDate();
     this.summaryPrice();
     let userData = await new UserUseCase().getUserInfo();
+    console.log('shipping order user data : ', userData);
     this.setState({data: userData});
   }
 

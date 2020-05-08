@@ -20,6 +20,15 @@ class UserRepo {
   async saveUserInfo(userData) {
     await new UserDAO().saveUserInfo(userData);
   }
+
+  async saveUserToken(userToken) {
+    await new UserDAO().saveUserToken(userToken);
+  }
+
+  async getUserToken() {
+    let userToken = await new UserDAO().getUserToken();
+    return userToken;
+  }
 }
 
 export default UserRepo;

@@ -19,6 +19,24 @@ class UserDAO {
       console.log(error.message);
     }
   }
+
+  async saveUserToken(userToken) {
+    try {
+      await AsyncStorage.setItem('userToken', userToken);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async getUserToken() {
+    let userToken = '';
+    try {
+      userToken = (await AsyncStorage.getItem('userToken')) || '';
+    } catch (error) {
+      console.log(error.message);
+    }
+    return userToken;
+  }
 }
 
 export default UserDAO;

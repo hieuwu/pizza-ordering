@@ -6,6 +6,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Modal,
+  Button,
 } from 'react-native';
 import {Input} from 'react-native-elements';
 import styles from './Login.style';
@@ -14,6 +15,9 @@ import strings from '../../resources/strings/strings';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import UserUseCase from '../../../UseCase/UserUseCase';
+import {Formik} from 'formik';
+import * as yup from 'yup';
+import SplashScreen from '../Splash.screen';
 
 export default class Login extends Component {
   constructor(props) {
@@ -22,38 +26,11 @@ export default class Login extends Component {
     this.state = {
       icon: strings.login.closeEye,
       showPassword: true,
-      email: '',
-      password: '',
-      emailInvalidMess: '',
-      passInvalidMess: '',
       loginStatus: strings.login.loginStatusFailedMess,
       displayModal: false,
+      isLoading: false,
     };
   }
-
-  updateEmailErrorMess = input => {
-    if (this.checkEmail(input)) {
-      this.setState({emailInvalidMess: ''});
-    } else {
-      this.setState({emailInvalidMess: strings.login.invalidEmailMess});
-    }
-  };
-
-  updatePasswordErrorMess = inputPass => {
-    if (this.checkPassword(inputPass)) {
-      this.setState({passInvalidMess: ''});
-    } else {
-      this.setState({passInvalidMess: strings.login.invalidPassMess});
-    }
-  };
-
-  checkPassword = password => {
-    if (password.length < 1) {
-      return false;
-    } else {
-      return true;
-    }
-  };
 
   checkEmail = email => {
     let emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -65,28 +42,36 @@ export default class Login extends Component {
     );
   };
 
-  async signInOnClick() {
-    this.updateEmailErrorMess(this.state.email);
-    this.updatePasswordErrorMess(this.state.password);
+  checkPhoneNum = phoneNum => {
+    let phoneNumRe = /(03|07|08|09|01[2|6|8|9])+([0-9]{8})\b/;
+    return phoneNumRe.test(String(phoneNum));
+  };
+
+  async signInOnClick(values) {
+    this.setState({isLoading: true});
     if (
-      // this.checkEmail(this.state.email) &&
-      this.checkPassword(this.state.password)
+      this.checkEmail(values.emailorphone) ||
+      this.checkPhoneNum(values.emailorphone)
     ) {
-      let userData = {
-        emailorphone: this.state.email,
-        password: this.state.password,
-      };
-      let loginResponse = await new UserUseCase().signInUser(userData);
-      console.log('login response is : ', loginResponse.data.token);
-      if (String(loginResponse.data) > 0) {
+      try {
+        let loginResponse = await new UserUseCase().signInUser(values);
+        this.setState({isLoading: false});
         this.setState({displayModal: false});
-        await new UserUseCase().saveUserInfo(userData);
+        console.log('save user information');
+        await new UserUseCase().saveUserInfo(loginResponse.data.user);
+        console.log('save user token');
+        await new UserUseCase().saveUserToken(loginResponse.data.token);
         // navigate to checkout screen:
+        console.log('login success');
+        this.props.navigation.navigate('shipping');
+      } catch (error) {
+        console.log('login failed');
+        this.setState({isLoading: false});
+        this.setState({displayModal: true});
       }
     } else {
       // //navigate to checkout screen :
-      // this.props.navigation.navigate('shipping');
-      this.setState({displayModal: true});
+      console.log('set isLoading to : ' + this.state.isLoading);
       console.log('set modal to : ' + this.state.displayModal);
     }
   }
@@ -128,68 +113,115 @@ export default class Login extends Component {
     this.setHeaderBar();
   }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.subView}>
-          <Modal
-            animationType="slide"
-            visible={this.state.displayModal}
-            transparent={true}>
-            <View style={styles.modalContainer}>
-              <View style={styles.modalView}>
-                <Text style={styles.loginStatusTxt}>
-                  {this.state.loginStatus}
-                </Text>
+  renderMainView = () => {
+    if (this.state.isLoading !== true) {
+      return (
+        <View>
+          <Formik
+            initialValues={{emailorphone: '', password: ''}}
+            onSubmit={values => {
+              this.signInOnClick(values);
+              Keyboard.dismiss();
+            }}
+            validationSchema={yup.object().shape({
+              emailorphone: yup.string().required(),
+              password: yup
+                .string()
+                .min(8)
+                .required(),
+            })}>
+            {({
+              values,
+              handleChange,
+              errors,
+              setFieldTouched,
+              touched,
+              isValid,
+              handleSubmit,
+            }) => (
+              <View style={styles.subView}>
+                <Modal
+                  animationType="slide"
+                  visible={this.state.displayModal}
+                  transparent={true}>
+                  <View style={styles.modalContainer}>
+                    <View style={styles.modalView}>
+                      <Text style={styles.loginStatusTxt}>
+                        {this.state.loginStatus}
+                      </Text>
+                      <TouchableOpacity
+                        style={styles.btnOkContainer}
+                        onPress={() => {
+                          this.setState({displayModal: false});
+                        }}>
+                        <Text style={styles.txtOk}>{strings.login.okTxt}</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
+                </Modal>
+                <Text style={styles.subTxt}>{strings.login.txtLoginTitle}</Text>
+                <View style={styles.txtInputContainer}>
+                  <Input
+                    value={values.emailorphone}
+                    onChangeText={handleChange('emailorphone')}
+                    placeholder={strings.login.txtEmailPlaceholder}
+                    onBlur={() => setFieldTouched('emailorphone')}
+                    errorMessage={
+                      touched.emailorphone ? errors.emailorphone : ''
+                    }
+                  />
+                </View>
+                <View style={styles.txtInputContainer}>
+                  <Input
+                    value={values.password}
+                    placeholder={strings.login.txtPasswordPlaceholder}
+                    secureTextEntry={this.state.showPassword}
+                    errorMessage={touched.password ? errors.password : ''}
+                    onChangeText={handleChange('password')}
+                    onBlur={() => setFieldTouched('password')}
+                  />
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.toggleSwitch();
+                    }}>
+                    <Icon
+                      name={this.state.icon}
+                      size={20}
+                      color={colors.black}
+                    />
+                  </TouchableOpacity>
+                </View>
+                <TouchableWithoutFeedback>
+                  <TouchableOpacity
+                    style={styles.btnLogin}
+                    disabled={!isValid}
+                    onPress={handleSubmit}>
+                    <Text style={styles.btnTxt}>{strings.login.btnLogin}</Text>
+                  </TouchableOpacity>
+                </TouchableWithoutFeedback>
+
                 <TouchableOpacity
-                  style={styles.btnOkContainer}
-                  onPress={() => {
-                    this.setState({displayModal: false});
-                  }}>
-                  <Text style={styles.txtOk}>{strings.login.okTxt}</Text>
+                  onPress={() => this.props.navigation.navigate('signup')}>
+                  <Text style={styles.signUpText}>
+                    {strings.login.btnSingUp}
+                  </Text>
                 </TouchableOpacity>
               </View>
-            </View>
-          </Modal>
-          <Text style={styles.subTxt}>{strings.login.txtLoginTitle}</Text>
-          <View style={styles.txtInputContainer}>
-            <Input
-              placeholder={strings.login.txtEmailPlaceholder}
-              errorMessage={this.state.emailInvalidMess}
-              onChangeText={inputEmail => this.setState({email: inputEmail})}
-            />
-          </View>
-          <View style={styles.txtInputContainer}>
-            <Input
-              placeholder={strings.login.txtPasswordPlaceholder}
-              secureTextEntry={this.state.showPassword}
-              errorMessage={this.state.passInvalidMess}
-              onChangeText={password => this.setState({password: password})}
-            />
-            <TouchableOpacity
-              onPress={() => {
-                this.toggleSwitch();
-              }}>
-              <Icon name={this.state.icon} size={20} color={colors.black} />
-            </TouchableOpacity>
-          </View>
-          <TouchableWithoutFeedback>
-            <TouchableOpacity
-              style={styles.btnLogin}
-              onPress={() => {
-                this.signInOnClick();
-                Keyboard.dismiss();
-              }}>
-              <Text style={styles.btnTxt}>{strings.login.btnLogin}</Text>
-            </TouchableOpacity>
-          </TouchableWithoutFeedback>
-
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('signup')}>
-            <Text style={styles.signUpText}>{strings.login.btnSingUp}</Text>
-          </TouchableOpacity>
+            )}
+          </Formik>
         </View>
-      </View>
-    );
+      );
+    } else {
+      return (
+        <View>
+          <SplashScreen />
+        </View>
+      );
+    }
+  };
+
+  render() {
+    let mainView = this.renderMainView();
+    return <View style={styles.container}>{mainView}</View>;
   }
 }

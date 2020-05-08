@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
+import colors from '../resources/colors/Colors';
 
 export default class Splash extends Component {
   constructor(props) {

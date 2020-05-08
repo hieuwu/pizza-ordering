@@ -85,13 +85,6 @@ class PizzaDetail extends Component {
   componentDidMount() {
     this.setHeaderBar();
     this.getItemLocalCart();
-    switch (this.props.route.params.pizzaTitle) {
-      case 'PRIME BEEF':
-        // let .... return data
-        break;
-      default:
-        break;
-    }
   }
 
   renderCheeseOptions = pizzaCheese => {

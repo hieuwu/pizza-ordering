@@ -18,22 +18,20 @@ export default class UserInfo extends Component {
           <View style={styles.itemContainer}>
             <Text style={styles.txtTitle}>{strings.userInfo.firstName}</Text>
             <Text style={styles.txtContent}>
-              {this.props.userData.firstName}
+              {this.props.userData.firstname}
             </Text>
           </View>
           <View style={styles.itemContainer}>
             <Text style={styles.txtTitle}>{strings.userInfo.lastName}</Text>
             <Text style={styles.txtContent}>
-              {this.props.userData.lastName}
+              {this.props.userData.lastname}
             </Text>
           </View>
         </View>
         <View style={styles.userInfoDesContainer}>
           <View style={styles.itemContainer}>
             <Text style={styles.txtTitle}>{strings.userInfo.phoneNum}</Text>
-            <Text style={styles.txtContent}>
-              {this.props.userData.phoneNum}
-            </Text>
+            <Text style={styles.txtContent}>{this.props.userData.phone}</Text>
           </View>
           <View style={styles.itemContainer}>
             <Text style={styles.txtTitle}>{strings.userInfo.email}</Text>

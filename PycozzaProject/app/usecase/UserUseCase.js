@@ -1,6 +1,6 @@
 import UserRepo from '../repositories/UserRepository/UserRepo'
 class UserUseCase {
-    async registerAccount(registerForm){
+    async registerAccount(registerForm) {
         let response = await new UserRepo().registerAccount(registerForm);
         return response;
     }
@@ -34,7 +34,7 @@ class UserUseCase {
     }
 
     isValidName = (name) => {
-       return true;
+        return true;
     }
 
     isValidPhoneNumber = (phone) => {
@@ -59,10 +59,12 @@ class UserUseCase {
         return false;
     }
     isValidAddress = (someAddress) => {
-      return true;
+        let address = String(someAddress);
+        if (address.length < 5) return false;
+        return true;
     }
 
-    
+
 }
 
 export default UserUseCase;

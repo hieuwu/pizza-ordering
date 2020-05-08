@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity } from 'react-native';
+import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity, Platform } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -20,6 +20,7 @@ import CartUseCase from '../../usecase/CartUsceCase';
 import UserUseCase from '../../usecase/UserUseCase'
 import { addToCart, removeCart } from '../../redux/actions/index';
 import { ADDTOCART } from '../../redux/actions/type';
+import NetInfo from "@react-native-community/netinfo";
 
 class CartScreen extends Component {
     constructor(props) {
@@ -37,6 +38,9 @@ class CartScreen extends Component {
             nameError: '',
         }
     }
+
+
+
     removeItem = (item) => {
         const { removeFromCart } = this.props;
         let orderLine = {};
@@ -84,6 +88,7 @@ class CartScreen extends Component {
                 addToCart(element);
             })
         }
+
     }
 
     gotoAuthenn = () => {
@@ -168,24 +173,34 @@ class CartScreen extends Component {
     async goCheckOut() {
         const { cartReducer } = this.props;
         if (cartReducer.length > 0) {
-            let currentUser = await new UserUseCase().getUserInformation();
-            if (currentUser == 'none') {
-                //If not logged in
-                //show information dialog
-                this.setState({ isSignedIn: false });
-                console.log("Not logged in", currentUser);
-                this.setState({ modalVisible: true });
-            }
-            else {
-                //If logged in
-                //show address dialog
-                this.setState({ isSignedIn: true });
-                console.log("Current: ", currentUser);
-                this.setState({ modalVisible: true })
-            }
+            NetInfo.fetch().then(async state => {
+                if (state.isConnected == false) {
+                    alert("You are offline, can not order !")
+                    return;
+                }
+                else {
+                    let currentUser = await new UserUseCase().getUserInformation();
+                    if (currentUser == 'none') {
+                        //If not logged in
+                        //show information dialog
+                        this.setState({ isSignedIn: false });
+                        console.log("Not logged in", currentUser);
+                        this.setState({ modalVisible: true });
+                    }
+                    else {
+                        //If logged in
+                        //show address dialog
+                        this.setState({ isSignedIn: true });
+                        console.log("Current: ", currentUser);
+                        this.setState({ modalVisible: true })
+                    }
+                }
+            })
+            
         }
         else {
             alert('Your cart is empty')
+            return;
         }
     }
 
@@ -240,9 +255,7 @@ class CartScreen extends Component {
                                         onPress={() => {
                                             let userInstance = new UserUseCase();
                                             this.checkAddress(this.state.userAddress);
-                                            if (userInstance.checkAddress(this.state.userAddress))
-                                            {
-
+                                            if (userInstance.isValidAddress(this.state.userAddress)) {
                                                 this.createOrderRequest();
                                                 this.setState({ modalVisible: false });
                                                 this.setState({ modalSucess: true });
@@ -300,9 +313,9 @@ class CartScreen extends Component {
                                                 buttonStyle={styles.okButton}
                                                 onPress={() => {
                                                     let userInstance = new UserUseCase();
-                                                    this.checkName(this.state.noUserName);
-                                                    this.checkPhoneNumber(this.state.noUserPhone);
-                                                    this.checkAddress(this.state.userAddress);
+                                                    this.checkName();
+                                                    this.checkPhoneNumber();
+                                                    this.checkAddress();
                                                     if (userInstance.isValidName(this.state.noUserName)
                                                         && userInstance.isValidPhoneNumber(this.state.noUserPhone)
                                                         && userInstance.isValidAddress(this.state.userAddress)) {

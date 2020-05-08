@@ -89,10 +89,6 @@ class ProductDetailScreen extends Component {
         cartID = cartID + 1;
     }
 
-    showCurrentCart = async () => {
-        let currentCart = await new CartUseCase().getCart();
-        console.log("Current cart: ", currentCart);
-    }
     async componentDidMount() {
         const { title } = this.props.route.params;
         if (title == 'Pizza') {
@@ -109,9 +105,10 @@ class ProductDetailScreen extends Component {
                     visible={this.state.modalVisible}>
                     <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
                         <View style={styles.modalView}>
-                            <Text style={styles.textStyle}>{this.state.failedMessage}</Text>
+                            <Text style={styles.textStyle}>Add to cart successfully !</Text>
+                            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
                             <Button
-                                title='OK'
+                                title='Continue'
                                 buttonStyle={styles.okButton}
                                 onPress={() => {
                                     this.setState({ modalVisible: false });
@@ -119,6 +116,17 @@ class ProductDetailScreen extends Component {
                                 }}
                             >
                             </Button>
+                            <Button
+                                title='Check out'
+                                buttonStyle={styles.okButton}
+                                onPress={() => {
+                                    this.setState({ modalVisible: false });
+                                    this.props.navigation.navigate('CartScreen');
+                                }}
+                            ></Button>
+
+                            </View>
+                           
                         </View>
                     </View>
                 </Modal>
@@ -202,8 +210,6 @@ class ProductDetailScreen extends Component {
                 <Button onPress={
                     this.createOrderLine} title={string.buttonAddToCart} buttonStyle={styles.addCart} />
                      
-                     <Button onPress={
-                    this.showCurrentCart} title={"Show current order"} buttonStyle={styles.addCart} />
             </View>
         )
     }

@@ -39,7 +39,8 @@ class UserUseCase {
 
     isValidPhoneNumber = (phone) => {
         let pattern = /^[0-9]*$/;
-        if (pattern.test(phone) && (phone.length == 10))
+        let stringPhone = String(phone);
+        if (pattern.test(stringPhone) && (stringPhone.length == 10))
             return true;
         return false;
     }
@@ -58,10 +59,7 @@ class UserUseCase {
         return false;
     }
     isValidAddress = (someAddress) => {
-        if (someAddress.length > 5) {
-            return true;
-        }
-        else return false;
+      return true;
     }
 
     

@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     table: {
-        width: dimension.window.width - 50,
+        width: dimension.window.width - 30,
         height: dimension.window.height - 150,
         backgroundColor: color.white,
         borderRadius: 15,
     },
     tableHeader: {
-        width: dimension.window.width - 50,
+        width: dimension.window.width - 30,
         height: 50,
         backgroundColor: color.mainColor,
         borderRadius: 15,
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
         borderRadius: 15,
-        marginHorizontal: 10,
+        marginHorizontal: 25,
         marginVertical: 10,
     },
     textButton : {

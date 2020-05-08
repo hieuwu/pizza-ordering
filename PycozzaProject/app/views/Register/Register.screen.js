@@ -23,15 +23,15 @@ class RegisterScreen extends Component {
             emailError: '',
             passwordError: '',
             confirmError: '',
-            errorMessage: 'Sign up successfull',
+            errorMessage: 'Sign up successfully',
             modalVisible: false,
+            isSignedUp: false,
         }
     }
 
     validateForm = async () => {
         let validateInstance = new UserUseCase();
         this.checkEmail();
-        this.checkName();
         this.checkPassword();
         this.checkPhoneNumber();
         this.checkConfirm();
@@ -44,28 +44,37 @@ class RegisterScreen extends Component {
             registerForm.phone = this.state.phone;
             registerForm.password = this.state.password;
             console.log(registerForm);
-            let registerResponse = await new UserUseCase().registerAccount(registerForm);
-            if (registerResponse.data.status === 201) {
+            let registerResponse = {};
+            try {
+                registerResponse = await new UserUseCase().registerAccount(registerForm);
+
+            } catch (e) {
+                console.log(e);
+            }
+
+            if (registerResponse.status === 201) {
                 const { addUser } = this.props;
                 let loginForm = {};
                 loginForm.email = registerForm.email;
                 loginForm.password = registerForm.password;
-                let loginResponse = await new UserUseCase().loginAccount(loginForm);
+                let loginResponse = null;
+                try {
+                    loginResponse = await new UserUseCase().loginAccount(loginForm);
+
+                } catch (e) {
+                    console.log(e);
+                }
                 new UserUseCase().saveUserInformation(loginResponse.data);
                 console.log("Register success with:", this.state.fullName);
                 addUser(loginResponse.data);
+                this.setState({isSignedUp: true});
                 this.setState({ modalVisible: true });
             }
             else {
-                if (registerResponse.data.status === 400) {
-                    this.setState({ errorMessage: 'This user is already existed' })
-                    return;
-                }
-                if (registerResponse.data.status === 409) {
-                    this.setState({ errorMessage: 'This user is already existed' })
-                    return;
-                }
+                this.setState({ errorMessage: 'This user is already existed' })
+                this.setState({ modalVisible: true });
                 console.log("Failed");
+                return;
             }
         }
     }
@@ -75,6 +84,14 @@ class RegisterScreen extends Component {
             this.setState({ passwordError: '' });
         } else {
             this.setState({ passwordError: 'Invalid password' });
+        }
+    }
+    checkPhoneNumber = () => {
+        let validateInstance = new UserUseCase();
+        if (validateInstance.isValidPhoneNumber(this.state.password)) {
+            this.setState({ phoneError: '' });
+        } else {
+            this.setState({ phoneError: 'Invalid phone' });
         }
     }
 
@@ -106,13 +123,17 @@ class RegisterScreen extends Component {
                     visible={this.state.modalVisible}>
                     <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
                         <View style={styles.modalView}>
-                            <Text style={styles.textStyle}>Sign up successfully</Text>
+                            <Text style={styles.textStyle}>{this.state.errorMessage}</Text>
                             <Button
                                 title='OK'
                                 buttonStyle={styles.okButton}
                                 onPress={() => {
-                                    this.setState({ modalVisible: false });
-                                    this.props.navigation.navigate('CartScreen');
+                                    if (this.state.isSignedUp == true) {
+                                        this.setState({ modalVisible: false });
+                                        this.props.navigation.navigate('CartScreen');
+                                    } else {
+                                        this.setState({ modalVisible: false });
+                                    }
                                 }}
                             >
                             </Button>

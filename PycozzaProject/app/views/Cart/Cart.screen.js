@@ -91,32 +91,30 @@ class CartScreen extends Component {
         this.setState({ modalVisible: false })
         navigation.navigate('LoginScreen');
     }
-    
+
     checkPhoneNumber = () => {
         let validateInstance = new UserUseCase();
         if (validateInstance.isValidPhoneNumber(this.state.noUserPhone)) {
             this.setState({ phoneError: '' });
 
         } else {
-            this.setState({ phoneError: 'Invalid phone' });
+            this.setState({ phoneError: '  Invalid phone!' });
         }
     }
 
     checkName = () => {
-        let validateInstance = new UserUseCase();
-        if (validateInstance.isValidName(this.state.noUserName)) {
+        if (this.state.noUserName.length > 1) {
             this.setState({ nameError: '' });
         } else {
-            this.setState({ nameError: 'Invalid name' });
+            this.setState({ nameError: '  Invalid name!' });
         }
     }
 
-    checkAddress = (notUserAddress) => {
-        let validateInstance = new UserUseCase();
-        if (validateInstance.isValidAddress(notUserAddress)) {
+    checkAddress = () => {
+        if (this.state.noUserName.length > 5) {
             this.setState({ addressError: '' });
         } else {
-            this.setState({ addressError: 'Invalid address' });
+            this.setState({ addressError: '  Invalid address!' });
         }
     }
 
@@ -137,16 +135,13 @@ class CartScreen extends Component {
             };
         }
         else {
-            this.checkAddress(this.state.userAddress);
-            this.checkName();
-            this.checkPhoneNumber();
             orderRequest.email = '';
             notUserInfor = {
                 fullName: this.state.noUserName,
                 phone: this.state.noUserPhone,
                 email: '',
                 address: this.state.userAddress,
-            }  
+            }
             orderRequest.orderUserInformation = notUserInfor;
         }
         cartReducer.forEach(element => {
@@ -165,6 +160,7 @@ class CartScreen extends Component {
         if (orderStatus == 201) {
             const { removeCart } = this.props;
             await new CartUseCase().removeCart();
+            this.setState({ modalSucess: true });
             removeCart();
         }
     }
@@ -209,7 +205,7 @@ class CartScreen extends Component {
                                 buttonStyle={styles.okButton}
                                 onPress={() => {
                                     this.setState({ modalSucess: false });
-                                    this.props.navigation.goBack();
+                                    this.props.navigation.navigate('ProductList');
                                 }}
                             >
                             </Button>
@@ -227,7 +223,8 @@ class CartScreen extends Component {
                                 <Input inputContainerStyle={styles.textInput}
                                     placeholder={string.promptAddress}
                                     onChangeText={text => this.setState({ userAddress: text })}
-                                    errorMessage={this.state.addressError} 
+                                    errorMessage={this.state.addressError}
+                                    errorStyle={{ marginHorizontal: 15 }}
                                 />
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                     <Button
@@ -262,20 +259,20 @@ class CartScreen extends Component {
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptFullName}
                                             onChangeText={text => this.setState({ noUserName: text })}
-                                            errorMessage={this.state.nameError} 
+                                            errorMessage={this.state.nameError}
                                         />
                                         <Text style={styles.textStyle}>Phone</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptPhone}
                                             onChangeText={text => this.setState({ noUserPhone: text })}
-                                            errorMessage={this.state.phoneError} 
+                                            errorMessage={this.state.phoneError}
 
                                         />
                                         <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptAddress}
                                             onChangeText={text => this.setState({ userAddress: text })}
-                                            errorMessage={this.state.addressError} 
+                                            errorMessage={this.state.addressError}
 
                                         />
                                         <Text style={styles.textStyle}>or</Text>
@@ -296,10 +293,16 @@ class CartScreen extends Component {
                                                 title='OK'
                                                 buttonStyle={styles.okButton}
                                                 onPress={() => {
-                                                    this.createOrderRequest();
-                                                    this.setState({ modalVisible: false });
-                                                    this.setState({ modalSucess: true });
-
+                                                    let userInstance = new UserUseCase();
+                                                    this.checkName(this.state.noUserName);
+                                                    this.checkPhoneNumber(this.state.noUserPhone);
+                                                    this.checkAddress(this.state.notUserAddress);
+                                                    if (userInstance.isValidName(this.state.noUserName)
+                                                        && userInstance.isValidPhoneNumber(this.state.noUserPhone)
+                                                        && userInstance.isValidAddress(this.state.userAddress)) {
+                                                        this.createOrderRequest();
+                                                        this.setState({ modalVisible: false });
+                                                    }
                                                 }}
                                             />
                                         </View>

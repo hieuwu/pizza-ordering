@@ -6,7 +6,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Modal,
-  Button,
 } from 'react-native';
 import {Input} from 'react-native-elements';
 import styles from './Login.style';

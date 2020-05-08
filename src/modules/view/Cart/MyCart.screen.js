@@ -12,6 +12,7 @@ import {connect} from 'react-redux';
 import {removeItemFromCart, addItemToCart} from '../../../redux/actions/index';
 import CartUseCase from '../../../UseCase/CartUseCase';
 import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
+import UserUseCase from '../../../UseCase/UserUseCase';
 
 class MyCart extends Component {
   constructor(props) {
@@ -97,6 +98,19 @@ class MyCart extends Component {
     removeItemFromCart(cartLine);
   };
 
+  btnCheckOutOnClick = async () => {
+    try {
+      let userToken = await new UserUseCase().getUserToken();
+      if (String(userToken).length > 0) {
+        console.log('user already logged in, navigate to shipping order');
+        this.props.navigation.navigate('shipping');
+      }
+    } catch (error) {
+      console.log('no user login in, navigate to login');
+      this.props.navigation.navigate('login');
+    }
+  };
+
   render() {
     const {jobs} = this.props;
     const totalPrice = this.summaryPrice();
@@ -116,7 +130,7 @@ class MyCart extends Component {
           </Text>
           <TouchableOpacity
             style={cartStyles.checkOutBtn}
-            onPress={() => this.props.navigation.navigate('login')}>
+            onPress={() => this.btnCheckOutOnClick()}>
             <Text style={cartStyles.checkOutBtnText}> CHECK OUT </Text>
             <Icon name="arrow-circle-right" size={35} color={colors.icon} />
           </TouchableOpacity>
@@ -132,6 +146,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   removeItemFromCart: cartLine => dispatch(removeItemFromCart(cartLine)),
+  addItemToCart: cartLine => dispatch(addItemToCart(cartLine)),
 });
 export default connect(
   mapStateToProps,

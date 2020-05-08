@@ -76,11 +76,9 @@ class Shipping extends Component {
 
   async componentDidMount() {
     this.setHeaderBar();
-    // this.mockUserData();
     this.getCurrentDate();
     this.summaryPrice();
     let userData = await new UserUseCase().getUserInfo();
-    console.log('shipping order user data : ', userData);
     this.setState({data: userData});
   }
 

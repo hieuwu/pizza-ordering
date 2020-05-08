@@ -192,7 +192,7 @@ class PizzaDetail extends Component {
   createCartLine = async () => {
     const {addItemToCart} = this.props;
     const {storeItemToLocalCart} = this.props;
-    const {CartReducer} = this.props;
+    const {jobs} = this.props;
     checkoutPrice = this.calculateTotalPrice();
     let cartLine = {};
     cartLine.type = ADD_ITEM_TO_CART;

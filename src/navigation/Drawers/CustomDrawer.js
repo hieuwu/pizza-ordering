@@ -36,7 +36,6 @@ class CustomDrawer extends Component {
   };
 
   render() {
-    const {removeUser} = this.props;
     return (
       <DrawerContentScrollView {...this.props}>
         <DrawerItemList {...this.props} />

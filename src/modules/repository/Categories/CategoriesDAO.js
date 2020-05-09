@@ -1,28 +1,27 @@
 const categoriesList = [
   {
-    id: 1,
-    title: 'Pizza',
-    imageSource: require('../../resources/images/menuPizza.jpg'),
+    catId: 1,
+    categoryName: 'Spaghetti',
+    imgUrl:
+      'https://pitsa-bucket.s3-ap-southeast-1.amazonaws.com/categoryImges/spaghetti.jpg',
   },
   {
-    id: 2,
-    title: 'Pasta',
-    imageSource: require('../../resources/images/menuPasta.jpg'),
+    catId: 2,
+    categoryName: 'Drinks',
+    imgUrl:
+      'https://pitsa-bucket.s3-ap-southeast-1.amazonaws.com/categoryImges/drinks.jpg',
   },
   {
-    id: 3,
-    title: 'Salad',
-    imageSource: require('../../resources/images/menuSalad.jpg'),
+    catId: 3,
+    categoryName: 'Salad',
+    imgUrl:
+      'https://pitsa-bucket.s3-ap-southeast-1.amazonaws.com/categoryImges/salad.jpg',
   },
   {
-    id: 4,
-    title: 'Dessert',
-    imageSource: require('../../resources/images/menuDessert.jpg'),
-  },
-  {
-    id: 5,
-    title: 'Beverage',
-    imageSource: require('../../resources/images/menuBeverage.jpg'),
+    catId: 4,
+    categoryName: 'Pizza',
+    imgUrl:
+      'https://pitsa-bucket.s3-ap-southeast-1.amazonaws.com/categoryImges/pizza.jpg',
   },
 ];
 

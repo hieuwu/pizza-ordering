@@ -29,6 +29,7 @@ export default {
     invalidPassMess: 'Invalid password',
     invalidConfirmPassMess: 'Password not match',
     signUpFailedMess: 'Sign up failed',
+    signUpSucceededMess: 'Sign up succeeded',
   },
   checkOut: {
     txtData: 'Date: ',

@@ -31,8 +31,8 @@ export default class ProductMenu extends Component {
         justifyContent: 'center',
       },
       headerLeft: navigation => (
-        <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
-          <HeaderIcon iconName="bars" />
+        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+          <HeaderIcon iconName="arrow-left" />
         </TouchableOpacity>
       ),
       headerRight: navigation => (

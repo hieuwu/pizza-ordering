@@ -4,7 +4,6 @@ import {View, FlatList, TouchableOpacity} from 'react-native';
 import CategoryItem from '../../../components/CategoryItem/CategoryItem.component';
 import CategoriesStyles from './Categories.style';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
-import Splash from '../Splash.screen';
 import CategoriesUseCase from '../../../UseCase/CategoriesUseCase';
 
 export default class Menu extends Component {

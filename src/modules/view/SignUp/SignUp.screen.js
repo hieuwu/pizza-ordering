@@ -33,7 +33,6 @@ class SignUp extends Component {
   }
 
   async btnSignUpOnClick(values) {
-    const {addUser} = this.props;
     this.setState({isLoading: true});
     // doing sing up promise
     let signUpData = JSON.parse(JSON.stringify(values));
@@ -43,19 +42,22 @@ class SignUp extends Component {
       let signUpResponse = await new UserUseCase().signUpUser(signUpData);
       this.setState({isLoading: false});
       this.setState({displayModal: false});
-      console.log('save user information');
-      await new UserUseCase().saveUserInfo(signUpResponse.data.user);
-      console.log('save user token');
-      await new UserUseCase().saveUserToken(signUpResponse.data.token);
-      console.log('save user token to redux');
-      addUser(signUpResponse.data.token);
-      // navigate to login screen:
-      console.log('sign up success');
-      this.props.navigation.navigate('login');
+      console.log('sign up response: ' + signUpResponse.status);
+      if (signUpResponse.status === 201) {
+        console.log('enter if 201 ');
+        console.log('save user information');
+        await new UserUseCase().saveUserInfo(signUpResponse.data.user);
+        console.log('save user token');
+        await new UserUseCase().saveUserToken(signUpResponse.data.token);
+        console.log('save user token to redux');
+        // navigate to login screen:
+        console.log('sign up success');
+        this.displaySignUpSucceeded();
+      } else {
+        this.displaySignUpFailed();
+      }
     } catch (error) {
-      console.log('sign up failed');
-      this.setState({isLoading: false});
-      this.setState({displayModal: true});
+      this.displaySignUpFailed();
     }
   }
 
@@ -230,6 +232,25 @@ class SignUp extends Component {
     }
   };
 
+  btnModalOnClick = () => {
+    this.setState({displayModal: false});
+    if (this.state.signUpStatus === strings.signUp.signUpSucceededMess) {
+      this.props.navigation.goBack();
+    }
+  };
+
+  displaySignUpFailed() {
+    this.setState({signUpStatus: strings.signUp.signUpFailedMess});
+    this.setState({isLoading: false});
+    this.setState({displayModal: true});
+  }
+
+  displaySignUpSucceeded() {
+    this.setState({signUpStatus: strings.signUp.signUpSucceededMess});
+    this.setState({isLoading: false});
+    this.setState({displayModal: true});
+  }
+
   render() {
     let mainView = this.renderMainView();
     return (
@@ -246,7 +267,7 @@ class SignUp extends Component {
               <TouchableOpacity
                 style={styles.btnOkContainer}
                 onPress={() => {
-                  this.setState({displayModal: false});
+                  this.btnModalOnClick();
                 }}>
                 <Text style={styles.txtOk}>{strings.login.okTxt}</Text>
               </TouchableOpacity>

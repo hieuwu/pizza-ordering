@@ -6,6 +6,7 @@ import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import OvalShape from '../../../components/OvalShape/OvalShape.component';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import colors from '../../resources/colors/Colors';
+import strings from '../../resources/strings/strings';
 
 import CartItem from '../../../components/CartItem/CartItem.component';
 import {connect} from 'react-redux';
@@ -22,7 +23,7 @@ class MyCart extends Component {
 
   setHeaderBar() {
     return this.props.navigation.setOptions({
-      title: 'My Cart',
+      title: strings.myCart.headerTitle,
       headerTransparent: true,
       headerStyle: {},
       headerTintColor: '#fff',
@@ -67,7 +68,11 @@ class MyCart extends Component {
       />
       <View style={cartStyles.iconContainer}>
         <TouchableOpacity onPress={() => this.removeCartLine(item)}>
-          <Icon name="times" size={30} color={colors.ovalColor} />
+          <Icon
+            name={strings.myCart.timesIconName}
+            size={30}
+            color={colors.ovalColor}
+          />
         </TouchableOpacity>
       </View>
     </View>
@@ -101,16 +106,12 @@ class MyCart extends Component {
   btnCheckOutOnClick = async () => {
     try {
       let userToken = await new UserUseCase().getUserToken();
-      console.log('user token : ', userToken);
       if (userToken !== null) {
-        console.log('user already logged in, navigate to shipping order');
         this.props.navigation.navigate('shipping');
       } else {
-        console.log('no user login in, navigate to login');
         this.props.navigation.navigate('login');
       }
     } catch (error) {
-      console.log('no user login in, navigate to login');
       this.props.navigation.navigate('login');
     }
   };
@@ -129,14 +130,20 @@ class MyCart extends Component {
         />
         <View style={cartStyles.totalPriceContainer}>
           <Text style={cartStyles.priceText}>
-            {jobs.length} items / Total cost $
+            {jobs.length} {strings.myCart.txtTotalItem}
             {this.numberWithCommas(totalPrice)}
           </Text>
           <TouchableOpacity
             style={cartStyles.checkOutBtn}
             onPress={() => this.btnCheckOutOnClick()}>
-            <Text style={cartStyles.checkOutBtnText}> CHECK OUT </Text>
-            <Icon name="arrow-circle-right" size={35} color={colors.icon} />
+            <Text style={cartStyles.checkOutBtnText}>
+              {strings.myCart.txtCheckoutBtn}
+            </Text>
+            <Icon
+              name={strings.myCart.arrowRightIconName}
+              size={35}
+              color={colors.icon}
+            />
           </TouchableOpacity>
         </View>
       </View>

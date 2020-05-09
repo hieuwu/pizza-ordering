@@ -26,7 +26,6 @@ class MyCartDAO {
     try {
       await AsyncStorage.removeItem('currentCart');
     } catch (error) {
-      // Error retrieving data
       console.log(error.message);
     }
   }

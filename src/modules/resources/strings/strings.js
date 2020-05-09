@@ -32,6 +32,11 @@ export default {
     signUpSucceededMess: 'Sign up succeeded',
   },
   checkOut: {
+    txtCheckoutTitle: 'CHECK OUT',
+    txtYourOrder: 'Your order',
+    txtEmptyCart: 'Empty cart ',
+    txtConfirmBtn: 'CONFIRM ',
+    txtGoBackBtn: ' GO BACK',
     txtData: 'Date: ',
     txtTotalBill: 'Total Bill: ',
   },
@@ -46,5 +51,21 @@ export default {
     txtSizeL: 'Size L :',
     txtSizeM: 'Size M :',
     txtSizeS: 'Size S :',
+  },
+  myCart: {
+    headerTitle: 'My Cart',
+    timesIconName: 'times',
+    arrowRightIconName: 'arrow-circle-right',
+    txtTotalItem: 'items / Total cost : ',
+    txtCheckoutBtn: 'CHECK OUT ',
+  },
+  categoriesScreen: {
+    iconBarsName: 'bars',
+    iconCartName: 'shopping-cart',
+  },
+  drawer: {
+    signOutMess: 'User signed out',
+    signInRequireMess: 'You must sign in first',
+    signedInMess: 'You have been signed in',
   },
 };

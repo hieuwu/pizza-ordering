@@ -6,7 +6,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Modal,
-  Alert,
 } from 'react-native';
 import {Input} from 'react-native-elements';
 import styles from './Login.style';
@@ -55,7 +54,6 @@ class Login extends Component {
     return emailRe.test(
       String(email)
         .toLowerCase()
-        //remove redundant space:
         .replace(/\s/g, ''),
     );
   };
@@ -86,13 +84,9 @@ class Login extends Component {
       let loginResponse;
       try {
         loginResponse = await new UserUseCase().signInUser(values);
-        console.log('login response : ', loginResponse.status);
         if (loginResponse.status === 302) {
-          console.log('save user information');
           await new UserUseCase().saveUserInfo(loginResponse.data.user);
-          console.log('save user token');
           await new UserUseCase().saveUserToken(loginResponse.data.token);
-          console.log('login success');
           this.displaySignInSucceeded();
         } else {
           this.displaySignInFailed();

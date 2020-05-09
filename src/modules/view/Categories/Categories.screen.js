@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
 import {View, FlatList, TouchableOpacity} from 'react-native';
 
-import CategoryItem from '../../../components/CategoryItem/CategoryItem.component';
 import CategoriesStyles from './Categories.style';
+import strings from '../../resources/strings/strings';
+
+
+import CategoryItem from '../../../components/CategoryItem/CategoryItem.component';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
+
 import CategoriesUseCase from '../../../UseCase/CategoriesUseCase';
 
 export default class Menu extends Component {
@@ -24,13 +28,13 @@ export default class Menu extends Component {
       },
       headerLeft: navigation => (
         <TouchableOpacity onPress={() => this.props.navigation.toggleDrawer()}>
-          <HeaderIcon iconName="bars" />
+          <HeaderIcon iconName={strings.categoriesScreen.iconBarsName} />
         </TouchableOpacity>
       ),
       headerRight: navigation => (
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('cart')}>
-          <HeaderIcon iconName="shopping-cart" />
+          <HeaderIcon iconName={strings.categoriesScreen.iconCartName} />
         </TouchableOpacity>
       ),
     });

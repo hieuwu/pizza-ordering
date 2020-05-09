@@ -4,7 +4,6 @@ import AppConfig from '../../config/AppConfig';
 const instance = axios.create();
 
 instance.defaults.baseURL = AppConfig.API.baseUrl;
-// instance.defaults.baseURL = 'https://pycopizzabackend.herokuapp.com/api';
 
 instance.interceptors.request.use(
   request => {

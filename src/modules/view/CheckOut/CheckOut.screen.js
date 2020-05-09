@@ -11,6 +11,8 @@ import CartUseCase from '../../../UseCase/CartUseCase';
 import CartItem from '../../../components/CartItem/CartItem.component';
 import UserInfo from '../../../components/UserInfo/UserInfo.component';
 import TitleLine from '../../../components/TitleLine/TitleLine.component';
+import {addItemToCart} from '../../../redux/actions/index';
+import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
 
 class CheckOut extends Component {
   constructor(props) {
@@ -45,13 +47,24 @@ class CheckOut extends Component {
     return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setHeaderBar();
+    const {addItemToCart} = this.props;
+    const {jobs} = this.props;
+    if (jobs.length === 0) {
+      let localCart = await new CartUseCase().getCurrentLocalCart();
+      if (localCart !== '') {
+        localCart.forEach(item => {
+          item.type = ADD_ITEM_TO_CART;
+          addItemToCart(item);
+        });
+      }
+    }
   }
 
   setHeaderBar() {
     return this.props.navigation.setOptions({
-      title: 'CHECK OUT',
+      title: strings.checkOut.txtCheckoutTitle,
       headerTransparent: true,
       headerTitleStyle: {
         fontWeight: 'bold',
@@ -67,7 +80,7 @@ class CheckOut extends Component {
   displayListItem = jobs => {
     return (
       <View>
-        <TitleLine number={2} title={'Your order'} />
+        <TitleLine number={2} title={strings.checkOut.txtYourOrder} />
 
         <FlatList
           style={styles.cartListView}
@@ -82,9 +95,11 @@ class CheckOut extends Component {
   displayEmptyListItem() {
     return (
       <View>
-        <TitleLine number={2} title={'Your order'} />
+        <TitleLine number={2} title={strings.checkOut.txtYourOrder} />
         <View style={styles.txtEmptyContainer}>
-          <Text style={styles.txtEmptyItem}> Empty cart </Text>
+          <Text style={styles.txtEmptyItem}>
+            {strings.checkOut.txtEmptyCart}
+          </Text>
           <Icon name="exclamation-triangle" size={40} color={colors.black} />
         </View>
       </View>
@@ -96,7 +111,9 @@ class CheckOut extends Component {
       <TouchableOpacity
         style={styles.confirmBtn}
         onPress={() => this.btnConfirmationOnClick()}>
-        <Text style={styles.confirmBtnText}> CONFIRM </Text>
+        <Text style={styles.confirmBtnText}>
+          {strings.checkOut.txtConfirmBtn}
+        </Text>
         <Icon name="check-circle" size={30} color={colors.icon} />
       </TouchableOpacity>
     );
@@ -108,11 +125,12 @@ class CheckOut extends Component {
     const userInfo = this.props.route.params.userInfo;
     const userAddress = this.props.route.params.userAddress;
     let ListItemView, ConfirmBtn;
-    if (jobs.length > 1) {
+    console.log(jobs);
+    if (jobs.length === 0) {
+      ListItemView = this.displayEmptyListItem();
+    } else {
       ListItemView = this.displayListItem(jobs);
       ConfirmBtn = this.displayConfirmBtn();
-    } else {
-      ListItemView = this.displayEmptyListItem();
     }
     return (
       <View style={styles.container}>
@@ -147,7 +165,9 @@ class CheckOut extends Component {
             style={styles.goBackBtn}
             onPress={() => this.props.navigation.navigate('shipping')}>
             <Icon name="arrow-circle-left" size={30} color={colors.black} />
-            <Text style={styles.goBackBtnText}> GO BACK </Text>
+            <Text style={styles.goBackBtnText}>
+              {strings.checkOut.txtGoBackBtn}
+            </Text>
           </TouchableOpacity>
         </ScrollView>
       </View>
@@ -160,6 +180,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  addItemToCart: cartLine => dispatch(addItemToCart(cartLine)),
   removeCart: () => dispatch(removeCart()),
 });
 

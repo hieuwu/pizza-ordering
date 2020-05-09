@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Alert} from 'react-native';
+import {StyleSheet, Alert} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -20,16 +20,16 @@ class CustomDrawer extends Component {
     const userToken = await new UserUseCase().getUserToken();
     if (userToken != null) {
       await new UserUseCase().signOutUser();
-      Alert.alert('User signed out');
+      Alert.alert(strings.drawer.signOutMess);
     } else {
-      Alert.alert('You must sign in first');
+      Alert.alert(strings.drawer.signInRequireMess);
     }
   };
 
   labelLoginOnClick = async () => {
     const userToken = await new UserUseCase().getUserToken();
     if (userToken != null) {
-      Alert.alert('You have been signed in');
+      Alert.alert(strings.drawer.signedInMess);
     } else {
       this.props.navigation.navigate('login');
     }

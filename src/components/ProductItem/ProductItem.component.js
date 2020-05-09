@@ -40,7 +40,6 @@ export default class ProductItem extends Component {
   };
 
   render() {
-    // const sizeLItem = {}
     return (
       <View style={ProductItemStyles.container}>
         <View style={ProductItemStyles.imageContainer}>

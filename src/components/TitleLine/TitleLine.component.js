@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import strings from '../../modules/resources/strings/strings';
 import styles from './TitleLine.style';
 
 export default class TitleLine extends Component {

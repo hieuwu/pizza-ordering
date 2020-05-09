@@ -15,7 +15,6 @@ export default StyleSheet.create({
     marginTop: 8,
     marginBottom: 8,
     alignSelf: 'center',
-    // margin: 8,
   },
   checkOutBtn: {
     flexDirection: 'row',
@@ -49,7 +48,6 @@ export default StyleSheet.create({
     margin: 8,
   },
   totalPriceContainer: {
-    // borderRadius: 8,
     width: '100%',
     backgroundColor: colors.ovalColor,
     justifyContent: 'center',

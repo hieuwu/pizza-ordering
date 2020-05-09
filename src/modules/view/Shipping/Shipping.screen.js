@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import styles from './Shipping.style';
 import colors from '../../resources/colors/Colors';
 import strings from '../../resources/strings/strings';
@@ -86,12 +86,16 @@ class Shipping extends Component {
 
   btnContinueOnClick = totalBill => {
     console.log('checkout data : ', this.state.data);
-    this.props.navigation.navigate('checkout', {
-      checkOutPrice: totalBill,
-      checkOutDate: this.state.billDate,
-      userInfo: this.state.data,
-      userAddress: this.state.enterAddress,
-    });
+    if (String(this.state.enterAddress).length > 0) {
+      this.props.navigation.navigate('checkout', {
+        checkOutPrice: totalBill,
+        checkOutDate: this.state.billDate,
+        userInfo: this.state.data,
+        userAddress: this.state.enterAddress,
+      });
+    } else {
+      Alert.alert('Please input address !');
+    }
   };
 
   render() {
@@ -122,7 +126,7 @@ class Shipping extends Component {
             <UserInfo userData={this.state.data} />
             <View style={styles.itemContainer}>
               <Input
-                placeholder={'enter shipping address'}
+                placeholder={'Enter shipping address'}
                 onChangeText={inputAddress =>
                   this.setState({enterAddress: inputAddress})
                 }

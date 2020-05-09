@@ -16,7 +16,7 @@ class CustomDrawer extends Component {
     this.state = {};
   }
 
-  labelOnClick = async () => {
+  labelSignOutOnClick = async () => {
     const userToken = await new UserUseCase().getUserToken();
     if (userToken != null) {
       await new UserUseCase().signOutUser();
@@ -48,7 +48,7 @@ class CustomDrawer extends Component {
         <DrawerItem
           label="Sign out"
           labelStyle={styles.labelTxt}
-          onPress={() => this.labelOnClick()}
+          onPress={() => this.labelSignOutOnClick()}
         />
       </DrawerContentScrollView>
     );

@@ -41,4 +41,9 @@ export default {
     email: 'EMAIL',
     address: 'ADDRESS',
   },
+  productItem: {
+    txtSizeL: 'Size L :',
+    txtSizeM: 'Size M :',
+    txtSizeS: 'Size S :',
+  },
 };

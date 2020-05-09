@@ -5,10 +5,8 @@ import colors from '../../modules/resources/colors/Colors';
 
 import CategoriesStack from '../Stacks/CategoriesStack';
 import CartStack from '../Stacks/CartStack';
-import PizzaMenuStack from '../Stacks/PizzaMenuStack';
 import CustomDrawer from './CustomDrawer';
 import {connect} from 'react-redux';
-import UserUseCase from '../../UseCase/UserUseCase';
 
 const Drawer = createDrawerNavigator();
 
@@ -36,7 +34,6 @@ class MainDrawer extends Component {
           },
         }}>
         <Drawer.Screen name="Home" component={CategoriesStack} />
-        <Drawer.Screen name="PizzaMenu" component={PizzaMenuStack} />
         <Drawer.Screen name="Cart" component={CartStack} />
       </Drawer.Navigator>
     );

@@ -8,13 +8,15 @@ export default StyleSheet.create({
     height: 200,
     width: '100%',
     justifyContent: 'flex-end',
-  },
-  image: {
     borderWidth: 1,
     borderColor: colors.ovalColor,
+  },
+  image: {
     height: 200,
     width: '100%',
     resizeMode: 'cover',
+    borderWidth: 1,
+    borderColor: colors.ovalColor,
   },
   textContainer: {
     width: '100%',

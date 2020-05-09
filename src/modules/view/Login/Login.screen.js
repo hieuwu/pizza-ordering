@@ -19,7 +19,7 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import SplashScreen from '../Splash.screen';
 import {connect} from 'react-redux';
-import {addUser, setUserToken} from '../../../redux/actions/index';
+import {setUserToken} from '../../../redux/actions/index';
 
 class Login extends Component {
   constructor(props) {
@@ -33,6 +33,13 @@ class Login extends Component {
       isLoading: false,
     };
   }
+
+  btnModalOnClick = () => {
+    this.setState({displayModal: false});
+    if (this.state.loginStatus === strings.login.loginStatusSucceededMess) {
+      this.props.navigation.goBack();
+    }
+  };
 
   getUserToken = async () => {
     try {
@@ -174,7 +181,7 @@ class Login extends Component {
                       <TouchableOpacity
                         style={styles.btnOkContainer}
                         onPress={() => {
-                          this.setState({displayModal: false});
+                          this.btnModalOnClick();
                         }}>
                         <Text style={styles.txtOk}>{strings.login.okTxt}</Text>
                       </TouchableOpacity>

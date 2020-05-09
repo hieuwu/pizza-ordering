@@ -1,21 +1,27 @@
 import React, {Component} from 'react';
-import {View, TouchableOpacity, FlatList, Slider} from 'react-native';
-import pizzaMenuStyles from './PizzaMenu.style';
+import {View, TouchableOpacity, FlatList} from 'react-native';
+import ProductMenuStyles from './ProductMenu.style';
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import OvalShape from '../../../components/OvalShape/OvalShape.component';
-import PizzaListItem from '../../../components/PizzaListItem/PizzaListItem.component';
-import PizzaListUseCase from '../../../UseCase/PizzaListUseCase';
+import ProductUseCase from '../../../UseCase/ProductUseCase';
+import ProductItem from '../../../components/ProductItem/ProductItem.component';
+
 import Splash from '../Splash.screen';
 
-export default class PizzaMenu extends Component {
+export default class ProductMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: '', isLoading: true};
+    this.state = {
+      data: '',
+      isLoading: true,
+      catId: this.props.route.params.catId,
+      menuTitle: this.props.route.params.categoryName,
+    };
   }
 
   setHeaderBar() {
     return this.props.navigation.setOptions({
-      title: 'Pizza',
+      title: this.state.menuTitle,
       headerTransparent: true,
       headerStyle: {},
       headerTintColor: '#fff',
@@ -40,25 +46,28 @@ export default class PizzaMenu extends Component {
 
   async componentDidMount() {
     this.setHeaderBar();
-    let getData = await new PizzaListUseCase().getPizzaList();
+    let getData = await new ProductUseCase().getProductWithId(this.state.catId);
     if (getData.length > 0) {
       this.setState({isLoading: false});
     }
     this.setState({data: getData});
   }
 
-  renderPizzaItem = ({item}) => (
+  renderProductItem = ({item}) => (
     <TouchableOpacity
-      style={pizzaMenuStyles.touchContainer}
+      style={ProductMenuStyles.touchContainer}
       onPress={() => {
-        this.props.navigation.navigate('pizzaDetail', {data: item});
+        this.props.navigation.navigate('productDetail', {
+          data: item,
+          catId: this.state.catId,
+        });
       }}>
-      <PizzaListItem
-        imageSource={item.imgUrl}
-        pizzaItemTitle={item.name}
-        pizzaItemLargePrice={item.price.sizeL}
-        pizzaItemMediumPrice={item.price.sizeM}
-        pizzaItemSmallPrice={item.price.sizeS}
+      <ProductItem
+        imgUrl={item.imgUrl}
+        name={item.name}
+        sizeL={item.price.sizeL}
+        sizeM={item.price.sizeM}
+        sizeS={item.price.sizeS}
       />
     </TouchableOpacity>
   );
@@ -66,19 +75,19 @@ export default class PizzaMenu extends Component {
   renderLoadingScreen = () => {
     if (this.state.isLoading === true) {
       return (
-        <View style={pizzaMenuStyles.container}>
+        <View style={ProductMenuStyles.container}>
           <OvalShape />
           <Splash />
         </View>
       );
     } else {
       return (
-        <View style={pizzaMenuStyles.container}>
+        <View style={ProductMenuStyles.container}>
           <OvalShape />
           <FlatList
-            style={pizzaMenuStyles.flatListContainer}
+            style={ProductMenuStyles.flatListContainer}
             data={this.state.data}
-            renderItem={this.renderPizzaItem}
+            renderItem={this.renderProductItem}
             keyExtractor={item => item.id}
             numColumns={2}
           />
@@ -89,6 +98,6 @@ export default class PizzaMenu extends Component {
 
   render() {
     const mainView = this.renderLoadingScreen();
-    return <View style={pizzaMenuStyles.container}>{mainView}</View>;
+    return <View style={ProductMenuStyles.container}>{mainView}</View>;
   }
 }

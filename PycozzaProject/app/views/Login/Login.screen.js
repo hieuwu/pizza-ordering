@@ -3,7 +3,6 @@ import { Text, View, Modal } from 'react-native'
 import color from '../../resources/colors';
 import { Button, Input } from 'react-native-elements';
 import string from '../../resources/strings'
-import { ScrollView } from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from './Login.style'
 import UserUseCase from '../../usecase/UserUseCase'

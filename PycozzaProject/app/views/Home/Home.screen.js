@@ -27,14 +27,13 @@ export default class HomeScreen extends Component {
                             <Text style={styles.titleStyle}>PYCOZZA</Text>
                             <Text style={styles.subtitleStyle}>Choose your Pizza</Text>
                         </View>
-                        <Button title='Start order    >' buttonStyle={{
+                        <Button  title='Start order    >' buttonStyle={{
                             backgroundColor: color.mainColor, borderRadius: 20, width: 160
                         }} titleStyle={{ marginLeft: 20 }} 
                             onPress={() => {this.props.navigation.navigate('Main')}}
                         />
                     </View>
                 </ImageBackground>
-
             </View>
         )
     }

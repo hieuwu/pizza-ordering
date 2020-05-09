@@ -8,6 +8,9 @@ class CartUseCase {
   async storeCurrentCart(cartList) {
     await new MyCartRepo().storeCurrentCart(cartList);
   }
+  async removeCart() {
+    await new MyCartRepo().removeCart();
+  }
 }
 
 export default CartUseCase;

@@ -3,6 +3,7 @@ import {
   REMOVE_ITEM_FROM_CART,
   GET_LOCAL_CART,
   STORE_LOCAL_CART,
+  REMOVE_ALL_CART,
 } from '../actions/type';
 import CartUseCase from '../../UseCase/CartUseCase';
 import CartItem from './cartItemReducer';
@@ -39,6 +40,9 @@ const jobs = (state = [], action) => {
       };
       storeAction();
       return state;
+    }
+    case REMOVE_ALL_CART: {
+      return [];
     }
     default:
       return state;

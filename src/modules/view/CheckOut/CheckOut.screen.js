@@ -6,6 +6,8 @@ import strings from '../../resources/strings/strings';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import TearLine from '../../../components/TearOffHeader/TearLine.component';
 import {connect} from 'react-redux';
+import {removeCart} from '../../../redux/actions/index';
+import CartUseCase from '../../../UseCase/CartUseCase';
 import CartItem from '../../../components/CartItem/CartItem.component';
 import UserInfo from '../../../components/UserInfo/UserInfo.component';
 import TitleLine from '../../../components/TitleLine/TitleLine.component';
@@ -17,6 +19,13 @@ class CheckOut extends Component {
       billDate: this.props.route.params.checkOutDate,
     };
   }
+
+  btnConfirmationOnClick = async () => {
+    const {removeCart} = this.props;
+    await new CartUseCase().removeCart();
+    removeCart();
+    this.props.navigation.navigate('categories');
+  };
 
   renderCartItem = ({item}) => (
     <View style={styles.cartLineContainer}>
@@ -86,7 +95,7 @@ class CheckOut extends Component {
     return (
       <TouchableOpacity
         style={styles.confirmBtn}
-        onPress={() => console.log('move to confirmation')}>
+        onPress={() => this.btnConfirmationOnClick()}>
         <Text style={styles.confirmBtnText}> CONFIRM </Text>
         <Icon name="check-circle" size={30} color={colors.icon} />
       </TouchableOpacity>
@@ -150,4 +159,11 @@ const mapStateToProps = state => ({
   jobs: state.jobs,
 });
 
-export default connect(mapStateToProps)(CheckOut);
+const mapDispatchToProps = dispatch => ({
+  removeCart: () => dispatch(removeCart()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CheckOut);

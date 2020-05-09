@@ -3,8 +3,8 @@ import {
   REMOVE_ITEM_FROM_CART,
   GET_LOCAL_CART,
   STORE_LOCAL_CART,
-  ADD_USER,
-  REMOVE_USER,
+  SET_USER_TOKEN,
+  REMOVE_ALL_CART,
 } from './type';
 
 export const addItemToCart = cartLine => {
@@ -33,15 +33,13 @@ export const storeItemToLocalCart = () => {
   };
 };
 
-export const addUser = userToken => {
-  return {
-    type: ADD_USER,
-    userToken,
-  };
-};
+export const setUserToken = userToken => ({
+  type: SET_USER_TOKEN,
+  userToken,
+});
 
-export const removeUser = () => {
+export const removeCart = () => {
   return {
-    type: REMOVE_USER,
+    type: REMOVE_ALL_CART,
   };
 };

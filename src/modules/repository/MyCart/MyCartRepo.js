@@ -8,6 +8,9 @@ class MyCartRepo {
   async storeCurrentCart(cartList) {
     await new MyCartDAO().storeCurrentCart(cartList);
   }
+  async removeCart() {
+    await new MyCartDAO().removeCart();
+  }
 }
 
 export default MyCartRepo;

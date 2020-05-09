@@ -19,7 +19,7 @@ import {Formik} from 'formik';
 import * as yup from 'yup';
 import SplashScreen from '../Splash.screen';
 import {connect} from 'react-redux';
-import {addUser} from '../../../redux/actions/index';
+import {addUser, setUserToken} from '../../../redux/actions/index';
 
 class Login extends Component {
   constructor(props) {
@@ -78,7 +78,6 @@ class Login extends Component {
     ) {
       let loginResponse;
       try {
-        console.log('login : data ', values);
         loginResponse = await new UserUseCase().signInUser(values);
         console.log('login response : ', loginResponse.status);
         if (loginResponse.status === 302) {
@@ -86,11 +85,6 @@ class Login extends Component {
           await new UserUseCase().saveUserInfo(loginResponse.data.user);
           console.log('save user token');
           await new UserUseCase().saveUserToken(loginResponse.data.token);
-          console.log('save user token to redux');
-          const {addUser} = this.props;
-          addUser(loginResponse.data.token);
-          const {userReducer} = this.props;
-          console.log('login : user token in redux ', userReducer);
           console.log('login success');
           this.displaySignInSucceeded();
         } else {
@@ -257,7 +251,7 @@ class Login extends Component {
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({
-  addUser: userToken => dispatch(addUser(userToken)),
+  setUserToken: userToken => dispatch(setUserToken(userToken)),
 });
 
 export default connect(

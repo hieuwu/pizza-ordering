@@ -2,5 +2,5 @@ export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART';
 export const REMOVE_ITEM_FROM_CART = 'REMOVE_ITEM_FROM_CART';
 export const GET_LOCAL_CART = 'GET_LOCAL_CART';
 export const STORE_LOCAL_CART = 'STORE_LOCAL_CART';
-export const ADD_USER = 'ADD_USER';
-export const REMOVE_USER = 'REMOVE_USER';
+export const SET_USER_TOKEN = 'SET_USER_TOKEN';
+export const REMOVE_ALL_CART = 'REMOVE_ALL_CART';

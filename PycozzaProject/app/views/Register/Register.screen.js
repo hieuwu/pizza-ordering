@@ -82,9 +82,10 @@ class RegisterScreen extends Component {
             this.setState({ passwordError: 'Invalid password' });
         }
     }
+
     checkPhoneNumber = () => {
         let validateInstance = new UserUseCase();
-        if (validateInstance.isValidPhoneNumber(this.state.password)) {
+        if (validateInstance.isValidPhoneNumber(this.state.phone)) {
             this.setState({ phoneError: '' });
         } else {
             this.setState({ phoneError: 'Invalid phone' });

@@ -40,7 +40,8 @@ export default class Menu extends Component {
   async componentDidMount() {
     this.setHeaderBar();
     let getData = await new CategoriesUseCase().getCategoriesList();
-    this.setState({data: getData});
+    console.log('get data : ', getData.data.categories);
+    this.setState({data: getData.data.categories});
   }
 
   renderCategoryItem = ({item}) => (
@@ -55,7 +56,7 @@ export default class Menu extends Component {
             break;
         }
       }}>
-      <CategoryItem title={item.title} imageSource={item.imageSource} />
+      <CategoryItem title={item.categoryName} imageSource={item.imgUrl} />
     </TouchableOpacity>
   );
 
@@ -66,7 +67,7 @@ export default class Menu extends Component {
           <FlatList
             data={this.state.data}
             renderItem={this.renderCategoryItem}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item.catId}
           />
         </View>
       </View>

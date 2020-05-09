@@ -12,7 +12,7 @@ export default class Pizza extends Component {
     return (
       <View style={CategoryItemStyles.container}>
         <Image
-          source={this.props.imageSource}
+          source={{uri: this.props.imageSource}}
           style={CategoryItemStyles.image}
         />
         <View style={CategoryItemStyles.textContainer}>

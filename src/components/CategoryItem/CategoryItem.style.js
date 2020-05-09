@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../modules/resources/colors/Colors';
 
 export default StyleSheet.create({
   container: {
@@ -9,8 +10,11 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
   },
   image: {
+    borderWidth: 1,
+    borderColor: colors.ovalColor,
     height: 200,
     width: '100%',
+    resizeMode: 'cover',
   },
   textContainer: {
     width: '100%',

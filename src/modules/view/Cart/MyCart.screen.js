@@ -101,9 +101,13 @@ class MyCart extends Component {
   btnCheckOutOnClick = async () => {
     try {
       let userToken = await new UserUseCase().getUserToken();
-      if (String(userToken).length > 0) {
+      console.log('user token : ', userToken);
+      if (userToken !== null) {
         console.log('user already logged in, navigate to shipping order');
         this.props.navigation.navigate('shipping');
+      } else {
+        console.log('no user login in, navigate to login');
+        this.props.navigation.navigate('login');
       }
     } catch (error) {
       console.log('no user login in, navigate to login');

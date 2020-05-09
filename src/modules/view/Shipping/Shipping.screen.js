@@ -80,6 +80,8 @@ class Shipping extends Component {
     this.summaryPrice();
     let userData = await new UserUseCase().getUserInfo();
     this.setState({data: userData});
+    const {userReducer} = this.props;
+    console.log('user token : ', userReducer);
   }
 
   btnContinueOnClick = totalBill => {

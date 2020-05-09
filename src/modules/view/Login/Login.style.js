@@ -92,4 +92,18 @@ export default StyleSheet.create({
     fontSize: 20,
     color: colors.black,
   },
+  signOutBtnView: {
+    width: '90%',
+    height: '10%',
+    backgroundColor: colors.mainRed,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  signOutTxt: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: colors.white,
+  },
 });

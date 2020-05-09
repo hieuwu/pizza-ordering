@@ -37,6 +37,15 @@ class UserDAO {
     }
     return userToken;
   }
+
+  async signOutUser() {
+    try {
+      await new this.saveUserInfo('');
+      await new this.saveUserToken('');
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 }
 
 export default UserDAO;

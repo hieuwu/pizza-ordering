@@ -36,6 +36,10 @@ class UserUseCase {
       return null;
     }
   }
+
+  async signOutUser() {
+    await new UserRepo().signOutUser();
+  }
 }
 
 export default UserUseCase;

@@ -12,7 +12,7 @@ export default class UserInfo extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{width: '100%'}}>
         <TitleLine number={1} title={'Your information'} />
         <View style={styles.nameContainer}>
           <View style={styles.itemContainer}>

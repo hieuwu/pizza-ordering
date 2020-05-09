@@ -17,8 +17,10 @@ import UserUseCase from '../../../UseCase/UserUseCase';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import SplashScreen from '../Splash.screen';
+import {connect} from 'react-redux';
+import {addUser} from '../../../redux/actions/index';
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +33,7 @@ export default class SignUp extends Component {
   }
 
   async btnSignUpOnClick(values) {
+    const {addUser} = this.props;
     this.setState({isLoading: true});
     // doing sing up promise
     let signUpData = JSON.parse(JSON.stringify(values));
@@ -44,7 +47,9 @@ export default class SignUp extends Component {
       await new UserUseCase().saveUserInfo(signUpResponse.data.user);
       console.log('save user token');
       await new UserUseCase().saveUserToken(signUpResponse.data.token);
-      // navigate to checkout screen:
+      console.log('save user token to redux');
+      addUser(signUpResponse.data.token);
+      // navigate to login screen:
       console.log('sign up success');
       this.props.navigation.navigate('login');
     } catch (error) {
@@ -253,3 +258,14 @@ export default class SignUp extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+  addUser: userToken => dispatch(addUser(userToken)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SignUp);

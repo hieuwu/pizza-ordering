@@ -6,6 +6,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Modal,
+  Alert,
 } from 'react-native';
 import {Input} from 'react-native-elements';
 import styles from './Login.style';
@@ -17,8 +18,10 @@ import UserUseCase from '../../../UseCase/UserUseCase';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 import SplashScreen from '../Splash.screen';
+import {connect} from 'react-redux';
+import {addUser} from '../../../redux/actions/index';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.toggleSwitch = this.toggleSwitch.bind(this);
@@ -30,6 +33,15 @@ export default class Login extends Component {
       isLoading: false,
     };
   }
+
+  getUserToken = async () => {
+    try {
+      let userToken = await new UserUseCase().getUserToken();
+      return userToken;
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   checkEmail = email => {
     let emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,32 +58,49 @@ export default class Login extends Component {
     return phoneNumRe.test(String(phoneNum));
   };
 
+  displaySignInFailed() {
+    this.setState({loginStatus: strings.login.loginStatusFailedMess});
+    this.setState({isLoading: false});
+    this.setState({displayModal: true});
+  }
+
+  displaySignInSucceeded() {
+    this.setState({loginStatus: strings.login.loginStatusSucceededMess});
+    this.setState({isLoading: false});
+    this.setState({displayModal: true});
+  }
+
   async signInOnClick(values) {
     this.setState({isLoading: true});
     if (
-      this.checkEmail(values.emailorphone) ||
-      this.checkPhoneNum(values.emailorphone)
+      this.checkEmail(values.requiredEntry) ||
+      this.checkPhoneNum(values.requiredEntry)
     ) {
+      let loginResponse;
       try {
-        let loginResponse = await new UserUseCase().signInUser(values);
-        this.setState({isLoading: false});
-        this.setState({displayModal: false});
-        console.log('save user information');
-        await new UserUseCase().saveUserInfo(loginResponse.data.user);
-        console.log('save user token');
-        await new UserUseCase().saveUserToken(loginResponse.data.token);
-        // navigate to checkout screen:
-        console.log('login success');
-        this.props.navigation.navigate('shipping');
+        console.log('login : data ', values);
+        loginResponse = await new UserUseCase().signInUser(values);
+        console.log('login response : ', loginResponse.status);
+        if (loginResponse.status === 302) {
+          console.log('save user information');
+          await new UserUseCase().saveUserInfo(loginResponse.data.user);
+          console.log('save user token');
+          await new UserUseCase().saveUserToken(loginResponse.data.token);
+          console.log('save user token to redux');
+          const {addUser} = this.props;
+          addUser(loginResponse.data.token);
+          const {userReducer} = this.props;
+          console.log('login : user token in redux ', userReducer);
+          console.log('login success');
+          this.displaySignInSucceeded();
+        } else {
+          this.displaySignInFailed();
+        }
       } catch (error) {
-        console.log('login failed');
-        this.setState({isLoading: false});
-        this.setState({displayModal: true});
+        this.displaySignInFailed();
       }
     } else {
-      // //navigate to checkout screen :
-      console.log('set isLoading to : ' + this.state.isLoading);
-      console.log('set modal to : ' + this.state.displayModal);
+      this.displaySignInFailed();
     }
   }
 
@@ -117,13 +146,13 @@ export default class Login extends Component {
       return (
         <View>
           <Formik
-            initialValues={{emailorphone: '', password: ''}}
+            initialValues={{requiredEntry: '', password: ''}}
             onSubmit={values => {
               this.signInOnClick(values);
               Keyboard.dismiss();
             }}
             validationSchema={yup.object().shape({
-              emailorphone: yup.string().required(),
+              requiredEntry: yup.string().required(),
               password: yup
                 .string()
                 .min(8)
@@ -161,12 +190,12 @@ export default class Login extends Component {
                 <Text style={styles.subTxt}>{strings.login.txtLoginTitle}</Text>
                 <View style={styles.txtInputContainer}>
                   <Input
-                    value={values.emailorphone}
-                    onChangeText={handleChange('emailorphone')}
+                    value={values.requiredEntry}
+                    onChangeText={handleChange('requiredEntry')}
                     placeholder={strings.login.txtEmailPlaceholder}
-                    onBlur={() => setFieldTouched('emailorphone')}
+                    onBlur={() => setFieldTouched('requiredEntry')}
                     errorMessage={
-                      touched.emailorphone ? errors.emailorphone : ''
+                      touched.requiredEntry ? errors.requiredEntry : ''
                     }
                   />
                 </View>
@@ -224,3 +253,14 @@ export default class Login extends Component {
     return <View style={styles.container}>{mainView}</View>;
   }
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({
+  addUser: userToken => dispatch(addUser(userToken)),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Login);

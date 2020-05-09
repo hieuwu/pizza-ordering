@@ -29,6 +29,9 @@ class UserRepo {
     let userToken = await new UserDAO().getUserToken();
     return userToken;
   }
+  async signOutUser() {
+    await new UserDAO().signOutUser();
+  }
 }
 
 export default UserRepo;

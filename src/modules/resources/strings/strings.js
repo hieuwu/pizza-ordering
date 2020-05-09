@@ -6,6 +6,7 @@ export default {
     closeEye: 'eye-slash',
     openEye: 'eye',
     loginStatusFailedMess: 'Sign in failed',
+    loginStatusSucceededMess: 'Sign in succeeded',
     invalidEmailMess: 'Invalid email',
     invalidPassMess: 'Invalid password',
     okTxt: 'OK',

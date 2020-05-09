@@ -22,6 +22,24 @@ class UserUseCase {
   async saveUserInfo(userData) {
     await new UserRepo().saveUserInfo(userData);
   }
+
+  async saveUserToken(userToken) {
+    await new UserRepo().saveUserToken(userToken);
+  }
+
+  async getUserToken() {
+    let userToken = await new UserRepo().getUserToken();
+    if (userToken !== '') {
+      return userToken;
+    } else {
+      console.log('empty user token');
+      return null;
+    }
+  }
+
+  async signOutUser() {
+    await new UserRepo().signOutUser();
+  }
 }
 
 export default UserUseCase;

@@ -6,6 +6,7 @@ export default {
     closeEye: 'eye-slash',
     openEye: 'eye',
     loginStatusFailedMess: 'Sign in failed',
+    loginStatusSucceededMess: 'Sign in succeeded',
     invalidEmailMess: 'Invalid email',
     invalidPassMess: 'Invalid password',
     okTxt: 'OK',
@@ -22,13 +23,28 @@ export default {
     txtPhoneNumberPlaceholder: 'Phone number',
     txtPasswordPlaceholder: 'Password',
     txtConfirmPasswordPlaceholder: 'Confirm password',
-
     invalidNameMess: 'Invalid name',
     invalidPhoneNumMess: 'Invalid phone number',
     invalidEmailMess: 'Invalid email',
     invalidPassMess: 'Invalid password',
     invalidConfirmPassMess: 'Password not match',
-
     signUpFailedMess: 'Sign up failed',
+    signUpSucceededMess: 'Sign up succeeded',
+  },
+  checkOut: {
+    txtData: 'Date: ',
+    txtTotalBill: 'Total Bill: ',
+  },
+  userInfo: {
+    firstName: ' FIRST NAME',
+    lastName: 'LAST NAME',
+    phoneNum: 'PHONE NUMBER ',
+    email: 'EMAIL',
+    address: 'ADDRESS',
+  },
+  productItem: {
+    txtSizeL: 'Size L :',
+    txtSizeM: 'Size M :',
+    txtSizeS: 'Size S :',
   },
 };

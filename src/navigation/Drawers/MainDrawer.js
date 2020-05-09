@@ -5,31 +5,46 @@ import colors from '../../modules/resources/colors/Colors';
 
 import CategoriesStack from '../Stacks/CategoriesStack';
 import CartStack from '../Stacks/CartStack';
-import PizzaMenuStack from '../Stacks/PizzaMenuStack';
+import CustomDrawer from './CustomDrawer';
+import {connect} from 'react-redux';
 
 const Drawer = createDrawerNavigator();
 
-export default class MainDrawer extends Component {
+class MainDrawer extends Component {
+  renderSignOutOrSignIn = () => {
+    const {userReducer} = this.props;
+    console.log(userReducer);
+    if (userReducer === null) {
+      return;
+    }
+  };
   render() {
     return (
       <Drawer.Navigator
-        initialRouteName="Categories"
+        drawerContent={props => <CustomDrawer {...props} />}
+        initialRouteName="Home"
         drawerStyle={{
-          backgroundColor: colors.ovalColor,
-          width: 250,
+          backgroundColor: colors.mainRed,
+          width: '60%',
         }}
         drawerContentOptions={{
-          activeTintColor: 'white',
-          inactiveTintColor: 'yellow',
           labelStyle: {
             fontSize: 20,
-            color: colors.text,
+            color: colors.white,
           },
         }}>
         <Drawer.Screen name="Home" component={CategoriesStack} />
-        <Drawer.Screen name="PizzaMenu" component={PizzaMenuStack} />
         <Drawer.Screen name="Cart" component={CartStack} />
       </Drawer.Navigator>
     );
   }
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MainDrawer);

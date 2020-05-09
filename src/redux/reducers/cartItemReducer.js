@@ -1,4 +1,4 @@
-import {ADD_ITEM_TO_CART, REMOVE_ITEM_FROM_CART} from '../actions/type';
+import {ADD_ITEM_TO_CART} from '../actions/type';
 
 const job = (state, action) => {
   switch (action.type) {

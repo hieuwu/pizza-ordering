@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class UserDAO {
   async getUserInfo() {
@@ -15,6 +15,33 @@ class UserDAO {
     let userData = JSON.stringify(userInfo);
     try {
       await AsyncStorage.setItem('userInfo', userData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async saveUserToken(userToken) {
+    try {
+      await AsyncStorage.setItem('userToken', userToken);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async getUserToken() {
+    let userToken = '';
+    try {
+      userToken = (await AsyncStorage.getItem('userToken')) || '';
+    } catch (error) {
+      console.log(error.message);
+    }
+    return userToken;
+  }
+
+  async signOutUser() {
+    try {
+      await new this.saveUserInfo('');
+      await new this.saveUserToken('');
     } catch (error) {
       console.log(error.message);
     }

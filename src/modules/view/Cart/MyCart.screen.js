@@ -9,41 +9,49 @@ import colors from '../../resources/colors/Colors';
 
 import CartItem from '../../../components/CartItem/CartItem.component';
 import {connect} from 'react-redux';
-import {removeItemFromCart} from '../../../redux/actions/index';
+import {removeItemFromCart, addItemToCart} from '../../../redux/actions/index';
+import CartUseCase from '../../../UseCase/CartUseCase';
+import {ADD_ITEM_TO_CART} from '../../../redux/actions/type';
+import UserUseCase from '../../../UseCase/UserUseCase';
 
 class MyCart extends Component {
   constructor(props) {
     super(props);
-    this.state = {data: ''};
+    this.state = {};
   }
 
   setHeaderBar() {
     return this.props.navigation.setOptions({
-      title: null,
+      title: 'My Cart',
       headerTransparent: true,
       headerStyle: {},
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold',
-        alignSelf: 'center',
-        justifyContent: 'center',
       },
+      headerTitleAlign: 'center',
       headerLeft: navigation => (
         <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
           <HeaderIcon iconName="arrow-left" />
         </TouchableOpacity>
       ),
-      headerRight: navigation => (
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('cart')}>
-          <HeaderIcon iconName="shopping-cart" />
-        </TouchableOpacity>
-      ),
+      headerRight: null,
     });
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.setHeaderBar();
+    const {addItemToCart} = this.props;
+    const {jobs} = this.props;
+    if (jobs.length === 0) {
+      let localCart = await new CartUseCase().getCurrentLocalCart();
+      if (localCart !== '') {
+        localCart.forEach(item => {
+          item.type = ADD_ITEM_TO_CART;
+          addItemToCart(item);
+        });
+      }
+    }
   }
 
   renderCartItem = ({item}) => (
@@ -60,9 +68,6 @@ class MyCart extends Component {
       <View style={cartStyles.iconContainer}>
         <TouchableOpacity onPress={() => this.removeCartLine(item)}>
           <Icon name="times" size={30} color={colors.ovalColor} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="edit" size={30} color={colors.ovalColor} />
         </TouchableOpacity>
       </View>
     </View>
@@ -93,6 +98,23 @@ class MyCart extends Component {
     removeItemFromCart(cartLine);
   };
 
+  btnCheckOutOnClick = async () => {
+    try {
+      let userToken = await new UserUseCase().getUserToken();
+      console.log('user token : ', userToken);
+      if (userToken !== null) {
+        console.log('user already logged in, navigate to shipping order');
+        this.props.navigation.navigate('shipping');
+      } else {
+        console.log('no user login in, navigate to login');
+        this.props.navigation.navigate('login');
+      }
+    } catch (error) {
+      console.log('no user login in, navigate to login');
+      this.props.navigation.navigate('login');
+    }
+  };
+
   render() {
     const {jobs} = this.props;
     const totalPrice = this.summaryPrice();
@@ -107,11 +129,12 @@ class MyCart extends Component {
         />
         <View style={cartStyles.totalPriceContainer}>
           <Text style={cartStyles.priceText}>
-            Total price: {this.numberWithCommas(totalPrice)}
+            {jobs.length} items / Total cost $
+            {this.numberWithCommas(totalPrice)}
           </Text>
           <TouchableOpacity
             style={cartStyles.checkOutBtn}
-            onPress={() => this.props.navigation.navigate('login')}>
+            onPress={() => this.btnCheckOutOnClick()}>
             <Text style={cartStyles.checkOutBtnText}> CHECK OUT </Text>
             <Icon name="arrow-circle-right" size={35} color={colors.icon} />
           </TouchableOpacity>
@@ -127,6 +150,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   removeItemFromCart: cartLine => dispatch(removeItemFromCart(cartLine)),
+  addItemToCart: cartLine => dispatch(addItemToCart(cartLine)),
 });
 export default connect(
   mapStateToProps,

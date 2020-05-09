@@ -3,7 +3,8 @@ import AppConfig from '../../config/AppConfig';
 
 const instance = axios.create();
 
-instance.defaults.baseURL = AppConfig.API.baseURL;
+instance.defaults.baseURL = AppConfig.API.baseUrl;
+// instance.defaults.baseURL = 'https://pycopizzabackend.herokuapp.com/api';
 
 instance.interceptors.request.use(
   request => {
@@ -13,13 +14,16 @@ instance.interceptors.request.use(
     return Promise.reject(error);
   },
 );
-
 instance.interceptors.response.use(
   response => {
     return response;
   },
-  error => {
-    return Promise.reject(error);
+  status => {
+    if (status.response && status.response.data) {
+      return status.response;
+    } else {
+      return Promise.reject(status);
+    }
   },
 );
 export default instance;

@@ -17,7 +17,8 @@
     "@react-navigation/stack": "^5.2.12",
     "axios": "^0.19.2",
     "formik": "^2.1.4",
-    "react": "16.11.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-native": "0.62.2",
     "react-native-elements": "^2.0.0",
     "react-native-gesture-handler": "^1.6.1",
@@ -35,12 +36,24 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.5.1",
-    "jest": "^24.9.0",
+    "jest": "^26.0.1",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "metro-react-native-babel-preset": "^0.58.0",
-    "react-test-renderer": "16.11.0"
+    "react-test-renderer": "16.11.0",
+    "redux-mock-store": "^1.5.4"
   },
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "jest-enzyme"
+    ],
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    }
   }
 }

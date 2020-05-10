@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome screen test should render snapshot test for Welcome 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "flexDirection": "column-reverse",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/modules/resources/images/welcome03.jpg",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "height": null,
+        "resizeMode": "cover",
+        "width": null,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "flexDirection": "column",
+        "margin": 32,
+        "position": "absolute",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 40,
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Restaurant
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 25,
+        }
+      }
+    >
+      pyzza pizza
+    </Text>
+    <ForwardRef
+      onPress={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#E4283D",
+            "borderRadius": 20,
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "alignSelf": "center",
+              "color": "#FFFFFF",
+              "fontSize": 17,
+              "fontWeight": "bold",
+              "height": 50,
+              "lineHeight": 50,
+              "margin": 2,
+            }
+          }
+        >
+          START ORDER &gt;
+        </Text>
+      </View>
+    </ForwardRef>
+  </View>
+</View>
+`;

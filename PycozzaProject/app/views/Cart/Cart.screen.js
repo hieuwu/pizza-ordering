@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity, Platform } from 'react-native';
+import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity, Platform, FlatList } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -8,7 +8,6 @@ import styles from '../Cart/Cart.style';
 import string from '../../resources/strings'
 import OvalShape from '../../components/OvalShape.component';
 import { Button, Input } from 'react-native-elements'
-import { FlatList } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import dimension from '../../resources/dimensions';
 import CartItem from '../../views/Cart/CartItem.component';

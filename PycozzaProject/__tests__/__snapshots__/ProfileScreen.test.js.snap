@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile screen Test should render snapshot test for profile screen 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(ProfileScreen)>
+    <ProfileScreen
+      addUser={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "marginTop": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "marginTop": 20,
+            }
+          }
+        >
+          <OvalShape>
+            <View
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "backgroundColor": "#0b2031",
+                  "borderRadius": 400,
+                  "height": 1334,
+                  "position": "absolute",
+                  "top": -897,
+                  "width": 1434,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "backgroundColor": "#0b2031",
+                    "borderRadius": 400,
+                    "height": 1334,
+                    "position": "absolute",
+                    "top": -897,
+                    "width": 1434,
+                  }
+                }
+              />
+            </View>
+          </OvalShape>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "marginTop": 20,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "marginTop": 20,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flex": 5,
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flex": 5,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "uri": "https://image.freepik.com/free-vector/profile-icon-male-avatar-hipster-man-wear-headphones_48369-8728.jpg",
+                      }
+                    }
+                    style={
+                      Object {
+                        "borderRadius": 200,
+                        "height": 200,
+                        "resizeMode": "center",
+                        "width": 200,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": "https://image.freepik.com/free-vector/profile-icon-male-avatar-hipster-man-wear-headphones_48369-8728.jpg",
+                        }
+                      }
+                      style={
+                        Object {
+                          "borderRadius": 200,
+                          "height": 200,
+                          "resizeMode": "center",
+                          "width": 200,
+                        }
+                      }
+                    />
+                  </Image>
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "flexDirection": "row",
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "fontSize": 30,
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "fontSize": 30,
+                              "fontWeight": "bold",
+                            }
+                          }
+                        >
+                          You have not logged in
+                        </Text>
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </ProfileScreen>
+  </Connect(ProfileScreen)>
+</Provider>
+`;

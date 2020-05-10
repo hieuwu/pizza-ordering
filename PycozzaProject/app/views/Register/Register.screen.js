@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View, AsyncStorage, Modal, TouchableHighlight } from 'react-native'
+import { Text, View, AsyncStorage, Modal, TouchableHighlight, ScrollView } from 'react-native'
 import color from '../../resources/colors';
 import { Button, Input } from 'react-native-elements';
-import string from '../../resources/strings'
-import { ScrollView } from 'react-native-gesture-handler';
+import string from '../../resources/strings';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import UserUseCase from '../../usecase/UserUseCase';
 import styles from './Register.style';
@@ -83,9 +82,10 @@ class RegisterScreen extends Component {
             this.setState({ passwordError: 'Invalid password' });
         }
     }
+
     checkPhoneNumber = () => {
         let validateInstance = new UserUseCase();
-        if (validateInstance.isValidPhoneNumber(this.state.password)) {
+        if (validateInstance.isValidPhoneNumber(this.state.phone)) {
             this.setState({ phoneError: '' });
         } else {
             this.setState({ phoneError: 'Invalid phone' });

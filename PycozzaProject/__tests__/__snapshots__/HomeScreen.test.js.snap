@@ -1,0 +1,446 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Homepage Test should render snapshot test for homepage 1`] = `
+<HomeScreen>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }
+    >
+      <ImageBackground
+        source={
+          Object {
+            "testUri": "../../../app/resources/images/home-background.jpg",
+          }
+        }
+        style={
+          Object {
+            "height": 1334,
+            "width": 750,
+          }
+        }
+      >
+        <View
+          accessibilityIgnoresInvertColors={true}
+          style={
+            Object {
+              "height": 1334,
+              "width": 750,
+            }
+          }
+        >
+          <View
+            accessibilityIgnoresInvertColors={true}
+            style={
+              Object {
+                "height": 1334,
+                "width": 750,
+              }
+            }
+          >
+            <Image
+              source={
+                Object {
+                  "testUri": "../../../app/resources/images/home-background.jpg",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "left": 0,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "height": 1334,
+                    "width": 750,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../app/resources/images/home-background.jpg",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "bottom": 0,
+                      "left": 0,
+                      "position": "absolute",
+                      "right": 0,
+                      "top": 0,
+                    },
+                    Object {
+                      "height": 1334,
+                      "width": 750,
+                    },
+                    undefined,
+                  ]
+                }
+              />
+            </Image>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "marginBottom": 100,
+                  "marginLeft": 30,
+                  "marginTop": "auto",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "flex-start",
+                    "marginBottom": 100,
+                    "marginLeft": 30,
+                    "marginTop": "auto",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "marginBottom": 20,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "marginBottom": 20,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 40,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#ffffff",
+                            "fontSize": 40,
+                          }
+                        }
+                      >
+                        PYCOZZA
+                      </Text>
+                    </Text>
+                    <Text
+                      style={
+                        Object {
+                          "color": "#ffffff",
+                          "fontSize": 17,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#ffffff",
+                            "fontSize": 17,
+                          }
+                        }
+                      >
+                        Choose your Pizza
+                      </Text>
+                    </Text>
+                  </View>
+                </View>
+                <ForwardRef(Themed.Button)
+                  buttonStyle={
+                    Object {
+                      "backgroundColor": "#e4283d",
+                      "borderRadius": 20,
+                      "width": 160,
+                    }
+                  }
+                  onPress={[Function]}
+                  title="Start order    >"
+                  titleStyle={
+                    Object {
+                      "marginLeft": 20,
+                    }
+                  }
+                >
+                  <ThemedComponent
+                    buttonStyle={
+                      Object {
+                        "backgroundColor": "#e4283d",
+                        "borderRadius": 20,
+                        "width": 160,
+                      }
+                    }
+                    forwardedRef={null}
+                    onPress={[Function]}
+                    title="Start order    >"
+                    titleStyle={
+                      Object {
+                        "marginLeft": 20,
+                      }
+                    }
+                  >
+                    <Button
+                      TouchableComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "render": [Function],
+                        }
+                      }
+                      buttonStyle={
+                        Object {
+                          "backgroundColor": "#e4283d",
+                          "borderRadius": 20,
+                          "width": 160,
+                        }
+                      }
+                      disabled={false}
+                      iconRight={false}
+                      loading={false}
+                      onPress={[Function]}
+                      raised={false}
+                      theme={
+                        Object {
+                          "colors": Object {
+                            "disabled": "hsl(208, 8%, 90%)",
+                            "divider": "#bcbbc1",
+                            "error": "#ff190c",
+                            "grey0": "#393e42",
+                            "grey1": "#43484d",
+                            "grey2": "#5e6977",
+                            "grey3": "#86939e",
+                            "grey4": "#bdc6cf",
+                            "grey5": "#e1e8ee",
+                            "greyOutline": "#bbb",
+                            "platform": Object {
+                              "android": Object {
+                                "error": "#f44336",
+                                "primary": "#2196f3",
+                                "secondary": "#9C27B0",
+                                "success": "#4caf50",
+                                "warning": "#ffeb3b",
+                              },
+                              "ios": Object {
+                                "error": "#ff3b30",
+                                "primary": "#007aff",
+                                "secondary": "#5856d6",
+                                "success": "#4cd964",
+                                "warning": "#ffcc00",
+                              },
+                            },
+                            "primary": "#2089dc",
+                            "searchBg": "#303337",
+                            "secondary": "#8F0CE8",
+                            "success": "#52c41a",
+                            "warning": "#faad14",
+                          },
+                        }
+                      }
+                      title="Start order    >"
+                      titleStyle={
+                        Object {
+                          "marginLeft": 20,
+                        }
+                      }
+                      type="solid"
+                    >
+                      <View
+                        style={
+                          Object {
+                            "borderRadius": 20,
+                          }
+                        }
+                      >
+                        <View
+                          style={
+                            Object {
+                              "borderRadius": 20,
+                            }
+                          }
+                        >
+                          <ForwardRef
+                            activeOpacity={0.3}
+                            disabled={false}
+                            onPress={[Function]}
+                          >
+                            <TouchableOpacity
+                              activeOpacity={0.3}
+                              disabled={false}
+                              hostRef={null}
+                              onPress={[Function]}
+                            >
+                              <ForwardRef(AnimatedComponentWrapper)
+                                accessible={true}
+                                focusable={true}
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Array [
+                                    undefined,
+                                    Object {
+                                      "opacity": 1,
+                                    },
+                                  ]
+                                }
+                              >
+                                <AnimatedComponent
+                                  accessible={true}
+                                  focusable={true}
+                                  onClick={[Function]}
+                                  onResponderGrant={[Function]}
+                                  onResponderMove={[Function]}
+                                  onResponderRelease={[Function]}
+                                  onResponderTerminate={[Function]}
+                                  onResponderTerminationRequest={[Function]}
+                                  onStartShouldSetResponder={[Function]}
+                                  style={
+                                    Array [
+                                      undefined,
+                                      Object {
+                                        "opacity": 1,
+                                      },
+                                    ]
+                                  }
+                                >
+                                  <View
+                                    accessible={true}
+                                    focusable={true}
+                                    onClick={[Function]}
+                                    onResponderGrant={[Function]}
+                                    onResponderMove={[Function]}
+                                    onResponderRelease={[Function]}
+                                    onResponderTerminate={[Function]}
+                                    onResponderTerminationRequest={[Function]}
+                                    onStartShouldSetResponder={[Function]}
+                                    style={
+                                      Object {
+                                        "opacity": 1,
+                                      }
+                                    }
+                                  >
+                                    <View
+                                      accessible={true}
+                                      focusable={true}
+                                      onClick={[Function]}
+                                      onResponderGrant={[Function]}
+                                      onResponderMove={[Function]}
+                                      onResponderRelease={[Function]}
+                                      onResponderTerminate={[Function]}
+                                      onResponderTerminationRequest={[Function]}
+                                      onStartShouldSetResponder={[Function]}
+                                      style={
+                                        Object {
+                                          "opacity": 1,
+                                        }
+                                      }
+                                    >
+                                      <View
+                                        style={
+                                          Object {
+                                            "alignItems": "center",
+                                            "backgroundColor": "#e4283d",
+                                            "borderColor": "#2089dc",
+                                            "borderRadius": 20,
+                                            "borderWidth": 0,
+                                            "flexDirection": "row",
+                                            "justifyContent": "center",
+                                            "padding": 8,
+                                            "width": 160,
+                                          }
+                                        }
+                                      >
+                                        <View
+                                          style={
+                                            Object {
+                                              "alignItems": "center",
+                                              "backgroundColor": "#e4283d",
+                                              "borderColor": "#2089dc",
+                                              "borderRadius": 20,
+                                              "borderWidth": 0,
+                                              "flexDirection": "row",
+                                              "justifyContent": "center",
+                                              "padding": 8,
+                                              "width": 160,
+                                            }
+                                          }
+                                        >
+                                          <Text
+                                            style={
+                                              Object {
+                                                "color": "white",
+                                                "fontSize": 18,
+                                                "marginLeft": 20,
+                                                "paddingBottom": 1,
+                                                "paddingTop": 2,
+                                                "textAlign": "center",
+                                              }
+                                            }
+                                          >
+                                            <Text
+                                              style={
+                                                Object {
+                                                  "color": "white",
+                                                  "fontSize": 18,
+                                                  "marginLeft": 20,
+                                                  "paddingBottom": 1,
+                                                  "paddingTop": 2,
+                                                  "textAlign": "center",
+                                                }
+                                              }
+                                            >
+                                              Start order    &gt;
+                                            </Text>
+                                          </Text>
+                                        </View>
+                                      </View>
+                                      <PressabilityDebugView
+                                        color="cyan"
+                                      />
+                                    </View>
+                                  </View>
+                                </AnimatedComponent>
+                              </ForwardRef(AnimatedComponentWrapper)>
+                            </TouchableOpacity>
+                          </ForwardRef>
+                        </View>
+                      </View>
+                    </Button>
+                  </ThemedComponent>
+                </ForwardRef(Themed.Button)>
+              </View>
+            </View>
+          </View>
+        </View>
+      </ImageBackground>
+    </View>
+  </View>
+</HomeScreen>
+`;

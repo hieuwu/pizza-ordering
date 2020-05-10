@@ -1,0 +1,1514 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login screen Test should render snapshot test for login screen 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(LoginScreen)>
+    <LoginScreen
+      addUser={[Function]}
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Component
+            animationType="slide"
+            hardwareAccelerated={false}
+            transparent={true}
+            visible={false}
+          >
+            <Modal
+              animationType="slide"
+              hardwareAccelerated={false}
+              transparent={true}
+              visible={false}
+            >
+              <View
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "flex": 1,
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <View
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "flex": 1,
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#0b2031",
+                        "borderRadius": 20,
+                        "elevation": 5,
+                        "justifyContent": "center",
+                        "margin": 20,
+                        "padding": 35,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#0b2031",
+                          "borderRadius": 20,
+                          "elevation": 5,
+                          "justifyContent": "center",
+                          "margin": 20,
+                          "padding": 35,
+                          "shadowColor": "#000",
+                          "shadowOffset": Object {
+                            "height": 2,
+                            "width": 0,
+                          },
+                          "shadowOpacity": 0.25,
+                          "shadowRadius": 3.84,
+                        }
+                      }
+                    >
+                      <Text
+                        style={
+                          Object {
+                            "color": "#ffffff",
+                            "fontSize": 24,
+                            "fontWeight": "bold",
+                          }
+                        }
+                      >
+                        <Text
+                          style={
+                            Object {
+                              "color": "#ffffff",
+                              "fontSize": 24,
+                              "fontWeight": "bold",
+                            }
+                          }
+                        >
+                          Sign in failed
+                        </Text>
+                      </Text>
+                      <ForwardRef(Themed.Button)
+                        buttonStyle={
+                          Object {
+                            "backgroundColor": "#e4283d",
+                            "borderRadius": 15,
+                            "width": 80,
+                          }
+                        }
+                        onPress={[Function]}
+                        title="OK"
+                      >
+                        <ThemedComponent
+                          buttonStyle={
+                            Object {
+                              "backgroundColor": "#e4283d",
+                              "borderRadius": 15,
+                              "width": 80,
+                            }
+                          }
+                          forwardedRef={null}
+                          onPress={[Function]}
+                          title="OK"
+                        >
+                          <Button
+                            TouchableComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "render": [Function],
+                              }
+                            }
+                            buttonStyle={
+                              Object {
+                                "backgroundColor": "#e4283d",
+                                "borderRadius": 15,
+                                "width": 80,
+                              }
+                            }
+                            disabled={false}
+                            iconRight={false}
+                            loading={false}
+                            onPress={[Function]}
+                            raised={false}
+                            theme={
+                              Object {
+                                "colors": Object {
+                                  "disabled": "hsl(208, 8%, 90%)",
+                                  "divider": "#bcbbc1",
+                                  "error": "#ff190c",
+                                  "grey0": "#393e42",
+                                  "grey1": "#43484d",
+                                  "grey2": "#5e6977",
+                                  "grey3": "#86939e",
+                                  "grey4": "#bdc6cf",
+                                  "grey5": "#e1e8ee",
+                                  "greyOutline": "#bbb",
+                                  "platform": Object {
+                                    "android": Object {
+                                      "error": "#f44336",
+                                      "primary": "#2196f3",
+                                      "secondary": "#9C27B0",
+                                      "success": "#4caf50",
+                                      "warning": "#ffeb3b",
+                                    },
+                                    "ios": Object {
+                                      "error": "#ff3b30",
+                                      "primary": "#007aff",
+                                      "secondary": "#5856d6",
+                                      "success": "#4cd964",
+                                      "warning": "#ffcc00",
+                                    },
+                                  },
+                                  "primary": "#2089dc",
+                                  "searchBg": "#303337",
+                                  "secondary": "#8F0CE8",
+                                  "success": "#52c41a",
+                                  "warning": "#faad14",
+                                },
+                              }
+                            }
+                            title="OK"
+                            type="solid"
+                          >
+                            <View
+                              style={
+                                Object {
+                                  "borderRadius": 15,
+                                }
+                              }
+                            >
+                              <View
+                                style={
+                                  Object {
+                                    "borderRadius": 15,
+                                  }
+                                }
+                              >
+                                <ForwardRef
+                                  activeOpacity={0.3}
+                                  disabled={false}
+                                  onPress={[Function]}
+                                >
+                                  <TouchableOpacity
+                                    activeOpacity={0.3}
+                                    disabled={false}
+                                    hostRef={null}
+                                    onPress={[Function]}
+                                  >
+                                    <ForwardRef(AnimatedComponentWrapper)
+                                      accessible={true}
+                                      focusable={true}
+                                      onClick={[Function]}
+                                      onResponderGrant={[Function]}
+                                      onResponderMove={[Function]}
+                                      onResponderRelease={[Function]}
+                                      onResponderTerminate={[Function]}
+                                      onResponderTerminationRequest={[Function]}
+                                      onStartShouldSetResponder={[Function]}
+                                      style={
+                                        Array [
+                                          undefined,
+                                          Object {
+                                            "opacity": 1,
+                                          },
+                                        ]
+                                      }
+                                    >
+                                      <AnimatedComponent
+                                        accessible={true}
+                                        focusable={true}
+                                        onClick={[Function]}
+                                        onResponderGrant={[Function]}
+                                        onResponderMove={[Function]}
+                                        onResponderRelease={[Function]}
+                                        onResponderTerminate={[Function]}
+                                        onResponderTerminationRequest={[Function]}
+                                        onStartShouldSetResponder={[Function]}
+                                        style={
+                                          Array [
+                                            undefined,
+                                            Object {
+                                              "opacity": 1,
+                                            },
+                                          ]
+                                        }
+                                      >
+                                        <View
+                                          accessible={true}
+                                          focusable={true}
+                                          onClick={[Function]}
+                                          onResponderGrant={[Function]}
+                                          onResponderMove={[Function]}
+                                          onResponderRelease={[Function]}
+                                          onResponderTerminate={[Function]}
+                                          onResponderTerminationRequest={[Function]}
+                                          onStartShouldSetResponder={[Function]}
+                                          style={
+                                            Object {
+                                              "opacity": 1,
+                                            }
+                                          }
+                                        >
+                                          <View
+                                            accessible={true}
+                                            focusable={true}
+                                            onClick={[Function]}
+                                            onResponderGrant={[Function]}
+                                            onResponderMove={[Function]}
+                                            onResponderRelease={[Function]}
+                                            onResponderTerminate={[Function]}
+                                            onResponderTerminationRequest={[Function]}
+                                            onStartShouldSetResponder={[Function]}
+                                            style={
+                                              Object {
+                                                "opacity": 1,
+                                              }
+                                            }
+                                          >
+                                            <View
+                                              style={
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#e4283d",
+                                                  "borderColor": "#2089dc",
+                                                  "borderRadius": 15,
+                                                  "borderWidth": 0,
+                                                  "flexDirection": "row",
+                                                  "justifyContent": "center",
+                                                  "padding": 8,
+                                                  "width": 80,
+                                                }
+                                              }
+                                            >
+                                              <View
+                                                style={
+                                                  Object {
+                                                    "alignItems": "center",
+                                                    "backgroundColor": "#e4283d",
+                                                    "borderColor": "#2089dc",
+                                                    "borderRadius": 15,
+                                                    "borderWidth": 0,
+                                                    "flexDirection": "row",
+                                                    "justifyContent": "center",
+                                                    "padding": 8,
+                                                    "width": 80,
+                                                  }
+                                                }
+                                              >
+                                                <Text
+                                                  style={
+                                                    Object {
+                                                      "color": "white",
+                                                      "fontSize": 18,
+                                                      "paddingBottom": 1,
+                                                      "paddingTop": 2,
+                                                      "textAlign": "center",
+                                                    }
+                                                  }
+                                                >
+                                                  <Text
+                                                    style={
+                                                      Object {
+                                                        "color": "white",
+                                                        "fontSize": 18,
+                                                        "paddingBottom": 1,
+                                                        "paddingTop": 2,
+                                                        "textAlign": "center",
+                                                      }
+                                                    }
+                                                  >
+                                                    OK
+                                                  </Text>
+                                                </Text>
+                                              </View>
+                                            </View>
+                                            <PressabilityDebugView
+                                              color="cyan"
+                                            />
+                                          </View>
+                                        </View>
+                                      </AnimatedComponent>
+                                    </ForwardRef(AnimatedComponentWrapper)>
+                                  </TouchableOpacity>
+                                </ForwardRef>
+                              </View>
+                            </View>
+                          </Button>
+                        </ThemedComponent>
+                      </ForwardRef(Themed.Button)>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </Modal>
+          </Component>
+          <View>
+            <View>
+              <ForwardRef(Themed.Input)
+                errorMessage=""
+                inputContainerStyle={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "#bbbdbf",
+                    "borderRadius": 15,
+                    "elevation": 5,
+                    "marginHorizontal": 10,
+                    "marginTop": 25,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 3.84,
+                  }
+                }
+                onChangeText={[Function]}
+                placeholder="Email"
+              >
+                <ThemedComponent
+                  errorMessage=""
+                  forwardedRef={null}
+                  inputContainerStyle={
+                    Object {
+                      "backgroundColor": "white",
+                      "borderBottomColor": "#bbbdbf",
+                      "borderRadius": 15,
+                      "elevation": 5,
+                      "marginHorizontal": 10,
+                      "marginTop": 25,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.25,
+                      "shadowRadius": 3.84,
+                    }
+                  }
+                  onChangeText={[Function]}
+                  placeholder="Email"
+                >
+                  <Input
+                    errorMessage=""
+                    inputContainerStyle={
+                      Object {
+                        "backgroundColor": "white",
+                        "borderBottomColor": "#bbbdbf",
+                        "borderRadius": 15,
+                        "elevation": 5,
+                        "marginHorizontal": 10,
+                        "marginTop": 25,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                      }
+                    }
+                    onChangeText={[Function]}
+                    placeholder="Email"
+                    theme={
+                      Object {
+                        "colors": Object {
+                          "disabled": "hsl(208, 8%, 90%)",
+                          "divider": "#bcbbc1",
+                          "error": "#ff190c",
+                          "grey0": "#393e42",
+                          "grey1": "#43484d",
+                          "grey2": "#5e6977",
+                          "grey3": "#86939e",
+                          "grey4": "#bdc6cf",
+                          "grey5": "#e1e8ee",
+                          "greyOutline": "#bbb",
+                          "platform": Object {
+                            "android": Object {
+                              "error": "#f44336",
+                              "primary": "#2196f3",
+                              "secondary": "#9C27B0",
+                              "success": "#4caf50",
+                              "warning": "#ffeb3b",
+                            },
+                            "ios": Object {
+                              "error": "#ff3b30",
+                              "primary": "#007aff",
+                              "secondary": "#5856d6",
+                              "success": "#4cd964",
+                              "warning": "#ffcc00",
+                            },
+                          },
+                          "primary": "#2089dc",
+                          "searchBg": "#303337",
+                          "secondary": "#8F0CE8",
+                          "success": "#52c41a",
+                          "warning": "#faad14",
+                        },
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "paddingHorizontal": 10,
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "paddingHorizontal": 10,
+                            "width": "100%",
+                          }
+                        }
+                      >
+                        <ForwardRef(AnimatedComponentWrapper)
+                          style={
+                            Object {
+                              "alignItems": "center",
+                              "backgroundColor": "white",
+                              "borderBottomColor": "#bbbdbf",
+                              "borderBottomWidth": 1,
+                              "borderColor": "#86939e",
+                              "borderRadius": 15,
+                              "elevation": 5,
+                              "flexDirection": "row",
+                              "marginHorizontal": 10,
+                              "marginTop": 25,
+                              "shadowColor": "#000",
+                              "shadowOffset": Object {
+                                "height": 2,
+                                "width": 0,
+                              },
+                              "shadowOpacity": 0.25,
+                              "shadowRadius": 3.84,
+                              "transform": Array [
+                                Object {
+                                  "translateX": 0,
+                                },
+                              ],
+                            }
+                          }
+                        >
+                          <AnimatedComponent
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "backgroundColor": "white",
+                                "borderBottomColor": "#bbbdbf",
+                                "borderBottomWidth": 1,
+                                "borderColor": "#86939e",
+                                "borderRadius": 15,
+                                "elevation": 5,
+                                "flexDirection": "row",
+                                "marginHorizontal": 10,
+                                "marginTop": 25,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 2,
+                                  "width": 0,
+                                },
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 3.84,
+                                "transform": Array [
+                                  Object {
+                                    "translateX": 0,
+                                  },
+                                ],
+                              }
+                            }
+                          >
+                            <View
+                              style={
+                                Object {
+                                  "alignItems": "center",
+                                  "backgroundColor": "white",
+                                  "borderBottomColor": "#bbbdbf",
+                                  "borderBottomWidth": 1,
+                                  "borderColor": "#86939e",
+                                  "borderRadius": 15,
+                                  "elevation": 5,
+                                  "flexDirection": "row",
+                                  "marginHorizontal": 10,
+                                  "marginTop": 25,
+                                  "shadowColor": "#000",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 0,
+                                  },
+                                  "shadowOpacity": 0.25,
+                                  "shadowRadius": 3.84,
+                                  "transform": Array [
+                                    Object {
+                                      "translateX": 0,
+                                    },
+                                  ],
+                                }
+                              }
+                            >
+                              <View
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "white",
+                                    "borderBottomColor": "#bbbdbf",
+                                    "borderBottomWidth": 1,
+                                    "borderColor": "#86939e",
+                                    "borderRadius": 15,
+                                    "elevation": 5,
+                                    "flexDirection": "row",
+                                    "marginHorizontal": 10,
+                                    "marginTop": 25,
+                                    "shadowColor": "#000",
+                                    "shadowOffset": Object {
+                                      "height": 2,
+                                      "width": 0,
+                                    },
+                                    "shadowOpacity": 0.25,
+                                    "shadowRadius": 3.84,
+                                    "transform": Array [
+                                      Object {
+                                        "translateX": 0,
+                                      },
+                                    ],
+                                  }
+                                }
+                              >
+                                <Component
+                                  allowFontScaling={true}
+                                  editable={true}
+                                  onChangeText={[Function]}
+                                  placeholder="Email"
+                                  rejectResponderTermination={true}
+                                  style={
+                                    Object {
+                                      "alignSelf": "center",
+                                      "color": "black",
+                                      "flex": 1,
+                                      "fontSize": 18,
+                                      "minHeight": 40,
+                                    }
+                                  }
+                                  testID="RNE__Input__text-input"
+                                  underlineColorAndroid="transparent"
+                                >
+                                  <TextInput
+                                    allowFontScaling={true}
+                                    editable={true}
+                                    onChangeText={[Function]}
+                                    placeholder="Email"
+                                    rejectResponderTermination={true}
+                                    style={
+                                      Object {
+                                        "alignSelf": "center",
+                                        "color": "black",
+                                        "flex": 1,
+                                        "fontSize": 18,
+                                        "minHeight": 40,
+                                      }
+                                    }
+                                    testID="RNE__Input__text-input"
+                                    underlineColorAndroid="transparent"
+                                  />
+                                </Component>
+                              </View>
+                            </View>
+                          </AnimatedComponent>
+                        </ForwardRef(AnimatedComponentWrapper)>
+                      </View>
+                    </View>
+                  </Input>
+                </ThemedComponent>
+              </ForwardRef(Themed.Input)>
+            </View>
+          </View>
+          <View>
+            <View>
+              <ForwardRef(Themed.Input)
+                errorMessage=""
+                inputContainerStyle={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "#bbbdbf",
+                    "borderRadius": 15,
+                    "elevation": 5,
+                    "marginHorizontal": 10,
+                    "marginTop": 25,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 3.84,
+                  }
+                }
+                onChangeText={[Function]}
+                placeholder=" Password"
+                secureTextEntry={true}
+                style={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderBottomColor": "#bbbdbf",
+                    "borderRadius": 15,
+                    "elevation": 5,
+                    "marginHorizontal": 10,
+                    "marginTop": 25,
+                    "shadowColor": "#000",
+                    "shadowOffset": Object {
+                      "height": 2,
+                      "width": 0,
+                    },
+                    "shadowOpacity": 0.25,
+                    "shadowRadius": 3.84,
+                  }
+                }
+              >
+                <ThemedComponent
+                  errorMessage=""
+                  forwardedRef={null}
+                  inputContainerStyle={
+                    Object {
+                      "backgroundColor": "white",
+                      "borderBottomColor": "#bbbdbf",
+                      "borderRadius": 15,
+                      "elevation": 5,
+                      "marginHorizontal": 10,
+                      "marginTop": 25,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.25,
+                      "shadowRadius": 3.84,
+                    }
+                  }
+                  onChangeText={[Function]}
+                  placeholder=" Password"
+                  secureTextEntry={true}
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "borderBottomColor": "#bbbdbf",
+                      "borderRadius": 15,
+                      "elevation": 5,
+                      "marginHorizontal": 10,
+                      "marginTop": 25,
+                      "shadowColor": "#000",
+                      "shadowOffset": Object {
+                        "height": 2,
+                        "width": 0,
+                      },
+                      "shadowOpacity": 0.25,
+                      "shadowRadius": 3.84,
+                    }
+                  }
+                >
+                  <Input
+                    errorMessage=""
+                    inputContainerStyle={
+                      Object {
+                        "backgroundColor": "white",
+                        "borderBottomColor": "#bbbdbf",
+                        "borderRadius": 15,
+                        "elevation": 5,
+                        "marginHorizontal": 10,
+                        "marginTop": 25,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                      }
+                    }
+                    onChangeText={[Function]}
+                    placeholder=" Password"
+                    secureTextEntry={true}
+                    style={
+                      Object {
+                        "backgroundColor": "white",
+                        "borderBottomColor": "#bbbdbf",
+                        "borderRadius": 15,
+                        "elevation": 5,
+                        "marginHorizontal": 10,
+                        "marginTop": 25,
+                        "shadowColor": "#000",
+                        "shadowOffset": Object {
+                          "height": 2,
+                          "width": 0,
+                        },
+                        "shadowOpacity": 0.25,
+                        "shadowRadius": 3.84,
+                      }
+                    }
+                    theme={
+                      Object {
+                        "colors": Object {
+                          "disabled": "hsl(208, 8%, 90%)",
+                          "divider": "#bcbbc1",
+                          "error": "#ff190c",
+                          "grey0": "#393e42",
+                          "grey1": "#43484d",
+                          "grey2": "#5e6977",
+                          "grey3": "#86939e",
+                          "grey4": "#bdc6cf",
+                          "grey5": "#e1e8ee",
+                          "greyOutline": "#bbb",
+                          "platform": Object {
+                            "android": Object {
+                              "error": "#f44336",
+                              "primary": "#2196f3",
+                              "secondary": "#9C27B0",
+                              "success": "#4caf50",
+                              "warning": "#ffeb3b",
+                            },
+                            "ios": Object {
+                              "error": "#ff3b30",
+                              "primary": "#007aff",
+                              "secondary": "#5856d6",
+                              "success": "#4cd964",
+                              "warning": "#ffcc00",
+                            },
+                          },
+                          "primary": "#2089dc",
+                          "searchBg": "#303337",
+                          "secondary": "#8F0CE8",
+                          "success": "#52c41a",
+                          "warning": "#faad14",
+                        },
+                      }
+                    }
+                  >
+                    <View
+                      style={
+                        Object {
+                          "paddingHorizontal": 10,
+                          "width": "100%",
+                        }
+                      }
+                    >
+                      <View
+                        style={
+                          Object {
+                            "paddingHorizontal": 10,
+                            "width": "100%",
+                          }
+                        }
+                      >
+                        <ForwardRef(AnimatedComponentWrapper)
+                          style={
+                            Object {
+                              "alignItems": "center",
+                              "backgroundColor": "white",
+                              "borderBottomColor": "#bbbdbf",
+                              "borderBottomWidth": 1,
+                              "borderColor": "#86939e",
+                              "borderRadius": 15,
+                              "elevation": 5,
+                              "flexDirection": "row",
+                              "marginHorizontal": 10,
+                              "marginTop": 25,
+                              "shadowColor": "#000",
+                              "shadowOffset": Object {
+                                "height": 2,
+                                "width": 0,
+                              },
+                              "shadowOpacity": 0.25,
+                              "shadowRadius": 3.84,
+                              "transform": Array [
+                                Object {
+                                  "translateX": 0,
+                                },
+                              ],
+                            }
+                          }
+                        >
+                          <AnimatedComponent
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "backgroundColor": "white",
+                                "borderBottomColor": "#bbbdbf",
+                                "borderBottomWidth": 1,
+                                "borderColor": "#86939e",
+                                "borderRadius": 15,
+                                "elevation": 5,
+                                "flexDirection": "row",
+                                "marginHorizontal": 10,
+                                "marginTop": 25,
+                                "shadowColor": "#000",
+                                "shadowOffset": Object {
+                                  "height": 2,
+                                  "width": 0,
+                                },
+                                "shadowOpacity": 0.25,
+                                "shadowRadius": 3.84,
+                                "transform": Array [
+                                  Object {
+                                    "translateX": 0,
+                                  },
+                                ],
+                              }
+                            }
+                          >
+                            <View
+                              style={
+                                Object {
+                                  "alignItems": "center",
+                                  "backgroundColor": "white",
+                                  "borderBottomColor": "#bbbdbf",
+                                  "borderBottomWidth": 1,
+                                  "borderColor": "#86939e",
+                                  "borderRadius": 15,
+                                  "elevation": 5,
+                                  "flexDirection": "row",
+                                  "marginHorizontal": 10,
+                                  "marginTop": 25,
+                                  "shadowColor": "#000",
+                                  "shadowOffset": Object {
+                                    "height": 2,
+                                    "width": 0,
+                                  },
+                                  "shadowOpacity": 0.25,
+                                  "shadowRadius": 3.84,
+                                  "transform": Array [
+                                    Object {
+                                      "translateX": 0,
+                                    },
+                                  ],
+                                }
+                              }
+                            >
+                              <View
+                                style={
+                                  Object {
+                                    "alignItems": "center",
+                                    "backgroundColor": "white",
+                                    "borderBottomColor": "#bbbdbf",
+                                    "borderBottomWidth": 1,
+                                    "borderColor": "#86939e",
+                                    "borderRadius": 15,
+                                    "elevation": 5,
+                                    "flexDirection": "row",
+                                    "marginHorizontal": 10,
+                                    "marginTop": 25,
+                                    "shadowColor": "#000",
+                                    "shadowOffset": Object {
+                                      "height": 2,
+                                      "width": 0,
+                                    },
+                                    "shadowOpacity": 0.25,
+                                    "shadowRadius": 3.84,
+                                    "transform": Array [
+                                      Object {
+                                        "translateX": 0,
+                                      },
+                                    ],
+                                  }
+                                }
+                              >
+                                <Component
+                                  allowFontScaling={true}
+                                  editable={true}
+                                  onChangeText={[Function]}
+                                  placeholder=" Password"
+                                  rejectResponderTermination={true}
+                                  secureTextEntry={true}
+                                  style={
+                                    Object {
+                                      "alignSelf": "center",
+                                      "color": "black",
+                                      "flex": 1,
+                                      "fontSize": 18,
+                                      "minHeight": 40,
+                                    }
+                                  }
+                                  testID="RNE__Input__text-input"
+                                  underlineColorAndroid="transparent"
+                                >
+                                  <TextInput
+                                    allowFontScaling={true}
+                                    editable={true}
+                                    onChangeText={[Function]}
+                                    placeholder=" Password"
+                                    rejectResponderTermination={true}
+                                    secureTextEntry={true}
+                                    style={
+                                      Object {
+                                        "alignSelf": "center",
+                                        "color": "black",
+                                        "flex": 1,
+                                        "fontSize": 18,
+                                        "minHeight": 40,
+                                      }
+                                    }
+                                    testID="RNE__Input__text-input"
+                                    underlineColorAndroid="transparent"
+                                  />
+                                </Component>
+                              </View>
+                            </View>
+                          </AnimatedComponent>
+                        </ForwardRef(AnimatedComponentWrapper)>
+                      </View>
+                    </View>
+                  </Input>
+                </ThemedComponent>
+              </ForwardRef(Themed.Input)>
+            </View>
+          </View>
+          <ForwardRef(Themed.Button)
+            buttonStyle={
+              Object {
+                "backgroundColor": "#e4283d",
+                "borderRadius": 15,
+                "marginHorizontal": 15,
+                "marginVertical": 15,
+              }
+            }
+            onPress={[Function]}
+            title="Sign in"
+          >
+            <ThemedComponent
+              buttonStyle={
+                Object {
+                  "backgroundColor": "#e4283d",
+                  "borderRadius": 15,
+                  "marginHorizontal": 15,
+                  "marginVertical": 15,
+                }
+              }
+              forwardedRef={null}
+              onPress={[Function]}
+              title="Sign in"
+            >
+              <Button
+                TouchableComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
+                  }
+                }
+                buttonStyle={
+                  Object {
+                    "backgroundColor": "#e4283d",
+                    "borderRadius": 15,
+                    "marginHorizontal": 15,
+                    "marginVertical": 15,
+                  }
+                }
+                disabled={false}
+                iconRight={false}
+                loading={false}
+                onPress={[Function]}
+                raised={false}
+                theme={
+                  Object {
+                    "colors": Object {
+                      "disabled": "hsl(208, 8%, 90%)",
+                      "divider": "#bcbbc1",
+                      "error": "#ff190c",
+                      "grey0": "#393e42",
+                      "grey1": "#43484d",
+                      "grey2": "#5e6977",
+                      "grey3": "#86939e",
+                      "grey4": "#bdc6cf",
+                      "grey5": "#e1e8ee",
+                      "greyOutline": "#bbb",
+                      "platform": Object {
+                        "android": Object {
+                          "error": "#f44336",
+                          "primary": "#2196f3",
+                          "secondary": "#9C27B0",
+                          "success": "#4caf50",
+                          "warning": "#ffeb3b",
+                        },
+                        "ios": Object {
+                          "error": "#ff3b30",
+                          "primary": "#007aff",
+                          "secondary": "#5856d6",
+                          "success": "#4cd964",
+                          "warning": "#ffcc00",
+                        },
+                      },
+                      "primary": "#2089dc",
+                      "searchBg": "#303337",
+                      "secondary": "#8F0CE8",
+                      "success": "#52c41a",
+                      "warning": "#faad14",
+                    },
+                  }
+                }
+                title="Sign in"
+                type="solid"
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 15,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "borderRadius": 15,
+                      }
+                    }
+                  >
+                    <ForwardRef
+                      activeOpacity={0.3}
+                      disabled={false}
+                      onPress={[Function]}
+                    >
+                      <TouchableOpacity
+                        activeOpacity={0.3}
+                        disabled={false}
+                        hostRef={null}
+                        onPress={[Function]}
+                      >
+                        <ForwardRef(AnimatedComponentWrapper)
+                          accessible={true}
+                          focusable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Array [
+                              undefined,
+                              Object {
+                                "opacity": 1,
+                              },
+                            ]
+                          }
+                        >
+                          <AnimatedComponent
+                            accessible={true}
+                            focusable={true}
+                            onClick={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Array [
+                                undefined,
+                                Object {
+                                  "opacity": 1,
+                                },
+                              ]
+                            }
+                          >
+                            <View
+                              accessible={true}
+                              focusable={true}
+                              onClick={[Function]}
+                              onResponderGrant={[Function]}
+                              onResponderMove={[Function]}
+                              onResponderRelease={[Function]}
+                              onResponderTerminate={[Function]}
+                              onResponderTerminationRequest={[Function]}
+                              onStartShouldSetResponder={[Function]}
+                              style={
+                                Object {
+                                  "opacity": 1,
+                                }
+                              }
+                            >
+                              <View
+                                accessible={true}
+                                focusable={true}
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "opacity": 1,
+                                  }
+                                }
+                              >
+                                <View
+                                  style={
+                                    Object {
+                                      "alignItems": "center",
+                                      "backgroundColor": "#e4283d",
+                                      "borderColor": "#2089dc",
+                                      "borderRadius": 15,
+                                      "borderWidth": 0,
+                                      "flexDirection": "row",
+                                      "justifyContent": "center",
+                                      "marginHorizontal": 15,
+                                      "marginVertical": 15,
+                                      "padding": 8,
+                                    }
+                                  }
+                                >
+                                  <View
+                                    style={
+                                      Object {
+                                        "alignItems": "center",
+                                        "backgroundColor": "#e4283d",
+                                        "borderColor": "#2089dc",
+                                        "borderRadius": 15,
+                                        "borderWidth": 0,
+                                        "flexDirection": "row",
+                                        "justifyContent": "center",
+                                        "marginHorizontal": 15,
+                                        "marginVertical": 15,
+                                        "padding": 8,
+                                      }
+                                    }
+                                  >
+                                    <Text
+                                      style={
+                                        Object {
+                                          "color": "white",
+                                          "fontSize": 18,
+                                          "paddingBottom": 1,
+                                          "paddingTop": 2,
+                                          "textAlign": "center",
+                                        }
+                                      }
+                                    >
+                                      <Text
+                                        style={
+                                          Object {
+                                            "color": "white",
+                                            "fontSize": 18,
+                                            "paddingBottom": 1,
+                                            "paddingTop": 2,
+                                            "textAlign": "center",
+                                          }
+                                        }
+                                      >
+                                        Sign in
+                                      </Text>
+                                    </Text>
+                                  </View>
+                                </View>
+                                <PressabilityDebugView
+                                  color="cyan"
+                                />
+                              </View>
+                            </View>
+                          </AnimatedComponent>
+                        </ForwardRef(AnimatedComponentWrapper)>
+                      </TouchableOpacity>
+                    </ForwardRef>
+                  </View>
+                </View>
+              </Button>
+            </ThemedComponent>
+          </ForwardRef(Themed.Button)>
+          <ForwardRef(Themed.Button)
+            buttonStyle={
+              Object {
+                "backgroundColor": "white",
+                "borderRadius": 15,
+                "marginBottom": 30,
+                "marginHorizontal": 15,
+              }
+            }
+            onPress={[Function]}
+            title="Sign up"
+            type="outline"
+          >
+            <ThemedComponent
+              buttonStyle={
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 15,
+                  "marginBottom": 30,
+                  "marginHorizontal": 15,
+                }
+              }
+              forwardedRef={null}
+              onPress={[Function]}
+              title="Sign up"
+              type="outline"
+            >
+              <Button
+                TouchableComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "render": [Function],
+                  }
+                }
+                buttonStyle={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderRadius": 15,
+                    "marginBottom": 30,
+                    "marginHorizontal": 15,
+                  }
+                }
+                disabled={false}
+                iconRight={false}
+                loading={false}
+                onPress={[Function]}
+                raised={false}
+                theme={
+                  Object {
+                    "colors": Object {
+                      "disabled": "hsl(208, 8%, 90%)",
+                      "divider": "#bcbbc1",
+                      "error": "#ff190c",
+                      "grey0": "#393e42",
+                      "grey1": "#43484d",
+                      "grey2": "#5e6977",
+                      "grey3": "#86939e",
+                      "grey4": "#bdc6cf",
+                      "grey5": "#e1e8ee",
+                      "greyOutline": "#bbb",
+                      "platform": Object {
+                        "android": Object {
+                          "error": "#f44336",
+                          "primary": "#2196f3",
+                          "secondary": "#9C27B0",
+                          "success": "#4caf50",
+                          "warning": "#ffeb3b",
+                        },
+                        "ios": Object {
+                          "error": "#ff3b30",
+                          "primary": "#007aff",
+                          "secondary": "#5856d6",
+                          "success": "#4cd964",
+                          "warning": "#ffcc00",
+                        },
+                      },
+                      "primary": "#2089dc",
+                      "searchBg": "#303337",
+                      "secondary": "#8F0CE8",
+                      "success": "#52c41a",
+                      "warning": "#faad14",
+                    },
+                  }
+                }
+                title="Sign up"
+                type="outline"
+              >
+                <View
+                  style={
+                    Object {
+                      "borderRadius": 15,
+                    }
+                  }
+                >
+                  <View
+                    style={
+                      Object {
+                        "borderRadius": 15,
+                      }
+                    }
+                  >
+                    <ForwardRef
+                      activeOpacity={0.3}
+                      disabled={false}
+                      onPress={[Function]}
+                    >
+                      <TouchableOpacity
+                        activeOpacity={0.3}
+                        disabled={false}
+                        hostRef={null}
+                        onPress={[Function]}
+                      >
+                        <ForwardRef(AnimatedComponentWrapper)
+                          accessible={true}
+                          focusable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Array [
+                              undefined,
+                              Object {
+                                "opacity": 1,
+                              },
+                            ]
+                          }
+                        >
+                          <AnimatedComponent
+                            accessible={true}
+                            focusable={true}
+                            onClick={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              Array [
+                                undefined,
+                                Object {
+                                  "opacity": 1,
+                                },
+                              ]
+                            }
+                          >
+                            <View
+                              accessible={true}
+                              focusable={true}
+                              onClick={[Function]}
+                              onResponderGrant={[Function]}
+                              onResponderMove={[Function]}
+                              onResponderRelease={[Function]}
+                              onResponderTerminate={[Function]}
+                              onResponderTerminationRequest={[Function]}
+                              onStartShouldSetResponder={[Function]}
+                              style={
+                                Object {
+                                  "opacity": 1,
+                                }
+                              }
+                            >
+                              <View
+                                accessible={true}
+                                focusable={true}
+                                onClick={[Function]}
+                                onResponderGrant={[Function]}
+                                onResponderMove={[Function]}
+                                onResponderRelease={[Function]}
+                                onResponderTerminate={[Function]}
+                                onResponderTerminationRequest={[Function]}
+                                onStartShouldSetResponder={[Function]}
+                                style={
+                                  Object {
+                                    "opacity": 1,
+                                  }
+                                }
+                              >
+                                <View
+                                  style={
+                                    Object {
+                                      "alignItems": "center",
+                                      "backgroundColor": "white",
+                                      "borderColor": "#2089dc",
+                                      "borderRadius": 15,
+                                      "borderWidth": 0.5,
+                                      "flexDirection": "row",
+                                      "justifyContent": "center",
+                                      "marginBottom": 30,
+                                      "marginHorizontal": 15,
+                                      "padding": 8,
+                                    }
+                                  }
+                                >
+                                  <View
+                                    style={
+                                      Object {
+                                        "alignItems": "center",
+                                        "backgroundColor": "white",
+                                        "borderColor": "#2089dc",
+                                        "borderRadius": 15,
+                                        "borderWidth": 0.5,
+                                        "flexDirection": "row",
+                                        "justifyContent": "center",
+                                        "marginBottom": 30,
+                                        "marginHorizontal": 15,
+                                        "padding": 8,
+                                      }
+                                    }
+                                  >
+                                    <Text
+                                      style={
+                                        Object {
+                                          "color": "#2089dc",
+                                          "fontSize": 18,
+                                          "paddingBottom": 1,
+                                          "paddingTop": 2,
+                                          "textAlign": "center",
+                                        }
+                                      }
+                                    >
+                                      <Text
+                                        style={
+                                          Object {
+                                            "color": "#2089dc",
+                                            "fontSize": 18,
+                                            "paddingBottom": 1,
+                                            "paddingTop": 2,
+                                            "textAlign": "center",
+                                          }
+                                        }
+                                      >
+                                        Sign up
+                                      </Text>
+                                    </Text>
+                                  </View>
+                                </View>
+                                <PressabilityDebugView
+                                  color="cyan"
+                                />
+                              </View>
+                            </View>
+                          </AnimatedComponent>
+                        </ForwardRef(AnimatedComponentWrapper)>
+                      </TouchableOpacity>
+                    </ForwardRef>
+                  </View>
+                </View>
+              </Button>
+            </ThemedComponent>
+          </ForwardRef(Themed.Button)>
+        </View>
+      </View>
+    </LoginScreen>
+  </Connect(LoginScreen)>
+</Provider>
+`;

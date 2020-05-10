@@ -18,7 +18,7 @@ export default class ProfileStack extends Component {
             <stack.Navigator initialRouteName='Profile' screenOptions={headerStyle}>
                 <stack.Screen name='Profile' component={ProfileScreen}
                     options={{
-                        title: string.listScreenTitle,
+                        title: 'Profile',
                         headerRight: () => (
                             <TouchableOpacity
                                 onPress={() => this.props.navigation.navigate('Cart')}

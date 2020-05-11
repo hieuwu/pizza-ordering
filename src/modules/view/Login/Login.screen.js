@@ -36,7 +36,7 @@ class Login extends Component {
   btnModalOnClick = () => {
     this.setState({displayModal: false});
     if (this.state.loginStatus === strings.login.loginStatusSucceededMess) {
-      this.props.navigation.goBack();
+      this.props.navigation.navigate('shipping');
     }
   };
 

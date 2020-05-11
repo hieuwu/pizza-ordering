@@ -19,9 +19,9 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    width: '80%',
+    width: '100%',
     height: '100%',
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
   pizzaTitle: {
     textAlign: 'center',

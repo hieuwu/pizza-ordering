@@ -130,7 +130,7 @@ class ProductDetail extends Component {
               selectedButtonColor={colors.ovalColor}
               radio_props={pizzaSize}
               style={styles.radioVerticalForm}
-              initial={0}
+              initial={2}
               onPress={value => {
                 this.setState({sizePrice: value.price});
                 this.setState({sizeType: value.radioSizeType});

@@ -68,7 +68,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: colors.white,
+    backgroundColor: colors.ovalColor,
     width: '90%',
     height: dimensions.screenSize.height / 4,
     borderRadius: 40,
@@ -90,7 +90,7 @@ export default StyleSheet.create({
   },
   loginStatusTxt: {
     fontSize: 20,
-    color: colors.black,
+    color: colors.white,
   },
   signOutBtnView: {
     width: '90%',

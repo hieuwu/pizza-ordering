@@ -3,7 +3,6 @@ import colors from '../../modules/resources/colors/Colors';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: 'green',
     flexDirection: 'column',
     height: 200,
     width: '100%',

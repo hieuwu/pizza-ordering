@@ -34,30 +34,33 @@ class SignUp extends Component {
 
   async btnSignUpOnClick(values) {
     this.setState({isLoading: true});
-    // doing sing up promise
-    let signUpData = JSON.parse(JSON.stringify(values));
-    delete signUpData.confirmpassword;
-    console.log('signUpData : ', signUpData);
-    try {
-      let signUpResponse = await new UserUseCase().signUpUser(signUpData);
-      this.setState({isLoading: false});
-      this.setState({displayModal: false});
-      console.log('sign up response: ' + signUpResponse.status);
-      if (signUpResponse.status === 201) {
-        console.log('enter if 201 ');
-        console.log('save user information');
-        await new UserUseCase().saveUserInfo(signUpResponse.data.user);
-        console.log('save user token');
-        await new UserUseCase().saveUserToken(signUpResponse.data.token);
-        console.log('save user token to redux');
-        // navigate to login screen:
-        console.log('sign up success');
-        this.displaySignUpSucceeded();
-      } else {
+    if (values.confirmpassword !== values.password) {
+      this.displayConfirmPasswordNotMatch();
+    } else {
+      let signUpData = JSON.parse(JSON.stringify(values));
+      delete signUpData.confirmpassword;
+      console.log('signUpData : ', signUpData);
+      try {
+        let signUpResponse = await new UserUseCase().signUpUser(signUpData);
+        this.setState({isLoading: false});
+        this.setState({displayModal: false});
+        console.log('sign up response: ' + signUpResponse.status);
+        if (signUpResponse.status === 201) {
+          console.log('enter if 201 ');
+          console.log('save user information');
+          await new UserUseCase().saveUserInfo(signUpResponse.data.user);
+          console.log('save user token');
+          await new UserUseCase().saveUserToken(signUpResponse.data.token);
+          console.log('save user token to redux');
+          // navigate to login screen:
+          console.log('sign up success');
+          this.displaySignUpSucceeded();
+        } else {
+          this.displaySignUpFailed();
+        }
+      } catch (error) {
         this.displaySignUpFailed();
       }
-    } catch (error) {
-      this.displaySignUpFailed();
     }
   }
 
@@ -116,7 +119,7 @@ class SignUp extends Component {
           }}
           validationSchema={yup.object().shape({
             phone: yup
-              .number()
+              .number('must be number')
               .moreThan(10)
               .required(),
             password: yup
@@ -131,7 +134,7 @@ class SignUp extends Component {
               .required(),
             confirmpassword: yup
               .string()
-              .oneOf([yup.ref('password')], 'Pass word must match'),
+              .oneOf([yup.ref('password'), null], 'Passwords must match'),
           })}>
           {({
             values,
@@ -235,12 +238,18 @@ class SignUp extends Component {
   btnModalOnClick = () => {
     this.setState({displayModal: false});
     if (this.state.signUpStatus === strings.signUp.signUpSucceededMess) {
-      this.props.navigation.goBack();
+      this.props.navigation.navigate('shipping');
     }
   };
 
   displaySignUpFailed() {
     this.setState({signUpStatus: strings.signUp.signUpFailedMess});
+    this.setState({isLoading: false});
+    this.setState({displayModal: true});
+  }
+
+  displayConfirmPasswordNotMatch() {
+    this.setState({signUpStatus: strings.signUp.invalidConfirmPassMess});
     this.setState({isLoading: false});
     this.setState({displayModal: true});
   }

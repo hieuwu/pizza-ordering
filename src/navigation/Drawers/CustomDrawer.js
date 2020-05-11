@@ -26,24 +26,10 @@ class CustomDrawer extends Component {
     }
   };
 
-  labelLoginOnClick = async () => {
-    const userToken = await new UserUseCase().getUserToken();
-    if (userToken != null) {
-      Alert.alert(strings.drawer.signedInMess);
-    } else {
-      this.props.navigation.navigate('login');
-    }
-  };
-
   render() {
     return (
       <DrawerContentScrollView {...this.props}>
         <DrawerItemList {...this.props} />
-        <DrawerItem
-          label="Sign in"
-          labelStyle={styles.labelTxt}
-          onPress={() => this.labelLoginOnClick()}
-        />
         <DrawerItem
           label="Sign out"
           labelStyle={styles.labelTxt}

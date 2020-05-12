@@ -161,7 +161,6 @@ class CartScreen extends Component {
             style={dimensionStyles.checkOutButton}
             onPress={() => {
               if (userToken === null) {
-                alert('Please log in first!');
                 this.navigateToLogInScreen();
               } else if (orderLineArray.length === 0) {
                 alert('Your cart is still empty!');

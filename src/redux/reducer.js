@@ -4,6 +4,7 @@ import {
   ADD_TOCART,
   DELETE_ORDERLINE,
   MODIFY_ORDERLINE,
+  RESET_ORDERLINEARRAY,
 } from './actions.js';
 
 const initState = {
@@ -49,6 +50,12 @@ const reducer = (state = initState, action) => {
             };
           },
         ),
+      };
+    }
+    case RESET_ORDERLINEARRAY: {
+      return {
+        ...state,
+        orderLineArray: [],
       };
     }
     default:

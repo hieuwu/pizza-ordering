@@ -42,17 +42,4 @@ describe('cart screen test', () => {
         expect(instance.calculateTotalPrice()).toEqual(132)      
     })
 
-    it('should alert user to log in before check out', () => {
-        const checkOutButton=wrapper.findWhere(node => {
-          return (
-            node.text() === 'CHECK OUT' &&
-            typeof node.type() === 'string'
-          );
-        });
-
-        window.alert = jest.fn();
-        checkOutButton.at(0).simulate('click')
-        expect(window.alert).toBeCalledWith('Please log in first!')
-    })
-
 })

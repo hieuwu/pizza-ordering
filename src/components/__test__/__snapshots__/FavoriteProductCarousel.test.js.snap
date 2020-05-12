@@ -1,0 +1,3375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`favorite product carousel test should render snapshot test for favorite product carousel 1`] = `
+<FavoriteProductCarousel
+  data={
+    Array [
+      Object {
+        "_id": "5e9e969745787b2cc452754f",
+        "category": "5e9e969745787b2cc452752f",
+        "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+        "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+        "price": 11,
+        "rate": 4.5,
+        "title": "Marinara Seafood Spaghetti",
+      },
+      Object {
+        "_id": "5e9e969745787b2cc452754a",
+        "category": "5e9e969745787b2cc452752f",
+        "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+        "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+        "price": 10,
+        "rate": 4,
+        "title": "Super Supreme",
+      },
+      Object {
+        "_id": "5e9e969745787b2cc452754b",
+        "category": "5e9e969745787b2cc452752f",
+        "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+        "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+        "price": 9,
+        "rate": 3.5,
+        "title": "Pizza 4 cheese",
+      },
+    ]
+  }
+  onClickImage={[MockFunction]}
+  onClickOrder={[MockFunction]}
+>
+  <Carousel
+    activeAnimationOptions={null}
+    activeAnimationType="timing"
+    activeSlideAlignment="center"
+    activeSlideOffset={20}
+    apparitionDelay={0}
+    autoplay={false}
+    autoplayDelay={1000}
+    autoplayInterval={3000}
+    callbackOffsetMargin={5}
+    containerCustomStyle={Object {}}
+    contentContainerCustomStyle={Object {}}
+    data={
+      Array [
+        Object {
+          "_id": "5e9e969745787b2cc452754f",
+          "category": "5e9e969745787b2cc452752f",
+          "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+          "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+          "price": 11,
+          "rate": 4.5,
+          "title": "Marinara Seafood Spaghetti",
+        },
+        Object {
+          "_id": "5e9e969745787b2cc452754a",
+          "category": "5e9e969745787b2cc452752f",
+          "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+          "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+          "price": 10,
+          "rate": 4,
+          "title": "Super Supreme",
+        },
+        Object {
+          "_id": "5e9e969745787b2cc452754b",
+          "category": "5e9e969745787b2cc452752f",
+          "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+          "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+          "price": 9,
+          "rate": 3.5,
+          "title": "Pizza 4 cheese",
+        },
+      ]
+    }
+    enableMomentum={false}
+    enableSnap={true}
+    firstItem={0}
+    hasParallaxImages={false}
+    inactiveSlideOpacity={0.7}
+    inactiveSlideScale={0.9}
+    inactiveSlideShift={0}
+    itemWidth={600}
+    layout="default"
+    lockScrollTimeoutDuration={1000}
+    lockScrollWhileSnapping={false}
+    loop={false}
+    loopClonesPerSide={3}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    shouldOptimizeUpdates={true}
+    slideStyle={Object {}}
+    sliderWidth={750}
+    swipeThreshold={20}
+    useScrollView={false}
+    vertical={false}
+  >
+    <ForwardRef(AnimatedComponentWrapper)
+      activeAnimationOptions={null}
+      activeAnimationType="timing"
+      activeSlideAlignment="center"
+      activeSlideOffset={20}
+      apparitionDelay={0}
+      automaticallyAdjustContentInsets={false}
+      autoplay={false}
+      autoplayDelay={1000}
+      autoplayInterval={3000}
+      callbackOffsetMargin={5}
+      containerCustomStyle={Object {}}
+      contentContainerCustomStyle={Object {}}
+      contentContainerStyle={
+        Array [
+          Object {
+            "paddingLeft": 75,
+            "paddingRight": 75,
+          },
+          Object {},
+        ]
+      }
+      data={
+        Array [
+          Object {
+            "_id": "5e9e969745787b2cc452754f",
+            "category": "5e9e969745787b2cc452752f",
+            "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+            "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+            "price": 11,
+            "rate": 4.5,
+            "title": "Marinara Seafood Spaghetti",
+          },
+          Object {
+            "_id": "5e9e969745787b2cc452754a",
+            "category": "5e9e969745787b2cc452752f",
+            "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+            "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+            "price": 10,
+            "rate": 4,
+            "title": "Super Supreme",
+          },
+          Object {
+            "_id": "5e9e969745787b2cc452754b",
+            "category": "5e9e969745787b2cc452752f",
+            "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+            "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+            "price": 9,
+            "rate": 3.5,
+            "title": "Pizza 4 cheese",
+          },
+        ]
+      }
+      decelerationRate="fast"
+      directionalLockEnabled={true}
+      enableMomentum={false}
+      enableSnap={true}
+      firstItem={0}
+      hasParallaxImages={false}
+      horizontal={true}
+      inactiveSlideOpacity={0.7}
+      inactiveSlideScale={0.9}
+      inactiveSlideShift={0}
+      initialNumToRender={7}
+      inverted={false}
+      itemWidth={600}
+      keyExtractor={[Function]}
+      layout="default"
+      lockScrollTimeoutDuration={1000}
+      lockScrollWhileSnapping={false}
+      loop={false}
+      loopClonesPerSide={3}
+      maxToRenderPerBatch={15}
+      numColumns={1}
+      onLayout={[Function]}
+      onResponderRelease={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      onStartShouldSetResponderCapture={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      overScrollMode="never"
+      pinchGestureEnabled={false}
+      removeClippedSubviews={true}
+      renderItem={[Function]}
+      scrollEnabled={true}
+      scrollEventThrottle={1}
+      scrollsToTop={false}
+      shouldOptimizeUpdates={true}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
+      slideStyle={Object {}}
+      sliderWidth={750}
+      style={
+        Array [
+          Object {},
+          Object {
+            "opacity": 0,
+          },
+          Object {
+            "flexDirection": "row",
+            "width": 750,
+          },
+        ]
+      }
+      swipeThreshold={20}
+      useScrollView={false}
+      vertical={false}
+      windowSize={15}
+    >
+      <AnimatedComponent
+        activeAnimationOptions={null}
+        activeAnimationType="timing"
+        activeSlideAlignment="center"
+        activeSlideOffset={20}
+        apparitionDelay={0}
+        automaticallyAdjustContentInsets={false}
+        autoplay={false}
+        autoplayDelay={1000}
+        autoplayInterval={3000}
+        callbackOffsetMargin={5}
+        containerCustomStyle={Object {}}
+        contentContainerCustomStyle={Object {}}
+        contentContainerStyle={
+          Array [
+            Object {
+              "paddingLeft": 75,
+              "paddingRight": 75,
+            },
+            Object {},
+          ]
+        }
+        data={
+          Array [
+            Object {
+              "_id": "5e9e969745787b2cc452754f",
+              "category": "5e9e969745787b2cc452752f",
+              "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+              "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+              "price": 11,
+              "rate": 4.5,
+              "title": "Marinara Seafood Spaghetti",
+            },
+            Object {
+              "_id": "5e9e969745787b2cc452754a",
+              "category": "5e9e969745787b2cc452752f",
+              "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+              "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+              "price": 10,
+              "rate": 4,
+              "title": "Super Supreme",
+            },
+            Object {
+              "_id": "5e9e969745787b2cc452754b",
+              "category": "5e9e969745787b2cc452752f",
+              "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+              "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+              "price": 9,
+              "rate": 3.5,
+              "title": "Pizza 4 cheese",
+            },
+          ]
+        }
+        decelerationRate="fast"
+        directionalLockEnabled={true}
+        enableMomentum={false}
+        enableSnap={true}
+        firstItem={0}
+        forwardedRef={[Function]}
+        hasParallaxImages={false}
+        horizontal={true}
+        inactiveSlideOpacity={0.7}
+        inactiveSlideScale={0.9}
+        inactiveSlideShift={0}
+        initialNumToRender={7}
+        inverted={false}
+        itemWidth={600}
+        keyExtractor={[Function]}
+        layout="default"
+        lockScrollTimeoutDuration={1000}
+        lockScrollWhileSnapping={false}
+        loop={false}
+        loopClonesPerSide={3}
+        maxToRenderPerBatch={15}
+        numColumns={1}
+        onLayout={[Function]}
+        onResponderRelease={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        overScrollMode="never"
+        pinchGestureEnabled={false}
+        removeClippedSubviews={true}
+        renderItem={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={1}
+        scrollsToTop={false}
+        shouldOptimizeUpdates={true}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        slideStyle={Object {}}
+        sliderWidth={750}
+        style={
+          Array [
+            Object {},
+            Object {
+              "opacity": 0,
+            },
+            Object {
+              "flexDirection": "row",
+              "width": 750,
+            },
+          ]
+        }
+        swipeThreshold={20}
+        useScrollView={false}
+        vertical={false}
+        windowSize={15}
+      >
+        <FlatList
+          activeAnimationOptions={null}
+          activeAnimationType="timing"
+          activeSlideAlignment="center"
+          activeSlideOffset={20}
+          apparitionDelay={0}
+          automaticallyAdjustContentInsets={false}
+          autoplay={false}
+          autoplayDelay={1000}
+          autoplayInterval={3000}
+          callbackOffsetMargin={5}
+          containerCustomStyle={Object {}}
+          contentContainerCustomStyle={Object {}}
+          contentContainerStyle={
+            Array [
+              Object {
+                "paddingLeft": 75,
+                "paddingRight": 75,
+              },
+              Object {},
+            ]
+          }
+          data={
+            Array [
+              Object {
+                "_id": "5e9e969745787b2cc452754f",
+                "category": "5e9e969745787b2cc452752f",
+                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                "price": 11,
+                "rate": 4.5,
+                "title": "Marinara Seafood Spaghetti",
+              },
+              Object {
+                "_id": "5e9e969745787b2cc452754a",
+                "category": "5e9e969745787b2cc452752f",
+                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                "price": 10,
+                "rate": 4,
+                "title": "Super Supreme",
+              },
+              Object {
+                "_id": "5e9e969745787b2cc452754b",
+                "category": "5e9e969745787b2cc452752f",
+                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                "price": 9,
+                "rate": 3.5,
+                "title": "Pizza 4 cheese",
+              },
+            ]
+          }
+          decelerationRate="fast"
+          directionalLockEnabled={true}
+          disableVirtualization={false}
+          enableMomentum={false}
+          enableSnap={true}
+          firstItem={0}
+          forwardedRef={[Function]}
+          hasParallaxImages={false}
+          horizontal={true}
+          inactiveSlideOpacity={0.7}
+          inactiveSlideScale={0.9}
+          inactiveSlideShift={0}
+          initialNumToRender={7}
+          inverted={false}
+          itemWidth={600}
+          keyExtractor={[Function]}
+          layout="default"
+          lockScrollTimeoutDuration={1000}
+          lockScrollWhileSnapping={false}
+          loop={false}
+          loopClonesPerSide={3}
+          maxToRenderPerBatch={15}
+          numColumns={1}
+          onEndReachedThreshold={2}
+          onLayout={[Function]}
+          onResponderRelease={[Function]}
+          onScroll={[Function]}
+          onScrollBeginDrag={[Function]}
+          onScrollEndDrag={[Function]}
+          onStartShouldSetResponderCapture={[Function]}
+          onTouchEnd={[Function]}
+          onTouchStart={[Function]}
+          overScrollMode="never"
+          pinchGestureEnabled={false}
+          removeClippedSubviews={true}
+          renderItem={[Function]}
+          scrollEnabled={true}
+          scrollEventThrottle={1}
+          scrollsToTop={false}
+          shouldOptimizeUpdates={true}
+          showsHorizontalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
+          slideStyle={Object {}}
+          sliderWidth={750}
+          style={
+            Object {
+              "flexDirection": "row",
+              "opacity": 0,
+              "width": 750,
+            }
+          }
+          swipeThreshold={20}
+          updateCellsBatchingPeriod={50}
+          useScrollView={false}
+          vertical={false}
+          windowSize={15}
+        >
+          <VirtualizedList
+            activeAnimationOptions={null}
+            activeAnimationType="timing"
+            activeSlideAlignment="center"
+            activeSlideOffset={20}
+            apparitionDelay={0}
+            automaticallyAdjustContentInsets={false}
+            autoplay={false}
+            autoplayDelay={1000}
+            autoplayInterval={3000}
+            callbackOffsetMargin={5}
+            containerCustomStyle={Object {}}
+            contentContainerCustomStyle={Object {}}
+            contentContainerStyle={
+              Array [
+                Object {
+                  "paddingLeft": 75,
+                  "paddingRight": 75,
+                },
+                Object {},
+              ]
+            }
+            data={
+              Array [
+                Object {
+                  "_id": "5e9e969745787b2cc452754f",
+                  "category": "5e9e969745787b2cc452752f",
+                  "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                  "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                  "price": 11,
+                  "rate": 4.5,
+                  "title": "Marinara Seafood Spaghetti",
+                },
+                Object {
+                  "_id": "5e9e969745787b2cc452754a",
+                  "category": "5e9e969745787b2cc452752f",
+                  "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                  "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                  "price": 10,
+                  "rate": 4,
+                  "title": "Super Supreme",
+                },
+                Object {
+                  "_id": "5e9e969745787b2cc452754b",
+                  "category": "5e9e969745787b2cc452752f",
+                  "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                  "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                  "price": 9,
+                  "rate": 3.5,
+                  "title": "Pizza 4 cheese",
+                },
+              ]
+            }
+            decelerationRate="fast"
+            directionalLockEnabled={true}
+            disableVirtualization={false}
+            enableMomentum={false}
+            enableSnap={true}
+            firstItem={0}
+            forwardedRef={[Function]}
+            getItem={[Function]}
+            getItemCount={[Function]}
+            hasParallaxImages={false}
+            horizontal={true}
+            inactiveSlideOpacity={0.7}
+            inactiveSlideScale={0.9}
+            inactiveSlideShift={0}
+            initialNumToRender={7}
+            inverted={false}
+            itemWidth={600}
+            keyExtractor={[Function]}
+            layout="default"
+            lockScrollTimeoutDuration={1000}
+            lockScrollWhileSnapping={false}
+            loop={false}
+            loopClonesPerSide={3}
+            maxToRenderPerBatch={15}
+            onEndReachedThreshold={2}
+            onLayout={[Function]}
+            onResponderRelease={[Function]}
+            onScroll={[Function]}
+            onScrollBeginDrag={[Function]}
+            onScrollEndDrag={[Function]}
+            onStartShouldSetResponderCapture={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            overScrollMode="never"
+            pinchGestureEnabled={false}
+            removeClippedSubviews={true}
+            renderItem={[Function]}
+            scrollEnabled={true}
+            scrollEventThrottle={1}
+            scrollsToTop={false}
+            shouldOptimizeUpdates={true}
+            showsHorizontalScrollIndicator={false}
+            showsVerticalScrollIndicator={false}
+            slideStyle={Object {}}
+            sliderWidth={750}
+            style={
+              Object {
+                "flexDirection": "row",
+                "opacity": 0,
+                "width": 750,
+              }
+            }
+            swipeThreshold={20}
+            updateCellsBatchingPeriod={50}
+            useScrollView={false}
+            vertical={false}
+            viewabilityConfigCallbackPairs={Array []}
+            windowSize={15}
+          >
+            <ScrollViewMock
+              activeAnimationOptions={null}
+              activeAnimationType="timing"
+              activeSlideAlignment="center"
+              activeSlideOffset={20}
+              apparitionDelay={0}
+              automaticallyAdjustContentInsets={false}
+              autoplay={false}
+              autoplayDelay={1000}
+              autoplayInterval={3000}
+              callbackOffsetMargin={5}
+              containerCustomStyle={Object {}}
+              contentContainerCustomStyle={Object {}}
+              contentContainerStyle={
+                Array [
+                  Object {
+                    "paddingLeft": 75,
+                    "paddingRight": 75,
+                  },
+                  Object {},
+                ]
+              }
+              data={
+                Array [
+                  Object {
+                    "_id": "5e9e969745787b2cc452754f",
+                    "category": "5e9e969745787b2cc452752f",
+                    "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                    "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                    "price": 11,
+                    "rate": 4.5,
+                    "title": "Marinara Seafood Spaghetti",
+                  },
+                  Object {
+                    "_id": "5e9e969745787b2cc452754a",
+                    "category": "5e9e969745787b2cc452752f",
+                    "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                    "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                    "price": 10,
+                    "rate": 4,
+                    "title": "Super Supreme",
+                  },
+                  Object {
+                    "_id": "5e9e969745787b2cc452754b",
+                    "category": "5e9e969745787b2cc452752f",
+                    "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                    "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                    "price": 9,
+                    "rate": 3.5,
+                    "title": "Pizza 4 cheese",
+                  },
+                ]
+              }
+              decelerationRate="fast"
+              directionalLockEnabled={true}
+              disableVirtualization={false}
+              enableMomentum={false}
+              enableSnap={true}
+              firstItem={0}
+              forwardedRef={[Function]}
+              getItem={[Function]}
+              getItemCount={[Function]}
+              hasParallaxImages={false}
+              horizontal={true}
+              inactiveSlideOpacity={0.7}
+              inactiveSlideScale={0.9}
+              inactiveSlideShift={0}
+              initialNumToRender={7}
+              invertStickyHeaders={false}
+              inverted={false}
+              itemWidth={600}
+              keyExtractor={[Function]}
+              layout="default"
+              lockScrollTimeoutDuration={1000}
+              lockScrollWhileSnapping={false}
+              loop={false}
+              loopClonesPerSide={3}
+              maxToRenderPerBatch={15}
+              onContentSizeChange={[Function]}
+              onEndReachedThreshold={2}
+              onLayout={[Function]}
+              onMomentumScrollEnd={[Function]}
+              onResponderRelease={[Function]}
+              onScroll={[Function]}
+              onScrollBeginDrag={[Function]}
+              onScrollEndDrag={[Function]}
+              onStartShouldSetResponderCapture={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              overScrollMode="never"
+              pinchGestureEnabled={false}
+              removeClippedSubviews={true}
+              renderItem={[Function]}
+              scrollEnabled={true}
+              scrollEventThrottle={1}
+              scrollsToTop={false}
+              shouldOptimizeUpdates={true}
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              slideStyle={Object {}}
+              sliderWidth={750}
+              stickyHeaderIndices={Array []}
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "opacity": 0,
+                  "width": 750,
+                }
+              }
+              swipeThreshold={20}
+              updateCellsBatchingPeriod={50}
+              useScrollView={false}
+              vertical={false}
+              viewabilityConfigCallbackPairs={Array []}
+              windowSize={15}
+            >
+              <RCTScrollView
+                activeAnimationOptions={null}
+                activeAnimationType="timing"
+                activeSlideAlignment="center"
+                activeSlideOffset={20}
+                apparitionDelay={0}
+                automaticallyAdjustContentInsets={false}
+                autoplay={false}
+                autoplayDelay={1000}
+                autoplayInterval={3000}
+                callbackOffsetMargin={5}
+                containerCustomStyle={Object {}}
+                contentContainerCustomStyle={Object {}}
+                contentContainerStyle={
+                  Array [
+                    Object {
+                      "paddingLeft": 75,
+                      "paddingRight": 75,
+                    },
+                    Object {},
+                  ]
+                }
+                data={
+                  Array [
+                    Object {
+                      "_id": "5e9e969745787b2cc452754f",
+                      "category": "5e9e969745787b2cc452752f",
+                      "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                      "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                      "price": 11,
+                      "rate": 4.5,
+                      "title": "Marinara Seafood Spaghetti",
+                    },
+                    Object {
+                      "_id": "5e9e969745787b2cc452754a",
+                      "category": "5e9e969745787b2cc452752f",
+                      "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                      "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                      "price": 10,
+                      "rate": 4,
+                      "title": "Super Supreme",
+                    },
+                    Object {
+                      "_id": "5e9e969745787b2cc452754b",
+                      "category": "5e9e969745787b2cc452752f",
+                      "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                      "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                      "price": 9,
+                      "rate": 3.5,
+                      "title": "Pizza 4 cheese",
+                    },
+                  ]
+                }
+                decelerationRate="fast"
+                directionalLockEnabled={true}
+                disableVirtualization={false}
+                enableMomentum={false}
+                enableSnap={true}
+                firstItem={0}
+                forwardedRef={[Function]}
+                getItem={[Function]}
+                getItemCount={[Function]}
+                hasParallaxImages={false}
+                horizontal={true}
+                inactiveSlideOpacity={0.7}
+                inactiveSlideScale={0.9}
+                inactiveSlideShift={0}
+                initialNumToRender={7}
+                invertStickyHeaders={false}
+                inverted={false}
+                itemWidth={600}
+                keyExtractor={[Function]}
+                layout="default"
+                lockScrollTimeoutDuration={1000}
+                lockScrollWhileSnapping={false}
+                loop={false}
+                loopClonesPerSide={3}
+                maxToRenderPerBatch={15}
+                onContentSizeChange={[Function]}
+                onEndReachedThreshold={2}
+                onLayout={[Function]}
+                onMomentumScrollEnd={[Function]}
+                onResponderRelease={[Function]}
+                onScroll={[Function]}
+                onScrollBeginDrag={[Function]}
+                onScrollEndDrag={[Function]}
+                onStartShouldSetResponderCapture={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
+                overScrollMode="never"
+                pinchGestureEnabled={false}
+                removeClippedSubviews={true}
+                renderItem={[Function]}
+                scrollEnabled={true}
+                scrollEventThrottle={1}
+                scrollsToTop={false}
+                shouldOptimizeUpdates={true}
+                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
+                slideStyle={Object {}}
+                sliderWidth={750}
+                stickyHeaderIndices={Array []}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "opacity": 0,
+                    "width": 750,
+                  }
+                }
+                swipeThreshold={20}
+                updateCellsBatchingPeriod={50}
+                useScrollView={false}
+                vertical={false}
+                viewabilityConfigCallbackPairs={Array []}
+                windowSize={15}
+              >
+                <RCTScrollView
+                  activeAnimationOptions={null}
+                  activeAnimationType="timing"
+                  activeSlideAlignment="center"
+                  activeSlideOffset={20}
+                  apparitionDelay={0}
+                  automaticallyAdjustContentInsets={false}
+                  autoplay={false}
+                  autoplayDelay={1000}
+                  autoplayInterval={3000}
+                  callbackOffsetMargin={5}
+                  containerCustomStyle={Object {}}
+                  contentContainerCustomStyle={Object {}}
+                  contentContainerStyle={
+                    Array [
+                      Object {
+                        "paddingLeft": 75,
+                        "paddingRight": 75,
+                      },
+                      Object {},
+                    ]
+                  }
+                  data={
+                    Array [
+                      Object {
+                        "_id": "5e9e969745787b2cc452754f",
+                        "category": "5e9e969745787b2cc452752f",
+                        "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                        "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                        "price": 11,
+                        "rate": 4.5,
+                        "title": "Marinara Seafood Spaghetti",
+                      },
+                      Object {
+                        "_id": "5e9e969745787b2cc452754a",
+                        "category": "5e9e969745787b2cc452752f",
+                        "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                        "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                        "price": 10,
+                        "rate": 4,
+                        "title": "Super Supreme",
+                      },
+                      Object {
+                        "_id": "5e9e969745787b2cc452754b",
+                        "category": "5e9e969745787b2cc452752f",
+                        "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                        "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                        "price": 9,
+                        "rate": 3.5,
+                        "title": "Pizza 4 cheese",
+                      },
+                    ]
+                  }
+                  decelerationRate="fast"
+                  directionalLockEnabled={true}
+                  disableVirtualization={false}
+                  enableMomentum={false}
+                  enableSnap={true}
+                  firstItem={0}
+                  forwardedRef={[Function]}
+                  getItem={[Function]}
+                  getItemCount={[Function]}
+                  hasParallaxImages={false}
+                  horizontal={true}
+                  inactiveSlideOpacity={0.7}
+                  inactiveSlideScale={0.9}
+                  inactiveSlideShift={0}
+                  initialNumToRender={7}
+                  invertStickyHeaders={false}
+                  inverted={false}
+                  itemWidth={600}
+                  keyExtractor={[Function]}
+                  layout="default"
+                  lockScrollTimeoutDuration={1000}
+                  lockScrollWhileSnapping={false}
+                  loop={false}
+                  loopClonesPerSide={3}
+                  maxToRenderPerBatch={15}
+                  onContentSizeChange={[Function]}
+                  onEndReachedThreshold={2}
+                  onLayout={[Function]}
+                  onMomentumScrollEnd={[Function]}
+                  onResponderRelease={[Function]}
+                  onScroll={[Function]}
+                  onScrollBeginDrag={[Function]}
+                  onScrollEndDrag={[Function]}
+                  onStartShouldSetResponderCapture={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  overScrollMode="never"
+                  pinchGestureEnabled={false}
+                  removeClippedSubviews={true}
+                  renderItem={[Function]}
+                  scrollEnabled={true}
+                  scrollEventThrottle={1}
+                  scrollsToTop={false}
+                  shouldOptimizeUpdates={true}
+                  showsHorizontalScrollIndicator={false}
+                  showsVerticalScrollIndicator={false}
+                  slideStyle={Object {}}
+                  sliderWidth={750}
+                  stickyHeaderIndices={Array []}
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "opacity": 0,
+                      "width": 750,
+                    }
+                  }
+                  swipeThreshold={20}
+                  updateCellsBatchingPeriod={50}
+                  useScrollView={false}
+                  vertical={false}
+                  viewabilityConfigCallbackPairs={Array []}
+                  windowSize={15}
+                >
+                  <View>
+                    <View>
+                      <CellRenderer
+                        cellKey="flatlist-item-0"
+                        fillRateHelper={
+                          FillRateHelper {
+                            "_anyBlankStartTime": null,
+                            "_enabled": false,
+                            "_getFrameMetrics": [Function],
+                            "_info": Info {
+                              "any_blank_count": 0,
+                              "any_blank_ms": 0,
+                              "any_blank_speed_sum": 0,
+                              "mostly_blank_count": 0,
+                              "mostly_blank_ms": 0,
+                              "pixels_blank": 0,
+                              "pixels_sampled": 0,
+                              "pixels_scrolled": 0,
+                              "sample_count": 0,
+                              "total_time_spent": 0,
+                            },
+                            "_mostlyBlankStartTime": null,
+                            "_samplesStartTime": null,
+                          }
+                        }
+                        horizontal={true}
+                        index={0}
+                        inversionStyle={null}
+                        item={
+                          Object {
+                            "_id": "5e9e969745787b2cc452754f",
+                            "category": "5e9e969745787b2cc452752f",
+                            "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                            "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                            "price": 11,
+                            "rate": 4.5,
+                            "title": "Marinara Seafood Spaghetti",
+                          }
+                        }
+                        key="flatlist-item-0"
+                        onLayout={[Function]}
+                        onUnmount={[Function]}
+                        onUpdateSeparators={[Function]}
+                        parentProps={
+                          Object {
+                            "activeAnimationOptions": null,
+                            "activeAnimationType": "timing",
+                            "activeSlideAlignment": "center",
+                            "activeSlideOffset": 20,
+                            "apparitionDelay": 0,
+                            "automaticallyAdjustContentInsets": false,
+                            "autoplay": false,
+                            "autoplayDelay": 1000,
+                            "autoplayInterval": 3000,
+                            "callbackOffsetMargin": 5,
+                            "collapsable": undefined,
+                            "containerCustomStyle": Object {},
+                            "contentContainerCustomStyle": Object {},
+                            "contentContainerStyle": Array [
+                              Object {
+                                "paddingLeft": 75,
+                                "paddingRight": 75,
+                              },
+                              Object {},
+                            ],
+                            "data": Array [
+                              Object {
+                                "_id": "5e9e969745787b2cc452754f",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 11,
+                                "rate": 4.5,
+                                "title": "Marinara Seafood Spaghetti",
+                              },
+                              Object {
+                                "_id": "5e9e969745787b2cc452754a",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 10,
+                                "rate": 4,
+                                "title": "Super Supreme",
+                              },
+                              Object {
+                                "_id": "5e9e969745787b2cc452754b",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 9,
+                                "rate": 3.5,
+                                "title": "Pizza 4 cheese",
+                              },
+                            ],
+                            "decelerationRate": "fast",
+                            "directionalLockEnabled": true,
+                            "disableVirtualization": false,
+                            "enableMomentum": false,
+                            "enableSnap": true,
+                            "firstItem": 0,
+                            "forwardedRef": [Function],
+                            "getItem": [Function],
+                            "getItemCount": [Function],
+                            "hasParallaxImages": false,
+                            "horizontal": true,
+                            "inactiveSlideOpacity": 0.7,
+                            "inactiveSlideScale": 0.9,
+                            "inactiveSlideShift": 0,
+                            "initialNumToRender": 7,
+                            "inverted": false,
+                            "itemWidth": 600,
+                            "keyExtractor": [Function],
+                            "layout": "default",
+                            "lockScrollTimeoutDuration": 1000,
+                            "lockScrollWhileSnapping": false,
+                            "loop": false,
+                            "loopClonesPerSide": 3,
+                            "maxToRenderPerBatch": 15,
+                            "onEndReachedThreshold": 2,
+                            "onLayout": [Function],
+                            "onMomentumScrollEnd": undefined,
+                            "onResponderRelease": [Function],
+                            "onScroll": [Function],
+                            "onScrollBeginDrag": [Function],
+                            "onScrollEndDrag": [Function],
+                            "onStartShouldSetResponderCapture": [Function],
+                            "onTouchEnd": [Function],
+                            "onTouchStart": [Function],
+                            "overScrollMode": "never",
+                            "pinchGestureEnabled": false,
+                            "removeClippedSubviews": true,
+                            "renderItem": [Function],
+                            "scrollEnabled": true,
+                            "scrollEventThrottle": 1,
+                            "scrollsToTop": false,
+                            "shouldOptimizeUpdates": true,
+                            "showsHorizontalScrollIndicator": false,
+                            "showsVerticalScrollIndicator": false,
+                            "slideStyle": Object {},
+                            "sliderWidth": 750,
+                            "style": Object {
+                              "flexDirection": "row",
+                              "opacity": 0,
+                              "width": 750,
+                            },
+                            "swipeThreshold": 20,
+                            "updateCellsBatchingPeriod": 50,
+                            "useScrollView": false,
+                            "vertical": false,
+                            "viewabilityConfigCallbackPairs": Array [],
+                            "windowSize": 15,
+                          }
+                        }
+                      >
+                        <View
+                          onLayout={[Function]}
+                          style={
+                            Array [
+                              Object {
+                                "flexDirection": "row",
+                              },
+                              null,
+                            ]
+                          }
+                        >
+                          <View
+                            onLayout={[Function]}
+                            style={
+                              Array [
+                                Object {
+                                  "flexDirection": "row",
+                                },
+                                null,
+                              ]
+                            }
+                          >
+                            <ForwardRef(AnimatedComponentWrapper)
+                              pointerEvents="box-none"
+                              style={
+                                Array [
+                                  Object {
+                                    "width": 600,
+                                  },
+                                  Object {},
+                                  Object {
+                                    "opacity": 1,
+                                    "transform": Array [
+                                      Object {
+                                        "scale": 1,
+                                      },
+                                    ],
+                                  },
+                                ]
+                              }
+                            >
+                              <AnimatedComponent
+                                pointerEvents="box-none"
+                                style={
+                                  Array [
+                                    Object {
+                                      "width": 600,
+                                    },
+                                    Object {},
+                                    Object {
+                                      "opacity": 1,
+                                      "transform": Array [
+                                        Object {
+                                          "scale": 1,
+                                        },
+                                      ],
+                                    },
+                                  ]
+                                }
+                              >
+                                <View
+                                  pointerEvents="box-none"
+                                  style={
+                                    Object {
+                                      "opacity": 1,
+                                      "transform": Array [
+                                        Object {
+                                          "scale": 1,
+                                        },
+                                      ],
+                                      "width": 600,
+                                    }
+                                  }
+                                >
+                                  <View
+                                    pointerEvents="box-none"
+                                    style={
+                                      Object {
+                                        "opacity": 1,
+                                        "transform": Array [
+                                          Object {
+                                            "scale": 1,
+                                          },
+                                        ],
+                                        "width": 600,
+                                      }
+                                    }
+                                  >
+                                    <ForwardRef
+                                      onPress={[Function]}
+                                      style={
+                                        Object {
+                                          "alignItems": "center",
+                                          "backgroundColor": "#FFFFFF",
+                                          "borderRadius": 20,
+                                          "elevation": 10,
+                                          "overflow": "hidden",
+                                        }
+                                      }
+                                    >
+                                      <TouchableOpacity
+                                        hostRef={null}
+                                        onPress={[Function]}
+                                        style={
+                                          Object {
+                                            "alignItems": "center",
+                                            "backgroundColor": "#FFFFFF",
+                                            "borderRadius": 20,
+                                            "elevation": 10,
+                                            "overflow": "hidden",
+                                          }
+                                        }
+                                      >
+                                        <ForwardRef(AnimatedComponentWrapper)
+                                          accessible={true}
+                                          focusable={true}
+                                          onClick={[Function]}
+                                          onResponderGrant={[Function]}
+                                          onResponderMove={[Function]}
+                                          onResponderRelease={[Function]}
+                                          onResponderTerminate={[Function]}
+                                          onResponderTerminationRequest={[Function]}
+                                          onStartShouldSetResponder={[Function]}
+                                          style={
+                                            Array [
+                                              Object {
+                                                "alignItems": "center",
+                                                "backgroundColor": "#FFFFFF",
+                                                "borderRadius": 20,
+                                                "elevation": 10,
+                                                "overflow": "hidden",
+                                              },
+                                              Object {
+                                                "opacity": 1,
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <AnimatedComponent
+                                            accessible={true}
+                                            focusable={true}
+                                            onClick={[Function]}
+                                            onResponderGrant={[Function]}
+                                            onResponderMove={[Function]}
+                                            onResponderRelease={[Function]}
+                                            onResponderTerminate={[Function]}
+                                            onResponderTerminationRequest={[Function]}
+                                            onStartShouldSetResponder={[Function]}
+                                            style={
+                                              Array [
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#FFFFFF",
+                                                  "borderRadius": 20,
+                                                  "elevation": 10,
+                                                  "overflow": "hidden",
+                                                },
+                                                Object {
+                                                  "opacity": 1,
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <View
+                                              accessible={true}
+                                              focusable={true}
+                                              onClick={[Function]}
+                                              onResponderGrant={[Function]}
+                                              onResponderMove={[Function]}
+                                              onResponderRelease={[Function]}
+                                              onResponderTerminate={[Function]}
+                                              onResponderTerminationRequest={[Function]}
+                                              onStartShouldSetResponder={[Function]}
+                                              style={
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#FFFFFF",
+                                                  "borderRadius": 20,
+                                                  "elevation": 10,
+                                                  "opacity": 1,
+                                                  "overflow": "hidden",
+                                                }
+                                              }
+                                            >
+                                              <View
+                                                accessible={true}
+                                                focusable={true}
+                                                onClick={[Function]}
+                                                onResponderGrant={[Function]}
+                                                onResponderMove={[Function]}
+                                                onResponderRelease={[Function]}
+                                                onResponderTerminate={[Function]}
+                                                onResponderTerminationRequest={[Function]}
+                                                onStartShouldSetResponder={[Function]}
+                                                style={
+                                                  Object {
+                                                    "alignItems": "center",
+                                                    "backgroundColor": "#FFFFFF",
+                                                    "borderRadius": 20,
+                                                    "elevation": 10,
+                                                    "opacity": 1,
+                                                    "overflow": "hidden",
+                                                  }
+                                                }
+                                              >
+                                                <Image
+                                                  resizeMode="cover"
+                                                  source={
+                                                    Object {
+                                                      "uri": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                                    }
+                                                  }
+                                                  style={
+                                                    Object {
+                                                      "height": 450,
+                                                      "width": 600,
+                                                    }
+                                                  }
+                                                >
+                                                  <Image
+                                                    resizeMode="cover"
+                                                    source={
+                                                      Object {
+                                                        "uri": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                                      }
+                                                    }
+                                                    style={
+                                                      Object {
+                                                        "height": 450,
+                                                        "width": 600,
+                                                      }
+                                                    }
+                                                  />
+                                                </Image>
+                                                <View
+                                                  style={
+                                                    Object {
+                                                      "backgroundColor": "#0b2031",
+                                                      "height": 226.78000000000003,
+                                                      "paddingLeft": 20,
+                                                      "paddingTop": 10,
+                                                      "width": 600,
+                                                    }
+                                                  }
+                                                >
+                                                  <View
+                                                    style={
+                                                      Object {
+                                                        "backgroundColor": "#0b2031",
+                                                        "height": 226.78000000000003,
+                                                        "paddingLeft": 20,
+                                                        "paddingTop": 10,
+                                                        "width": 600,
+                                                      }
+                                                    }
+                                                  >
+                                                    <ForwardRef
+                                                      onPress={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "alignSelf": "flex-end",
+                                                          "backgroundColor": "#e5293e",
+                                                          "borderBottomRightRadius": 20,
+                                                          "borderColor": "#0b2031",
+                                                          "borderWidth": 5,
+                                                          "height": 226.78000000000003,
+                                                          "justifyContent": "center",
+                                                          "position": "absolute",
+                                                          "width": 187.5,
+                                                        }
+                                                      }
+                                                    >
+                                                      <TouchableOpacity
+                                                        hostRef={null}
+                                                        onPress={[Function]}
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "alignSelf": "flex-end",
+                                                            "backgroundColor": "#e5293e",
+                                                            "borderBottomRightRadius": 20,
+                                                            "borderColor": "#0b2031",
+                                                            "borderWidth": 5,
+                                                            "height": 226.78000000000003,
+                                                            "justifyContent": "center",
+                                                            "position": "absolute",
+                                                            "width": 187.5,
+                                                          }
+                                                        }
+                                                      >
+                                                        <ForwardRef(AnimatedComponentWrapper)
+                                                          accessible={true}
+                                                          focusable={true}
+                                                          onClick={[Function]}
+                                                          onResponderGrant={[Function]}
+                                                          onResponderMove={[Function]}
+                                                          onResponderRelease={[Function]}
+                                                          onResponderTerminate={[Function]}
+                                                          onResponderTerminationRequest={[Function]}
+                                                          onStartShouldSetResponder={[Function]}
+                                                          style={
+                                                            Array [
+                                                              Object {
+                                                                "alignItems": "center",
+                                                                "alignSelf": "flex-end",
+                                                                "backgroundColor": "#e5293e",
+                                                                "borderBottomRightRadius": 20,
+                                                                "borderColor": "#0b2031",
+                                                                "borderWidth": 5,
+                                                                "height": 226.78000000000003,
+                                                                "justifyContent": "center",
+                                                                "position": "absolute",
+                                                                "width": 187.5,
+                                                              },
+                                                              Object {
+                                                                "opacity": 1,
+                                                              },
+                                                            ]
+                                                          }
+                                                        >
+                                                          <AnimatedComponent
+                                                            accessible={true}
+                                                            focusable={true}
+                                                            onClick={[Function]}
+                                                            onResponderGrant={[Function]}
+                                                            onResponderMove={[Function]}
+                                                            onResponderRelease={[Function]}
+                                                            onResponderTerminate={[Function]}
+                                                            onResponderTerminationRequest={[Function]}
+                                                            onStartShouldSetResponder={[Function]}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "alignSelf": "flex-end",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderBottomRightRadius": 20,
+                                                                  "borderColor": "#0b2031",
+                                                                  "borderWidth": 5,
+                                                                  "height": 226.78000000000003,
+                                                                  "justifyContent": "center",
+                                                                  "position": "absolute",
+                                                                  "width": 187.5,
+                                                                },
+                                                                Object {
+                                                                  "opacity": 1,
+                                                                },
+                                                              ]
+                                                            }
+                                                          >
+                                                            <View
+                                                              accessible={true}
+                                                              focusable={true}
+                                                              onClick={[Function]}
+                                                              onResponderGrant={[Function]}
+                                                              onResponderMove={[Function]}
+                                                              onResponderRelease={[Function]}
+                                                              onResponderTerminate={[Function]}
+                                                              onResponderTerminationRequest={[Function]}
+                                                              onStartShouldSetResponder={[Function]}
+                                                              style={
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "alignSelf": "flex-end",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderBottomRightRadius": 20,
+                                                                  "borderColor": "#0b2031",
+                                                                  "borderWidth": 5,
+                                                                  "height": 226.78000000000003,
+                                                                  "justifyContent": "center",
+                                                                  "opacity": 1,
+                                                                  "position": "absolute",
+                                                                  "width": 187.5,
+                                                                }
+                                                              }
+                                                            >
+                                                              <View
+                                                                accessible={true}
+                                                                focusable={true}
+                                                                onClick={[Function]}
+                                                                onResponderGrant={[Function]}
+                                                                onResponderMove={[Function]}
+                                                                onResponderRelease={[Function]}
+                                                                onResponderTerminate={[Function]}
+                                                                onResponderTerminationRequest={[Function]}
+                                                                onStartShouldSetResponder={[Function]}
+                                                                style={
+                                                                  Object {
+                                                                    "alignItems": "center",
+                                                                    "alignSelf": "flex-end",
+                                                                    "backgroundColor": "#e5293e",
+                                                                    "borderBottomRightRadius": 20,
+                                                                    "borderColor": "#0b2031",
+                                                                    "borderWidth": 5,
+                                                                    "height": 226.78000000000003,
+                                                                    "justifyContent": "center",
+                                                                    "opacity": 1,
+                                                                    "position": "absolute",
+                                                                    "width": 187.5,
+                                                                  }
+                                                                }
+                                                              >
+                                                                <Text
+                                                                  numberOfLines={2}
+                                                                  style={
+                                                                    Object {
+                                                                      "color": "#FFFFFF",
+                                                                      "fontSize": 20,
+                                                                      "letterSpacing": 0.16,
+                                                                      "textAlign": "center",
+                                                                    }
+                                                                  }
+                                                                >
+                                                                  <Text
+                                                                    numberOfLines={2}
+                                                                    style={
+                                                                      Object {
+                                                                        "color": "#FFFFFF",
+                                                                        "fontSize": 20,
+                                                                        "letterSpacing": 0.16,
+                                                                        "textAlign": "center",
+                                                                      }
+                                                                    }
+                                                                  >
+                                                                    ORDER
+NOW
+                                                                  </Text>
+                                                                </Text>
+                                                                <PressabilityDebugView
+                                                                  color="cyan"
+                                                                />
+                                                              </View>
+                                                            </View>
+                                                          </AnimatedComponent>
+                                                        </ForwardRef(AnimatedComponentWrapper)>
+                                                      </TouchableOpacity>
+                                                    </ForwardRef>
+                                                    <Text
+                                                      numberOfLines={2}
+                                                      style={
+                                                        Object {
+                                                          "color": "#FFFFFF",
+                                                          "fontSize": 19.728,
+                                                          "letterSpacing": 0.26,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <Text
+                                                        numberOfLines={2}
+                                                        style={
+                                                          Object {
+                                                            "color": "#FFFFFF",
+                                                            "fontSize": 19.728,
+                                                            "letterSpacing": 0.26,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        Marinara Seafood Spaghetti
+                                                      </Text>
+                                                    </Text>
+                                                    <View
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "flexDirection": "row",
+                                                          "height": 15,
+                                                          "marginTop": 3,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <View
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "flexDirection": "row",
+                                                            "height": 15,
+                                                            "marginTop": 3,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          allowFontScaling={false}
+                                                          color="#ffd93f"
+                                                          name="star"
+                                                          size={13}
+                                                        >
+                                                          <Text
+                                                            allowFontScaling={false}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "color": "#ffd93f",
+                                                                  "fontSize": 13,
+                                                                },
+                                                                undefined,
+                                                                Object {
+                                                                  "fontFamily": "FontAwesome",
+                                                                  "fontStyle": "normal",
+                                                                  "fontWeight": "normal",
+                                                                },
+                                                                Object {},
+                                                              ]
+                                                            }
+                                                          >
+                                                            <Text
+                                                              allowFontScaling={false}
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "color": "#ffd93f",
+                                                                    "fontSize": 13,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontFamily": "FontAwesome",
+                                                                    "fontStyle": "normal",
+                                                                    "fontWeight": "normal",
+                                                                  },
+                                                                  Object {},
+                                                                ]
+                                                              }
+                                                            >
+                                                              
+                                                            </Text>
+                                                          </Text>
+                                                        </Icon>
+                                                        <Text
+                                                          style={
+                                                            Object {
+                                                              "color": "#FFFFFF",
+                                                              "fontSize": 13,
+                                                              "letterSpacing": 0.16,
+                                                              "marginLeft": 10,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Text
+                                                            style={
+                                                              Object {
+                                                                "color": "#FFFFFF",
+                                                                "fontSize": 13,
+                                                                "letterSpacing": 0.16,
+                                                                "marginLeft": 10,
+                                                              }
+                                                            }
+                                                          >
+                                                            Rating: 
+                                                            4.5
+                                                          </Text>
+                                                        </Text>
+                                                      </View>
+                                                    </View>
+                                                    <View
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "flexDirection": "row",
+                                                          "height": 15,
+                                                          "marginTop": 3,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <View
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "flexDirection": "row",
+                                                            "height": 15,
+                                                            "marginTop": 3,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          allowFontScaling={false}
+                                                          color="#FFFFFF"
+                                                          name="dollar"
+                                                          size={13}
+                                                        >
+                                                          <Text
+                                                            allowFontScaling={false}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "color": "#FFFFFF",
+                                                                  "fontSize": 13,
+                                                                },
+                                                                undefined,
+                                                                Object {
+                                                                  "fontFamily": "FontAwesome",
+                                                                  "fontStyle": "normal",
+                                                                  "fontWeight": "normal",
+                                                                },
+                                                                Object {},
+                                                              ]
+                                                            }
+                                                          >
+                                                            <Text
+                                                              allowFontScaling={false}
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "color": "#FFFFFF",
+                                                                    "fontSize": 13,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontFamily": "FontAwesome",
+                                                                    "fontStyle": "normal",
+                                                                    "fontWeight": "normal",
+                                                                  },
+                                                                  Object {},
+                                                                ]
+                                                              }
+                                                            >
+                                                              
+                                                            </Text>
+                                                          </Text>
+                                                        </Icon>
+                                                        <Text
+                                                          style={
+                                                            Object {
+                                                              "color": "#FFFFFF",
+                                                              "fontSize": 13,
+                                                              "letterSpacing": 0.16,
+                                                              "marginLeft": 10,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Text
+                                                            style={
+                                                              Object {
+                                                                "color": "#FFFFFF",
+                                                                "fontSize": 13,
+                                                                "letterSpacing": 0.16,
+                                                                "marginLeft": 10,
+                                                              }
+                                                            }
+                                                          >
+                                                            Price: 
+                                                            11
+                                                          </Text>
+                                                        </Text>
+                                                      </View>
+                                                    </View>
+                                                  </View>
+                                                </View>
+                                                <PressabilityDebugView
+                                                  color="cyan"
+                                                />
+                                              </View>
+                                            </View>
+                                          </AnimatedComponent>
+                                        </ForwardRef(AnimatedComponentWrapper)>
+                                      </TouchableOpacity>
+                                    </ForwardRef>
+                                  </View>
+                                </View>
+                              </AnimatedComponent>
+                            </ForwardRef(AnimatedComponentWrapper)>
+                          </View>
+                        </View>
+                      </CellRenderer>
+                      <CellRenderer
+                        cellKey="flatlist-item-1"
+                        fillRateHelper={
+                          FillRateHelper {
+                            "_anyBlankStartTime": null,
+                            "_enabled": false,
+                            "_getFrameMetrics": [Function],
+                            "_info": Info {
+                              "any_blank_count": 0,
+                              "any_blank_ms": 0,
+                              "any_blank_speed_sum": 0,
+                              "mostly_blank_count": 0,
+                              "mostly_blank_ms": 0,
+                              "pixels_blank": 0,
+                              "pixels_sampled": 0,
+                              "pixels_scrolled": 0,
+                              "sample_count": 0,
+                              "total_time_spent": 0,
+                            },
+                            "_mostlyBlankStartTime": null,
+                            "_samplesStartTime": null,
+                          }
+                        }
+                        horizontal={true}
+                        index={1}
+                        inversionStyle={null}
+                        item={
+                          Object {
+                            "_id": "5e9e969745787b2cc452754a",
+                            "category": "5e9e969745787b2cc452752f",
+                            "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                            "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                            "price": 10,
+                            "rate": 4,
+                            "title": "Super Supreme",
+                          }
+                        }
+                        key="flatlist-item-1"
+                        onLayout={[Function]}
+                        onUnmount={[Function]}
+                        onUpdateSeparators={[Function]}
+                        parentProps={
+                          Object {
+                            "activeAnimationOptions": null,
+                            "activeAnimationType": "timing",
+                            "activeSlideAlignment": "center",
+                            "activeSlideOffset": 20,
+                            "apparitionDelay": 0,
+                            "automaticallyAdjustContentInsets": false,
+                            "autoplay": false,
+                            "autoplayDelay": 1000,
+                            "autoplayInterval": 3000,
+                            "callbackOffsetMargin": 5,
+                            "collapsable": undefined,
+                            "containerCustomStyle": Object {},
+                            "contentContainerCustomStyle": Object {},
+                            "contentContainerStyle": Array [
+                              Object {
+                                "paddingLeft": 75,
+                                "paddingRight": 75,
+                              },
+                              Object {},
+                            ],
+                            "data": Array [
+                              Object {
+                                "_id": "5e9e969745787b2cc452754f",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 11,
+                                "rate": 4.5,
+                                "title": "Marinara Seafood Spaghetti",
+                              },
+                              Object {
+                                "_id": "5e9e969745787b2cc452754a",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 10,
+                                "rate": 4,
+                                "title": "Super Supreme",
+                              },
+                              Object {
+                                "_id": "5e9e969745787b2cc452754b",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 9,
+                                "rate": 3.5,
+                                "title": "Pizza 4 cheese",
+                              },
+                            ],
+                            "decelerationRate": "fast",
+                            "directionalLockEnabled": true,
+                            "disableVirtualization": false,
+                            "enableMomentum": false,
+                            "enableSnap": true,
+                            "firstItem": 0,
+                            "forwardedRef": [Function],
+                            "getItem": [Function],
+                            "getItemCount": [Function],
+                            "hasParallaxImages": false,
+                            "horizontal": true,
+                            "inactiveSlideOpacity": 0.7,
+                            "inactiveSlideScale": 0.9,
+                            "inactiveSlideShift": 0,
+                            "initialNumToRender": 7,
+                            "inverted": false,
+                            "itemWidth": 600,
+                            "keyExtractor": [Function],
+                            "layout": "default",
+                            "lockScrollTimeoutDuration": 1000,
+                            "lockScrollWhileSnapping": false,
+                            "loop": false,
+                            "loopClonesPerSide": 3,
+                            "maxToRenderPerBatch": 15,
+                            "onEndReachedThreshold": 2,
+                            "onLayout": [Function],
+                            "onMomentumScrollEnd": undefined,
+                            "onResponderRelease": [Function],
+                            "onScroll": [Function],
+                            "onScrollBeginDrag": [Function],
+                            "onScrollEndDrag": [Function],
+                            "onStartShouldSetResponderCapture": [Function],
+                            "onTouchEnd": [Function],
+                            "onTouchStart": [Function],
+                            "overScrollMode": "never",
+                            "pinchGestureEnabled": false,
+                            "removeClippedSubviews": true,
+                            "renderItem": [Function],
+                            "scrollEnabled": true,
+                            "scrollEventThrottle": 1,
+                            "scrollsToTop": false,
+                            "shouldOptimizeUpdates": true,
+                            "showsHorizontalScrollIndicator": false,
+                            "showsVerticalScrollIndicator": false,
+                            "slideStyle": Object {},
+                            "sliderWidth": 750,
+                            "style": Object {
+                              "flexDirection": "row",
+                              "opacity": 0,
+                              "width": 750,
+                            },
+                            "swipeThreshold": 20,
+                            "updateCellsBatchingPeriod": 50,
+                            "useScrollView": false,
+                            "vertical": false,
+                            "viewabilityConfigCallbackPairs": Array [],
+                            "windowSize": 15,
+                          }
+                        }
+                        prevCellKey="flatlist-item-0"
+                      >
+                        <View
+                          onLayout={[Function]}
+                          style={
+                            Array [
+                              Object {
+                                "flexDirection": "row",
+                              },
+                              null,
+                            ]
+                          }
+                        >
+                          <View
+                            onLayout={[Function]}
+                            style={
+                              Array [
+                                Object {
+                                  "flexDirection": "row",
+                                },
+                                null,
+                              ]
+                            }
+                          >
+                            <ForwardRef(AnimatedComponentWrapper)
+                              pointerEvents="box-none"
+                              style={
+                                Array [
+                                  Object {
+                                    "width": 600,
+                                  },
+                                  Object {},
+                                  Object {
+                                    "opacity": 0.7,
+                                    "transform": Array [
+                                      Object {
+                                        "scale": 0.9,
+                                      },
+                                    ],
+                                  },
+                                ]
+                              }
+                            >
+                              <AnimatedComponent
+                                pointerEvents="box-none"
+                                style={
+                                  Array [
+                                    Object {
+                                      "width": 600,
+                                    },
+                                    Object {},
+                                    Object {
+                                      "opacity": 0.7,
+                                      "transform": Array [
+                                        Object {
+                                          "scale": 0.9,
+                                        },
+                                      ],
+                                    },
+                                  ]
+                                }
+                              >
+                                <View
+                                  pointerEvents="box-none"
+                                  style={
+                                    Object {
+                                      "opacity": 0.7,
+                                      "transform": Array [
+                                        Object {
+                                          "scale": 0.9,
+                                        },
+                                      ],
+                                      "width": 600,
+                                    }
+                                  }
+                                >
+                                  <View
+                                    pointerEvents="box-none"
+                                    style={
+                                      Object {
+                                        "opacity": 0.7,
+                                        "transform": Array [
+                                          Object {
+                                            "scale": 0.9,
+                                          },
+                                        ],
+                                        "width": 600,
+                                      }
+                                    }
+                                  >
+                                    <ForwardRef
+                                      onPress={[Function]}
+                                      style={
+                                        Object {
+                                          "alignItems": "center",
+                                          "backgroundColor": "#FFFFFF",
+                                          "borderRadius": 20,
+                                          "elevation": 10,
+                                          "overflow": "hidden",
+                                        }
+                                      }
+                                    >
+                                      <TouchableOpacity
+                                        hostRef={null}
+                                        onPress={[Function]}
+                                        style={
+                                          Object {
+                                            "alignItems": "center",
+                                            "backgroundColor": "#FFFFFF",
+                                            "borderRadius": 20,
+                                            "elevation": 10,
+                                            "overflow": "hidden",
+                                          }
+                                        }
+                                      >
+                                        <ForwardRef(AnimatedComponentWrapper)
+                                          accessible={true}
+                                          focusable={true}
+                                          onClick={[Function]}
+                                          onResponderGrant={[Function]}
+                                          onResponderMove={[Function]}
+                                          onResponderRelease={[Function]}
+                                          onResponderTerminate={[Function]}
+                                          onResponderTerminationRequest={[Function]}
+                                          onStartShouldSetResponder={[Function]}
+                                          style={
+                                            Array [
+                                              Object {
+                                                "alignItems": "center",
+                                                "backgroundColor": "#FFFFFF",
+                                                "borderRadius": 20,
+                                                "elevation": 10,
+                                                "overflow": "hidden",
+                                              },
+                                              Object {
+                                                "opacity": 1,
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <AnimatedComponent
+                                            accessible={true}
+                                            focusable={true}
+                                            onClick={[Function]}
+                                            onResponderGrant={[Function]}
+                                            onResponderMove={[Function]}
+                                            onResponderRelease={[Function]}
+                                            onResponderTerminate={[Function]}
+                                            onResponderTerminationRequest={[Function]}
+                                            onStartShouldSetResponder={[Function]}
+                                            style={
+                                              Array [
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#FFFFFF",
+                                                  "borderRadius": 20,
+                                                  "elevation": 10,
+                                                  "overflow": "hidden",
+                                                },
+                                                Object {
+                                                  "opacity": 1,
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <View
+                                              accessible={true}
+                                              focusable={true}
+                                              onClick={[Function]}
+                                              onResponderGrant={[Function]}
+                                              onResponderMove={[Function]}
+                                              onResponderRelease={[Function]}
+                                              onResponderTerminate={[Function]}
+                                              onResponderTerminationRequest={[Function]}
+                                              onStartShouldSetResponder={[Function]}
+                                              style={
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#FFFFFF",
+                                                  "borderRadius": 20,
+                                                  "elevation": 10,
+                                                  "opacity": 1,
+                                                  "overflow": "hidden",
+                                                }
+                                              }
+                                            >
+                                              <View
+                                                accessible={true}
+                                                focusable={true}
+                                                onClick={[Function]}
+                                                onResponderGrant={[Function]}
+                                                onResponderMove={[Function]}
+                                                onResponderRelease={[Function]}
+                                                onResponderTerminate={[Function]}
+                                                onResponderTerminationRequest={[Function]}
+                                                onStartShouldSetResponder={[Function]}
+                                                style={
+                                                  Object {
+                                                    "alignItems": "center",
+                                                    "backgroundColor": "#FFFFFF",
+                                                    "borderRadius": 20,
+                                                    "elevation": 10,
+                                                    "opacity": 1,
+                                                    "overflow": "hidden",
+                                                  }
+                                                }
+                                              >
+                                                <Image
+                                                  resizeMode="cover"
+                                                  source={
+                                                    Object {
+                                                      "uri": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                                    }
+                                                  }
+                                                  style={
+                                                    Object {
+                                                      "height": 450,
+                                                      "width": 600,
+                                                    }
+                                                  }
+                                                >
+                                                  <Image
+                                                    resizeMode="cover"
+                                                    source={
+                                                      Object {
+                                                        "uri": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                                      }
+                                                    }
+                                                    style={
+                                                      Object {
+                                                        "height": 450,
+                                                        "width": 600,
+                                                      }
+                                                    }
+                                                  />
+                                                </Image>
+                                                <View
+                                                  style={
+                                                    Object {
+                                                      "backgroundColor": "#0b2031",
+                                                      "height": 226.78000000000003,
+                                                      "paddingLeft": 20,
+                                                      "paddingTop": 10,
+                                                      "width": 600,
+                                                    }
+                                                  }
+                                                >
+                                                  <View
+                                                    style={
+                                                      Object {
+                                                        "backgroundColor": "#0b2031",
+                                                        "height": 226.78000000000003,
+                                                        "paddingLeft": 20,
+                                                        "paddingTop": 10,
+                                                        "width": 600,
+                                                      }
+                                                    }
+                                                  >
+                                                    <ForwardRef
+                                                      onPress={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "alignSelf": "flex-end",
+                                                          "backgroundColor": "#e5293e",
+                                                          "borderBottomRightRadius": 20,
+                                                          "borderColor": "#0b2031",
+                                                          "borderWidth": 5,
+                                                          "height": 226.78000000000003,
+                                                          "justifyContent": "center",
+                                                          "position": "absolute",
+                                                          "width": 187.5,
+                                                        }
+                                                      }
+                                                    >
+                                                      <TouchableOpacity
+                                                        hostRef={null}
+                                                        onPress={[Function]}
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "alignSelf": "flex-end",
+                                                            "backgroundColor": "#e5293e",
+                                                            "borderBottomRightRadius": 20,
+                                                            "borderColor": "#0b2031",
+                                                            "borderWidth": 5,
+                                                            "height": 226.78000000000003,
+                                                            "justifyContent": "center",
+                                                            "position": "absolute",
+                                                            "width": 187.5,
+                                                          }
+                                                        }
+                                                      >
+                                                        <ForwardRef(AnimatedComponentWrapper)
+                                                          accessible={true}
+                                                          focusable={true}
+                                                          onClick={[Function]}
+                                                          onResponderGrant={[Function]}
+                                                          onResponderMove={[Function]}
+                                                          onResponderRelease={[Function]}
+                                                          onResponderTerminate={[Function]}
+                                                          onResponderTerminationRequest={[Function]}
+                                                          onStartShouldSetResponder={[Function]}
+                                                          style={
+                                                            Array [
+                                                              Object {
+                                                                "alignItems": "center",
+                                                                "alignSelf": "flex-end",
+                                                                "backgroundColor": "#e5293e",
+                                                                "borderBottomRightRadius": 20,
+                                                                "borderColor": "#0b2031",
+                                                                "borderWidth": 5,
+                                                                "height": 226.78000000000003,
+                                                                "justifyContent": "center",
+                                                                "position": "absolute",
+                                                                "width": 187.5,
+                                                              },
+                                                              Object {
+                                                                "opacity": 1,
+                                                              },
+                                                            ]
+                                                          }
+                                                        >
+                                                          <AnimatedComponent
+                                                            accessible={true}
+                                                            focusable={true}
+                                                            onClick={[Function]}
+                                                            onResponderGrant={[Function]}
+                                                            onResponderMove={[Function]}
+                                                            onResponderRelease={[Function]}
+                                                            onResponderTerminate={[Function]}
+                                                            onResponderTerminationRequest={[Function]}
+                                                            onStartShouldSetResponder={[Function]}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "alignSelf": "flex-end",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderBottomRightRadius": 20,
+                                                                  "borderColor": "#0b2031",
+                                                                  "borderWidth": 5,
+                                                                  "height": 226.78000000000003,
+                                                                  "justifyContent": "center",
+                                                                  "position": "absolute",
+                                                                  "width": 187.5,
+                                                                },
+                                                                Object {
+                                                                  "opacity": 1,
+                                                                },
+                                                              ]
+                                                            }
+                                                          >
+                                                            <View
+                                                              accessible={true}
+                                                              focusable={true}
+                                                              onClick={[Function]}
+                                                              onResponderGrant={[Function]}
+                                                              onResponderMove={[Function]}
+                                                              onResponderRelease={[Function]}
+                                                              onResponderTerminate={[Function]}
+                                                              onResponderTerminationRequest={[Function]}
+                                                              onStartShouldSetResponder={[Function]}
+                                                              style={
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "alignSelf": "flex-end",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderBottomRightRadius": 20,
+                                                                  "borderColor": "#0b2031",
+                                                                  "borderWidth": 5,
+                                                                  "height": 226.78000000000003,
+                                                                  "justifyContent": "center",
+                                                                  "opacity": 1,
+                                                                  "position": "absolute",
+                                                                  "width": 187.5,
+                                                                }
+                                                              }
+                                                            >
+                                                              <View
+                                                                accessible={true}
+                                                                focusable={true}
+                                                                onClick={[Function]}
+                                                                onResponderGrant={[Function]}
+                                                                onResponderMove={[Function]}
+                                                                onResponderRelease={[Function]}
+                                                                onResponderTerminate={[Function]}
+                                                                onResponderTerminationRequest={[Function]}
+                                                                onStartShouldSetResponder={[Function]}
+                                                                style={
+                                                                  Object {
+                                                                    "alignItems": "center",
+                                                                    "alignSelf": "flex-end",
+                                                                    "backgroundColor": "#e5293e",
+                                                                    "borderBottomRightRadius": 20,
+                                                                    "borderColor": "#0b2031",
+                                                                    "borderWidth": 5,
+                                                                    "height": 226.78000000000003,
+                                                                    "justifyContent": "center",
+                                                                    "opacity": 1,
+                                                                    "position": "absolute",
+                                                                    "width": 187.5,
+                                                                  }
+                                                                }
+                                                              >
+                                                                <Text
+                                                                  numberOfLines={2}
+                                                                  style={
+                                                                    Object {
+                                                                      "color": "#FFFFFF",
+                                                                      "fontSize": 20,
+                                                                      "letterSpacing": 0.16,
+                                                                      "textAlign": "center",
+                                                                    }
+                                                                  }
+                                                                >
+                                                                  <Text
+                                                                    numberOfLines={2}
+                                                                    style={
+                                                                      Object {
+                                                                        "color": "#FFFFFF",
+                                                                        "fontSize": 20,
+                                                                        "letterSpacing": 0.16,
+                                                                        "textAlign": "center",
+                                                                      }
+                                                                    }
+                                                                  >
+                                                                    ORDER
+NOW
+                                                                  </Text>
+                                                                </Text>
+                                                                <PressabilityDebugView
+                                                                  color="cyan"
+                                                                />
+                                                              </View>
+                                                            </View>
+                                                          </AnimatedComponent>
+                                                        </ForwardRef(AnimatedComponentWrapper)>
+                                                      </TouchableOpacity>
+                                                    </ForwardRef>
+                                                    <Text
+                                                      numberOfLines={2}
+                                                      style={
+                                                        Object {
+                                                          "color": "#FFFFFF",
+                                                          "fontSize": 19.728,
+                                                          "letterSpacing": 0.26,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <Text
+                                                        numberOfLines={2}
+                                                        style={
+                                                          Object {
+                                                            "color": "#FFFFFF",
+                                                            "fontSize": 19.728,
+                                                            "letterSpacing": 0.26,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        Super Supreme
+                                                      </Text>
+                                                    </Text>
+                                                    <View
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "flexDirection": "row",
+                                                          "height": 15,
+                                                          "marginTop": 3,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <View
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "flexDirection": "row",
+                                                            "height": 15,
+                                                            "marginTop": 3,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          allowFontScaling={false}
+                                                          color="#ffd93f"
+                                                          name="star"
+                                                          size={13}
+                                                        >
+                                                          <Text
+                                                            allowFontScaling={false}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "color": "#ffd93f",
+                                                                  "fontSize": 13,
+                                                                },
+                                                                undefined,
+                                                                Object {
+                                                                  "fontFamily": "FontAwesome",
+                                                                  "fontStyle": "normal",
+                                                                  "fontWeight": "normal",
+                                                                },
+                                                                Object {},
+                                                              ]
+                                                            }
+                                                          >
+                                                            <Text
+                                                              allowFontScaling={false}
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "color": "#ffd93f",
+                                                                    "fontSize": 13,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontFamily": "FontAwesome",
+                                                                    "fontStyle": "normal",
+                                                                    "fontWeight": "normal",
+                                                                  },
+                                                                  Object {},
+                                                                ]
+                                                              }
+                                                            >
+                                                              
+                                                            </Text>
+                                                          </Text>
+                                                        </Icon>
+                                                        <Text
+                                                          style={
+                                                            Object {
+                                                              "color": "#FFFFFF",
+                                                              "fontSize": 13,
+                                                              "letterSpacing": 0.16,
+                                                              "marginLeft": 10,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Text
+                                                            style={
+                                                              Object {
+                                                                "color": "#FFFFFF",
+                                                                "fontSize": 13,
+                                                                "letterSpacing": 0.16,
+                                                                "marginLeft": 10,
+                                                              }
+                                                            }
+                                                          >
+                                                            Rating: 
+                                                            4
+                                                          </Text>
+                                                        </Text>
+                                                      </View>
+                                                    </View>
+                                                    <View
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "flexDirection": "row",
+                                                          "height": 15,
+                                                          "marginTop": 3,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <View
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "flexDirection": "row",
+                                                            "height": 15,
+                                                            "marginTop": 3,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          allowFontScaling={false}
+                                                          color="#FFFFFF"
+                                                          name="dollar"
+                                                          size={13}
+                                                        >
+                                                          <Text
+                                                            allowFontScaling={false}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "color": "#FFFFFF",
+                                                                  "fontSize": 13,
+                                                                },
+                                                                undefined,
+                                                                Object {
+                                                                  "fontFamily": "FontAwesome",
+                                                                  "fontStyle": "normal",
+                                                                  "fontWeight": "normal",
+                                                                },
+                                                                Object {},
+                                                              ]
+                                                            }
+                                                          >
+                                                            <Text
+                                                              allowFontScaling={false}
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "color": "#FFFFFF",
+                                                                    "fontSize": 13,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontFamily": "FontAwesome",
+                                                                    "fontStyle": "normal",
+                                                                    "fontWeight": "normal",
+                                                                  },
+                                                                  Object {},
+                                                                ]
+                                                              }
+                                                            >
+                                                              
+                                                            </Text>
+                                                          </Text>
+                                                        </Icon>
+                                                        <Text
+                                                          style={
+                                                            Object {
+                                                              "color": "#FFFFFF",
+                                                              "fontSize": 13,
+                                                              "letterSpacing": 0.16,
+                                                              "marginLeft": 10,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Text
+                                                            style={
+                                                              Object {
+                                                                "color": "#FFFFFF",
+                                                                "fontSize": 13,
+                                                                "letterSpacing": 0.16,
+                                                                "marginLeft": 10,
+                                                              }
+                                                            }
+                                                          >
+                                                            Price: 
+                                                            10
+                                                          </Text>
+                                                        </Text>
+                                                      </View>
+                                                    </View>
+                                                  </View>
+                                                </View>
+                                                <PressabilityDebugView
+                                                  color="cyan"
+                                                />
+                                              </View>
+                                            </View>
+                                          </AnimatedComponent>
+                                        </ForwardRef(AnimatedComponentWrapper)>
+                                      </TouchableOpacity>
+                                    </ForwardRef>
+                                  </View>
+                                </View>
+                              </AnimatedComponent>
+                            </ForwardRef(AnimatedComponentWrapper)>
+                          </View>
+                        </View>
+                      </CellRenderer>
+                      <CellRenderer
+                        cellKey="flatlist-item-2"
+                        fillRateHelper={
+                          FillRateHelper {
+                            "_anyBlankStartTime": null,
+                            "_enabled": false,
+                            "_getFrameMetrics": [Function],
+                            "_info": Info {
+                              "any_blank_count": 0,
+                              "any_blank_ms": 0,
+                              "any_blank_speed_sum": 0,
+                              "mostly_blank_count": 0,
+                              "mostly_blank_ms": 0,
+                              "pixels_blank": 0,
+                              "pixels_sampled": 0,
+                              "pixels_scrolled": 0,
+                              "sample_count": 0,
+                              "total_time_spent": 0,
+                            },
+                            "_mostlyBlankStartTime": null,
+                            "_samplesStartTime": null,
+                          }
+                        }
+                        horizontal={true}
+                        index={2}
+                        inversionStyle={null}
+                        item={
+                          Object {
+                            "_id": "5e9e969745787b2cc452754b",
+                            "category": "5e9e969745787b2cc452752f",
+                            "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                            "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                            "price": 9,
+                            "rate": 3.5,
+                            "title": "Pizza 4 cheese",
+                          }
+                        }
+                        key="flatlist-item-2"
+                        onLayout={[Function]}
+                        onUnmount={[Function]}
+                        onUpdateSeparators={[Function]}
+                        parentProps={
+                          Object {
+                            "activeAnimationOptions": null,
+                            "activeAnimationType": "timing",
+                            "activeSlideAlignment": "center",
+                            "activeSlideOffset": 20,
+                            "apparitionDelay": 0,
+                            "automaticallyAdjustContentInsets": false,
+                            "autoplay": false,
+                            "autoplayDelay": 1000,
+                            "autoplayInterval": 3000,
+                            "callbackOffsetMargin": 5,
+                            "collapsable": undefined,
+                            "containerCustomStyle": Object {},
+                            "contentContainerCustomStyle": Object {},
+                            "contentContainerStyle": Array [
+                              Object {
+                                "paddingLeft": 75,
+                                "paddingRight": 75,
+                              },
+                              Object {},
+                            ],
+                            "data": Array [
+                              Object {
+                                "_id": "5e9e969745787b2cc452754f",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 11,
+                                "rate": 4.5,
+                                "title": "Marinara Seafood Spaghetti",
+                              },
+                              Object {
+                                "_id": "5e9e969745787b2cc452754a",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 10,
+                                "rate": 4,
+                                "title": "Super Supreme",
+                              },
+                              Object {
+                                "_id": "5e9e969745787b2cc452754b",
+                                "category": "5e9e969745787b2cc452752f",
+                                "description": "Shrimps, squid rings, capsicum, onions in Bolognese sauce",
+                                "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                "price": 9,
+                                "rate": 3.5,
+                                "title": "Pizza 4 cheese",
+                              },
+                            ],
+                            "decelerationRate": "fast",
+                            "directionalLockEnabled": true,
+                            "disableVirtualization": false,
+                            "enableMomentum": false,
+                            "enableSnap": true,
+                            "firstItem": 0,
+                            "forwardedRef": [Function],
+                            "getItem": [Function],
+                            "getItemCount": [Function],
+                            "hasParallaxImages": false,
+                            "horizontal": true,
+                            "inactiveSlideOpacity": 0.7,
+                            "inactiveSlideScale": 0.9,
+                            "inactiveSlideShift": 0,
+                            "initialNumToRender": 7,
+                            "inverted": false,
+                            "itemWidth": 600,
+                            "keyExtractor": [Function],
+                            "layout": "default",
+                            "lockScrollTimeoutDuration": 1000,
+                            "lockScrollWhileSnapping": false,
+                            "loop": false,
+                            "loopClonesPerSide": 3,
+                            "maxToRenderPerBatch": 15,
+                            "onEndReachedThreshold": 2,
+                            "onLayout": [Function],
+                            "onMomentumScrollEnd": undefined,
+                            "onResponderRelease": [Function],
+                            "onScroll": [Function],
+                            "onScrollBeginDrag": [Function],
+                            "onScrollEndDrag": [Function],
+                            "onStartShouldSetResponderCapture": [Function],
+                            "onTouchEnd": [Function],
+                            "onTouchStart": [Function],
+                            "overScrollMode": "never",
+                            "pinchGestureEnabled": false,
+                            "removeClippedSubviews": true,
+                            "renderItem": [Function],
+                            "scrollEnabled": true,
+                            "scrollEventThrottle": 1,
+                            "scrollsToTop": false,
+                            "shouldOptimizeUpdates": true,
+                            "showsHorizontalScrollIndicator": false,
+                            "showsVerticalScrollIndicator": false,
+                            "slideStyle": Object {},
+                            "sliderWidth": 750,
+                            "style": Object {
+                              "flexDirection": "row",
+                              "opacity": 0,
+                              "width": 750,
+                            },
+                            "swipeThreshold": 20,
+                            "updateCellsBatchingPeriod": 50,
+                            "useScrollView": false,
+                            "vertical": false,
+                            "viewabilityConfigCallbackPairs": Array [],
+                            "windowSize": 15,
+                          }
+                        }
+                        prevCellKey="flatlist-item-1"
+                      >
+                        <View
+                          onLayout={[Function]}
+                          style={
+                            Array [
+                              Object {
+                                "flexDirection": "row",
+                              },
+                              null,
+                            ]
+                          }
+                        >
+                          <View
+                            onLayout={[Function]}
+                            style={
+                              Array [
+                                Object {
+                                  "flexDirection": "row",
+                                },
+                                null,
+                              ]
+                            }
+                          >
+                            <ForwardRef(AnimatedComponentWrapper)
+                              pointerEvents="box-none"
+                              style={
+                                Array [
+                                  Object {
+                                    "width": 600,
+                                  },
+                                  Object {},
+                                  Object {
+                                    "opacity": 0.7,
+                                    "transform": Array [
+                                      Object {
+                                        "scale": 0.9,
+                                      },
+                                    ],
+                                  },
+                                ]
+                              }
+                            >
+                              <AnimatedComponent
+                                pointerEvents="box-none"
+                                style={
+                                  Array [
+                                    Object {
+                                      "width": 600,
+                                    },
+                                    Object {},
+                                    Object {
+                                      "opacity": 0.7,
+                                      "transform": Array [
+                                        Object {
+                                          "scale": 0.9,
+                                        },
+                                      ],
+                                    },
+                                  ]
+                                }
+                              >
+                                <View
+                                  pointerEvents="box-none"
+                                  style={
+                                    Object {
+                                      "opacity": 0.7,
+                                      "transform": Array [
+                                        Object {
+                                          "scale": 0.9,
+                                        },
+                                      ],
+                                      "width": 600,
+                                    }
+                                  }
+                                >
+                                  <View
+                                    pointerEvents="box-none"
+                                    style={
+                                      Object {
+                                        "opacity": 0.7,
+                                        "transform": Array [
+                                          Object {
+                                            "scale": 0.9,
+                                          },
+                                        ],
+                                        "width": 600,
+                                      }
+                                    }
+                                  >
+                                    <ForwardRef
+                                      onPress={[Function]}
+                                      style={
+                                        Object {
+                                          "alignItems": "center",
+                                          "backgroundColor": "#FFFFFF",
+                                          "borderRadius": 20,
+                                          "elevation": 10,
+                                          "overflow": "hidden",
+                                        }
+                                      }
+                                    >
+                                      <TouchableOpacity
+                                        hostRef={null}
+                                        onPress={[Function]}
+                                        style={
+                                          Object {
+                                            "alignItems": "center",
+                                            "backgroundColor": "#FFFFFF",
+                                            "borderRadius": 20,
+                                            "elevation": 10,
+                                            "overflow": "hidden",
+                                          }
+                                        }
+                                      >
+                                        <ForwardRef(AnimatedComponentWrapper)
+                                          accessible={true}
+                                          focusable={true}
+                                          onClick={[Function]}
+                                          onResponderGrant={[Function]}
+                                          onResponderMove={[Function]}
+                                          onResponderRelease={[Function]}
+                                          onResponderTerminate={[Function]}
+                                          onResponderTerminationRequest={[Function]}
+                                          onStartShouldSetResponder={[Function]}
+                                          style={
+                                            Array [
+                                              Object {
+                                                "alignItems": "center",
+                                                "backgroundColor": "#FFFFFF",
+                                                "borderRadius": 20,
+                                                "elevation": 10,
+                                                "overflow": "hidden",
+                                              },
+                                              Object {
+                                                "opacity": 1,
+                                              },
+                                            ]
+                                          }
+                                        >
+                                          <AnimatedComponent
+                                            accessible={true}
+                                            focusable={true}
+                                            onClick={[Function]}
+                                            onResponderGrant={[Function]}
+                                            onResponderMove={[Function]}
+                                            onResponderRelease={[Function]}
+                                            onResponderTerminate={[Function]}
+                                            onResponderTerminationRequest={[Function]}
+                                            onStartShouldSetResponder={[Function]}
+                                            style={
+                                              Array [
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#FFFFFF",
+                                                  "borderRadius": 20,
+                                                  "elevation": 10,
+                                                  "overflow": "hidden",
+                                                },
+                                                Object {
+                                                  "opacity": 1,
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <View
+                                              accessible={true}
+                                              focusable={true}
+                                              onClick={[Function]}
+                                              onResponderGrant={[Function]}
+                                              onResponderMove={[Function]}
+                                              onResponderRelease={[Function]}
+                                              onResponderTerminate={[Function]}
+                                              onResponderTerminationRequest={[Function]}
+                                              onStartShouldSetResponder={[Function]}
+                                              style={
+                                                Object {
+                                                  "alignItems": "center",
+                                                  "backgroundColor": "#FFFFFF",
+                                                  "borderRadius": 20,
+                                                  "elevation": 10,
+                                                  "opacity": 1,
+                                                  "overflow": "hidden",
+                                                }
+                                              }
+                                            >
+                                              <View
+                                                accessible={true}
+                                                focusable={true}
+                                                onClick={[Function]}
+                                                onResponderGrant={[Function]}
+                                                onResponderMove={[Function]}
+                                                onResponderRelease={[Function]}
+                                                onResponderTerminate={[Function]}
+                                                onResponderTerminationRequest={[Function]}
+                                                onStartShouldSetResponder={[Function]}
+                                                style={
+                                                  Object {
+                                                    "alignItems": "center",
+                                                    "backgroundColor": "#FFFFFF",
+                                                    "borderRadius": 20,
+                                                    "elevation": 10,
+                                                    "opacity": 1,
+                                                    "overflow": "hidden",
+                                                  }
+                                                }
+                                              >
+                                                <Image
+                                                  resizeMode="cover"
+                                                  source={
+                                                    Object {
+                                                      "uri": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                                    }
+                                                  }
+                                                  style={
+                                                    Object {
+                                                      "height": 450,
+                                                      "width": 600,
+                                                    }
+                                                  }
+                                                >
+                                                  <Image
+                                                    resizeMode="cover"
+                                                    source={
+                                                      Object {
+                                                        "uri": "https://order.pizzahut.vn/menu/v000001/hk/en/images/FA18.png",
+                                                      }
+                                                    }
+                                                    style={
+                                                      Object {
+                                                        "height": 450,
+                                                        "width": 600,
+                                                      }
+                                                    }
+                                                  />
+                                                </Image>
+                                                <View
+                                                  style={
+                                                    Object {
+                                                      "backgroundColor": "#0b2031",
+                                                      "height": 226.78000000000003,
+                                                      "paddingLeft": 20,
+                                                      "paddingTop": 10,
+                                                      "width": 600,
+                                                    }
+                                                  }
+                                                >
+                                                  <View
+                                                    style={
+                                                      Object {
+                                                        "backgroundColor": "#0b2031",
+                                                        "height": 226.78000000000003,
+                                                        "paddingLeft": 20,
+                                                        "paddingTop": 10,
+                                                        "width": 600,
+                                                      }
+                                                    }
+                                                  >
+                                                    <ForwardRef
+                                                      onPress={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "alignSelf": "flex-end",
+                                                          "backgroundColor": "#e5293e",
+                                                          "borderBottomRightRadius": 20,
+                                                          "borderColor": "#0b2031",
+                                                          "borderWidth": 5,
+                                                          "height": 226.78000000000003,
+                                                          "justifyContent": "center",
+                                                          "position": "absolute",
+                                                          "width": 187.5,
+                                                        }
+                                                      }
+                                                    >
+                                                      <TouchableOpacity
+                                                        hostRef={null}
+                                                        onPress={[Function]}
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "alignSelf": "flex-end",
+                                                            "backgroundColor": "#e5293e",
+                                                            "borderBottomRightRadius": 20,
+                                                            "borderColor": "#0b2031",
+                                                            "borderWidth": 5,
+                                                            "height": 226.78000000000003,
+                                                            "justifyContent": "center",
+                                                            "position": "absolute",
+                                                            "width": 187.5,
+                                                          }
+                                                        }
+                                                      >
+                                                        <ForwardRef(AnimatedComponentWrapper)
+                                                          accessible={true}
+                                                          focusable={true}
+                                                          onClick={[Function]}
+                                                          onResponderGrant={[Function]}
+                                                          onResponderMove={[Function]}
+                                                          onResponderRelease={[Function]}
+                                                          onResponderTerminate={[Function]}
+                                                          onResponderTerminationRequest={[Function]}
+                                                          onStartShouldSetResponder={[Function]}
+                                                          style={
+                                                            Array [
+                                                              Object {
+                                                                "alignItems": "center",
+                                                                "alignSelf": "flex-end",
+                                                                "backgroundColor": "#e5293e",
+                                                                "borderBottomRightRadius": 20,
+                                                                "borderColor": "#0b2031",
+                                                                "borderWidth": 5,
+                                                                "height": 226.78000000000003,
+                                                                "justifyContent": "center",
+                                                                "position": "absolute",
+                                                                "width": 187.5,
+                                                              },
+                                                              Object {
+                                                                "opacity": 1,
+                                                              },
+                                                            ]
+                                                          }
+                                                        >
+                                                          <AnimatedComponent
+                                                            accessible={true}
+                                                            focusable={true}
+                                                            onClick={[Function]}
+                                                            onResponderGrant={[Function]}
+                                                            onResponderMove={[Function]}
+                                                            onResponderRelease={[Function]}
+                                                            onResponderTerminate={[Function]}
+                                                            onResponderTerminationRequest={[Function]}
+                                                            onStartShouldSetResponder={[Function]}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "alignSelf": "flex-end",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderBottomRightRadius": 20,
+                                                                  "borderColor": "#0b2031",
+                                                                  "borderWidth": 5,
+                                                                  "height": 226.78000000000003,
+                                                                  "justifyContent": "center",
+                                                                  "position": "absolute",
+                                                                  "width": 187.5,
+                                                                },
+                                                                Object {
+                                                                  "opacity": 1,
+                                                                },
+                                                              ]
+                                                            }
+                                                          >
+                                                            <View
+                                                              accessible={true}
+                                                              focusable={true}
+                                                              onClick={[Function]}
+                                                              onResponderGrant={[Function]}
+                                                              onResponderMove={[Function]}
+                                                              onResponderRelease={[Function]}
+                                                              onResponderTerminate={[Function]}
+                                                              onResponderTerminationRequest={[Function]}
+                                                              onStartShouldSetResponder={[Function]}
+                                                              style={
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "alignSelf": "flex-end",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderBottomRightRadius": 20,
+                                                                  "borderColor": "#0b2031",
+                                                                  "borderWidth": 5,
+                                                                  "height": 226.78000000000003,
+                                                                  "justifyContent": "center",
+                                                                  "opacity": 1,
+                                                                  "position": "absolute",
+                                                                  "width": 187.5,
+                                                                }
+                                                              }
+                                                            >
+                                                              <View
+                                                                accessible={true}
+                                                                focusable={true}
+                                                                onClick={[Function]}
+                                                                onResponderGrant={[Function]}
+                                                                onResponderMove={[Function]}
+                                                                onResponderRelease={[Function]}
+                                                                onResponderTerminate={[Function]}
+                                                                onResponderTerminationRequest={[Function]}
+                                                                onStartShouldSetResponder={[Function]}
+                                                                style={
+                                                                  Object {
+                                                                    "alignItems": "center",
+                                                                    "alignSelf": "flex-end",
+                                                                    "backgroundColor": "#e5293e",
+                                                                    "borderBottomRightRadius": 20,
+                                                                    "borderColor": "#0b2031",
+                                                                    "borderWidth": 5,
+                                                                    "height": 226.78000000000003,
+                                                                    "justifyContent": "center",
+                                                                    "opacity": 1,
+                                                                    "position": "absolute",
+                                                                    "width": 187.5,
+                                                                  }
+                                                                }
+                                                              >
+                                                                <Text
+                                                                  numberOfLines={2}
+                                                                  style={
+                                                                    Object {
+                                                                      "color": "#FFFFFF",
+                                                                      "fontSize": 20,
+                                                                      "letterSpacing": 0.16,
+                                                                      "textAlign": "center",
+                                                                    }
+                                                                  }
+                                                                >
+                                                                  <Text
+                                                                    numberOfLines={2}
+                                                                    style={
+                                                                      Object {
+                                                                        "color": "#FFFFFF",
+                                                                        "fontSize": 20,
+                                                                        "letterSpacing": 0.16,
+                                                                        "textAlign": "center",
+                                                                      }
+                                                                    }
+                                                                  >
+                                                                    ORDER
+NOW
+                                                                  </Text>
+                                                                </Text>
+                                                                <PressabilityDebugView
+                                                                  color="cyan"
+                                                                />
+                                                              </View>
+                                                            </View>
+                                                          </AnimatedComponent>
+                                                        </ForwardRef(AnimatedComponentWrapper)>
+                                                      </TouchableOpacity>
+                                                    </ForwardRef>
+                                                    <Text
+                                                      numberOfLines={2}
+                                                      style={
+                                                        Object {
+                                                          "color": "#FFFFFF",
+                                                          "fontSize": 19.728,
+                                                          "letterSpacing": 0.26,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <Text
+                                                        numberOfLines={2}
+                                                        style={
+                                                          Object {
+                                                            "color": "#FFFFFF",
+                                                            "fontSize": 19.728,
+                                                            "letterSpacing": 0.26,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        Pizza 4 cheese
+                                                      </Text>
+                                                    </Text>
+                                                    <View
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "flexDirection": "row",
+                                                          "height": 15,
+                                                          "marginTop": 3,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <View
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "flexDirection": "row",
+                                                            "height": 15,
+                                                            "marginTop": 3,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          allowFontScaling={false}
+                                                          color="#ffd93f"
+                                                          name="star"
+                                                          size={13}
+                                                        >
+                                                          <Text
+                                                            allowFontScaling={false}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "color": "#ffd93f",
+                                                                  "fontSize": 13,
+                                                                },
+                                                                undefined,
+                                                                Object {
+                                                                  "fontFamily": "FontAwesome",
+                                                                  "fontStyle": "normal",
+                                                                  "fontWeight": "normal",
+                                                                },
+                                                                Object {},
+                                                              ]
+                                                            }
+                                                          >
+                                                            <Text
+                                                              allowFontScaling={false}
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "color": "#ffd93f",
+                                                                    "fontSize": 13,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontFamily": "FontAwesome",
+                                                                    "fontStyle": "normal",
+                                                                    "fontWeight": "normal",
+                                                                  },
+                                                                  Object {},
+                                                                ]
+                                                              }
+                                                            >
+                                                              
+                                                            </Text>
+                                                          </Text>
+                                                        </Icon>
+                                                        <Text
+                                                          style={
+                                                            Object {
+                                                              "color": "#FFFFFF",
+                                                              "fontSize": 13,
+                                                              "letterSpacing": 0.16,
+                                                              "marginLeft": 10,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Text
+                                                            style={
+                                                              Object {
+                                                                "color": "#FFFFFF",
+                                                                "fontSize": 13,
+                                                                "letterSpacing": 0.16,
+                                                                "marginLeft": 10,
+                                                              }
+                                                            }
+                                                          >
+                                                            Rating: 
+                                                            3.5
+                                                          </Text>
+                                                        </Text>
+                                                      </View>
+                                                    </View>
+                                                    <View
+                                                      style={
+                                                        Object {
+                                                          "alignItems": "center",
+                                                          "flexDirection": "row",
+                                                          "height": 15,
+                                                          "marginTop": 3,
+                                                          "width": 330,
+                                                        }
+                                                      }
+                                                    >
+                                                      <View
+                                                        style={
+                                                          Object {
+                                                            "alignItems": "center",
+                                                            "flexDirection": "row",
+                                                            "height": 15,
+                                                            "marginTop": 3,
+                                                            "width": 330,
+                                                          }
+                                                        }
+                                                      >
+                                                        <Icon
+                                                          allowFontScaling={false}
+                                                          color="#FFFFFF"
+                                                          name="dollar"
+                                                          size={13}
+                                                        >
+                                                          <Text
+                                                            allowFontScaling={false}
+                                                            style={
+                                                              Array [
+                                                                Object {
+                                                                  "color": "#FFFFFF",
+                                                                  "fontSize": 13,
+                                                                },
+                                                                undefined,
+                                                                Object {
+                                                                  "fontFamily": "FontAwesome",
+                                                                  "fontStyle": "normal",
+                                                                  "fontWeight": "normal",
+                                                                },
+                                                                Object {},
+                                                              ]
+                                                            }
+                                                          >
+                                                            <Text
+                                                              allowFontScaling={false}
+                                                              style={
+                                                                Array [
+                                                                  Object {
+                                                                    "color": "#FFFFFF",
+                                                                    "fontSize": 13,
+                                                                  },
+                                                                  undefined,
+                                                                  Object {
+                                                                    "fontFamily": "FontAwesome",
+                                                                    "fontStyle": "normal",
+                                                                    "fontWeight": "normal",
+                                                                  },
+                                                                  Object {},
+                                                                ]
+                                                              }
+                                                            >
+                                                              
+                                                            </Text>
+                                                          </Text>
+                                                        </Icon>
+                                                        <Text
+                                                          style={
+                                                            Object {
+                                                              "color": "#FFFFFF",
+                                                              "fontSize": 13,
+                                                              "letterSpacing": 0.16,
+                                                              "marginLeft": 10,
+                                                            }
+                                                          }
+                                                        >
+                                                          <Text
+                                                            style={
+                                                              Object {
+                                                                "color": "#FFFFFF",
+                                                                "fontSize": 13,
+                                                                "letterSpacing": 0.16,
+                                                                "marginLeft": 10,
+                                                              }
+                                                            }
+                                                          >
+                                                            Price: 
+                                                            9
+                                                          </Text>
+                                                        </Text>
+                                                      </View>
+                                                    </View>
+                                                  </View>
+                                                </View>
+                                                <PressabilityDebugView
+                                                  color="cyan"
+                                                />
+                                              </View>
+                                            </View>
+                                          </AnimatedComponent>
+                                        </ForwardRef(AnimatedComponentWrapper)>
+                                      </TouchableOpacity>
+                                    </ForwardRef>
+                                  </View>
+                                </View>
+                              </AnimatedComponent>
+                            </ForwardRef(AnimatedComponentWrapper)>
+                          </View>
+                        </View>
+                      </CellRenderer>
+                    </View>
+                  </View>
+                </RCTScrollView>
+              </RCTScrollView>
+            </ScrollViewMock>
+          </VirtualizedList>
+        </FlatList>
+      </AnimatedComponent>
+    </ForwardRef(AnimatedComponentWrapper)>
+  </Carousel>
+</FavoriteProductCarousel>
+`;

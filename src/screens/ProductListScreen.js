@@ -83,7 +83,7 @@ export default class ProductListScreen extends Component {
             this.setState({isOpenOrderPanel: true, productData: item})
           }>
           <Text numberOfLines={2} style={textStyle.orderNowButton}>
-            ORDER NOW
+            {`ORDER\nNOW`}
           </Text>
         </TouchableOpacity>
       </View>

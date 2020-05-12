@@ -5,11 +5,13 @@ import {
   ImageBackground,
   TouchableOpacity,
   StatusBar,
+  Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import ThankYou from '../../assets/ThankYou.jpg';
+import Logo from '../../assets/Logo.png';
 
 export default class ThankYouScreen extends Component {
   navigateToHomeScreen = () => {
@@ -24,6 +26,11 @@ export default class ThankYouScreen extends Component {
           style={dimensionStyles.HomeImg}
           source={ThankYou}
           resizeMode="cover"
+        />
+        <Image
+          style={dimensionStyles.Logo}
+          source={Logo}
+          resizeMode="contain"
         />
         <View style={dimensionStyles.HomeNameContainer}>
           <TouchableOpacity

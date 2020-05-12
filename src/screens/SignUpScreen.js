@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import {connect} from 'react-redux';
+import {setUserToken} from '../redux/actions.js';
 import {
   View,
   Text,
@@ -13,8 +14,9 @@ import {StringInput} from '../components/StringInput.js';
 import postUserAPI from '../repository/postUserAPI.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import background from '../../assets/background.jpg';
+import {AsyncStorage} from 'react-native';
 
-export default class SignUpScreen extends Component {
+class SignUpScreen extends Component {
   state = {
     isLoading: false,
     phone: '',
@@ -67,14 +69,22 @@ export default class SignUpScreen extends Component {
     try {
       let response = await postUserAPI('/user', SignUpData);
       //console.log(response.data)
-      alert('Sign up successfully!');
-      this.navigateBack();
+      this.automaticLogIn(response.data);
     } catch (errorMessage) {
       alert(errorMessage);
       console.log(errorMessage);
+      this.setState({isLoading: false});
     }
-    this.setState({isLoading: false});
   };
+
+  automaticLogIn = async userToken => {
+    const {navigation, setUserToken} = this.props;
+    await AsyncStorage.setItem('userToken', JSON.stringify(userToken));
+    setUserToken(userToken);
+    alert('Sign up successfully!');
+    navigation.pop(2);
+    this.setState({isLoading: false});
+  }
 
   render() {
     const {navigation} = this.props;
@@ -156,3 +166,12 @@ export default class SignUpScreen extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  setUserToken: userToken => dispatch(setUserToken(userToken)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(SignUpScreen);

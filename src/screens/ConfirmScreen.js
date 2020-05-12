@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import {resetOrderLineArray} from '../redux/actions.js';
 import {
   View,
   ScrollView,
@@ -50,7 +51,7 @@ class ConfirmScreen extends Component {
   };
 
   postOrder = async order => {
-    const {navigation} = this.props;
+    const {navigation, resetOrderLineArray} = this.props;
     const {userToken} = this.props;
     const {orderInfo} = this.props.route.params;
     const {paymentMethod} = orderInfo;
@@ -76,6 +77,7 @@ class ConfirmScreen extends Component {
 
     try {
       let response = await postOrderAPI(url(paymentMethod), order, config);
+      resetOrderLineArray()
       alert(
         `Your order has been sent.\nThank for choosing ${
           string.restaurantName
@@ -184,7 +186,9 @@ const mapStateToProps = state => ({
   userToken: state.userToken,
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  resetOrderLineArray: () => dispatch(resetOrderLineArray())
+});
 
 export default connect(
   mapStateToProps,

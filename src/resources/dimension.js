@@ -589,6 +589,14 @@ const dimensionStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  Logo: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+    width: 100,
+    height: 100,
+  },
 });
 
 export {dimensionStyles};

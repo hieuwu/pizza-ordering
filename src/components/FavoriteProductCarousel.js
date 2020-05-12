@@ -31,7 +31,7 @@ class FavoriteProductCarousel extends Component {
             style={dimensionStyles.orderNowButtonCarousel}
             onPress={() => onClickOrder(item)}>
             <Text numberOfLines={2} style={textStyle.orderNowButton}>
-              ORDER NOW
+              {`ORDER\nNOW`}
             </Text>
           </TouchableOpacity>
           <Text numberOfLines={2} style={textStyle.favoriteProductName}>

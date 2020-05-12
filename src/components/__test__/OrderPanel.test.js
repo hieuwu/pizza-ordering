@@ -146,4 +146,74 @@ describe('order panel test', () => {
         expect(window.alert).toBeCalledWith('Please pick crust')
     })
 
+    it('should set size when pick size', () => {
+        wrapper.find('OrderPanel').setState({ isLoading: false });
+        const sizeL=wrapper.findWhere(node => {
+          return (
+            node.text() === 'Size L' &&
+            typeof node.type() === 'string'
+          );
+        });
+
+        sizeL.simulate('click')
+
+        expect(wrapper.find('OrderPanel').state().size).toEqual('Size L')
+    })
+
+    it('should set crust when pick crust', () => {
+        wrapper.find('OrderPanel').setState({ isLoading: false });
+        const thickCrust=wrapper.findWhere(node => {
+          return (
+            node.text() === 'Thick Crust' &&
+            typeof node.type() === 'string'
+          );
+        });
+
+        thickCrust.simulate('click')
+
+        expect(wrapper.find('OrderPanel').state().crust).toEqual('Thick Crust')
+    })
+
+    it('should set topping when pick topping', () => {
+        wrapper.find('OrderPanel').setState({ isLoading: false });
+        const shrimp=wrapper.findWhere(node => {
+          return (
+            node.text() === 'Shrimp' &&
+            typeof node.type() === 'string'
+          );
+        });
+        const sausage=wrapper.findWhere(node => {
+          return (
+            node.text() === 'Sausage' &&
+            typeof node.type() === 'string'
+          );
+        });
+
+        shrimp.simulate('click')
+        sausage.simulate('click')
+
+        expect(wrapper.find('OrderPanel').state().topping).toEqual(['Shrimp', 'Sausage'])
+    })
+
+    it('should remove topping', () => {
+        wrapper.find('OrderPanel').setState({ isLoading: false, topping: ['Shrimp', 'Sausage'] });
+        const shrimp=wrapper.findWhere(node => {
+          return (
+            node.text() === 'Shrimp' &&
+            typeof node.type() === 'string'
+          );
+        });
+
+        shrimp.simulate('click')
+
+        expect(wrapper.find('OrderPanel').state().topping).toEqual(['Sausage'])
+    })
+
+    it('should set the selected quantity to state (Android)', () => {
+        wrapper.find('OrderPanel').setState({ isLoading: false });
+        const picker = wrapper.find('RNPickerSelect')
+
+        picker.props().onValueChange('3', 3);
+        expect(wrapper.find('OrderPanel').state().quantity).toEqual('3')       
+    });
 })

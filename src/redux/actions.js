@@ -3,6 +3,7 @@ export const SET_USERTOKEN = 'SET_USERTOKEN';
 export const ADD_TOCART = 'ADD_TOCART';
 export const DELETE_ORDERLINE = 'DELETE_ORDERLINE';
 export const MODIFY_ORDERLINE = 'MODIFY_ORDERLINE';
+export const RESET_ORDERLINEARRAY = 'RESET_ORDERLINEARRAY';
 
 export const setCategoryData = data => {
   return {
@@ -35,5 +36,11 @@ export const modifyOrderLine = (orderLine, modifiedOrderLineIndex) => {
     type: MODIFY_ORDERLINE,
     orderLine,
     modifiedOrderLineIndex,
+  };
+};
+
+export const resetOrderLineArray = () => {
+  return {
+    type: RESET_ORDERLINEARRAY,
   };
 };

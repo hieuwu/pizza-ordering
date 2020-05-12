@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme'
-
+import configureStore from 'redux-mock-store'
 import SignUpScreen from './../SignUpScreen.js';
+import { Provider } from "react-redux";
 
 describe('sign up screen test', () => {
     const origConsole = console.error;
@@ -12,12 +13,19 @@ describe('sign up screen test', () => {
       console.error = origConsole;
     });
 
-    let wrapper, props, instance
+    const initState={}
+    const mockStore = configureStore()   
+    let store, wrapper, props, instance
 
     beforeEach(()=>{
         props = {navigation: {goBack: jest.fn()}}
-        wrapper = mount(<SignUpScreen {...props}/>)
-        instance = wrapper.instance()
+        store=mockStore(initState)
+        wrapper = mount(
+            <Provider store={store}>
+                <SignUpScreen {...props}/>
+            </Provider>
+        )
+        instance = wrapper.find('SignUpScreen').instance()
     })
 
     it('should render snapshot test for sign up screen', () => {
@@ -25,7 +33,7 @@ describe('sign up screen test', () => {
     })
 
     it('should sign up with valid phone, password, name and address', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '123456789abc',
             confirmPassword: '123456789abc',
@@ -48,7 +56,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if phone is empty', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '',
             password: '123456789abc',
             confirmPassword: '123456789abc',
@@ -69,7 +77,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if phone is invalid', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '123456789',
             password: '123456789abc',
             confirmPassword: '123456789abc',
@@ -90,7 +98,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if password is empty', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '',
             confirmPassword: '',
@@ -111,7 +119,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if password length is not between 6 and 20', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '12a',
             confirmPassword: '',
@@ -132,7 +140,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if password is not contain number and character', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '1234567',
             confirmPassword: '1234567',
@@ -153,7 +161,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if confirm password is not same as password', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '1234567a',
             confirmPassword: '1234567ab',
@@ -174,7 +182,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if name is empty', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '123456789abc',
             confirmPassword: '123456789abc',
@@ -195,7 +203,7 @@ describe('sign up screen test', () => {
     })
 
     it('should alert if address is empty', () => {
-        wrapper.setState({ 
+        wrapper.find('SignUpScreen').setState({ 
             phone: '09755516009',
             password: '123456789abc',
             confirmPassword: '123456789abc',

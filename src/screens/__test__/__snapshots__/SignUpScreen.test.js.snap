@@ -1,54 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`sign up screen test should render snapshot test for sign up screen 1`] = `
-<SignUpScreen
-  navigation={
+<Provider
+  store={
     Object {
-      "goBack": [MockFunction],
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
     }
   }
 >
-  <View
-    style={
+  <Connect(SignUpScreen)
+    navigation={
       Object {
-        "flex": 1,
+        "goBack": [MockFunction],
       }
     }
   >
-    <View
-      style={
+    <SignUpScreen
+      navigation={
         Object {
-          "flex": 1,
+          "goBack": [MockFunction],
         }
       }
+      setUserToken={[Function]}
     >
-      <ImageBackground
-        resizeMode="cover"
-        source={
-          Object {
-            "testUri": "../../../assets/background.jpg",
-          }
-        }
+      <View
         style={
           Object {
-            "height": 1334,
-            "position": "absolute",
-            "width": 750,
+            "flex": 1,
           }
         }
       >
         <View
-          accessibilityIgnoresInvertColors={true}
           style={
             Object {
-              "height": 1334,
-              "position": "absolute",
-              "width": 750,
+              "flex": 1,
             }
           }
         >
-          <View
-            accessibilityIgnoresInvertColors={true}
+          <ImageBackground
+            resizeMode="cover"
+            source={
+              Object {
+                "testUri": "../../../assets/background.jpg",
+              }
+            }
             style={
               Object {
                 "height": 1334,
@@ -57,545 +57,87 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
               }
             }
           >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "testUri": "../../../assets/background.jpg",
-                }
-              }
+            <View
+              accessibilityIgnoresInvertColors={true}
               style={
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "left": 0,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "height": 1334,
-                    "width": 750,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Image
-                resizeMode="cover"
-                source={
-                  Object {
-                    "testUri": "../../../assets/background.jpg",
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "bottom": 0,
-                      "left": 0,
-                      "position": "absolute",
-                      "right": 0,
-                      "top": 0,
-                    },
-                    Object {
-                      "height": 1334,
-                      "width": 750,
-                    },
-                    undefined,
-                  ]
-                }
-              />
-            </Image>
-          </View>
-        </View>
-      </ImageBackground>
-      <ForwardRef
-        onPress={[Function]}
-        style={
-          Object {
-            "height": 30,
-            "left": 10,
-            "position": "absolute",
-            "top": 10,
-            "width": 30,
-          }
-        }
-      >
-        <TouchableOpacity
-          hostRef={null}
-          onPress={[Function]}
-          style={
-            Object {
-              "height": 30,
-              "left": 10,
-              "position": "absolute",
-              "top": 10,
-              "width": 30,
-            }
-          }
-        >
-          <ForwardRef(AnimatedComponentWrapper)
-            accessible={true}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Array [
                 Object {
-                  "height": 30,
-                  "left": 10,
+                  "height": 1334,
                   "position": "absolute",
-                  "top": 10,
-                  "width": 30,
-                },
-                Object {
-                  "opacity": 1,
-                },
-              ]
-            }
-          >
-            <AnimatedComponent
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Array [
-                  Object {
-                    "height": 30,
-                    "left": 10,
-                    "position": "absolute",
-                    "top": 10,
-                    "width": 30,
-                  },
-                  Object {
-                    "opacity": 1,
-                  },
-                ]
+                  "width": 750,
+                }
               }
             >
               <View
-                accessible={true}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
+                accessibilityIgnoresInvertColors={true}
                 style={
                   Object {
-                    "height": 30,
-                    "left": 10,
-                    "opacity": 1,
+                    "height": 1334,
                     "position": "absolute",
-                    "top": 10,
-                    "width": 30,
+                    "width": 750,
                   }
                 }
               >
-                <View
-                  accessible={true}
-                  focusable={true}
-                  onClick={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
+                <Image
+                  resizeMode="cover"
+                  source={
                     Object {
-                      "height": 30,
-                      "left": 10,
-                      "opacity": 1,
-                      "position": "absolute",
-                      "top": 10,
-                      "width": 30,
+                      "testUri": "../../../assets/background.jpg",
                     }
                   }
+                  style={
+                    Array [
+                      Object {
+                        "bottom": 0,
+                        "left": 0,
+                        "position": "absolute",
+                        "right": 0,
+                        "top": 0,
+                      },
+                      Object {
+                        "height": 1334,
+                        "width": 750,
+                      },
+                      undefined,
+                    ]
+                  }
                 >
-                  <Icon
-                    allowFontScaling={false}
-                    color="#FFFFFF"
-                    name="angle-left"
-                    size={30}
-                  >
-                    <Text
-                      allowFontScaling={false}
-                      style={
-                        Array [
-                          Object {
-                            "color": "#FFFFFF",
-                            "fontSize": 30,
-                          },
-                          undefined,
-                          Object {
-                            "fontFamily": "FontAwesome",
-                            "fontStyle": "normal",
-                            "fontWeight": "normal",
-                          },
-                          Object {},
-                        ]
+                  <Image
+                    resizeMode="cover"
+                    source={
+                      Object {
+                        "testUri": "../../../assets/background.jpg",
                       }
-                    >
-                      <Text
-                        allowFontScaling={false}
-                        style={
-                          Array [
-                            Object {
-                              "color": "#FFFFFF",
-                              "fontSize": 30,
-                            },
-                            undefined,
-                            Object {
-                              "fontFamily": "FontAwesome",
-                              "fontStyle": "normal",
-                              "fontWeight": "normal",
-                            },
-                            Object {},
-                          ]
-                        }
-                      >
-                        
-                      </Text>
-                    </Text>
-                  </Icon>
-                  <PressabilityDebugView
-                    color="cyan"
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "bottom": 0,
+                          "left": 0,
+                          "position": "absolute",
+                          "right": 0,
+                          "top": 0,
+                        },
+                        Object {
+                          "height": 1334,
+                          "width": 750,
+                        },
+                        undefined,
+                      ]
+                    }
                   />
-                </View>
+                </Image>
               </View>
-            </AnimatedComponent>
-          </ForwardRef(AnimatedComponentWrapper)>
-        </TouchableOpacity>
-      </ForwardRef>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "flex": 1,
-              "justifyContent": "center",
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#FFFFFF",
-                "fontSize": 40,
-                "marginBottom": 66.7,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "color": "#FFFFFF",
-                  "fontSize": 40,
-                  "marginBottom": 66.7,
-                }
-              }
-            >
-              Join us!
-            </Text>
-          </Text>
-          <StringInput
-            isSecure={false}
-            keyboard="number-pad"
-            onTextChange={[Function]}
-            placeholder="Your phone number"
-            text=""
-          >
-            <Component
-              allowFontScaling={true}
-              keyboardType="number-pad"
-              onChangeText={[Function]}
-              placeholder="Your phone number"
-              rejectResponderTermination={true}
-              secureTextEntry={false}
-              style={
-                Object {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 5,
-                  "borderWidth": 1,
-                  "fontSize": 15,
-                  "height": 45,
-                  "marginBottom": 3,
-                  "marginTop": 3,
-                  "width": 525,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            >
-              <TextInput
-                allowFontScaling={true}
-                keyboardType="number-pad"
-                onChangeText={[Function]}
-                placeholder="Your phone number"
-                rejectResponderTermination={true}
-                secureTextEntry={false}
-                style={
-                  Object {
-                    "backgroundColor": "#FFFFFF",
-                    "borderRadius": 5,
-                    "borderWidth": 1,
-                    "fontSize": 15,
-                    "height": 45,
-                    "marginBottom": 3,
-                    "marginTop": 3,
-                    "width": 525,
-                  }
-                }
-                underlineColorAndroid="transparent"
-                value=""
-              />
-            </Component>
-          </StringInput>
-          <StringInput
-            isSecure={true}
-            keyboard="default"
-            onTextChange={[Function]}
-            placeholder="Password"
-            text=""
-          >
-            <Component
-              allowFontScaling={true}
-              keyboardType="default"
-              onChangeText={[Function]}
-              placeholder="Password"
-              rejectResponderTermination={true}
-              secureTextEntry={true}
-              style={
-                Object {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 5,
-                  "borderWidth": 1,
-                  "fontSize": 15,
-                  "height": 45,
-                  "marginBottom": 3,
-                  "marginTop": 3,
-                  "width": 525,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            >
-              <TextInput
-                allowFontScaling={true}
-                keyboardType="default"
-                onChangeText={[Function]}
-                placeholder="Password"
-                rejectResponderTermination={true}
-                secureTextEntry={true}
-                style={
-                  Object {
-                    "backgroundColor": "#FFFFFF",
-                    "borderRadius": 5,
-                    "borderWidth": 1,
-                    "fontSize": 15,
-                    "height": 45,
-                    "marginBottom": 3,
-                    "marginTop": 3,
-                    "width": 525,
-                  }
-                }
-                underlineColorAndroid="transparent"
-                value=""
-              />
-            </Component>
-          </StringInput>
-          <StringInput
-            isSecure={true}
-            keyboard="default"
-            onTextChange={[Function]}
-            placeholder="Confirm password"
-            text=""
-          >
-            <Component
-              allowFontScaling={true}
-              keyboardType="default"
-              onChangeText={[Function]}
-              placeholder="Confirm password"
-              rejectResponderTermination={true}
-              secureTextEntry={true}
-              style={
-                Object {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 5,
-                  "borderWidth": 1,
-                  "fontSize": 15,
-                  "height": 45,
-                  "marginBottom": 3,
-                  "marginTop": 3,
-                  "width": 525,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            >
-              <TextInput
-                allowFontScaling={true}
-                keyboardType="default"
-                onChangeText={[Function]}
-                placeholder="Confirm password"
-                rejectResponderTermination={true}
-                secureTextEntry={true}
-                style={
-                  Object {
-                    "backgroundColor": "#FFFFFF",
-                    "borderRadius": 5,
-                    "borderWidth": 1,
-                    "fontSize": 15,
-                    "height": 45,
-                    "marginBottom": 3,
-                    "marginTop": 3,
-                    "width": 525,
-                  }
-                }
-                underlineColorAndroid="transparent"
-                value=""
-              />
-            </Component>
-          </StringInput>
-          <StringInput
-            isSecure={false}
-            keyboard="default"
-            onTextChange={[Function]}
-            placeholder="Your name"
-            text=""
-          >
-            <Component
-              allowFontScaling={true}
-              keyboardType="default"
-              onChangeText={[Function]}
-              placeholder="Your name"
-              rejectResponderTermination={true}
-              secureTextEntry={false}
-              style={
-                Object {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 5,
-                  "borderWidth": 1,
-                  "fontSize": 15,
-                  "height": 45,
-                  "marginBottom": 3,
-                  "marginTop": 3,
-                  "width": 525,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            >
-              <TextInput
-                allowFontScaling={true}
-                keyboardType="default"
-                onChangeText={[Function]}
-                placeholder="Your name"
-                rejectResponderTermination={true}
-                secureTextEntry={false}
-                style={
-                  Object {
-                    "backgroundColor": "#FFFFFF",
-                    "borderRadius": 5,
-                    "borderWidth": 1,
-                    "fontSize": 15,
-                    "height": 45,
-                    "marginBottom": 3,
-                    "marginTop": 3,
-                    "width": 525,
-                  }
-                }
-                underlineColorAndroid="transparent"
-                value=""
-              />
-            </Component>
-          </StringInput>
-          <StringInput
-            isSecure={false}
-            keyboard="default"
-            onTextChange={[Function]}
-            placeholder="Address"
-            text=""
-          >
-            <Component
-              allowFontScaling={true}
-              keyboardType="default"
-              onChangeText={[Function]}
-              placeholder="Address"
-              rejectResponderTermination={true}
-              secureTextEntry={false}
-              style={
-                Object {
-                  "backgroundColor": "#FFFFFF",
-                  "borderRadius": 5,
-                  "borderWidth": 1,
-                  "fontSize": 15,
-                  "height": 45,
-                  "marginBottom": 3,
-                  "marginTop": 3,
-                  "width": 525,
-                }
-              }
-              underlineColorAndroid="transparent"
-              value=""
-            >
-              <TextInput
-                allowFontScaling={true}
-                keyboardType="default"
-                onChangeText={[Function]}
-                placeholder="Address"
-                rejectResponderTermination={true}
-                secureTextEntry={false}
-                style={
-                  Object {
-                    "backgroundColor": "#FFFFFF",
-                    "borderRadius": 5,
-                    "borderWidth": 1,
-                    "fontSize": 15,
-                    "height": 45,
-                    "marginBottom": 3,
-                    "marginTop": 3,
-                    "width": 525,
-                  }
-                }
-                underlineColorAndroid="transparent"
-                value=""
-              />
-            </Component>
-          </StringInput>
+            </View>
+          </ImageBackground>
           <ForwardRef
             onPress={[Function]}
             style={
               Object {
-                "alignSelf": "center",
-                "backgroundColor": "#0b2031",
-                "borderRadius": 5,
-                "height": 45,
-                "justifyContent": "center",
-                "marginTop": 3,
-                "width": 525,
+                "height": 30,
+                "left": 10,
+                "position": "absolute",
+                "top": 10,
+                "width": 30,
               }
             }
           >
@@ -604,13 +146,11 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
               onPress={[Function]}
               style={
                 Object {
-                  "alignSelf": "center",
-                  "backgroundColor": "#0b2031",
-                  "borderRadius": 5,
-                  "height": 45,
-                  "justifyContent": "center",
-                  "marginTop": 3,
-                  "width": 525,
+                  "height": 30,
+                  "left": 10,
+                  "position": "absolute",
+                  "top": 10,
+                  "width": 30,
                 }
               }
             >
@@ -627,13 +167,11 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
                 style={
                   Array [
                     Object {
-                      "alignSelf": "center",
-                      "backgroundColor": "#0b2031",
-                      "borderRadius": 5,
-                      "height": 45,
-                      "justifyContent": "center",
-                      "marginTop": 3,
-                      "width": 525,
+                      "height": 30,
+                      "left": 10,
+                      "position": "absolute",
+                      "top": 10,
+                      "width": 30,
                     },
                     Object {
                       "opacity": 1,
@@ -654,13 +192,11 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
                   style={
                     Array [
                       Object {
-                        "alignSelf": "center",
-                        "backgroundColor": "#0b2031",
-                        "borderRadius": 5,
-                        "height": 45,
-                        "justifyContent": "center",
-                        "marginTop": 3,
-                        "width": 525,
+                        "height": 30,
+                        "left": 10,
+                        "position": "absolute",
+                        "top": 10,
+                        "width": 30,
                       },
                       Object {
                         "opacity": 1,
@@ -680,14 +216,12 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
                     onStartShouldSetResponder={[Function]}
                     style={
                       Object {
-                        "alignSelf": "center",
-                        "backgroundColor": "#0b2031",
-                        "borderRadius": 5,
-                        "height": 45,
-                        "justifyContent": "center",
-                        "marginTop": 3,
+                        "height": 30,
+                        "left": 10,
                         "opacity": 1,
-                        "width": 525,
+                        "position": "absolute",
+                        "top": 10,
+                        "width": 30,
                       }
                     }
                   >
@@ -703,40 +237,61 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
                       onStartShouldSetResponder={[Function]}
                       style={
                         Object {
-                          "alignSelf": "center",
-                          "backgroundColor": "#0b2031",
-                          "borderRadius": 5,
-                          "height": 45,
-                          "justifyContent": "center",
-                          "marginTop": 3,
+                          "height": 30,
+                          "left": 10,
                           "opacity": 1,
-                          "width": 525,
+                          "position": "absolute",
+                          "top": 10,
+                          "width": 30,
                         }
                       }
                     >
-                      <Text
-                        style={
-                          Object {
-                            "color": "#FFFFFF",
-                            "fontSize": 20,
-                            "letterSpacing": 0.16,
-                            "textAlign": "center",
-                          }
-                        }
+                      <Icon
+                        allowFontScaling={false}
+                        color="#FFFFFF"
+                        name="angle-left"
+                        size={30}
                       >
                         <Text
+                          allowFontScaling={false}
                           style={
-                            Object {
-                              "color": "#FFFFFF",
-                              "fontSize": 20,
-                              "letterSpacing": 0.16,
-                              "textAlign": "center",
-                            }
+                            Array [
+                              Object {
+                                "color": "#FFFFFF",
+                                "fontSize": 30,
+                              },
+                              undefined,
+                              Object {
+                                "fontFamily": "FontAwesome",
+                                "fontStyle": "normal",
+                                "fontWeight": "normal",
+                              },
+                              Object {},
+                            ]
                           }
                         >
-                          Sign up
+                          <Text
+                            allowFontScaling={false}
+                            style={
+                              Array [
+                                Object {
+                                  "color": "#FFFFFF",
+                                  "fontSize": 30,
+                                },
+                                undefined,
+                                Object {
+                                  "fontFamily": "FontAwesome",
+                                  "fontStyle": "normal",
+                                  "fontWeight": "normal",
+                                },
+                                Object {},
+                              ]
+                            }
+                          >
+                            
+                          </Text>
                         </Text>
-                      </Text>
+                      </Icon>
                       <PressabilityDebugView
                         color="cyan"
                       />
@@ -746,9 +301,476 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
               </ForwardRef(AnimatedComponentWrapper)>
             </TouchableOpacity>
           </ForwardRef>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 40,
+                    "marginBottom": 66.7,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontSize": 40,
+                      "marginBottom": 66.7,
+                    }
+                  }
+                >
+                  Join us!
+                </Text>
+              </Text>
+              <StringInput
+                isSecure={false}
+                keyboard="number-pad"
+                onTextChange={[Function]}
+                placeholder="Your phone number"
+                text=""
+              >
+                <Component
+                  allowFontScaling={true}
+                  keyboardType="number-pad"
+                  onChangeText={[Function]}
+                  placeholder="Your phone number"
+                  rejectResponderTermination={true}
+                  secureTextEntry={false}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderRadius": 5,
+                      "borderWidth": 1,
+                      "fontSize": 15,
+                      "height": 45,
+                      "marginBottom": 3,
+                      "marginTop": 3,
+                      "width": 525,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    keyboardType="number-pad"
+                    onChangeText={[Function]}
+                    placeholder="Your phone number"
+                    rejectResponderTermination={true}
+                    secureTextEntry={false}
+                    style={
+                      Object {
+                        "backgroundColor": "#FFFFFF",
+                        "borderRadius": 5,
+                        "borderWidth": 1,
+                        "fontSize": 15,
+                        "height": 45,
+                        "marginBottom": 3,
+                        "marginTop": 3,
+                        "width": 525,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </StringInput>
+              <StringInput
+                isSecure={true}
+                keyboard="default"
+                onTextChange={[Function]}
+                placeholder="Password"
+                text=""
+              >
+                <Component
+                  allowFontScaling={true}
+                  keyboardType="default"
+                  onChangeText={[Function]}
+                  placeholder="Password"
+                  rejectResponderTermination={true}
+                  secureTextEntry={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderRadius": 5,
+                      "borderWidth": 1,
+                      "fontSize": 15,
+                      "height": 45,
+                      "marginBottom": 3,
+                      "marginTop": 3,
+                      "width": 525,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    keyboardType="default"
+                    onChangeText={[Function]}
+                    placeholder="Password"
+                    rejectResponderTermination={true}
+                    secureTextEntry={true}
+                    style={
+                      Object {
+                        "backgroundColor": "#FFFFFF",
+                        "borderRadius": 5,
+                        "borderWidth": 1,
+                        "fontSize": 15,
+                        "height": 45,
+                        "marginBottom": 3,
+                        "marginTop": 3,
+                        "width": 525,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </StringInput>
+              <StringInput
+                isSecure={true}
+                keyboard="default"
+                onTextChange={[Function]}
+                placeholder="Confirm password"
+                text=""
+              >
+                <Component
+                  allowFontScaling={true}
+                  keyboardType="default"
+                  onChangeText={[Function]}
+                  placeholder="Confirm password"
+                  rejectResponderTermination={true}
+                  secureTextEntry={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderRadius": 5,
+                      "borderWidth": 1,
+                      "fontSize": 15,
+                      "height": 45,
+                      "marginBottom": 3,
+                      "marginTop": 3,
+                      "width": 525,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    keyboardType="default"
+                    onChangeText={[Function]}
+                    placeholder="Confirm password"
+                    rejectResponderTermination={true}
+                    secureTextEntry={true}
+                    style={
+                      Object {
+                        "backgroundColor": "#FFFFFF",
+                        "borderRadius": 5,
+                        "borderWidth": 1,
+                        "fontSize": 15,
+                        "height": 45,
+                        "marginBottom": 3,
+                        "marginTop": 3,
+                        "width": 525,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </StringInput>
+              <StringInput
+                isSecure={false}
+                keyboard="default"
+                onTextChange={[Function]}
+                placeholder="Your name"
+                text=""
+              >
+                <Component
+                  allowFontScaling={true}
+                  keyboardType="default"
+                  onChangeText={[Function]}
+                  placeholder="Your name"
+                  rejectResponderTermination={true}
+                  secureTextEntry={false}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderRadius": 5,
+                      "borderWidth": 1,
+                      "fontSize": 15,
+                      "height": 45,
+                      "marginBottom": 3,
+                      "marginTop": 3,
+                      "width": 525,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    keyboardType="default"
+                    onChangeText={[Function]}
+                    placeholder="Your name"
+                    rejectResponderTermination={true}
+                    secureTextEntry={false}
+                    style={
+                      Object {
+                        "backgroundColor": "#FFFFFF",
+                        "borderRadius": 5,
+                        "borderWidth": 1,
+                        "fontSize": 15,
+                        "height": 45,
+                        "marginBottom": 3,
+                        "marginTop": 3,
+                        "width": 525,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </StringInput>
+              <StringInput
+                isSecure={false}
+                keyboard="default"
+                onTextChange={[Function]}
+                placeholder="Address"
+                text=""
+              >
+                <Component
+                  allowFontScaling={true}
+                  keyboardType="default"
+                  onChangeText={[Function]}
+                  placeholder="Address"
+                  rejectResponderTermination={true}
+                  secureTextEntry={false}
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFFFF",
+                      "borderRadius": 5,
+                      "borderWidth": 1,
+                      "fontSize": 15,
+                      "height": 45,
+                      "marginBottom": 3,
+                      "marginTop": 3,
+                      "width": 525,
+                    }
+                  }
+                  underlineColorAndroid="transparent"
+                  value=""
+                >
+                  <TextInput
+                    allowFontScaling={true}
+                    keyboardType="default"
+                    onChangeText={[Function]}
+                    placeholder="Address"
+                    rejectResponderTermination={true}
+                    secureTextEntry={false}
+                    style={
+                      Object {
+                        "backgroundColor": "#FFFFFF",
+                        "borderRadius": 5,
+                        "borderWidth": 1,
+                        "fontSize": 15,
+                        "height": 45,
+                        "marginBottom": 3,
+                        "marginTop": 3,
+                        "width": 525,
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                    value=""
+                  />
+                </Component>
+              </StringInput>
+              <ForwardRef
+                onPress={[Function]}
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "backgroundColor": "#0b2031",
+                    "borderRadius": 5,
+                    "height": 45,
+                    "justifyContent": "center",
+                    "marginTop": 3,
+                    "width": 525,
+                  }
+                }
+              >
+                <TouchableOpacity
+                  hostRef={null}
+                  onPress={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "backgroundColor": "#0b2031",
+                      "borderRadius": 5,
+                      "height": 45,
+                      "justifyContent": "center",
+                      "marginTop": 3,
+                      "width": 525,
+                    }
+                  }
+                >
+                  <ForwardRef(AnimatedComponentWrapper)
+                    accessible={true}
+                    focusable={true}
+                    onClick={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Array [
+                        Object {
+                          "alignSelf": "center",
+                          "backgroundColor": "#0b2031",
+                          "borderRadius": 5,
+                          "height": 45,
+                          "justifyContent": "center",
+                          "marginTop": 3,
+                          "width": 525,
+                        },
+                        Object {
+                          "opacity": 1,
+                        },
+                      ]
+                    }
+                  >
+                    <AnimatedComponent
+                      accessible={true}
+                      focusable={true}
+                      onClick={[Function]}
+                      onResponderGrant={[Function]}
+                      onResponderMove={[Function]}
+                      onResponderRelease={[Function]}
+                      onResponderTerminate={[Function]}
+                      onResponderTerminationRequest={[Function]}
+                      onStartShouldSetResponder={[Function]}
+                      style={
+                        Array [
+                          Object {
+                            "alignSelf": "center",
+                            "backgroundColor": "#0b2031",
+                            "borderRadius": 5,
+                            "height": 45,
+                            "justifyContent": "center",
+                            "marginTop": 3,
+                            "width": 525,
+                          },
+                          Object {
+                            "opacity": 1,
+                          },
+                        ]
+                      }
+                    >
+                      <View
+                        accessible={true}
+                        focusable={true}
+                        onClick={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          Object {
+                            "alignSelf": "center",
+                            "backgroundColor": "#0b2031",
+                            "borderRadius": 5,
+                            "height": 45,
+                            "justifyContent": "center",
+                            "marginTop": 3,
+                            "opacity": 1,
+                            "width": 525,
+                          }
+                        }
+                      >
+                        <View
+                          accessible={true}
+                          focusable={true}
+                          onClick={[Function]}
+                          onResponderGrant={[Function]}
+                          onResponderMove={[Function]}
+                          onResponderRelease={[Function]}
+                          onResponderTerminate={[Function]}
+                          onResponderTerminationRequest={[Function]}
+                          onStartShouldSetResponder={[Function]}
+                          style={
+                            Object {
+                              "alignSelf": "center",
+                              "backgroundColor": "#0b2031",
+                              "borderRadius": 5,
+                              "height": 45,
+                              "justifyContent": "center",
+                              "marginTop": 3,
+                              "opacity": 1,
+                              "width": 525,
+                            }
+                          }
+                        >
+                          <Text
+                            style={
+                              Object {
+                                "color": "#FFFFFF",
+                                "fontSize": 20,
+                                "letterSpacing": 0.16,
+                                "textAlign": "center",
+                              }
+                            }
+                          >
+                            <Text
+                              style={
+                                Object {
+                                  "color": "#FFFFFF",
+                                  "fontSize": 20,
+                                  "letterSpacing": 0.16,
+                                  "textAlign": "center",
+                                }
+                              }
+                            >
+                              Sign up
+                            </Text>
+                          </Text>
+                          <PressabilityDebugView
+                            color="cyan"
+                          />
+                        </View>
+                      </View>
+                    </AnimatedComponent>
+                  </ForwardRef(AnimatedComponentWrapper)>
+                </TouchableOpacity>
+              </ForwardRef>
+            </View>
+          </View>
         </View>
       </View>
-    </View>
-  </View>
-</SignUpScreen>
+    </SignUpScreen>
+  </Connect(SignUpScreen)>
+</Provider>
 `;

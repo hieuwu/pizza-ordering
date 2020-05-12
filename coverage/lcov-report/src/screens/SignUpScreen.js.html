@@ -22,9 +22,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.91% </span>
+                <span class="strong">67.27% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/46</span>
+                <span class='fraction'>37/55</span>
             </div>
         
             
@@ -36,16 +36,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">38.46% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/10</span>
+                <span class='fraction'>5/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">73.91% </span>
+                <span class="strong">66.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/46</span>
+                <span class='fraction'>36/54</span>
             </div>
         
             
@@ -214,7 +214,27 @@
 <a name='L156'></a><a href='#L156'>156</a>
 <a name='L157'></a><a href='#L157'>157</a>
 <a name='L158'></a><a href='#L158'>158</a>
-<a name='L159'></a><a href='#L159'>159</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -284,11 +304,19 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,8 +400,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, {Component} from 'react';
-&nbsp;
+import {connect} from 'react-redux';
+import {setUserToken} from '../redux/actions.js';
 import {
   View,
   Text,
@@ -387,8 +424,9 @@ import {StringInput} from '../components/StringInput.js';
 import postUserAPI from '../repository/postUserAPI.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import background from '../../assets/background.jpg';
+import {AsyncStorage} from 'react-native';
 &nbsp;
-export default class SignUpScreen extends Component {
+class SignUpScreen extends Component {
   state = {
     isLoading: false,
     phone: '',
@@ -441,14 +479,22 @@ export default class SignUpScreen extends Component {
     try {
       let response = await postUserAPI('/user', SignUpData);
       //console.log(response.data)
-<span class="cstat-no" title="statement not covered" >      alert('Sign up successfully!');</span>
-<span class="cstat-no" title="statement not covered" >      this.navigateBack();</span>
+<span class="cstat-no" title="statement not covered" >      this.automaticLogIn(response.data);</span>
     } catch (errorMessage) {
 <span class="cstat-no" title="statement not covered" >      alert(errorMessage);</span>
 <span class="cstat-no" title="statement not covered" >      console.log(errorMessage);</span>
+<span class="cstat-no" title="statement not covered" >      this.setState({isLoading: false});</span>
     }
-<span class="cstat-no" title="statement not covered" >    this.setState({isLoading: false});</span>
   };
+&nbsp;
+  automaticLogIn = <span class="fstat-no" title="function not covered" >as</span>ync userToken =&gt; {
+    const {navigation, setUserToken} = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >    await AsyncStorage.setItem('userToken', JSON.stringify(userToken));</span>
+<span class="cstat-no" title="statement not covered" >    setUserToken(userToken);</span>
+<span class="cstat-no" title="statement not covered" >    alert('Sign up successfully!');</span>
+<span class="cstat-no" title="statement not covered" >    navigation.pop(2);</span>
+<span class="cstat-no" title="statement not covered" >    this.setState({isLoading: false});</span>
+  }
 &nbsp;
   render() {
     const {navigation} = this.props;
@@ -530,14 +576,22 @@ export default class SignUpScreen extends Component {
     );
   }
 }
-&nbsp;</pre></td></tr></table></pre>
+&nbsp;
+const mapDispatchToProps = dispatch =&gt; ({
+  setUserToken: <span class="fstat-no" title="function not covered" >us</span>erToken =&gt; <span class="cstat-no" title="statement not covered" >dispatch(setUserToken(userToken)),</span>
+});
+&nbsp;
+export default connect(
+  null,
+  mapDispatchToProps,
+)(SignUpScreen);</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed May 06 2020 20:07:05 GMT+0700 (Indochina Time)
+                at Tue May 12 2020 14:10:22 GMT+0700 (Indochina Time)
             </div>
         </div>
         <script src="..\..\prettify.js"></script>

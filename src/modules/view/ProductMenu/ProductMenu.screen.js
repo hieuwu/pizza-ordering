@@ -86,6 +86,7 @@ export default class ProductMenu extends Component {
           <OvalShape />
           <FlatList
             style={ProductMenuStyles.flatListContainer}
+            showsVerticalScrollIndicator={false}
             data={this.state.data}
             renderItem={this.renderProductItem}
             keyExtractor={item => item.id}

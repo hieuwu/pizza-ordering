@@ -66,6 +66,7 @@ export default StyleSheet.create({
   goBackBtnText: {
     fontSize: 20,
     color: colors.black,
+    fontWeight: 'bold',
   },
   continueBtn: {
     flexDirection: 'row',

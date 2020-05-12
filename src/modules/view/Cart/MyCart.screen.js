@@ -123,6 +123,7 @@ class MyCart extends Component {
       <View style={cartStyles.container}>
         <OvalShape />
         <FlatList
+          showsVerticalScrollIndicator={false}
           style={cartStyles.mainViewContainer}
           data={jobs}
           renderItem={this.renderCartItem}

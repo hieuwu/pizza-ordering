@@ -57,7 +57,9 @@ class Shipping extends Component {
   };
 
   numberWithCommas(x) {
-    return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (
+      x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + strings.appCurrency
+    );
   }
 
   getCurrentDate = () => {
@@ -135,14 +137,16 @@ class Shipping extends Component {
         <TouchableOpacity
           style={styles.continueBtn}
           onPress={() => this.btnContinueOnClick(totalBill)}>
-          <Text style={styles.continueBtnText}> CONTINUE </Text>
+          <Text style={styles.continueBtnText}>
+            {strings.shipping.txtContinue}
+          </Text>
           <Icon name="arrow-circle-right" size={30} color={colors.icon} />
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.goBackBtn}
           onPress={() => this.props.navigation.navigate('cart')}>
           <Icon name="arrow-circle-left" size={30} color={colors.black} />
-          <Text style={styles.goBackBtnText}> GO BACK </Text>
+          <Text style={styles.goBackBtnText}>{strings.shipping.txtGoBack}</Text>
         </TouchableOpacity>
       </ScrollView>
     );

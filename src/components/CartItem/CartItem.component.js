@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, Image} from 'react-native';
 import styles from './CartItem.style';
+import strings from '../../modules/resources/strings/strings';
 
 export default class CartItem extends Component {
   constructor(props) {
@@ -15,7 +16,9 @@ export default class CartItem extends Component {
   }
 
   numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (
+      x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + strings.appCurrency
+    );
   }
 
   render() {

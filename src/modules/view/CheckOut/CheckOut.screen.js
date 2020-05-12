@@ -65,7 +65,9 @@ class CheckOut extends Component {
   );
 
   numberWithCommas(x) {
-    return '$' + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (
+      x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + strings.appCurrency
+    );
   }
 
   async componentDidMount() {
@@ -146,7 +148,6 @@ class CheckOut extends Component {
     const userInfo = this.props.route.params.userInfo;
     const userAddress = this.props.route.params.userAddress;
     let ListItemView, ConfirmBtn;
-    console.log(jobs);
     if (jobs.length === 0) {
       ListItemView = this.displayEmptyListItem();
     } else {
@@ -191,7 +192,9 @@ class CheckOut extends Component {
           </View>
           <TearLine />
         </View>
-        <ScrollView style={styles.mainView}>
+        <ScrollView
+          style={styles.mainView}
+          showsVerticalScrollIndicator={false}>
           <View style={styles.userInfoView}>
             <UserInfo userData={userInfo} />
             <View style={styles.itemContainer}>
@@ -200,16 +203,16 @@ class CheckOut extends Component {
             </View>
           </View>
           <View style={styles.cartListView}>{ListItemView}</View>
-          {ConfirmBtn}
-          <TouchableOpacity
-            style={styles.goBackBtn}
-            onPress={() => this.props.navigation.navigate('shipping')}>
-            <Icon name="arrow-circle-left" size={30} color={colors.black} />
-            <Text style={styles.goBackBtnText}>
-              {strings.checkOut.txtGoBackBtn}
-            </Text>
-          </TouchableOpacity>
         </ScrollView>
+        {ConfirmBtn}
+        <TouchableOpacity
+          style={styles.goBackBtn}
+          onPress={() => this.props.navigation.navigate('shipping')}>
+          <Icon name="arrow-circle-left" size={30} color={colors.black} />
+          <Text style={styles.goBackBtnText}>
+            {strings.checkOut.txtGoBackBtn}
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

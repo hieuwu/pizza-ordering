@@ -68,6 +68,15 @@ export default StyleSheet.create({
     margin: 8,
     borderWidth: 1,
     borderStyle: 'dashed',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+
+    elevation: 14,
   },
   confirmBtn: {
     flexDirection: 'row',
@@ -100,6 +109,7 @@ export default StyleSheet.create({
   goBackBtnText: {
     fontSize: 20,
     color: colors.black,
+    fontWeight: 'bold',
   },
   txtEmptyContainer: {
     justifyContent: 'center',

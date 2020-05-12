@@ -2,6 +2,7 @@ export default {
   restaurant: 'Restaurant',
   name: 'pyzza pizza',
   startOrder: 'START ORDER >',
+  appCurrency: ' VND',
   login: {
     closeEye: 'eye-slash',
     openEye: 'eye',
@@ -50,9 +51,12 @@ export default {
     address: 'ADDRESS',
   },
   productItem: {
-    txtSizeL: 'Size L :',
-    txtSizeM: 'Size M :',
-    txtSizeS: 'Size S :',
+    txtSizeL: 'Size L: ',
+    txtSizeM: 'Size M: ',
+    txtSizeS: 'Size S: ',
+  },
+  productDetail: {
+    txtTotal: 'Total : ',
   },
   myCart: {
     headerTitle: 'My Cart',
@@ -69,5 +73,9 @@ export default {
     signOutMess: 'User signed out',
     signInRequireMess: 'You must sign in first',
     signedInMess: 'You have been signed in',
+  },
+  shipping: {
+    txtContinue: 'CONTINUE ',
+    txtGoBack: ' GO BACK',
   },
 };

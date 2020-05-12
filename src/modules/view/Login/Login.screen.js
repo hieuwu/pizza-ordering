@@ -147,7 +147,7 @@ class Login extends Component {
               Keyboard.dismiss();
             }}
             validationSchema={yup.object().shape({
-              requiredEntry: yup.string().required(),
+              requiredEntry: yup.string().required('Email or phone is require'),
               password: yup
                 .string()
                 .min(8)

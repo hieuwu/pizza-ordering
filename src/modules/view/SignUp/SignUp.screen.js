@@ -39,21 +39,13 @@ class SignUp extends Component {
     } else {
       let signUpData = JSON.parse(JSON.stringify(values));
       delete signUpData.confirmpassword;
-      console.log('signUpData : ', signUpData);
       try {
         let signUpResponse = await new UserUseCase().signUpUser(signUpData);
         this.setState({isLoading: false});
         this.setState({displayModal: false});
-        console.log('sign up response: ' + signUpResponse.status);
         if (signUpResponse.status === 201) {
-          console.log('enter if 201 ');
-          console.log('save user information');
           await new UserUseCase().saveUserInfo(signUpResponse.data.user);
-          console.log('save user token');
           await new UserUseCase().saveUserToken(signUpResponse.data.token);
-          console.log('save user token to redux');
-          // navigate to login screen:
-          console.log('sign up success');
           this.displaySignUpSucceeded();
         } else {
           this.displaySignUpFailed();

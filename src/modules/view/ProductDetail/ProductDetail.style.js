@@ -90,12 +90,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
   },
-  priceContainer: {
-    flexDirection: 'row',
+  totalPriceContainer: {
+    width: '100%',
+    backgroundColor: colors.ovalColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
   priceText: {
+    color: colors.text,
     fontSize: 20,
+    margin: 8,
   },
 });

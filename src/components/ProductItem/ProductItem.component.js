@@ -9,13 +9,15 @@ export default class ProductItem extends Component {
     this.state = {};
   }
   numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return (
+      x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + strings.appCurrency
+    );
   }
 
   displaySizeL = () => {
     return (
       <View style={ProductItemStyles.sizeItemContainer}>
-        <Text> {strings.productItem.txtSizeL} </Text>
+        <Text>{strings.productItem.txtSizeL}</Text>
         <Text>{this.numberWithCommas(this.props.sizeL)}</Text>
       </View>
     );
@@ -24,7 +26,7 @@ export default class ProductItem extends Component {
   displaySizeM = () => {
     return (
       <View style={ProductItemStyles.sizeItemContainer}>
-        <Text> {strings.productItem.txtSizeM} </Text>
+        <Text>{strings.productItem.txtSizeM}</Text>
         <Text>{this.numberWithCommas(this.props.sizeM)}</Text>
       </View>
     );
@@ -33,7 +35,7 @@ export default class ProductItem extends Component {
   displaySizeS = () => {
     return (
       <View style={ProductItemStyles.sizeItemContainer}>
-        <Text>{strings.productItem.txtSizeS} </Text>
+        <Text>{strings.productItem.txtSizeS}</Text>
         <Text>{this.numberWithCommas(this.props.sizeS)}</Text>
       </View>
     );

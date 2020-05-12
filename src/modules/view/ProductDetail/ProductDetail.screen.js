@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, TouchableOpacity, ScrollView, Image} from 'react-native';
 import styles from './ProductDetail.style';
 import colors from '../../resources/colors/Colors';
+import strings from '../../resources/strings/strings';
 
 import HeaderIcon from '../../../components/HeaderIcon/HeaderIcon.component';
 import OvalShape from '../../../components/OvalShape/OvalShape.component';
@@ -170,7 +171,9 @@ class ProductDetail extends Component {
   };
 
   increaseQuantity = () => {
-    this.setState({quantity: this.state.quantity + 1});
+    if (this.state.quantity < 10) {
+      this.setState({quantity: this.state.quantity + 1});
+    }
   };
 
   decreaseQuantity = () => {
@@ -180,22 +183,9 @@ class ProductDetail extends Component {
   };
 
   numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
-
-  renderPrice() {
-    if (this.state.cartId === PIZZA_INDEX) {
-      return (
-        <View style={styles.priceContainer}>
-          <Text style={styles.priceText}>
-            {this.numberWithCommas(this.props.route.params.data.price.sizeS)} -
-            {this.numberWithCommas(this.props.route.params.data.price.sizeL)}
-          </Text>
-        </View>
-      );
-    } else {
-      return null;
-    }
+    return (
+      x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + strings.appCurrency
+    );
   }
 
   calculateTotalPrice = () => {
@@ -322,14 +312,10 @@ class ProductDetail extends Component {
           <Text style={styles.pizzaDescription}>
             {this.props.route.params.data.description}
           </Text>
-          {this.renderPrice()}
-          <View style={styles.priceContainer}>
-            <Text style={styles.priceText}>
-              Total : {this.numberWithCommas(totalPrice)}
-            </Text>
-          </View>
         </View>
-        <ScrollView style={styles.scrollViewContainer}>
+        <ScrollView
+          style={styles.scrollViewContainer}
+          showsVerticalScrollIndicator={false}>
           <View>{this.renderSizeOptions(pizzaSize)}</View>
           <View>{this.renderCrustOptions(pizzaCrust)}</View>
           <View>{this.renderCheeseOptions(pizzaCheese)}</View>
@@ -348,7 +334,11 @@ class ProductDetail extends Component {
             </TouchableOpacity>
           </View>
         </ScrollView>
-        <View>
+        <View style={styles.totalPriceContainer}>
+          <Text style={styles.priceText}>
+            {strings.productDetail.txtTotal}
+            {this.numberWithCommas(totalPrice)}
+          </Text>
           <TouchableOpacity
             style={styles.addCartBtn}
             onPress={this.createCartLine}>

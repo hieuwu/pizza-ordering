@@ -136,7 +136,7 @@ export default class ProductListScreen extends Component {
                 {
                     this.state.isLoading ? <ActivityIndicator /> : (
                         <View style={{flex:1}}>
-                            <View style={{ height: 50, backgroundColor: 'transparent' }}>
+                            <View style={{ height: 0, backgroundColor: 'transparent' }}>
                                 <ScrollView
                                     refreshControl={
                                         <RefreshControl refreshing={this.state.isRefreshing} onRefresh={this.onRefresh} />}

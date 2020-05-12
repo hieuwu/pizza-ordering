@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, Image,Modal } from 'react-native'
+import { Text, View, Image, Modal } from 'react-native'
 import OvalShape from '../../components/OvalShape.component'
 import styles from '../../views/ProductDetail/ProductDetail.style'
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
@@ -63,11 +63,10 @@ class ProductDetailScreen extends Component {
 
     createOrderLine = async () => {
         const { addToCart } = this.props;
-        const {cartReducer} = this.props;
-        const {saveCart} = this.props;
+        const { cartReducer } = this.props;
+        const { saveCart } = this.props;
         const item = this.getParam();
-        this.setState({quantity: 0});
-        i =0;
+        i = 0;
         let orderLine = {};
         orderLine.type = 'ADD_CART';
         orderLine.id = String(cartID);
@@ -84,7 +83,7 @@ class ProductDetailScreen extends Component {
         orderLine.size = this.state.size;
         orderLine.crust = this.state.crust;
         orderLine.imgLink = item.imgLink;
-        this.setState({modalVisible: true});
+        this.setState({ modalVisible: true });
         addToCart(orderLine);
         saveCart();
         cartID = cartID + 1;
@@ -97,37 +96,39 @@ class ProductDetailScreen extends Component {
         }
     }
 
-     render() {
+    render() {
         const item = this.getParam();
         return (
             <View style={styles.container}>
-                 <Modal animationType="slide"
+                <Modal animationType="slide"
                     transparent={true}
                     visible={this.state.modalVisible}>
                     <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
                         <View style={styles.modalView}>
                             <Text style={styles.textStyle}>Add to cart successfully !</Text>
-                            <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-                            <Button
-                                title='Continue'
-                                buttonStyle={styles.okButton}
-                                onPress={() => {
-                                    this.setState({ modalVisible: false });
-                                    this.props.navigation.goBack();
-                                }}
-                            >
-                            </Button>
-                            <Button
-                                title='Check out'
-                                buttonStyle={styles.okButton}
-                                onPress={() => {
-                                    this.setState({ modalVisible: false });
-                                    this.props.navigation.navigate('CartScreen');
-                                }}
-                            ></Button>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <Button
+                                    title='Continue'
+                                    buttonStyle={styles.okButton}
+                                    onPress={() => {
+                                        this.setState({ modalVisible: false });
+                                        this.setState({ quantity: 1 });
+                                        this.props.navigation.goBack();
+                                    }}
+                                >
+                                </Button>
+                                <Button
+                                    title='Check out'
+                                    buttonStyle={styles.okButton}
+                                    onPress={() => {
+                                        this.setState({ modalVisible: false });
+                                        this.setState({ quantity: 1 });
+                                        this.props.navigation.navigate('CartScreen');
+                                    }}
+                                ></Button>
 
                             </View>
-                           
+
                         </View>
                     </View>
                 </Modal>
@@ -202,23 +203,29 @@ class ProductDetailScreen extends Component {
                             <TouchableOpacity onPress={() => {
                                 if (this.state.quantity > 1) {
                                     i--;
-                                this.setState({ quantity: i })
+                                    this.setState({ quantity: i })
                                 } else return;
-                                }}>
+                            }}>
                                 <AntDesign name='minuscircleo' color={color.black} size={dimension.iconSize} />
                             </TouchableOpacity>
                             <Text style={styles.subTitle} >{this.state.quantity}</Text>
                             <TouchableOpacity onPress={() => {
                                 i++;
-                                this.setState({ quantity: i})
-                                }}><AntDesign name='pluscircleo' color={color.black} size={dimension.iconSize} />
+                                this.setState({ quantity: i })
+                            }}><AntDesign name='pluscircleo' color={color.black} size={dimension.iconSize} />
                             </TouchableOpacity>
                         </View>
                     </View>
                 </ScrollView>
                 <Button onPress={
                     this.createOrderLine} title={string.buttonAddToCart} buttonStyle={styles.addCart} />
-                     
+                {this.state.modalVisible ? (<View style={{
+                    backgroundColor: 'rgba(52, 52, 52, 0.8)', position: 'absolute',
+                    height: dimension.window.height, width: dimension.window.width
+                }} />) : (null)
+                }
+
+
             </View>
         )
     }

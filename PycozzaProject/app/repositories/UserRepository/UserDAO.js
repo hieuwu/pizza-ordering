@@ -1,10 +1,10 @@
 import AsyncStorage from '@react-native-community/async-storage';
-
+import AppConfig from '../../config/AppConfig'
 class UserDAO {
     async saveUserInformation(userInfo) {
         let userJson = JSON.stringify(userInfo);
         try {
-            await AsyncStorage.setItem('userInfo', userJson);
+            await AsyncStorage.setItem(AppConfig.LOCAL_KEY.userInfo, userJson);
         } catch (error) {
             console.log(error.message);
         }
@@ -13,7 +13,7 @@ class UserDAO {
     async getUserInformation() {
         let userInfo = '';
         try {
-            userInfo = await AsyncStorage.getItem('userInfo') || 'none';
+            userInfo = await AsyncStorage.getItem(AppConfig.LOCAL_KEY.userInfo) || 'none';
             if (userInfo === 'none')
             {
                 return 'none';
@@ -26,7 +26,7 @@ class UserDAO {
     }
     async logoutAccount() {
         try {
-            await AsyncStorage.removeItem('userInfo');
+            await AsyncStorage.removeItem(AppConfig.LOCAL_KEY.userInfo);
           } catch (error) {
             // Error retrieving data
             console.log(error.message);

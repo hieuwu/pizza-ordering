@@ -39,7 +39,8 @@ class CustomDrawerContent extends Component {
 const styles = StyleSheet.create({
   labelStyle: {
     fontSize: dimension.itemTitleSize,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    color: color.white
   }
 })
 

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         margin: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: color.headerBackground,
+        backgroundColor: color.grayBackground,
         borderRadius: 20,
         padding: 35,
         alignItems: "center",
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
       textStyle: {
           fontWeight: 'bold',
           fontSize: 24,
-          color: color.white
+          color: color.shadow
       },
       okButton: {
           backgroundColor: color.mainColor,

@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Text, View, ImageBackground } from 'react-native'
 import styles from './Categories.style'
 import string from '../../resources/strings'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import AppConfig from '../../config/AppConfig';
+
 export default class CategoriesScreen extends Component {
     render() {
         return (

@@ -9,7 +9,6 @@ import HomeScreen from '../views/Home/Home.screen'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import dimension from '../resources/dimensions';
 import HomeStack from '../navigation/Home.stack';
-import Null from '../components/Null.component';
 import ProfileScreen from '../views/Profile/Profile.screen'
 import ProfileStack from './Profile.stack'
 import CartStack from './Cart.stack'

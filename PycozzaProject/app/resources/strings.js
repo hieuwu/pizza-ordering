@@ -22,7 +22,8 @@ const string = {
         beverage: 'Beverage',
     },
     promptTotal: 'Total: ',
-    currency: 'VNĐ'
+    currency: 'VNĐ',
+    promptMember: 'Buy as member',
 }
 
 export default string;

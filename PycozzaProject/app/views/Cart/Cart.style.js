@@ -71,9 +71,9 @@ const styles = StyleSheet.create({
     },
     modalView: {
         margin: 20,
+        backgroundColor: color.grayBackground,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: color.headerBackground,
         borderRadius: 20,
         padding: 35,
         alignItems: "center",
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
         textAlign: 'center',
-        color: color.white
+        color: color.shadow
     },
     okButton: {
         backgroundColor: color.mainColor,
@@ -123,10 +123,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
         textAlign: 'left',
-        color: color.mainColor
+        backgroundColor: color.white
     },
     touchButton: {
-        backgroundColor: color.white, 
         marginVertical: 25,
         borderRadius: 10, 
         padding: 8

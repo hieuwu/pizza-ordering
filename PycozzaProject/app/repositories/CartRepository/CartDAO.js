@@ -1,35 +1,32 @@
 import AsyncStorage from '@react-native-community/async-storage';
+import AppConfig from '../../config/AppConfig';
 class CartDAO {
     async getCart(){
         let currentCart = '';
         try {
-            currentCart = await AsyncStorage.getItem('currentCart') || 'none';
+            currentCart = await AsyncStorage.getItem(AppConfig.LOCAL_KEY.currentCart) || 'none';
             if (currentCart === 'none')
             {
                 return 'none';
             }
         } catch (error) {
-            // Error retrieving data
             console.log(error.message);
         }
-        console.log("Cart is get !!!");
         return JSON.parse(currentCart);
     }
 
     async saveCart(currentCart) {
         let currentCartJSON = JSON.stringify(currentCart);
         try {
-            await AsyncStorage.setItem('currentCart', currentCartJSON);
+            await AsyncStorage.setItem(AppConfig.LOCAL_KEY.currentCart, currentCartJSON);
         } catch (error) {
             console.log(error.message);
         }
-        console.log('Save cart');
     }
 
     async removeCart() {
         try {
-            console.log('Remove from local');
-            await AsyncStorage.removeItem('currentCart');
+            await AsyncStorage.removeItem(AppConfig.LOCAL_KEY.currentCart);
           } catch (error) {
             // Error retrieving data
             console.log(error.message);

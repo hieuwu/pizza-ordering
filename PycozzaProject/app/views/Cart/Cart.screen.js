@@ -267,13 +267,13 @@ class CartScreen extends Component {
                                 visible={this.state.modalVisible}>
                                 <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
                                     <View style={styles.modalView}>
-                                        <Text style={styles.textStyle}>Your name</Text>
+                                        <Text style={styles.textStyle}>{string.promptFullName}</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptFullName}
                                             onChangeText={text => this.setState({ noUserName: text })}
                                             errorMessage={this.state.nameError}
                                         />
-                                        <Text style={styles.textStyle}>Phone</Text>
+                                        <Text style={styles.textStyle}>{string.promptPhone}</Text>
                                         <Input inputContainerStyle={styles.textInput}
                                             placeholder={string.promptPhone}
                                             onChangeText={text => this.setState({ noUserPhone: text })}
@@ -285,13 +285,12 @@ class CartScreen extends Component {
                                             placeholder={string.promptAddress}
                                             onChangeText={text => this.setState({ userAddress: text })}
                                             errorMessage={this.state.addressError}
-
                                         />
                                         <Text style={styles.textStyle}>or</Text>
                                         <TouchableOpacity
                                             onPress={() => this.gotoAuthenn()}
                                             style={styles.touchButton}>
-                                            <Text style={styles.textButton}>Buy as member</Text>
+                                            <Text style={styles.textButton}>{string.promptMember}</Text>
                                         </TouchableOpacity>
                                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                             <Button

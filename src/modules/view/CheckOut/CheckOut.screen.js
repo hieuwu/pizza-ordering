@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, ScrollView, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  FlatList,
+  Modal,
+} from 'react-native';
 import styles from './CheckOut.style';
 import colors from '../../resources/colors/Colors';
 import strings from '../../resources/strings/strings';
@@ -19,14 +26,28 @@ class CheckOut extends Component {
     super(props);
     this.state = {
       billDate: this.props.route.params.checkOutDate,
+      displayModal: false,
+      modalMessage: '',
     };
+  }
+
+  btnModalOnClick = () => {
+    this.setState({displayModal: false});
+    if (this.state.modalMessage === strings.checkOut.txtOrderSuccess) {
+      this.props.navigation.navigate('categories');
+    }
+  };
+
+  displayModalOrderSucceed() {
+    this.setState({modalMessage: strings.checkOut.txtOrderSuccess});
+    this.setState({displayModal: true});
   }
 
   btnConfirmationOnClick = async () => {
     const {removeCart} = this.props;
     await new CartUseCase().removeCart();
     removeCart();
-    this.props.navigation.navigate('categories');
+    this.displayModalOrderSucceed();
   };
 
   renderCartItem = ({item}) => (
@@ -134,6 +155,25 @@ class CheckOut extends Component {
     }
     return (
       <View style={styles.container}>
+        <Modal
+          animationType="slide"
+          visible={this.state.displayModal}
+          transparent={true}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalView}>
+              <Text style={styles.checkOutStatusTxt}>
+                {this.state.modalMessage}
+              </Text>
+              <TouchableOpacity
+                style={styles.btnOkContainer}
+                onPress={() => {
+                  this.btnModalOnClick();
+                }}>
+                <Text style={styles.txtOk}>{strings.login.okTxt}</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
         <View style={styles.headerContainer}>
           <View style={styles.billInfoView}>
             <View style={styles.billLineContainer}>

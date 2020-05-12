@@ -6,7 +6,7 @@ export default {
     closeEye: 'eye-slash',
     openEye: 'eye',
     loginStatusFailedMess: 'Sign in failed',
-    loginStatusSucceededMess: 'Sign in succeeded',
+    loginStatusSucceededMess: 'Sign in successfully',
     invalidEmailMess: 'Invalid email',
     invalidPassMess: 'Invalid password',
     okTxt: 'OK',
@@ -29,7 +29,7 @@ export default {
     invalidPassMess: 'Invalid password',
     invalidConfirmPassMess: 'Password not match',
     signUpFailedMess: 'Sign up failed',
-    signUpSucceededMess: 'Sign up succeeded',
+    signUpSucceededMess: 'Sign up successfully',
   },
   checkOut: {
     txtCheckoutTitle: 'CHECK OUT',
@@ -39,6 +39,8 @@ export default {
     txtGoBackBtn: ' GO BACK',
     txtData: 'Date: ',
     txtTotalBill: 'Total Bill: ',
+    txtOrderSuccess: 'Order successfully',
+    txtOrderFail: 'Order failed',
   },
   userInfo: {
     firstName: ' FIRST NAME',

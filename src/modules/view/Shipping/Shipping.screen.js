@@ -81,11 +81,9 @@ class Shipping extends Component {
     let userData = await new UserUseCase().getUserInfo();
     this.setState({data: userData});
     const {userReducer} = this.props;
-    console.log('user token : ', userReducer);
   }
 
   btnContinueOnClick = totalBill => {
-    console.log('checkout data : ', this.state.data);
     if (String(this.state.enterAddress).length > 0) {
       this.props.navigation.navigate('checkout', {
         checkOutPrice: totalBill,

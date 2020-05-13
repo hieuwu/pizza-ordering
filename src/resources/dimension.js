@@ -69,6 +69,7 @@ const dimensionStyles = StyleSheet.create({
     backgroundColor: '#e5293e',
     alignItems: 'center',
     justifyContent: 'center',
+    elevation: 7,
   },
 
   CartIcon: {
@@ -81,6 +82,7 @@ const dimensionStyles = StyleSheet.create({
     backgroundColor: '#e5293e',
     alignItems: 'center',
     justifyContent: 'center',
+    elevation: 7,
   },
 
   NavigationPanel: {
@@ -369,7 +371,7 @@ const dimensionStyles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     width: 0.8 * w,
-    height: 54,
+    height: 45,
     alignSelf: 'center',
     justifyContent: 'center',
     backgroundColor: '#e5293e',
@@ -397,7 +399,7 @@ const dimensionStyles = StyleSheet.create({
 
   checkOutButton: {
     width: 0.9 * w,
-    height: 54,
+    height: 45,
     alignSelf: 'center',
     justifyContent: 'center',
     backgroundColor: '#e5293e',
@@ -559,7 +561,7 @@ const dimensionStyles = StyleSheet.create({
 
   continueButtonCheckOut: {
     width: 0.9 * w,
-    height: 54,
+    height: 45,
     alignSelf: 'center',
     justifyContent: 'center',
     backgroundColor: '#e5293e',
@@ -570,7 +572,7 @@ const dimensionStyles = StyleSheet.create({
 
   backButtonCheckOut: {
     width: 0.9 * w,
-    height: 54,
+    height: 45,
     alignSelf: 'center',
     justifyContent: 'center',
     backgroundColor: '#FFFFFF',
@@ -596,6 +598,18 @@ const dimensionStyles = StyleSheet.create({
     left: 20,
     width: 100,
     height: 100,
+  },
+
+  CartIconNumber: {
+    position: 'absolute',
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: '#ffc107',
+    right: -2,
+    top: -2,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

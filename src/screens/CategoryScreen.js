@@ -11,7 +11,7 @@ import {
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {BarsIcon} from '../components/BarsIcon.js';
-import {CartIcon} from '../components/CartIcon.js';
+import CartIcon from '../components/CartIcon.js';
 import NavigationPanel from '../components/NavigationPanel.js';
 
 class CategoryScreen extends Component {

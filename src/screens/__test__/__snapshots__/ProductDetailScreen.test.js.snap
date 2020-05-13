@@ -1714,7 +1714,7 @@ exports[`product detail screen test should render snapshot test for product deta
                         "alignSelf": "center",
                         "backgroundColor": "#e5293e",
                         "borderRadius": 27,
-                        "height": 54,
+                        "height": 45,
                         "justifyContent": "center",
                         "marginBottom": 20,
                         "marginTop": 20,
@@ -1730,7 +1730,7 @@ exports[`product detail screen test should render snapshot test for product deta
                           "alignSelf": "center",
                           "backgroundColor": "#e5293e",
                           "borderRadius": 27,
-                          "height": 54,
+                          "height": 45,
                           "justifyContent": "center",
                           "marginBottom": 20,
                           "marginTop": 20,
@@ -1754,7 +1754,7 @@ exports[`product detail screen test should render snapshot test for product deta
                               "alignSelf": "center",
                               "backgroundColor": "#e5293e",
                               "borderRadius": 27,
-                              "height": 54,
+                              "height": 45,
                               "justifyContent": "center",
                               "marginBottom": 20,
                               "marginTop": 20,
@@ -1782,7 +1782,7 @@ exports[`product detail screen test should render snapshot test for product deta
                                 "alignSelf": "center",
                                 "backgroundColor": "#e5293e",
                                 "borderRadius": 27,
-                                "height": 54,
+                                "height": 45,
                                 "justifyContent": "center",
                                 "marginBottom": 20,
                                 "marginTop": 20,
@@ -1809,7 +1809,7 @@ exports[`product detail screen test should render snapshot test for product deta
                                 "alignSelf": "center",
                                 "backgroundColor": "#e5293e",
                                 "borderRadius": 27,
-                                "height": 54,
+                                "height": 45,
                                 "justifyContent": "center",
                                 "marginBottom": 20,
                                 "marginTop": 20,
@@ -1833,7 +1833,7 @@ exports[`product detail screen test should render snapshot test for product deta
                                   "alignSelf": "center",
                                   "backgroundColor": "#e5293e",
                                   "borderRadius": 27,
-                                  "height": 54,
+                                  "height": 45,
                                   "justifyContent": "center",
                                   "marginBottom": 20,
                                   "marginTop": 20,
@@ -2061,6 +2061,7 @@ exports[`product detail screen test should render snapshot test for product deta
                 "alignItems": "center",
                 "backgroundColor": "#e5293e",
                 "borderRadius": 22,
+                "elevation": 7,
                 "height": 44,
                 "justifyContent": "center",
                 "marginLeft": 16,
@@ -2078,6 +2079,7 @@ exports[`product detail screen test should render snapshot test for product deta
                   "alignItems": "center",
                   "backgroundColor": "#e5293e",
                   "borderRadius": 22,
+                  "elevation": 7,
                   "height": 44,
                   "justifyContent": "center",
                   "marginLeft": 16,
@@ -2103,6 +2105,7 @@ exports[`product detail screen test should render snapshot test for product deta
                       "alignItems": "center",
                       "backgroundColor": "#e5293e",
                       "borderRadius": 22,
+                      "elevation": 7,
                       "height": 44,
                       "justifyContent": "center",
                       "marginLeft": 16,
@@ -2132,6 +2135,7 @@ exports[`product detail screen test should render snapshot test for product deta
                         "alignItems": "center",
                         "backgroundColor": "#e5293e",
                         "borderRadius": 22,
+                        "elevation": 7,
                         "height": 44,
                         "justifyContent": "center",
                         "marginLeft": 16,
@@ -2160,6 +2164,7 @@ exports[`product detail screen test should render snapshot test for product deta
                         "alignItems": "center",
                         "backgroundColor": "#e5293e",
                         "borderRadius": 22,
+                        "elevation": 7,
                         "height": 44,
                         "justifyContent": "center",
                         "marginLeft": 16,
@@ -2185,6 +2190,7 @@ exports[`product detail screen test should render snapshot test for product deta
                           "alignItems": "center",
                           "backgroundColor": "#e5293e",
                           "borderRadius": 22,
+                          "elevation": 7,
                           "height": 44,
                           "justifyContent": "center",
                           "marginLeft": 16,
@@ -2251,33 +2257,185 @@ exports[`product detail screen test should render snapshot test for product deta
             </TouchableOpacity>
           </ForwardRef>
         </BarsIcon>
-        <CartIcon
+        <Connect(CartIcon)
           onClick={[Function]}
         >
-          <ForwardRef
-            onPress={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#e5293e",
-                "borderRadius": 22,
-                "height": 44,
-                "justifyContent": "center",
-                "marginTop": 106.72,
-                "position": "absolute",
-                "right": 16,
-                "width": 44,
-              }
+          <CartIcon
+            dispatch={[Function]}
+            onClick={[Function]}
+            orderLineArray={
+              Array [
+                Object {
+                  "oldState": Object {
+                    "crust": "Thick Crust",
+                    "quantity": "3",
+                    "size": "Size L",
+                    "topping": Array [
+                      [Function],
+                    ],
+                  },
+                  "optionArray": Array [
+                    "5ead5095e469de1464606a8d",
+                    "5ead5095e469de1464606a99",
+                    "5ead5097e469de1464606aa7",
+                    "5ead5097e469de1464606aa8",
+                  ],
+                  "optionTitleArray": Array [
+                    "Size L",
+                    "Thick Crust",
+                    "Sausage",
+                    "Shrimp",
+                  ],
+                  "product": "5ead5095e469de1464606a6c",
+                  "productData": Object {
+                    "_id": "5ead5095e469de1464606a6c",
+                    "category": "5ead5095e469de1464606a63",
+                    "description": "Shrimps, squid rings and mushroom on a bed of Pesto sauce, topped with Mozzarella cheese and parsley.",
+                    "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/C02.png",
+                    "price": 12,
+                    "rate": 5,
+                    "title": "Seafood Pesto",
+                  },
+                  "productPrice": 57,
+                  "quantity": 3,
+                },
+                Object {
+                  "oldState": Object {
+                    "crust": "Thick Crust",
+                    "quantity": "1",
+                    "size": "Size L",
+                    "topping": Array [
+                      [Function],
+                    ],
+                  },
+                  "optionArray": Array [
+                    "5ead5095e469de1464606a8f",
+                    "5ead5095e469de1464606a9b",
+                  ],
+                  "optionTitleArray": Array [
+                    "Size L",
+                    "Thick Crust",
+                  ],
+                  "product": "5ead5095e469de1464606a6d",
+                  "productData": Object {
+                    "_id": "5ead5095e469de1464606a6d",
+                    "category": "5ead5095e469de1464606a63",
+                    "description": "Squid, crab stick, pineapple, green pepper, onion, Cheesy mayo sauce and mozzarella",
+                    "imageUrl": "https://order.pizzahut.vn/menu/v000001/hk/en/images/C07.png",
+                    "price": 8,
+                    "rate": 2.6,
+                    "title": "Ocean Delight",
+                  },
+                  "productPrice": 12,
+                  "quantity": 1,
+                },
+                Object {
+                  "oldState": Object {
+                    "crust": "",
+                    "quantity": "2",
+                    "size": "",
+                    "topping": Array [
+                      [Function],
+                    ],
+                  },
+                  "optionArray": Array [],
+                  "optionTitleArray": Array [],
+                  "product": "5ead5095e469de1464606a73",
+                  "productData": Object {
+                    "_id": "5ead5095e469de1464606a73",
+                    "category": "5ead5095e469de1464606a64",
+                    "description": "Diced blackened chicken breast, sautéed with bell peppers and red onions, tossed with a spicy cajun cream sauce and penne pasta.",
+                    "imageUrl": "https://prestopasta.com/wordpress/wp-content/uploads/2015/06/Cajun-Pasta1-100x100.jpg",
+                    "price": 6,
+                    "rate": 3.5,
+                    "title": "Cajun Chicken Penne",
+                  },
+                  "productPrice": 12,
+                  "quantity": 2,
+                },
+                Object {
+                  "oldState": Object {
+                    "crust": "",
+                    "quantity": "1",
+                    "size": "",
+                    "topping": Array [
+                      [Function],
+                    ],
+                  },
+                  "optionArray": Array [],
+                  "optionTitleArray": Array [],
+                  "product": "5ead5095e469de1464606a7f",
+                  "productData": Object {
+                    "_id": "5ead5095e469de1464606a7f",
+                    "category": "5ead5095e469de1464606a67",
+                    "description": "",
+                    "imageUrl": "https://thepizzacompany.vn/273-home_default/quesadillas.jpg",
+                    "price": 1,
+                    "rate": 4.5,
+                    "title": "Aquafina",
+                  },
+                  "productPrice": 1,
+                  "quantity": 1,
+                },
+                Object {
+                  "oldState": Object {
+                    "crust": "",
+                    "quantity": "2",
+                    "size": "",
+                    "topping": Array [
+                      [Function],
+                    ],
+                  },
+                  "optionArray": Array [],
+                  "optionTitleArray": Array [],
+                  "product": "5ead5095e469de1464606a75",
+                  "productData": Object {
+                    "_id": "5ead5095e469de1464606a75",
+                    "category": "5ead5095e469de1464606a65",
+                    "description": "Signature salad of our store",
+                    "imageUrl": "https://thepizzacompany.vn/174-home_default/garden-salad-with-balsamic-vinegar-dressing.jpg",
+                    "price": 5,
+                    "rate": 2.8,
+                    "title": "Signature salad",
+                  },
+                  "productPrice": 10,
+                  "quantity": 2,
+                },
+                Object {
+                  "oldState": Object {
+                    "crust": "",
+                    "quantity": "10",
+                    "size": "",
+                    "topping": Array [
+                      [Function],
+                    ],
+                  },
+                  "optionArray": Array [],
+                  "optionTitleArray": Array [],
+                  "product": "5ead5095e469de1464606a78",
+                  "productData": Object {
+                    "_id": "5ead5095e469de1464606a78",
+                    "category": "5ead5095e469de1464606a66",
+                    "description": "",
+                    "imageUrl": "https://www.tljus.com/wp-content/uploads/2019/12/fresh-cream-cake1-11.jpg",
+                    "price": 4,
+                    "rate": 1.4,
+                    "title": "Triple Delight Coffee Cake",
+                  },
+                  "productPrice": 40,
+                  "quantity": 10,
+                },
+              ]
             }
           >
-            <TouchableOpacity
-              hostRef={null}
+            <ForwardRef
               onPress={[Function]}
               style={
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#e5293e",
                   "borderRadius": 22,
+                  "elevation": 7,
                   "height": 44,
                   "justifyContent": "center",
                   "marginTop": 106.72,
@@ -2287,36 +2445,25 @@ exports[`product detail screen test should render snapshot test for product deta
                 }
               }
             >
-              <ForwardRef(AnimatedComponentWrapper)
-                accessible={true}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
+              <TouchableOpacity
+                hostRef={null}
+                onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#e5293e",
-                      "borderRadius": 22,
-                      "height": 44,
-                      "justifyContent": "center",
-                      "marginTop": 106.72,
-                      "position": "absolute",
-                      "right": 16,
-                      "width": 44,
-                    },
-                    Object {
-                      "opacity": 1,
-                    },
-                  ]
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#e5293e",
+                    "borderRadius": 22,
+                    "elevation": 7,
+                    "height": 44,
+                    "justifyContent": "center",
+                    "marginTop": 106.72,
+                    "position": "absolute",
+                    "right": 16,
+                    "width": 44,
+                  }
                 }
               >
-                <AnimatedComponent
+                <ForwardRef(AnimatedComponentWrapper)
                   accessible={true}
                   focusable={true}
                   onClick={[Function]}
@@ -2332,6 +2479,7 @@ exports[`product detail screen test should render snapshot test for product deta
                         "alignItems": "center",
                         "backgroundColor": "#e5293e",
                         "borderRadius": 22,
+                        "elevation": 7,
                         "height": 44,
                         "justifyContent": "center",
                         "marginTop": 106.72,
@@ -2345,7 +2493,7 @@ exports[`product detail screen test should render snapshot test for product deta
                     ]
                   }
                 >
-                  <View
+                  <AnimatedComponent
                     accessible={true}
                     focusable={true}
                     onClick={[Function]}
@@ -2356,18 +2504,23 @@ exports[`product detail screen test should render snapshot test for product deta
                     onResponderTerminationRequest={[Function]}
                     onStartShouldSetResponder={[Function]}
                     style={
-                      Object {
-                        "alignItems": "center",
-                        "backgroundColor": "#e5293e",
-                        "borderRadius": 22,
-                        "height": 44,
-                        "justifyContent": "center",
-                        "marginTop": 106.72,
-                        "opacity": 1,
-                        "position": "absolute",
-                        "right": 16,
-                        "width": 44,
-                      }
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "backgroundColor": "#e5293e",
+                          "borderRadius": 22,
+                          "elevation": 7,
+                          "height": 44,
+                          "justifyContent": "center",
+                          "marginTop": 106.72,
+                          "position": "absolute",
+                          "right": 16,
+                          "width": 44,
+                        },
+                        Object {
+                          "opacity": 1,
+                        },
+                      ]
                     }
                   >
                     <View
@@ -2385,6 +2538,7 @@ exports[`product detail screen test should render snapshot test for product deta
                           "alignItems": "center",
                           "backgroundColor": "#e5293e",
                           "borderRadius": 22,
+                          "elevation": 7,
                           "height": 44,
                           "justifyContent": "center",
                           "marginTop": 106.72,
@@ -2395,29 +2549,37 @@ exports[`product detail screen test should render snapshot test for product deta
                         }
                       }
                     >
-                      <Icon
-                        allowFontScaling={false}
-                        color="#FFFFFF"
-                        name="shopping-bag"
-                        size={20}
-                      >
-                        <Text
-                          allowFontScaling={false}
-                          style={
-                            Array [
-                              Object {
-                                "color": "#FFFFFF",
-                                "fontSize": 20,
-                              },
-                              undefined,
-                              Object {
-                                "fontFamily": "FontAwesome",
-                                "fontStyle": "normal",
-                                "fontWeight": "normal",
-                              },
-                              Object {},
-                            ]
+                      <View
+                        accessible={true}
+                        focusable={true}
+                        onClick={[Function]}
+                        onResponderGrant={[Function]}
+                        onResponderMove={[Function]}
+                        onResponderRelease={[Function]}
+                        onResponderTerminate={[Function]}
+                        onResponderTerminationRequest={[Function]}
+                        onStartShouldSetResponder={[Function]}
+                        style={
+                          Object {
+                            "alignItems": "center",
+                            "backgroundColor": "#e5293e",
+                            "borderRadius": 22,
+                            "elevation": 7,
+                            "height": 44,
+                            "justifyContent": "center",
+                            "marginTop": 106.72,
+                            "opacity": 1,
+                            "position": "absolute",
+                            "right": 16,
+                            "width": 44,
                           }
+                        }
+                      >
+                        <Icon
+                          allowFontScaling={false}
+                          color="#FFFFFF"
+                          name="shopping-bag"
+                          size={20}
                         >
                           <Text
                             allowFontScaling={false}
@@ -2437,20 +2599,92 @@ exports[`product detail screen test should render snapshot test for product deta
                               ]
                             }
                           >
-                            
+                            <Text
+                              allowFontScaling={false}
+                              style={
+                                Array [
+                                  Object {
+                                    "color": "#FFFFFF",
+                                    "fontSize": 20,
+                                  },
+                                  undefined,
+                                  Object {
+                                    "fontFamily": "FontAwesome",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  Object {},
+                                ]
+                              }
+                            >
+                              
+                            </Text>
                           </Text>
-                        </Text>
-                      </Icon>
-                      <PressabilityDebugView
-                        color="cyan"
-                      />
+                        </Icon>
+                        <View
+                          style={
+                            Object {
+                              "alignItems": "center",
+                              "backgroundColor": "#ffc107",
+                              "borderRadius": 9,
+                              "height": 18,
+                              "justifyContent": "center",
+                              "position": "absolute",
+                              "right": -2,
+                              "top": -2,
+                              "width": 18,
+                            }
+                          }
+                        >
+                          <View
+                            style={
+                              Object {
+                                "alignItems": "center",
+                                "backgroundColor": "#ffc107",
+                                "borderRadius": 9,
+                                "height": 18,
+                                "justifyContent": "center",
+                                "position": "absolute",
+                                "right": -2,
+                                "top": -2,
+                                "width": 18,
+                              }
+                            }
+                          >
+                            <Text
+                              numberOfLines={1}
+                              style={
+                                Object {
+                                  "color": "#FFFFFF",
+                                  "fontSize": 8,
+                                }
+                              }
+                            >
+                              <Text
+                                numberOfLines={1}
+                                style={
+                                  Object {
+                                    "color": "#FFFFFF",
+                                    "fontSize": 8,
+                                  }
+                                }
+                              >
+                                6
+                              </Text>
+                            </Text>
+                          </View>
+                        </View>
+                        <PressabilityDebugView
+                          color="cyan"
+                        />
+                      </View>
                     </View>
-                  </View>
-                </AnimatedComponent>
-              </ForwardRef(AnimatedComponentWrapper)>
-            </TouchableOpacity>
-          </ForwardRef>
-        </CartIcon>
+                  </AnimatedComponent>
+                </ForwardRef(AnimatedComponentWrapper)>
+              </TouchableOpacity>
+            </ForwardRef>
+          </CartIcon>
+        </Connect(CartIcon)>
       </View>
     </View>
   </ProductDetailScreen>

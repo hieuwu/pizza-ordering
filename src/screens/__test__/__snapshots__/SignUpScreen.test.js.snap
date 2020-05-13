@@ -605,6 +605,37 @@ exports[`sign up screen test should render snapshot test for sign up screen 1`] 
                   />
                 </Component>
               </StringInput>
+              <Text
+                numberOfLines={2}
+                style={
+                  Object {
+                    "color": "#FFFFFF",
+                    "fontSize": 15,
+                    "marginBottom": 5,
+                    "marginLeft": 10,
+                    "marginRight": 10,
+                    "marginTop": 5,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <Text
+                  numberOfLines={2}
+                  style={
+                    Object {
+                      "color": "#FFFFFF",
+                      "fontSize": 15,
+                      "marginBottom": 5,
+                      "marginLeft": 10,
+                      "marginRight": 10,
+                      "marginTop": 5,
+                      "textAlign": "center",
+                    }
+                  }
+                >
+                  Phone is required
+                </Text>
+              </Text>
               <ForwardRef
                 onPress={[Function]}
                 style={

@@ -77,7 +77,7 @@ class ConfirmScreen extends Component {
 
     try {
       let response = await postOrderAPI(url(paymentMethod), order, config);
-      resetOrderLineArray()
+      resetOrderLineArray();
       alert(
         `Your order has been sent.\nThank for choosing ${
           string.restaurantName
@@ -187,7 +187,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  resetOrderLineArray: () => dispatch(resetOrderLineArray())
+  resetOrderLineArray: () => dispatch(resetOrderLineArray()),
 });
 
 export default connect(

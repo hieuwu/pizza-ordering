@@ -659,7 +659,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                   style={
                                                     Object {
                                                       "alignItems": "center",
-                                                      "borderColor": "#aeaeae",
+                                                      "borderColor": "#e5293e",
                                                       "borderRadius": 5,
                                                       "borderWidth": 1,
                                                       "height": 146.74,
@@ -677,7 +677,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                     style={
                                                       Object {
                                                         "alignItems": "center",
-                                                        "borderColor": "#aeaeae",
+                                                        "borderColor": "#e5293e",
                                                         "borderRadius": 5,
                                                         "borderWidth": 1,
                                                         "height": 146.74,
@@ -703,7 +703,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                         Array [
                                                           Object {
                                                             "alignItems": "center",
-                                                            "borderColor": "#aeaeae",
+                                                            "borderColor": "#e5293e",
                                                             "borderRadius": 5,
                                                             "borderWidth": 1,
                                                             "height": 146.74,
@@ -733,7 +733,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                           Array [
                                                             Object {
                                                               "alignItems": "center",
-                                                              "borderColor": "#aeaeae",
+                                                              "borderColor": "#e5293e",
                                                               "borderRadius": 5,
                                                               "borderWidth": 1,
                                                               "height": 146.74,
@@ -762,7 +762,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                           style={
                                                             Object {
                                                               "alignItems": "center",
-                                                              "borderColor": "#aeaeae",
+                                                              "borderColor": "#e5293e",
                                                               "borderRadius": 5,
                                                               "borderWidth": 1,
                                                               "height": 146.74,
@@ -788,7 +788,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                             style={
                                                               Object {
                                                                 "alignItems": "center",
-                                                                "borderColor": "#aeaeae",
+                                                                "borderColor": "#e5293e",
                                                                 "borderRadius": 5,
                                                                 "borderWidth": 1,
                                                                 "height": 146.74,
@@ -804,7 +804,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                             <Text
                                                               style={
                                                                 Object {
-                                                                  "color": "#aeaeae",
+                                                                  "color": "#0b2031",
                                                                   "fontSize": 15,
                                                                 }
                                                               }
@@ -812,7 +812,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                               <Text
                                                                 style={
                                                                   Object {
-                                                                    "color": "#aeaeae",
+                                                                    "color": "#0b2031",
                                                                     "fontSize": 15,
                                                                   }
                                                                 }
@@ -823,7 +823,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                             <Text
                                                               style={
                                                                 Object {
-                                                                  "color": "#aeaeae",
+                                                                  "color": "#0b2031",
                                                                   "fontSize": 15,
                                                                 }
                                                               }
@@ -831,7 +831,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                               <Text
                                                                 style={
                                                                   Object {
-                                                                    "color": "#aeaeae",
+                                                                    "color": "#0b2031",
                                                                     "fontSize": 15,
                                                                   }
                                                                 }
@@ -841,6 +841,98 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                                 $
                                                               </Text>
                                                             </Text>
+                                                            <View
+                                                              style={
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderRadius": 13,
+                                                                  "bottom": 124.74000000000001,
+                                                                  "height": 26,
+                                                                  "justifyContent": "center",
+                                                                  "left": 278,
+                                                                  "position": "absolute",
+                                                                  "width": 26,
+                                                                }
+                                                              }
+                                                            >
+                                                              <View
+                                                                style={
+                                                                  Object {
+                                                                    "alignItems": "center",
+                                                                    "backgroundColor": "#e5293e",
+                                                                    "borderRadius": 13,
+                                                                    "bottom": 124.74000000000001,
+                                                                    "height": 26,
+                                                                    "justifyContent": "center",
+                                                                    "left": 278,
+                                                                    "position": "absolute",
+                                                                    "width": 26,
+                                                                  }
+                                                                }
+                                                              >
+                                                                <IconClass
+                                                                  brand={false}
+                                                                  color="#FFFFFF"
+                                                                  light={false}
+                                                                  name="check"
+                                                                  regular={false}
+                                                                  size={13}
+                                                                  solid={false}
+                                                                >
+                                                                  <Icon
+                                                                    allowFontScaling={false}
+                                                                    color="#FFFFFF"
+                                                                    name="check"
+                                                                    size={13}
+                                                                  >
+                                                                    <Text
+                                                                      allowFontScaling={false}
+                                                                      style={
+                                                                        Array [
+                                                                          Object {
+                                                                            "color": "#FFFFFF",
+                                                                            "fontSize": 13,
+                                                                          },
+                                                                          undefined,
+                                                                          Object {
+                                                                            "fontFamily": "FontAwesome5Free-Solid",
+                                                                            "fontStyle": "normal",
+                                                                            "fontWeight": "normal",
+                                                                          },
+                                                                          Object {
+                                                                            "fontWeight": "900",
+                                                                          },
+                                                                        ]
+                                                                      }
+                                                                    >
+                                                                      <Text
+                                                                        allowFontScaling={false}
+                                                                        style={
+                                                                          Array [
+                                                                            Object {
+                                                                              "color": "#FFFFFF",
+                                                                              "fontSize": 13,
+                                                                            },
+                                                                            undefined,
+                                                                            Object {
+                                                                              "fontFamily": "FontAwesome5Free-Solid",
+                                                                              "fontStyle": "normal",
+                                                                              "fontWeight": "normal",
+                                                                            },
+                                                                            Object {
+                                                                              "fontWeight": "900",
+                                                                            },
+                                                                          ]
+                                                                        }
+                                                                      >
+                                                                        
+                                                                      </Text>
+                                                                    </Text>
+                                                                  </Icon>
+                                                                </IconClass>
+                                                              </View>
+                                                            </View>
                                                             <PressabilityDebugView
                                                               color="cyan"
                                                             />
@@ -1507,7 +1599,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                   style={
                                                     Object {
                                                       "alignItems": "center",
-                                                      "borderColor": "#aeaeae",
+                                                      "borderColor": "#e5293e",
                                                       "borderRadius": 5,
                                                       "borderWidth": 1,
                                                       "height": 146.74,
@@ -1525,7 +1617,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                     style={
                                                       Object {
                                                         "alignItems": "center",
-                                                        "borderColor": "#aeaeae",
+                                                        "borderColor": "#e5293e",
                                                         "borderRadius": 5,
                                                         "borderWidth": 1,
                                                         "height": 146.74,
@@ -1551,7 +1643,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                         Array [
                                                           Object {
                                                             "alignItems": "center",
-                                                            "borderColor": "#aeaeae",
+                                                            "borderColor": "#e5293e",
                                                             "borderRadius": 5,
                                                             "borderWidth": 1,
                                                             "height": 146.74,
@@ -1581,7 +1673,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                           Array [
                                                             Object {
                                                               "alignItems": "center",
-                                                              "borderColor": "#aeaeae",
+                                                              "borderColor": "#e5293e",
                                                               "borderRadius": 5,
                                                               "borderWidth": 1,
                                                               "height": 146.74,
@@ -1610,7 +1702,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                           style={
                                                             Object {
                                                               "alignItems": "center",
-                                                              "borderColor": "#aeaeae",
+                                                              "borderColor": "#e5293e",
                                                               "borderRadius": 5,
                                                               "borderWidth": 1,
                                                               "height": 146.74,
@@ -1636,7 +1728,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                             style={
                                                               Object {
                                                                 "alignItems": "center",
-                                                                "borderColor": "#aeaeae",
+                                                                "borderColor": "#e5293e",
                                                                 "borderRadius": 5,
                                                                 "borderWidth": 1,
                                                                 "height": 146.74,
@@ -1652,7 +1744,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                             <Text
                                                               style={
                                                                 Object {
-                                                                  "color": "#aeaeae",
+                                                                  "color": "#0b2031",
                                                                   "fontSize": 15,
                                                                 }
                                                               }
@@ -1660,7 +1752,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                               <Text
                                                                 style={
                                                                   Object {
-                                                                    "color": "#aeaeae",
+                                                                    "color": "#0b2031",
                                                                     "fontSize": 15,
                                                                   }
                                                                 }
@@ -1671,7 +1763,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                             <Text
                                                               style={
                                                                 Object {
-                                                                  "color": "#aeaeae",
+                                                                  "color": "#0b2031",
                                                                   "fontSize": 15,
                                                                 }
                                                               }
@@ -1679,7 +1771,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                               <Text
                                                                 style={
                                                                   Object {
-                                                                    "color": "#aeaeae",
+                                                                    "color": "#0b2031",
                                                                     "fontSize": 15,
                                                                   }
                                                                 }
@@ -1689,6 +1781,98 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                                                 $
                                                               </Text>
                                                             </Text>
+                                                            <View
+                                                              style={
+                                                                Object {
+                                                                  "alignItems": "center",
+                                                                  "backgroundColor": "#e5293e",
+                                                                  "borderRadius": 13,
+                                                                  "bottom": 124.74000000000001,
+                                                                  "height": 26,
+                                                                  "justifyContent": "center",
+                                                                  "left": 278,
+                                                                  "position": "absolute",
+                                                                  "width": 26,
+                                                                }
+                                                              }
+                                                            >
+                                                              <View
+                                                                style={
+                                                                  Object {
+                                                                    "alignItems": "center",
+                                                                    "backgroundColor": "#e5293e",
+                                                                    "borderRadius": 13,
+                                                                    "bottom": 124.74000000000001,
+                                                                    "height": 26,
+                                                                    "justifyContent": "center",
+                                                                    "left": 278,
+                                                                    "position": "absolute",
+                                                                    "width": 26,
+                                                                  }
+                                                                }
+                                                              >
+                                                                <IconClass
+                                                                  brand={false}
+                                                                  color="#FFFFFF"
+                                                                  light={false}
+                                                                  name="check"
+                                                                  regular={false}
+                                                                  size={13}
+                                                                  solid={false}
+                                                                >
+                                                                  <Icon
+                                                                    allowFontScaling={false}
+                                                                    color="#FFFFFF"
+                                                                    name="check"
+                                                                    size={13}
+                                                                  >
+                                                                    <Text
+                                                                      allowFontScaling={false}
+                                                                      style={
+                                                                        Array [
+                                                                          Object {
+                                                                            "color": "#FFFFFF",
+                                                                            "fontSize": 13,
+                                                                          },
+                                                                          undefined,
+                                                                          Object {
+                                                                            "fontFamily": "FontAwesome5Free-Solid",
+                                                                            "fontStyle": "normal",
+                                                                            "fontWeight": "normal",
+                                                                          },
+                                                                          Object {
+                                                                            "fontWeight": "900",
+                                                                          },
+                                                                        ]
+                                                                      }
+                                                                    >
+                                                                      <Text
+                                                                        allowFontScaling={false}
+                                                                        style={
+                                                                          Array [
+                                                                            Object {
+                                                                              "color": "#FFFFFF",
+                                                                              "fontSize": 13,
+                                                                            },
+                                                                            undefined,
+                                                                            Object {
+                                                                              "fontFamily": "FontAwesome5Free-Solid",
+                                                                              "fontStyle": "normal",
+                                                                              "fontWeight": "normal",
+                                                                            },
+                                                                            Object {
+                                                                              "fontWeight": "900",
+                                                                            },
+                                                                          ]
+                                                                        }
+                                                                      >
+                                                                        
+                                                                      </Text>
+                                                                    </Text>
+                                                                  </Icon>
+                                                                </IconClass>
+                                                              </View>
+                                                            </View>
                                                             <PressabilityDebugView
                                                               color="cyan"
                                                             />
@@ -4174,7 +4358,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                               "alignSelf": "center",
                               "backgroundColor": "#e5293e",
                               "borderRadius": 27,
-                              "height": 54,
+                              "height": 45,
                               "justifyContent": "center",
                               "marginBottom": 10,
                               "marginTop": 10,
@@ -4190,7 +4374,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                 "alignSelf": "center",
                                 "backgroundColor": "#e5293e",
                                 "borderRadius": 27,
-                                "height": 54,
+                                "height": 45,
                                 "justifyContent": "center",
                                 "marginBottom": 10,
                                 "marginTop": 10,
@@ -4214,7 +4398,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                     "alignSelf": "center",
                                     "backgroundColor": "#e5293e",
                                     "borderRadius": 27,
-                                    "height": 54,
+                                    "height": 45,
                                     "justifyContent": "center",
                                     "marginBottom": 10,
                                     "marginTop": 10,
@@ -4242,7 +4426,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                       "alignSelf": "center",
                                       "backgroundColor": "#e5293e",
                                       "borderRadius": 27,
-                                      "height": 54,
+                                      "height": 45,
                                       "justifyContent": "center",
                                       "marginBottom": 10,
                                       "marginTop": 10,
@@ -4269,7 +4453,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                       "alignSelf": "center",
                                       "backgroundColor": "#e5293e",
                                       "borderRadius": 27,
-                                      "height": 54,
+                                      "height": 45,
                                       "justifyContent": "center",
                                       "marginBottom": 10,
                                       "marginTop": 10,
@@ -4293,7 +4477,7 @@ exports[`order panel test should render snapshot test for order panel 1`] = `
                                         "alignSelf": "center",
                                         "backgroundColor": "#e5293e",
                                         "borderRadius": 27,
-                                        "height": 54,
+                                        "height": 45,
                                         "justifyContent": "center",
                                         "marginBottom": 10,
                                         "marginTop": 10,

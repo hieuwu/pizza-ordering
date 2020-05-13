@@ -252,6 +252,21 @@ const textStyle = StyleSheet.create({
     color: '#0b2031',
     letterSpacing: 0.16,
   },
+
+  CartIconNumber: {
+    fontSize: 8,
+    color: '#FFFFFF',
+  },
+
+  checkInfoMessage: {
+    marginTop: 5,
+    marginBottom: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    fontSize: 15,
+    color: '#FFFFFF',
+    textAlign: 'center',
+  }
 });
 
 export {textStyle};

@@ -6,7 +6,7 @@ import SplashScreen from '../screens/SplashScreen.js';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {BarsIcon} from '../components/BarsIcon.js';
-import {CartIcon} from '../components/CartIcon.js';
+import CartIcon from '../components/CartIcon.js';
 import NavigationPanel from '../components/NavigationPanel.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import OrderPanel from '../components/OrderPanel.js';
@@ -53,16 +53,16 @@ export default class ProductListScreen extends Component {
   showProductList = ({item}) => {
     const {imageUrl, title, description, rate, price} = item;
     return (
-      <View style={dimensionStyles.ItemProductListContainer}>
-        <TouchableOpacity
-          style={{flex: 1}}
-          onPress={() => this.navigateToProductDetailScreen(item)}>
+      <TouchableOpacity
+        style={dimensionStyles.ItemProductListContainer}
+        onPress={() => this.navigateToProductDetailScreen(item)}>
+        <View style={{flex: 1}}>
           <Image
             style={dimensionStyles.ProductListImg}
             source={{uri: imageUrl}}
             resizeMode="cover"
           />
-        </TouchableOpacity>
+        </View>
         <View style={dimensionStyles.ProductListInfo}>
           <Text numberOfLines={1} style={textStyle.ProductListName}>
             {title}
@@ -83,10 +83,10 @@ export default class ProductListScreen extends Component {
             this.setState({isOpenOrderPanel: true, productData: item})
           }>
           <Text numberOfLines={2} style={textStyle.orderNowButton}>
-            {`ORDER\nNOW`}
+            {'ORDER\nNOW'}
           </Text>
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
     );
   };
 

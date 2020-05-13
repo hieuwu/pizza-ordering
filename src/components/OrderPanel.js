@@ -120,9 +120,16 @@ class OrderPanel extends Component {
   };
 
   filterOptionByType = data => {
+    const { modifiedOrderLineIndex } = this.props;
     let sizeArray = data.filter(unitData => unitData.type === 'Size');
     let crustArray = data.filter(unitData => unitData.type === 'Crust');
     let toppingArray = data.filter(unitData => unitData.type === 'Topping');
+    if (sizeArray.length !== 0 && modifiedOrderLineIndex === undefined) {
+      this.setState({size: sizeArray[0].title});
+    }
+    if (crustArray.length !== 0 && modifiedOrderLineIndex === undefined) {
+      this.setState({crust: crustArray[0].title});
+    }
     this.setState({
       sizeArray: sizeArray,
       crustArray: crustArray,
@@ -460,15 +467,9 @@ class OrderPanel extends Component {
                   <TouchableOpacity
                     style={dimensionStyles.addToCartButton}
                     onPress={() => {
-                      if (sizeArray.length !== 0 && size === '') {
-                        alert('Please pick size');
-                      } else if (crustArray.length !== 0 && crust === '') {
-                        alert('Please pick crust');
-                      } else {
-                        this.createOrderLine(totalPrice);
-                        RequestClose();
-                        this.setState({isLoading: true});
-                      }
+                      this.createOrderLine(totalPrice);
+                      RequestClose();
+                      this.setState({isLoading: true});
                     }}>
                     <Text style={textStyle.orderNowButton}>ADD TO CART</Text>
                   </TouchableOpacity>
@@ -476,15 +477,9 @@ class OrderPanel extends Component {
                   <TouchableOpacity
                     style={dimensionStyles.addToCartButton}
                     onPress={() => {
-                      if (sizeArray.length !== 0 && size === '') {
-                        alert('Please pick size');
-                      } else if (crustArray.length !== 0 && crust === '') {
-                        alert('Please pick crust');
-                      } else {
-                        this.createOrderLine(totalPrice);
-                        RequestClose();
-                        this.setState({isLoading: true});
-                      }
+                      this.createOrderLine(totalPrice);
+                      RequestClose();
+                      this.setState({isLoading: true});
                     }}>
                     <Text style={textStyle.orderNowButton}>MODIFY</Text>
                   </TouchableOpacity>

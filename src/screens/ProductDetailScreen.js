@@ -3,7 +3,7 @@ import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {dimensionStyles} from '../resources/dimension.js';
 import {textStyle} from '../resources/textStyle.js';
 import {BarsIcon} from '../components/BarsIcon.js';
-import {CartIcon} from '../components/CartIcon.js';
+import CartIcon from '../components/CartIcon.js';
 import NavigationPanel from '../components/NavigationPanel.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import OrderPanel from '../components/OrderPanel.js';

@@ -84,11 +84,39 @@ class SignUpScreen extends Component {
     alert('Sign up successfully!');
     navigation.pop(2);
     this.setState({isLoading: false});
+  };
+
+  checkInfo = () => {
+    const {phone, password, confirmPassword, name, address} = this.state;
+    const phone_regex = /((09|03|07|08|05)+([0-9]{8,9})\b)/g;
+    const password_regex = /^(?=.*\d)(?=.*[A-Za-z]).{6,20}$/;
+    const checkPhone = phone_regex.test(phone);
+    const checkPassword = password_regex.test(password);
+    if (phone === '') {
+      return 'Phone is required'
+    } else if (checkPhone === false) {
+      return 'Please enter a valid phone number'
+    } else if (password === '') {
+      return 'Password is required'
+    } else if (password.length < 6 || password.length > 20) {
+      return 'Password length must be between 6 and 20'
+    } else if (checkPassword === false) {
+      return 'Password must contain number and character'
+    } else if (password !== confirmPassword) {
+      return 'Confirm password and password must be the same'
+    } else if (name === '') {
+      return 'Name is required'
+    } else if (address === '') {
+      return 'Addess is required'
+    } else {
+      return null
+    }
   }
 
   render() {
     const {navigation} = this.props;
     const {phone, password, confirmPassword, name, address} = this.state;
+    const checkInfoMessage=this.checkInfo()
 
     return (
       <View style={dimensionStyles.container}>
@@ -146,6 +174,9 @@ class SignUpScreen extends Component {
             keyboard={'default'}
             isSecure={false}
           />
+          {checkInfoMessage!==null?
+            <Text numberOfLines={2} style={textStyle.checkInfoMessage}>{checkInfoMessage}</Text>
+          : null}
           {this.state.isLoading ? (
             <TouchableOpacity
               style={dimensionStyles.LogInButton}

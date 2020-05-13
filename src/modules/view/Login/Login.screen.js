@@ -129,6 +129,7 @@ class Login extends Component {
           <HeaderIcon iconName="arrow-left" />
         </TouchableOpacity>
       ),
+      headerRight: null,
     });
   }
 

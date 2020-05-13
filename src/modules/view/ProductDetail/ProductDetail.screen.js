@@ -77,12 +77,6 @@ class ProductDetail extends Component {
           <HeaderIcon iconName="arrow-left" />
         </TouchableOpacity>
       ),
-      headerRight: navigation => (
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('cart')}>
-          <HeaderIcon iconName="shopping-cart" />
-        </TouchableOpacity>
-      ),
     });
   }
 

@@ -8,9 +8,7 @@ export default StyleSheet.create({
     backgroundColor: colors.pizzaMenuListBackground,
   },
   flatListContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    marginTop: 60,
+    marginTop: 55,
   },
   headerIcon: {
     width: 50,
@@ -22,7 +20,7 @@ export default StyleSheet.create({
   },
   touchContainer: {
     width: '45%',
-    height: 250,
+    height: 265,
     margin: 8,
   },
 });

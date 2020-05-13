@@ -62,6 +62,7 @@ export default StyleSheet.create({
     height: '100%',
     alignSelf: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(52, 52, 52, 0.8)',
   },
   modalView: {
     flexDirection: 'column',

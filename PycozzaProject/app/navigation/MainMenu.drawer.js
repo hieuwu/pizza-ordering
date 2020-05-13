@@ -12,7 +12,7 @@ import HomeStack from '../navigation/Home.stack';
 import ProfileScreen from '../views/Profile/Profile.screen'
 import ProfileStack from './Profile.stack'
 import CartStack from './Cart.stack'
-import CategoriesScreen from '../views/Categories/Categories.screen'
+import CategoriesScreen from '../views/Categories/Categories.screen';
 const Drawer = createDrawerNavigator();
 const isShown = false;
 
@@ -35,7 +35,8 @@ export default class MainMenuDrawer extends Component {
                     name='Profile' component={ProfileStack} />
                 <Drawer.Screen options={{
                     drawerIcon: () => (
-                        <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />)
+                        <Ionicons color={color.white} size={dimension.iconSize} name='ios-cart' />
+                       )
                 }}
                     name='Cart' component={CartStack} />
 

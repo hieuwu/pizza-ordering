@@ -8,6 +8,7 @@ import UserUseCase from '../../usecase/UserUseCase';
 import styles from './Register.style';
 import { connect } from 'react-redux';
 import { addUser } from '../../redux/actions/index';
+import dimension from '../../resources/dimensions'
 class RegisterScreen extends Component {
     constructor(props) {
         super(props);
@@ -177,6 +178,11 @@ class RegisterScreen extends Component {
                     <Button title="Sign in" type="outline" buttonStyle={{ backgroundColor: 'white', marginHorizontal: 15, borderRadius: 15, marginBottom: 30 }}
                         onPress={() => this.props.navigation.goBack()} />
                 </ScrollView>
+                {this.state.modalVisible ? (<View style={{
+                    backgroundColor: 'rgba(52, 52, 52, 0.8)', position: 'absolute',
+                    height: dimension.window.height, width: dimension.window.width
+                }} />) : (null)
+                }
             </View>
 
         )

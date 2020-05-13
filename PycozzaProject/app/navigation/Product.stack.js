@@ -16,7 +16,7 @@ export default class ProductStack extends Component {
         return (
             <stack.Navigator initialRouteName='ProductList' screenOptions={headerStyle}>
                 <stack.Screen name='ProductList' component={ProductListScreen}
-                    options= {{
+                    options={{
                         title: string.listScreenTitle,
                         headerRight: () => (
                             <TouchableOpacity
@@ -33,8 +33,8 @@ export default class ProductStack extends Component {
                             </TouchableOpacity>
                         ),
                     }} />
-                <stack.Screen name='ProductDetail' component={ProductDetailScreen} options={{title: 'Detail'}}/>
-                <stack.Screen name='Cart' component={CartStack}/>
+                <stack.Screen name='ProductDetail' component={ProductDetailScreen} options={{ title: 'Detail' }} />
+                <stack.Screen name='Cart' component={CartStack} />
             </stack.Navigator>
         )
     }

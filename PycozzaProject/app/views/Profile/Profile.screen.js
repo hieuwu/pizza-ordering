@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import styles from '../Profile/Profile.style'
 import OvalShape from '../../components/OvalShape.component';
 import { connect } from 'react-redux';
-import { addUser } from '../../redux/actions/index'
+import { addUser } from '../../redux/actions/index';
 class ProfileScreen extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +27,7 @@ class ProfileScreen extends Component {
         }
     }
 
-     componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         if (prevProps.userReducer !== this.props.userReducer) {
             this.setState({ isSignedIn: true })
         }

@@ -14,10 +14,31 @@ import ProductStack from './Product.stack';
 import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
 import CartScreen from '../views/Cart/Cart.screen';
 import CartStack from './Cart.stack';
-import AuthenStack from './Authen.stack'
+import AuthenStack from './Authen.stack';
+import { Badge } from 'react-native-elements';
+import { connect } from 'react-redux';
+
 const stack = createStackNavigator();
-export default class HomeStack extends Component {
+class HomeStack extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isEmpty: true,
+        }
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.cartReducer !== this.props.cartReducer) {
+            const {cartReducer} = this.props;
+            if (this.props.cartReducer.length > 0) {
+                this.setState({isEmpty: false});
+            }
+            else this.setState({isEmpty: true});
+        }
+    }
+
     render(){
+        const {cartReducer} = this.props;
         return (
             <stack.Navigator initialRouteName='Categories' screenOptions={headerStyle}>
                 <stack.Screen name='Categories' component={CategoriesScreen}
@@ -32,6 +53,12 @@ export default class HomeStack extends Component {
                                 onPress={() => this.props.navigation.navigate('CartScreen')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                                {this.state.isEmpty ? (null) : ( <Badge
+                                     value= {cartReducer.length}
+                                    status="warning"
+                                    containerStyle={{ position: 'absolute', left: 0, top: 0}}
+                                />)}
+                               
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -51,6 +78,11 @@ export default class HomeStack extends Component {
                                 onPress={() =>  this.props.navigation.navigate('CartScreen')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                                {this.state.isEmpty? (null) : ( <Badge
+                                     value= {cartReducer.length}
+                                    status="warning"
+                                    containerStyle={{ position: 'absolute', left: 0, top: 0}}
+                                />)}
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -69,6 +101,11 @@ export default class HomeStack extends Component {
                                 onPress={() =>  this.props.navigation.navigate('CartScreen')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                                {this.state.isEmpty? (null) : ( <Badge
+                                     value= {cartReducer.length}
+                                    status="warning"
+                                    containerStyle={{ position: 'absolute', left: 0, top: 0}}
+                                />)}
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -76,6 +113,7 @@ export default class HomeStack extends Component {
                                 onPress={() =>  this.props.navigation.openDrawer()}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-list' color={color.white} size={dimension.iconSize} />
+                               
                             </TouchableOpacity>
                         ),
                     }} />
@@ -91,6 +129,11 @@ export default class HomeStack extends Component {
                                 onPress={() =>  this.props.navigation.navigate('CartScreen')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                                {this.state.isEmpty? (null) : ( <Badge
+                                     value= {cartReducer.length}
+                                    status="warning"
+                                    containerStyle={{ position: 'absolute', left: 0, top: 0}}
+                                />)}
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -114,6 +157,11 @@ export default class HomeStack extends Component {
                                 onPress={() =>  this.props.navigation.navigate('CartScreen')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                                {this.state.isEmpty? (null) : ( <Badge
+                                     value= {cartReducer.length}
+                                    status="warning"
+                                    containerStyle={{ position: 'absolute', left: 0, top: 0}}
+                                />)}
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -144,3 +192,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
     }
 })
+
+const mapStateToProps = state => ({
+    cartReducer: state.cartReducer,
+});
+
+const mapDispatchToProps = dispatch => ({
+
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomeStack)

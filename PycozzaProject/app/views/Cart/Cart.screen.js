@@ -354,6 +354,11 @@ class CartScreen extends Component {
                     titleStyle={{ justifyContent: 'center', fontWeight: 'bold' }}
                     iconRight
                     buttonStyle={styles.buttonCheckOut} />
+                     {(this.state.modalVisible || this.state.modalSucess) ? (<View style={{
+                    backgroundColor: 'rgba(52, 52, 52, 0.8)', position: 'absolute',
+                    height: dimension.window.height, width: dimension.window.width
+                }} />) : (null)
+                }
             </View>
         )
     }

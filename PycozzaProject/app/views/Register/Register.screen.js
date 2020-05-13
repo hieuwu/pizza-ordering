@@ -184,7 +184,6 @@ class RegisterScreen extends Component {
                 }} />) : (null)
                 }
             </View>
-
         )
     }
 }

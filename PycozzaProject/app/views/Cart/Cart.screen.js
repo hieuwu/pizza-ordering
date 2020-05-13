@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity, Platform, FlatList } from 'react-native';
+import { Text, View, Image, AsyncStorage, Modal, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 import color from '../../resources/colors';
 import diemension from '../../resources/dimensions';
 import ProductUseCase from '../../usecase/ProductUseCase'
@@ -206,7 +206,7 @@ class CartScreen extends Component {
                     transparent={true}
                     visible={this.state.modalSucess}>
                     <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
-                        <View style={styles.modalView}>
+                        <View style={styles.modalViewSuccess}>
                             <Text style={styles.textStyle}>Your order is sent successfully !</Text>
                             <Button
                                 title='OK'
@@ -225,8 +225,8 @@ class CartScreen extends Component {
                     this.state.isSignedIn ? (<Modal animationType="slide"
                         transparent={true}
                         visible={this.state.modalVisible}>
-                        <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
-                            <View style={styles.modalView}>
+                        <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1 }}>
+                            <View style={styles.modalViewMember}>
                                 <Text style={styles.textStyle}>{string.promptAddress}</Text>
                                 <Input inputContainerStyle={styles.textInput}
                                     placeholder={string.promptAddress}
@@ -234,7 +234,7 @@ class CartScreen extends Component {
                                     errorMessage={this.state.addressError}
                                     errorStyle={{ marginHorizontal: 15 }}
                                 />
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <View style={{ flexDirection: 'row', }}>
                                     <Button
                                         title='Cancel'
                                         buttonStyle={styles.cancelButton}
@@ -265,7 +265,8 @@ class CartScreen extends Component {
                             <Modal animationType="slide"
                                 transparent={true}
                                 visible={this.state.modalVisible}>
-                                <View style={{ justifyContent: 'center', alignSelf: 'center', flex: 1, }}>
+                                <View style={{ justifyContent: 'center', alignSelf: 'center',
+                             flex: 1 }}>
                                     <View style={styles.modalView}>
                                         <Text style={styles.textStyle}>{string.promptFullName}</Text>
                                         <Input inputContainerStyle={styles.textInput}

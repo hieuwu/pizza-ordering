@@ -102,7 +102,7 @@ export default class ProductListScreen extends Component {
             });
         }
         catch (error) {
-            console.log('Loi la: ', error)
+            console.log(error)
         }
         this.setHeaderTitle()
     }

@@ -6,6 +6,9 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import AppConfig from '../../config/AppConfig';
 
 export default class CategoriesScreen extends Component {
+    componentDidUpdate () {
+        
+    }
     render() {
         return (
             <ScrollView style={styles.container}>

@@ -8,7 +8,7 @@ import styles from './Login.style'
 import UserUseCase from '../../usecase/UserUseCase'
 import {addUser} from '../../redux/actions/index';
 import { connect } from 'react-redux';
-
+import dimension from '../../resources/dimensions'
  class LoginScreen extends Component {
     constructor(props) {
         super(props);
@@ -115,6 +115,11 @@ import { connect } from 'react-redux';
                 <Button title={string.buttonSignIn}
                     buttonStyle={styles.buttonLogin} onPress={() => this.loginAccount()} />
                 <Button title={string.buttonSignUp} type="outline" buttonStyle={{ backgroundColor: 'white', marginHorizontal: 15, borderRadius: 15, marginBottom: 30 }} onPress={() => this.props.navigation.navigate('Register')} />
+                {this.state.modalVisible ? (<View style={{
+                    backgroundColor: 'rgba(52, 52, 52, 0.8)', position: 'absolute',
+                    height: dimension.window.height, width: dimension.window.width
+                }} />) : (null)
+                }
             </View>
         )
     }

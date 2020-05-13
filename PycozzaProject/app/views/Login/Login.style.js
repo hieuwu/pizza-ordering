@@ -34,12 +34,11 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     modalView: {
-        margin: 20,
+        backgroundColor: color.grayBackground,
         justifyContent: 'center',
+        padding: 25,
         alignItems: 'center',
-        backgroundColor: color.headerBackground,
         borderRadius: 20,
-        padding: 35,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -48,12 +47,12 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5
+        elevation: 5,
       },
       textStyle: {
           fontWeight: 'bold',
           fontSize: 24,
-          color: color.white
+          color: color.shadow
       },
       okButton: {
           backgroundColor: color.mainColor,

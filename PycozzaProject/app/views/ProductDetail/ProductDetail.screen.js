@@ -138,12 +138,26 @@ class ProductDetailScreen extends Component {
                     </View>
                     <View style={{ alignItems: 'center' }}>
                         <Image style={{ width: 200, height: 200, borderRadius: 200 / 2, resizeMode: 'contain' }} source={{ uri: AppConfig.IMAGE.baseURL + item.imgLink }} />
-                        <Text style={styles.productTitle}>{item.name}</Text>
-                        <Text style={styles.priceTitle}>{item.price + ',000'} - {item.maxPrice + ',000'} VNĐ</Text>
+                       <Text style={styles.productTitle}>{item.name}</Text>
+                       <View style={{flexDirection: 'row'}}>
+                        <Text style={styles.priceTitle}>{item.price + ',000'}</Text>
+                        {
+                            this.state.isPizza ? (
+                            <View><Text style={styles.priceTitle}>  - {item.maxPrice + ',000'}</Text>
+                            
+                            </View>) : (null)
+                        }
+                       
+                        <Text style={styles.priceTitle}> VNĐ</Text>
+                       </View>        
                     </View>
                     <View style={{ marginHorizontal: 15, }}>
-                        <Text style={styles.subTitle}>Description:</Text>
-                        <Text style={styles.content}>{item.description} </Text>
+                        {
+                             this.state.isPizza ? ( <View><Text style={styles.subTitle}>Description:</Text>
+                                <Text style={styles.content}>{item.description} </Text></View>) : (null)
+                        }
+
+                       
                     </View>
                     {
                         this.state.isPizza ? (

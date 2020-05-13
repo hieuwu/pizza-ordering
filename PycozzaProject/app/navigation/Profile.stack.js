@@ -11,9 +11,28 @@ import { StyleSheet } from 'react-native';
 import ProductDetailScreen from '../views/ProductDetail/ProductDetail.screen';
 import ProfileScreen from '../views/Profile/Profile.screen';
 import CartScreen from '../views/Cart/Cart.screen';
+import { connect } from 'react-redux';
+import { Badge } from 'react-native-elements';
 const stack = createStackNavigator();
-export default class ProfileStack extends Component {
+ class ProfileStack extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isEmpty: true,
+        }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.cartReducer !== this.props.cartReducer) {
+            const {cartReducer} = this.props;
+            if (this.props.cartReducer.length > 0) {
+                this.setState({isEmpty: false});
+            }
+            else this.setState({isEmpty: true});
+        }
+    }
+
     render() {
+        const {cartReducer} = this.props;
         return (
             <stack.Navigator initialRouteName='Profile' screenOptions={headerStyle}>
                 <stack.Screen name='Profile' component={ProfileScreen}
@@ -24,6 +43,11 @@ export default class ProfileStack extends Component {
                                 onPress={() => this.props.navigation.navigate('Cart')}
                                 style={styles.headerButton}>
                                 <Ionicons name='ios-cart' color={color.white} size={dimension.iconSize} />
+                                {(cartReducer.length < 0) ? (null) : ( <Badge
+                                     value= {cartReducer.length}
+                                    status="warning"
+                                    containerStyle={{ position: 'absolute', left: 0, top: 0}}
+                                />)}
                             </TouchableOpacity>
                         ),
                         headerLeft: () => (
@@ -52,3 +76,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 15,
     }
 })
+
+const mapStateToProps = state => ({
+    cartReducer: state.cartReducer,
+});
+
+const mapDispatchToProps = dispatch => ({
+
+});
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileStack)

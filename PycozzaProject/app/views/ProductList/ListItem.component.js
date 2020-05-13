@@ -27,7 +27,7 @@ const itemStyles = StyleSheet.create({
         marginVertical: 5,
         backgroundColor: color.white,
         borderRadius: 15,
-        padding: 8,
+        paddingHorizontal: 12,
         shadowColor: color.shadowColor,
         shadowOffset: {
             width: 0,
@@ -39,8 +39,7 @@ const itemStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         flex: 1,
-        width: dimension.window.width,
-        
+        marginHorizontal: 12,
     },
     itemTitle: {
         fontWeight: 'bold',

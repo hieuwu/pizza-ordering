@@ -70,13 +70,30 @@ const styles = StyleSheet.create({
         fontSize: 24,
     },
     modalView: {
-        margin: 20,
         backgroundColor: color.grayBackground,
         justifyContent: 'center',
+        paddingBottom: 10,
         alignItems: 'center',
         borderRadius: 20,
-        padding: 35,
         alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        marginTop: 50,
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        width: dimension.window.width,
+        height: dimension.window.height - 150,
+    },
+    modalViewSuccess: {
+        backgroundColor: color.grayBackground,
+        justifyContent: 'center',
+        padding: 25,
+        alignItems: 'center',
+        borderRadius: 20,
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
@@ -85,6 +102,25 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        
+    },
+    modalViewMember: {
+        backgroundColor: color.grayBackground,
+        justifyContent: 'center',
+        padding: 8,
+        alignItems: 'center',
+        borderRadius: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        marginHorizontal: 25,
+        width: dimension.window.width - 10,
+        height: dimension.window.height - 380,
     },
     textStyle: {
         fontWeight: 'bold',
@@ -95,13 +131,13 @@ const styles = StyleSheet.create({
     okButton: {
         backgroundColor: color.mainColor,
         borderRadius: 15,
-        width: 150,
+        width: 130,
         marginHorizontal: 25,
     },
     cancelButton: {
         backgroundColor: color.inactiveStatus,
         borderRadius: 15,
-        width: 150,
+        width: 130,
         marginHorizontal: 25,
     },
     textInput: {
@@ -117,16 +153,19 @@ const styles = StyleSheet.create({
         elevation: 5,
         borderRadius: 15,
         marginHorizontal: 25,
-        marginVertical: 10,
+        marginVertical: 15,
     },
     textButton : {
         fontWeight: 'bold',
         fontSize: 18,
         textAlign: 'left',
-        backgroundColor: color.white
+        backgroundColor: color.white,
+        padding: 8,
+        borderRadius: 15,
+        elevation: 5,
     },
     touchButton: {
-        marginVertical: 25,
+        marginVertical: 10,
         borderRadius: 10, 
         padding: 8
     }

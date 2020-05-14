@@ -144,7 +144,7 @@ class Shipping extends Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.goBackBtn}
-          onPress={() => this.props.navigation.navigate('cart')}>
+          onPress={() => this.props.navigation.goBack()}>
           <Icon name="arrow-circle-left" size={30} color={colors.black} />
           <Text style={styles.goBackBtnText}>{strings.shipping.txtGoBack}</Text>
         </TouchableOpacity>

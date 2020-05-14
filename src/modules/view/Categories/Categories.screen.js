@@ -33,12 +33,29 @@ class Menu extends Component {
     </TouchableOpacity>
   );
 
+  arrayReverseObj = obj => {
+    let newArray = [];
+
+    Object.keys(obj)
+      .sort()
+      .reverse()
+      .forEach(key => {
+        newArray.push({
+          imgUrl: obj[key].imgUrl,
+          categoryName: obj[key].categoryName,
+          catId: obj[key].catId,
+        });
+      });
+
+    return newArray;
+  };
+
   render() {
     return (
       <View style={CategoriesStyles.container}>
         <View>
           <FlatList
-            data={this.state.data}
+            data={this.arrayReverseObj(this.state.data)}
             renderItem={this.renderCategoryItem}
             keyExtractor={item => item.catId}
             showsVerticalScrollIndicator={false}

@@ -141,7 +141,9 @@ class SignUp extends Component {
             <View>
               <View style={styles.subView}>
                 <Text style={styles.subTxt}>Sign Up</Text>
-                <ScrollView style={styles.txtInputContainer}>
+                <ScrollView
+                  style={styles.txtInputContainer}
+                  showsVerticalScrollIndicator={false}>
                   <Input
                     value={values.firstname}
                     onChangeText={handleChange('firstname')}

@@ -31,8 +31,8 @@ const HT_CRUST_LABEL = 'Hand Tossed Crust';
 const NY_CRUST_LABEL = 'New York Crust';
 
 const RADIO_LARGE_SIZE_TYPE = '12 inch';
-const RADIO_MEDIUM_LARGE_SIZE_TYPE = '9 inch';
-const RADIO_SMALL_LARGE_SIZE_TYPE = '6 inch';
+const RADIO_MEDIUM_SIZE_TYPE = '9 inch';
+const RADIO_SMALL_SIZE_TYPE = '6 inch';
 const RADIO_EXTRA_CHEESE_TYPE = 'extra cheese';
 const RADIO_DOUBLE_CHEESE_TYPE = 'double cheese';
 const RADIO_TRIPLE_CHEESE_TYPE = 'triple cheese';
@@ -41,9 +41,9 @@ const RADIO_THIN_CRUST_TYPE = 'thin crust';
 const RADIO_HT_CRUST_TYPE = 'hand tossed crust';
 const RADIO_NY_CRUST_TYPE = 'new york crust';
 
-const EXTRA_CHEESE_PRICE = 20000;
-const DOUBLE_CHEESE_PRICE = 30000;
-const TRIPLE_CHEESE_PRICE = 50000;
+const EXTRA_CHEESE_PRICE = 10000;
+const DOUBLE_CHEESE_PRICE = 20000;
+const TRIPLE_CHEESE_PRICE = 30000;
 
 const PIZZA_INDEX = 4;
 
@@ -52,9 +52,9 @@ class ProductDetail extends Component {
     super(props);
     this.state = {
       cartId: this.props.route.params.catId,
-      sizeType: RADIO_LARGE_SIZE_TYPE,
+      sizeType: RADIO_SMALL_SIZE_TYPE,
       crustType: RADIO_THIN_CRUST_TYPE,
-      cheeseType: RADIO_EXTRA_CHEESE_TYPE,
+      cheeseType: '',
       quantity: 1,
       sizePrice: this.props.route.params.data.price.sizeS,
       cheesePrice: 0,
@@ -238,7 +238,7 @@ class ProductDetail extends Component {
         ),
         value: {
           price: this.props.route.params.data.price.sizeM,
-          radioSizeType: RADIO_MEDIUM_LARGE_SIZE_TYPE,
+          radioSizeType: RADIO_MEDIUM_SIZE_TYPE,
         },
       },
       {
@@ -248,7 +248,7 @@ class ProductDetail extends Component {
         ),
         value: {
           price: this.props.route.params.data.price.sizeS,
-          radioSizeType: RADIO_SMALL_LARGE_SIZE_TYPE,
+          radioSizeType: RADIO_SMALL_SIZE_TYPE,
         },
       },
     ];

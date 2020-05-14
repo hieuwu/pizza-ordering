@@ -6,7 +6,7 @@ import strings from '../../modules/resources/strings/strings';
 export default class ProductItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {singleItem: false};
   }
   numberWithCommas(x) {
     return (
@@ -35,11 +35,21 @@ export default class ProductItem extends Component {
   displaySizeS = () => {
     return (
       <View style={ProductItemStyles.sizeItemContainer}>
-        <Text>{strings.productItem.txtSizeS}</Text>
+        {this.state.singleItem === true ? null : (
+          <Text>{strings.productItem.txtSizeS}</Text>
+        )}
         <Text>{this.numberWithCommas(this.props.sizeS)}</Text>
       </View>
     );
   };
+
+  componentDidMount() {
+    if (this.props.sizeL > 0) {
+      this.setState({singleItem: false});
+    } else {
+      this.setState({singleItem: true});
+    }
+  }
 
   render() {
     return (

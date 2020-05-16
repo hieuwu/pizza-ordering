@@ -9,14 +9,17 @@ import {connect} from 'react-redux';
 class CartIcon extends Component {
   render() {
     const {onClick, orderLineArray} = this.props;
-    let numberOfOrderLines = orderLineArray.length;
+    let totalQuantity=0
+    orderLineArray.forEach(orderLine => {
+      totalQuantity = totalQuantity + orderLine.quantity
+    });
     return (
       <TouchableOpacity onPress={onClick} style={dimensionStyles.CartIcon}>
         <Icon name="shopping-bag" size={20} color="#FFFFFF" />
-        {numberOfOrderLines !== 0 ? (
+        {totalQuantity !== 0 ? (
           <View style={dimensionStyles.CartIconNumber}>
             <Text numberOfLines={1} style={textStyle.CartIconNumber}>
-              {numberOfOrderLines}
+              {totalQuantity}
             </Text>
           </View>
         ) : null}

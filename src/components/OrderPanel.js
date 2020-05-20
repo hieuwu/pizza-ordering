@@ -19,6 +19,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
 import {addToCart, modifyOrderLine} from '../redux/actions.js';
 import {Dimensions} from 'react-native';
+import addToCartGif from '../../assets/addToCartGif.gif';
 
 const mockData = [
   {
@@ -75,6 +76,8 @@ const mockData = [
 class OrderPanel extends Component {
   state = {
     isLoading: true,
+    isOpenGif: false,
+
     data: [],
     sizeArray: [],
     crustArray: [],
@@ -226,6 +229,11 @@ class OrderPanel extends Component {
     }
   };
 
+  showGif = () => {
+    this.setState({isOpenGif: true});
+    setTimeout(()=>{this.setState({isOpenGif: false})}, 1500); 
+  }
+
   calculatePrice = () => {
     const {productData} = this.props;
     let {price} = productData;
@@ -340,155 +348,177 @@ class OrderPanel extends Component {
     const {modifiedOrderLineIndex} = this.props;
 
     return (
-      <Modal
-        animationType="none"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          RequestClose();
-          this.setState({isLoading: true});
-        }}
-        onShow={this.getProductOption}>
-        {this.state.isLoading ? (
-          <View style={dimensionStyles.OrderPanel}>
-            <SplashScreen />
-          </View>
-        ) : (
-          <>
+      <View>
+        <Modal
+          animationType="none"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            RequestClose();
+            this.setState({isLoading: true});
+          }}
+          onShow={this.getProductOption}>
+
+          {this.state.isLoading ? (
             <View style={dimensionStyles.OrderPanel}>
-              <ScrollView>
-                <TouchableOpacity
-                  onPress={() => {
-                    onClose();
-                    this.setState({isLoading: true});
-                  }}
-                  style={dimensionStyles.XIconOrderPanel}>
-                  <Icon name="close" size={30} color="#e5293e" />
-                </TouchableOpacity>
-                <Image
-                  style={dimensionStyles.ImageOrderPanel}
-                  source={{uri: imageUrl}}
-                  resizeMode="cover"
-                />
-                <Text numberOfLines={2} style={textStyle.ProductDetailName}>
-                  {title}
-                </Text>
-                {sizeArray.length !== 0 ? (
-                  <>
-                    <Text numberOfLines={1} style={textStyle.ModifyType}>
-                      Size
-                    </Text>
-                    <View style={dimensionStyles.SizeModifyContainer}>
-                      <FlatList
-                        horizontal={true}
-                        showsVerticalScrollIndicator={false}
-                        showsHorizontalScrollIndicator={false}
-                        data={sizeArray}
-                        keyExtractor={item => item.title}
-                        renderItem={this.showSize}
-                      />
-                    </View>
-                  </>
-                ) : null}
-                {crustArray.length !== 0 ? (
-                  <>
-                    <Text numberOfLines={1} style={textStyle.ModifyType}>
-                      Crust
-                    </Text>
-                    <View style={dimensionStyles.SizeModifyContainer}>
-                      <FlatList
-                        horizontal={true}
-                        showsVerticalScrollIndicator={false}
-                        showsHorizontalScrollIndicator={false}
-                        data={crustArray}
-                        keyExtractor={item => item.title}
-                        renderItem={this.showCrust}
-                      />
-                    </View>
-                  </>
-                ) : null}
-                {toppingArray.length !== 0 ? (
-                  <>
-                    <Text numberOfLines={1} style={textStyle.ModifyType}>
-                      Topping
-                    </Text>
-                    <View style={dimensionStyles.SizeModifyContainer}>
-                      <FlatList
-                        horizontal={true}
-                        showsVerticalScrollIndicator={false}
-                        showsHorizontalScrollIndicator={false}
-                        data={toppingArray}
-                        keyExtractor={item => item.title}
-                        renderItem={this.showTopping}
-                      />
-                    </View>
-                  </>
-                ) : null}
-                <Text numberOfLines={1} style={textStyle.ModifyType}>
-                  Quantity
-                </Text>
-                <View style={dimensionStyles.quantityPicker}>
-                  <RNPickerSelect
-                    useNativeAndroidPickerStyle={false}
-                    placeholder={{
-                      label: `Just now: ${quantity}`,
-                      value: quantity,
-                    }}
-                    textInputProps={{
-                      textAlign: 'center',
-                      fontSize: 17,
-                    }}
-                    onValueChange={value => this.setState({quantity: value})}
-                    items={[
-                      {label: '1', value: '1'},
-                      {label: '2', value: '2'},
-                      {label: '3', value: '3'},
-                      {label: '4', value: '4'},
-                      {label: '5', value: '5'},
-                      {label: '6', value: '6'},
-                      {label: '7', value: '7'},
-                      {label: '8', value: '8'},
-                      {label: '9', value: '9'},
-                      {label: '10', value: '10'},
-                    ]}
-                  />
-                </View>
-                <View style={dimensionStyles.separateLine} />
-                <View style={dimensionStyles.PriceContainer}>
-                  <Text numberOfLines={1} style={textStyle.ModifyType}>
-                    Price:
-                  </Text>
-                  <Text numberOfLines={1} style={textStyle.ModifyType}>
-                    {totalPrice}$
-                  </Text>
-                </View>
-                <View style={dimensionStyles.separateLine} />
-                {modifiedOrderLineIndex === undefined ? (
-                  <TouchableOpacity
-                    style={dimensionStyles.addToCartButton}
-                    onPress={() => {
-                      this.createOrderLine(totalPrice);
-                      RequestClose();
-                      this.setState({isLoading: true});
-                    }}>
-                    <Text style={textStyle.orderNowButton}>ADD TO CART</Text>
-                  </TouchableOpacity>
-                ) : (
-                  <TouchableOpacity
-                    style={dimensionStyles.addToCartButton}
-                    onPress={() => {
-                      this.createOrderLine(totalPrice);
-                      RequestClose();
-                      this.setState({isLoading: true});
-                    }}>
-                    <Text style={textStyle.orderNowButton}>MODIFY</Text>
-                  </TouchableOpacity>
-                )}
-              </ScrollView>
+              <SplashScreen />
             </View>
-          </>
-        )}
-      </Modal>
+          ) : (
+            <>
+              <View style={dimensionStyles.OrderPanel}>
+                <ScrollView>
+                  <TouchableOpacity
+                    onPress={() => {
+                      onClose();
+                      this.setState({isLoading: true});
+                    }}
+                    style={dimensionStyles.XIconOrderPanel}>
+                    <Icon name="close" size={30} color="#e5293e" />
+                  </TouchableOpacity>
+                  <Image
+                    style={dimensionStyles.ImageOrderPanel}
+                    source={{uri: imageUrl}}
+                    resizeMode="cover"
+                  />
+                  <Text numberOfLines={2} style={textStyle.ProductDetailName}>
+                    {title}
+                  </Text>
+                  {sizeArray.length !== 0 ? (
+                    <>
+                      <Text numberOfLines={1} style={textStyle.ModifyType}>
+                        Size
+                      </Text>
+                      <View style={dimensionStyles.SizeModifyContainer}>
+                        <FlatList
+                          horizontal={true}
+                          showsVerticalScrollIndicator={false}
+                          showsHorizontalScrollIndicator={false}
+                          data={sizeArray}
+                          keyExtractor={item => item.title}
+                          renderItem={this.showSize}
+                        />
+                      </View>
+                    </>
+                  ) : null}
+                  {crustArray.length !== 0 ? (
+                    <>
+                      <Text numberOfLines={1} style={textStyle.ModifyType}>
+                        Crust
+                      </Text>
+                      <View style={dimensionStyles.SizeModifyContainer}>
+                        <FlatList
+                          horizontal={true}
+                          showsVerticalScrollIndicator={false}
+                          showsHorizontalScrollIndicator={false}
+                          data={crustArray}
+                          keyExtractor={item => item.title}
+                          renderItem={this.showCrust}
+                        />
+                      </View>
+                    </>
+                  ) : null}
+                  {toppingArray.length !== 0 ? (
+                    <>
+                      <Text numberOfLines={1} style={textStyle.ModifyType}>
+                        Topping
+                      </Text>
+                      <View style={dimensionStyles.SizeModifyContainer}>
+                        <FlatList
+                          horizontal={true}
+                          showsVerticalScrollIndicator={false}
+                          showsHorizontalScrollIndicator={false}
+                          data={toppingArray}
+                          keyExtractor={item => item.title}
+                          renderItem={this.showTopping}
+                        />
+                      </View>
+                    </>
+                  ) : null}
+                  <Text numberOfLines={1} style={textStyle.ModifyType}>
+                    Quantity
+                  </Text>
+                  <View style={dimensionStyles.quantityPicker}>
+                    <RNPickerSelect
+                      useNativeAndroidPickerStyle={false}
+                      placeholder={{
+                        label: `Just now: ${quantity}`,
+                        value: quantity,
+                      }}
+                      textInputProps={{
+                        textAlign: 'center',
+                        fontSize: 17,
+                      }}
+                      onValueChange={value => this.setState({quantity: value})}
+                      items={[
+                        {label: '1', value: '1'},
+                        {label: '2', value: '2'},
+                        {label: '3', value: '3'},
+                        {label: '4', value: '4'},
+                        {label: '5', value: '5'},
+                        {label: '6', value: '6'},
+                        {label: '7', value: '7'},
+                        {label: '8', value: '8'},
+                        {label: '9', value: '9'},
+                        {label: '10', value: '10'},
+                      ]}
+                    />
+                  </View>
+                  <View style={dimensionStyles.separateLine} />
+                  <View style={dimensionStyles.PriceContainer}>
+                    <Text numberOfLines={1} style={textStyle.ModifyType}>
+                      Price:
+                    </Text>
+                    <Text numberOfLines={1} style={textStyle.ModifyType}>
+                      {totalPrice}$
+                    </Text>
+                  </View>
+                  <View style={dimensionStyles.separateLine} />
+                  {modifiedOrderLineIndex === undefined ? (
+                    <TouchableOpacity
+                      style={dimensionStyles.addToCartButton}
+                      onPress={() => {
+                        this.createOrderLine(totalPrice);
+                        RequestClose();
+                        this.setState({isLoading: true});
+                        this.showGif()
+                      }}>
+                      <Text style={textStyle.orderNowButton}>ADD TO CART</Text>
+                    </TouchableOpacity>
+                  ) : (
+                    <TouchableOpacity
+                      style={dimensionStyles.addToCartButton}
+                      onPress={() => {
+                        this.createOrderLine(totalPrice);
+                        RequestClose();
+                        this.setState({isLoading: true});
+                      }}>
+                      <Text style={textStyle.orderNowButton}>MODIFY</Text>
+                    </TouchableOpacity>
+                  )}
+                </ScrollView>
+              </View>
+            </>
+          )}
+        </Modal>
+        <Modal
+          animationType="none"
+          transparent={true}
+          visible={this.state.isOpenGif}
+          onRequestClose={() => {
+            RequestClose();
+          }}
+          onShow={this.getProductOption}>
+          <View style={dimensionStyles.containerCenter}>
+            <View style={dimensionStyles.addToCartGifContainer}>
+              <Image
+                style={dimensionStyles.addToCartGif}
+                source={addToCartGif}
+                resizeMode="contain"
+              />
+            </View>
+          </View>
+        </Modal>
+      </View>
     );
   }
 }

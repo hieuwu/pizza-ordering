@@ -2,12 +2,16 @@ import React, {Component} from 'react';
 import {View, TouchableOpacity, Image, Text} from 'react-native';
 import PropTypes from 'prop-types';
 import {dimensionStyles} from '../resources/dimension.js';
-import Carousel from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 import {Dimensions} from 'react-native';
 import {textStyle} from '../resources/textStyle.js';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class FavoriteProductCarousel extends Component {
+  state={
+    activeSlide: 1,
+  }
+
   static propTypes = {
     data: PropTypes.array,
     onClickOrder: PropTypes.func,
@@ -50,20 +54,52 @@ class FavoriteProductCarousel extends Component {
     );
   };
 
+  componentDidMount = () => {
+    this.forceUpdate()
+  }
+
   render() {
+    const {activeSlide}=this.state;
     const {data} = this.props;
     return (
-      <Carousel
-        data={data}
-        renderItem={this.renderItem}
-        itemWidth={0.8 * Dimensions.get('window').width}
-        sliderWidth={Dimensions.get('window').width}
-        ref={c => {
-          this._carousel = c;
-        }}
-      />
+      <View>
+        <Carousel
+          ref={c => { 
+              this._carousel = c; 
+          }}
+          data={data}
+          renderItem={this.renderItem}
+          itemWidth={0.8 * Dimensions.get('window').width}
+          sliderWidth={Dimensions.get('window').width}   
+          firstItem={activeSlide}             
+          onSnapToItem={(index) => this.setState({ activeSlide: index }) }
+        />
+        <Pagination
+          dotsLength={data.length}
+          activeDotIndex={activeSlide}
+          containerStyle={dimensionStyles.paginationContainer}
+          dotStyle={dimensionStyles.paginationDotStyle}
+          inactiveDotStyle={{
+
+          }}
+          inactiveDotOpacity={0.4}
+          inactiveDotScale={0.7}
+          carouselRef={this._carousel}
+          tappableDots={!!this._carousel}         
+        />
+      </View>
     );
   }
 }
 
 export {FavoriteProductCarousel};
+
+// <Carousel
+//   data={data}
+//   renderItem={this.renderItem}
+//   itemWidth={0.8 * Dimensions.get('window').width}
+//   sliderWidth={Dimensions.get('window').width}
+//   ref={c => {
+//     this._carousel = c;
+//   }}
+// />

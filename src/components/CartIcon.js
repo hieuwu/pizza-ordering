@@ -15,7 +15,7 @@ class CartIcon extends Component {
     });
     return (
       <TouchableOpacity onPress={onClick} style={dimensionStyles.CartIcon}>
-        <Icon name="shopping-bag" size={20} color="#FFFFFF" />
+        <Icon name="shopping-cart" size={20} color="#FFFFFF" />
         {totalQuantity !== 0 ? (
           <View style={dimensionStyles.CartIconNumber}>
             <Text numberOfLines={1} style={textStyle.CartIconNumber}>

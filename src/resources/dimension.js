@@ -87,7 +87,7 @@ const dimensionStyles = StyleSheet.create({
 
   NavigationPanel: {
     position: 'absolute',
-    width: 0.72 * w,
+    //width: 0.72 * w,
     height: 0.95 * h,
     backgroundColor: '#e4283d',
     elevation: 10,
@@ -140,7 +140,7 @@ const dimensionStyles = StyleSheet.create({
   },
 
   CarouselContainer: {
-    height: 0.55 * h,
+    height: 0.61 * h,
     width: w,
   },
 
@@ -155,6 +155,7 @@ const dimensionStyles = StyleSheet.create({
     borderRadius: 20,
     elevation: 10,
     alignItems: 'center',
+    marginBottom: 15,
   },
 
   headerCategoryName: {
@@ -611,6 +612,36 @@ const dimensionStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  paginationContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 15,
+    paddingVertical: 7,
+  },
+
+  paginationDotStyle: {
+    width: 10,
+    height: 10,
+    borderRadius: 0,
+    marginHorizontal: 8,
+    backgroundColor: '#0b2031'
+  },
+
+  addToCartGifContainer: {
+    width: 100,
+    height: 100,
+    borderRadius: 20,
+    overflow: 'hidden',
+    elevation: 10,
+  },
+
+  addToCartGif: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#e5293e',
+    tintColor: '#FFFFFF',
+  }
 });
 
 export {dimensionStyles};

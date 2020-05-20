@@ -151,6 +151,7 @@ const styles = StyleSheet.create({
     width: DEFAULT_TEAR_SIZE,
     height: DEFAULT_TEAR_SIZE,
     backgroundColor: DEFAULT_TEAR_COLOR,
+    //borderRadius: 3,
     transform: [
       {
         rotate: '45deg',

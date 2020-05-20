@@ -7,6 +7,8 @@ import {
   FlatList,
   ScrollView,
   StatusBar,
+  Animated,
+  Dimensions,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -20,8 +22,42 @@ import {AsyncStorage} from 'react-native';
 
 class NavigationPanel extends Component {
   state = {
+    stateModalVisible: false,
     isDropDown: false,
+    categoryPickerHeight: new Animated.Value(0),
+    navigationPanelWidth: new Animated.Value(0),
   };
+
+  scrollDown = () => {
+    const {categoryData} = this.props;
+    Animated.timing(this.state.categoryPickerHeight, {
+      toValue: 65 * categoryData.length,
+      duration: 300,
+    }).start();
+  }
+
+  scrollUp = () => {
+    const {categoryData} = this.props;
+    Animated.timing(this.state.categoryPickerHeight, {
+      toValue: 0,
+      duration: 300,
+    }).start();
+  }
+
+  slideFromLeft = () => {
+    const w = Dimensions.get('window').width;
+    Animated.timing(this.state.navigationPanelWidth, {
+      toValue: 0.72 * w,
+      duration: 300,
+    }).start(this.setState({stateModalVisible: true})); //trigger when animation start
+  }
+
+  slideToLeft = () => {
+    Animated.timing(this.state.navigationPanelWidth, {
+      toValue: 0,
+      duration: 300,
+    }).start(() => this.setState({stateModalVisible: false})); //trigger when animation end
+  }
 
   showMenu = ({item}) => {
     const {_id, title} = item;
@@ -46,6 +82,17 @@ class NavigationPanel extends Component {
     }
   };
 
+  componentDidUpdate = () => {
+    const {modalVisible} = this.props;
+    const {stateModalVisible} = this.state;
+    if (modalVisible!==stateModalVisible && modalVisible===true) {
+      this.slideFromLeft()
+    }
+    if (modalVisible!==stateModalVisible && modalVisible===false) {
+      this.slideToLeft()     
+    }
+  }
+
   render() {
     const {categoryData, userToken} = this.props;
     const {
@@ -63,9 +110,9 @@ class NavigationPanel extends Component {
         <Modal
           animationType="none"
           transparent={true}
-          visible={modalVisible}
+          visible={this.state.stateModalVisible}
           onRequestClose={RequestClose}>
-          <View style={dimensionStyles.NavigationPanel}>
+          <Animated.View style={[dimensionStyles.NavigationPanel, {width: this.state.navigationPanelWidth}]}>
             <ScrollView>
               <TouchableOpacity
                 onPress={onClose}
@@ -82,7 +129,10 @@ class NavigationPanel extends Component {
                 <>
                   <View style={dimensionStyles.MenuLineNavigationPanel}>
                     <TouchableOpacity
-                      onPress={() => this.setState({isDropDown: false})}
+                      onPress={() => {
+                        this.setState({isDropDown: false});
+                        this.scrollUp();
+                      }}
                       style={dimensionStyles.LineNavigationPanel}>
                       <IconComunity
                         name="xbox-controller-menu"
@@ -92,26 +142,22 @@ class NavigationPanel extends Component {
                       <Text style={textStyle.TextNavigationPanel}>Menu</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      onPress={() => this.setState({isDropDown: false})}
+                      onPress={() => {
+                        this.setState({isDropDown: false});
+                        this.scrollUp();
+                      }}
                       style={dimensionStyles.DropDownMenuIcon}>
                       <Icon name="angle-up" size={36} color="#FFFFFF" />
                     </TouchableOpacity>
-                  </View>
-                  <View style={{height: 65 * categoryData.length}}>
-                    <FlatList
-                      numColumns={1}
-                      showsVerticalScrollIndicator={false}
-                      showsHorizontalScrollIndicator={false}
-                      data={categoryData}
-                      keyExtractor={item => item._id}
-                      renderItem={this.showMenu}
-                    />
                   </View>
                 </>
               ) : (
                 <View style={dimensionStyles.MenuLineNavigationPanel}>
                   <TouchableOpacity
-                    onPress={() => this.setState({isDropDown: true})}
+                    onPress={() => {
+                      this.setState({isDropDown: true});
+                      this.scrollDown();
+                    }}
                     style={dimensionStyles.LineNavigationPanel}>
                     <IconComunity
                       name="xbox-controller-menu"
@@ -122,16 +168,29 @@ class NavigationPanel extends Component {
                   </TouchableOpacity>
 
                   <TouchableOpacity
-                    onPress={() => this.setState({isDropDown: true})}
+                    onPress={() => {
+                      this.setState({isDropDown: true});
+                      this.scrollDown();
+                    }}
                     style={dimensionStyles.DropDownMenuIcon}>
                     <Icon name="angle-down" size={36} color="#FFFFFF" />
                   </TouchableOpacity>
                 </View>
               )}
+              <Animated.View style={{height: this.state.categoryPickerHeight}}>
+                <FlatList
+                  numColumns={1}
+                  showsVerticalScrollIndicator={false}
+                  showsHorizontalScrollIndicator={false}
+                  data={categoryData}
+                  keyExtractor={item => item._id}
+                  renderItem={this.showMenu}
+                />
+              </Animated.View>
               <TouchableOpacity
                 onPress={onClickCart}
                 style={dimensionStyles.LineNavigationPanel}>
-                <Icon name="shopping-bag" size={36} color="#FFFFFF" />
+                <Icon name="shopping-cart" size={36} color="#FFFFFF" />
                 <Text style={textStyle.TextNavigationPanel}>Your Cart</Text>
               </TouchableOpacity>
               {userToken === null ? (
@@ -161,7 +220,7 @@ class NavigationPanel extends Component {
                 </>
               )}
             </ScrollView>
-          </View>
+          </Animated.View>
         </Modal>
       </>
     );

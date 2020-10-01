@@ -47,7 +47,7 @@ This repository will use for the assignment of mobile team after internships att
 ## Exercise
 | Requirement | Design           | Duration  |
 | ----------------:|:---------:|:---------:|
-| [User Stories](https://docs.google.com/spreadsheets/d/1rnPP-SK3pe9QkOlUQt_OvR5o1DdM4MeOiNwldR95f50/edit?usp=sharing)| [zeplink](https://app.zeplin.io/project/5d1cd0014200a559821a9531)         | 24h  |
+| [User Stories](https://docs.google.com/spreadsheets/d/1rnPP-SK3pe9QkOlUQt_OvR5o1DdM4MeOiNwldR95f50/edit?usp=sharing)| [zeplink](https://app.zeplin.io/project/5d1cd0014200a559821a9531)         | 23h  |
 
 
 ## Guide

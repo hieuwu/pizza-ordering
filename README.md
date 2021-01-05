@@ -1,6 +1,3 @@
-# Internship 2020
-This repository will use for the assignment of mobile team after internships attended tenchical internship program.
-## Knowledge
 - React Native Fundamentals
   - [What is React Native](http://reactnative.dev/)?
   - [Getting Started](http://reactnative.dev/docs/getting-started)
@@ -54,3 +51,5 @@ This repository will use for the assignment of mobile team after internships att
 - Each Developers creates a [git](https://git-scm.com/docs) branch according to his name (nguyenvana).
 - When Developer develops a new feature. He should branch off from his branch prefix with his first name (ex: **feature/a-signin**) and create a [pull request](https://confluence.atlassian.com/bitbucket/create-a-pull-request-945541466.html) to merge back to his branch. So that He has a chance to review his code again or ask other developers with their views.
 - Commit's convention [KARMA](http://karma-runner.github.io/3.0/dev/git-commit-msg.html)
+
+[](https://i.imgur.com/JrHo4cU.png)

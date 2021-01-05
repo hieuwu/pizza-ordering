@@ -52,4 +52,8 @@
 - When Developer develops a new feature. He should branch off from his branch prefix with his first name (ex: **feature/a-signin**) and create a [pull request](https://confluence.atlassian.com/bitbucket/create-a-pull-request-945541466.html) to merge back to his branch. So that He has a chance to review his code again or ask other developers with their views.
 - Commit's convention [KARMA](http://karma-runner.github.io/3.0/dev/git-commit-msg.html)
 
-[](https://i.imgur.com/JrHo4cU.png)
+
+## App Architecture
+
+![Caption](https://i.imgur.com/JrHo4cU.png)
+

@@ -1,6 +1,6 @@
 ## Overview
 
-Pizza ordering application built with React Native, during internship at PYCOGROUP
+Pizza ordering application built with React Native
 
 ## App Architecture
 

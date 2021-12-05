@@ -2,9 +2,6 @@
 
 Pizza ordering application built with React Native
 
-## App Architecture
-
-![Caption](https://i.imgur.com/JrHo4cU.png)
 
 ## Screenshots:
 
